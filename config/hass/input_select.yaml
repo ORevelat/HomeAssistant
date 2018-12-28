@@ -1,0 +1,59 @@
+---
+
+########################
+##     THERMOSTATS
+
+thermostat_mode:
+  name: Mode
+  icon: mdi:thermostat-box
+  options:
+    - Arrêt
+    - Away
+    - Maison
+
+########################
+##     RADIATEURS
+
+radiator_parents:
+  name: Parents
+  icon: mdi:radiator
+  options:
+    - Arrêt
+    - Hors-gel
+    - Eco
+    - Confort -2
+    - Confort -1
+    - Confort
+
+radiator_thea:
+  name: Théa
+  icon: mdi:radiator
+  options:
+    - Arrêt
+    - Hors-gel
+    - Eco
+    - Confort -2
+    - Confort -1
+    - Confort
+
+radiator_salon:
+  name: Salon
+  icon: mdi:radiator
+  options:
+    - Arrêt
+    - Hors-gel
+    - Eco
+    - Confort -2
+    - Confort -1
+    - Confort
+
+radiator_sallemanger:
+  name: Salle à Manger
+  icon: mdi:radiator
+  options:
+    - Arrêt
+    - Hors-gel
+    - Eco
+    - Confort -2
+    - Confort -1
+    - Confort

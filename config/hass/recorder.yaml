@@ -1,0 +1,234 @@
+
+purge_interval: 2
+purge_keep_days: 7
+db_url: !secret recorder_db_url
+
+exclude:
+  domains:
+    - updater
+    - sun
+    - camera
+    - calendar
+    - group
+    - media_player
+    - script
+    - zone
+    - zwave
+  entities:
+    - binary_sensor.broadlink_rm_pro
+    - binary_sensor.camera_salon
+    - binary_sensor.esxi
+    - binary_sensor.imprimante
+    - binary_sensor.livebox
+    - binary_sensor.mi_3_android_tv
+    - binary_sensor.mi_speaker_network
+    - binary_sensor.nginx
+    - binary_sensor.open_media_vault
+    - binary_sensor.pfsense
+    - binary_sensor.tplink_archer_c7
+    - binary_sensor.tplink_wa830re
+    # - calendar.home_assistant
+    # - group.all_automations
+    # - group.all_covers
+    # - group.all_devices
+    # - group.all_lights
+    # - group.all_remotes
+    # - group.all_switches
+    # - group.automations
+    # - group.automationscontrol
+    # - group.batteries
+    # - group.calendar
+    # - group.cameras
+    # - group.equipements
+    # - group.etage
+    # - group.fibaroeyeetage
+    # - group.fibaroeyesam
+    # - group.hifi
+    # - group.home
+    # - group.household
+    # - group.interior_cameras
+    # - group.lumieres
+    # - group.lumieres_etage
+    # - group.lumieres_rdc
+    # - group.rdc
+    # - group.salledebain
+    # - group.servershealth
+    # - group.system
+    # - group.servershealth
+    # - group.thermometerbureau
+    # - group.thermometerjardin
+    # - group.thermometerparents
+    # - group.thermometersalon
+    # - group.thermometerthea
+    # - group.thermostat
+    # - group.thermostat_home
+    # - group.thermostat_parents
+    # - group.thermostat_rdc
+    # - group.thermostat_thea
+    # - group.tv
+    # - group.volets_rdc
+    # - group.weather
+    # - group.weatheralert
+    # - group.weatherdashboard
+    - input_select.radiator_parents
+    - input_select.radiator_thea
+    - input_select.radiator_salon
+    - input_select.radiator_sallemanger
+    # - sensor.alerte_crue
+    # - sensor.alerte_risques
+    # - sensor.alerte_vigilance
+    - sensor.auribeausursiagne_freeze_chance
+    - sensor.auribeausursiagne_next_rain
+    - sensor.auribeausursiagne_rain_chance
+    - sensor.auribeausursiagne_snow_chance
+    - sensor.auribeausursiagne_thunder_chance
+    - sensor.auribeausursiagne_uv
+    - sensor.auribeausursiagne_weather
+    - sensor.auribeausursiagne_wind_speed
+    - sensor.calendar_next_text
+    - sensor.calendar_next_time
+    - sensor.date__time
+    - sensor.moon
+    - sensor.plex
+    - sensor.uptime
+    - sensor.weather_alerte_crue
+    - sensor.weather_alerte_risques
+    - sensor.weather_alerte_vigilance
+    - weather.yweather
+    - light.fibaro_dimmer_bureau_level_2
+    - light.fibaro_dimmer_entree_level_2
+    - light.fibaro_dimmer_escalier_level_2
+    - light.fibaro_dimmer_parents_level_2
+    - light.fibaro_dimmer_salle_a_manger_level_2
+    - light.fibaro_dimmer_salledebain_level_2
+    - light.fibaro_dimmer_salon_level_2
+    - light.fibaro_dimmer_thea_level_2
+    - sensor.fibaro_dimmer_bureau_alarm_level
+    - sensor.fibaro_dimmer_bureau_alarm_type
+    - sensor.fibaro_dimmer_bureau_exporting
+    - sensor.fibaro_dimmer_bureau_heat
+    - sensor.fibaro_dimmer_bureau_power_2
+    - sensor.fibaro_dimmer_bureau_power_management
+    - sensor.fibaro_dimmer_bureau_sourcenodeid
+    - sensor.fibaro_dimmer_bureau_system
+    - sensor.fibaro_dimmer_entree_alarm_level
+    - sensor.fibaro_dimmer_entree_alarm_type
+    - sensor.fibaro_dimmer_entree_exporting
+    - sensor.fibaro_dimmer_entree_heat
+    - sensor.fibaro_dimmer_entree_power_2
+    - sensor.fibaro_dimmer_entree_power_management
+    - sensor.fibaro_dimmer_entree_sourcenodeid
+    - sensor.fibaro_dimmer_entree_system
+    - sensor.fibaro_dimmer_escalier_alarm_level
+    - sensor.fibaro_dimmer_escalier_alarm_type
+    - sensor.fibaro_dimmer_escalier_exporting
+    - sensor.fibaro_dimmer_escalier_heat
+    - sensor.fibaro_dimmer_escalier_power_2
+    - sensor.fibaro_dimmer_escalier_power_management
+    - sensor.fibaro_dimmer_escalier_sourcenodeid
+    - sensor.fibaro_dimmer_escalier_system
+    - sensor.fibaro_dimmer_parents_alarm_level
+    - sensor.fibaro_dimmer_parents_alarm_type
+    - sensor.fibaro_dimmer_parents_exporting
+    - sensor.fibaro_dimmer_parents_heat
+    - sensor.fibaro_dimmer_parents_power_2
+    - sensor.fibaro_dimmer_parents_power_management
+    - sensor.fibaro_dimmer_parents_sourcenodeid
+    - sensor.fibaro_dimmer_parents_system
+    - sensor.fibaro_dimmer_salle_a_manger_alarm_level
+    - sensor.fibaro_dimmer_salle_a_manger_alarm_type
+    - sensor.fibaro_dimmer_salle_a_manger_exporting
+    - sensor.fibaro_dimmer_salle_a_manger_heat
+    - sensor.fibaro_dimmer_salle_a_manger_power_2
+    - sensor.fibaro_dimmer_salle_a_manger_power_management
+    - sensor.fibaro_dimmer_salle_a_manger_sourcenodeid
+    - sensor.fibaro_dimmer_salle_a_manger_system
+    - sensor.fibaro_dimmer_salledebain_alarm_level
+    - sensor.fibaro_dimmer_salledebain_alarm_type
+    - sensor.fibaro_dimmer_salledebain_exporting
+    - sensor.fibaro_dimmer_salledebain_heat
+    - sensor.fibaro_dimmer_salledebain_power_2
+    - sensor.fibaro_dimmer_salledebain_power_management
+    - sensor.fibaro_dimmer_salledebain_sourcenodeid
+    - sensor.fibaro_dimmer_salledebain_system
+    - sensor.fibaro_dimmer_salon_alarm_level
+    - sensor.fibaro_dimmer_salon_alarm_type
+    - sensor.fibaro_dimmer_salon_exporting
+    - sensor.fibaro_dimmer_salon_heat
+    - sensor.fibaro_dimmer_salon_power_2
+    - sensor.fibaro_dimmer_salon_power_management
+    - sensor.fibaro_dimmer_salon_sourcenodeid
+    - sensor.fibaro_dimmer_salon_system
+    - sensor.fibaro_dimmer_thea_alarm_level
+    - sensor.fibaro_dimmer_thea_alarm_type
+    - sensor.fibaro_dimmer_thea_exporting
+    - sensor.fibaro_dimmer_thea_heat
+    - sensor.fibaro_dimmer_thea_power_2
+    - sensor.fibaro_dimmer_thea_power_management
+    - sensor.fibaro_dimmer_thea_sourcenodeid
+    - sensor.fibaro_dimmer_thea_system
+    - sensor.fibaro_motion_etage_alarm_level
+    - sensor.fibaro_motion_etage_alarm_type
+    - sensor.fibaro_motion_etage_burglar
+    - sensor.fibaro_motion_etage_general
+    - sensor.fibaro_motion_etage_sourcenodeid
+    - sensor.fibaro_motion_salle_a_manger_alarm_level
+    - sensor.fibaro_motion_salle_a_manger_alarm_type
+    - sensor.fibaro_motion_salle_a_manger_burglar
+    - sensor.fibaro_motion_salle_a_manger_general
+    - sensor.fibaro_motion_salle_a_manger_sourcenodeid
+    # - sensor.fibaro_roller_shutter_cuisine_energy
+    - sensor.fibaro_roller_shutter_cuisine_exporting
+    - sensor.fibaro_roller_shutter_cuisine_power
+    - sensor.fibaro_roller_shutter_cuisine_power_2
+    # - sensor.fibaro_roller_shutter_salle_a_manger_energy
+    - sensor.fibaro_roller_shutter_salle_a_manger_exporting
+    - sensor.fibaro_roller_shutter_salle_a_manger_power
+    - sensor.fibaro_roller_shutter_salle_a_manger_power_2
+    # - sensor.fibaro_roller_shutter_salon_energy
+    - sensor.fibaro_roller_shutter_salon_exporting
+    - sensor.fibaro_roller_shutter_salon_power
+    - sensor.fibaro_roller_shutter_salon_power_2
+    - sensor.oregontemp_2340_bat
+    - sensor.oregontemphygro_2d0a_bat
+    - sensor.oregontemphygro_2d0a_hstatus
+    - sensor.oregontemphygro_5288a_bat
+    - sensor.oregontemphygro_5288a_hstatus
+    - sensor.oregontemphygro_628da_bat
+    - sensor.oregontemphygro_628da_hstatus
+    - sensor.oregontemphygro_728f5_bat
+    - sensor.oregontemphygro_728f5_hstatus
+    - sensor.prise_neocoolcam_alarm_level
+    - sensor.prise_neocoolcam_alarm_type
+    - sensor.prise_neocoolcam_current
+    - sensor.prise_neocoolcam_exporting
+    - sensor.prise_neocoolcam_interval
+    - sensor.prise_neocoolcam_interval_2
+    - sensor.prise_neocoolcam_interval_3
+    - sensor.prise_neocoolcam_interval_4
+    - sensor.prise_neocoolcam_power_management
+    - sensor.prise_neocoolcam_previous_reading
+    - sensor.prise_neocoolcam_previous_reading_2
+    - sensor.prise_neocoolcam_previous_reading_3
+    - sensor.prise_neocoolcam_previous_reading_4
+    - sensor.prise_neocoolcam_sourcenodeid
+    - sensor.prise_neocoolcam_voltage
+    - sensor.prise_neocoolcam_tvhifi_alarm_level
+    - sensor.prise_neocoolcam_tvhifi_alarm_type
+    - sensor.prise_neocoolcam_tvhifi_current
+    - sensor.prise_neocoolcam_tvhifi_exporting
+    - sensor.prise_neocoolcam_tvhifi_interval
+    - sensor.prise_neocoolcam_tvhifi_interval_2
+    - sensor.prise_neocoolcam_tvhifi_interval_3
+    - sensor.prise_neocoolcam_tvhifi_interval_4
+    - sensor.prise_neocoolcam_tvhifi_power_management
+    - sensor.prise_neocoolcam_tvhifi_previous_reading
+    - sensor.prise_neocoolcam_tvhifi_previous_reading_2
+    - sensor.prise_neocoolcam_tvhifi_previous_reading_3
+    - sensor.prise_neocoolcam_tvhifi_previous_reading_4
+    - sensor.prise_neocoolcam_tvhifi_sourcenodeid
+    - sensor.prise_neocoolcam_tvhifi_voltage
+    - sensor.qubino_pilot_parents_temperature
+    - sensor.qubino_pilot_salle_a_manger_temperature
+    - sensor.qubino_pilot_salon_temperature
+    - sensor.qubino_pilot_thea_temperature

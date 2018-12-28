@@ -1,0 +1,8 @@
+---
+ 
+calendar_tts:
+  module: calendar_tts
+  class: CalendarTTS
+  name: calendar.home_assistant
+  verbose_log: true
+  dotti: house/dotti/dotti

@@ -1,0 +1,58 @@
+#
+sun.sun:
+  friendly_name: Soleil
+sensor.moon:
+  friendly_name: Lune
+
+# meteo
+sensor.auribeausursiagne_temperature:
+  friendly_name: Température extérieure
+sensor.auribeausursiagne_weather:
+  friendly_name: Météo
+sensor.auribeausursiagne_wind_speed:
+  friendly_name: Vitesse du vent
+sensor.auribeausursiagne_uv:
+  friendly_name: Indice UV
+sensor.auribeausursiagne_rain_chance:
+  friendly_name: Probabilité de pluie
+sensor.auribeausursiagne_thunder_chance:
+  friendly_name: Probabilité d'orage
+sensor.auribeausursiagne_snow_chance:
+  friendly_name: Probabilité de neige
+sensor.auribeausursiagne_freeze_chance:
+  friendly_name: Probabilité de gel
+
+# debugging purpose
+group.all_automations:
+  friendly_name: Automatismes
+  hidden: true
+
+# Prises
+switch.prise_neocoolcam_switch:
+  friendly_name: Prise test
+switch.prise_neocoolcam_tvhifi_switch:
+  friendly_name: Prise TV/HiFi
+switch.sonoff_jardin_1:
+  friendly_name: Jardin 1
+switch.sonoff_garageportail:
+  friendly_name: Garage/Portail
+switch.sonoff_salon:
+  friendly_name: Salon
+
+# Lumières
+light.fibaro_dimmer_bureau_level:
+  friendly_name: Bureau
+light.fibaro_dimmer_entree_level:
+  friendly_name: Entrée
+light.fibaro_dimmer_escalier_level:
+  friendly_name: Escalier
+light.fibaro_dimmer_parents_level:
+  friendly_name: Ch. Parents
+light.fibaro_dimmer_salle_a_manger_level:
+  friendly_name: Salle à manger
+light.fibaro_dimmer_salledebain_level:
+  friendly_name: Salle de bain
+light.fibaro_dimmer_salon_level:
+  friendly_name: Salon
+light.fibaro_dimmer_thea_level:
+  friendly_name: Ch. Théa

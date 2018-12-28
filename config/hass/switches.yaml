@@ -1,0 +1,53 @@
+---
+
+##################################
+## MQTT - SONOFF
+- platform: mqtt
+  name: "Sonoff Salon"
+  state_topic: "stat/sonoffsalon/POWER"
+  command_topic: "cmnd/sonoffsalon/POWER"
+  availability_topic: "tele/sonoffsalon/LWT"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: true
+
+- platform: mqtt
+  name: "Sonoff Garage/Portail"
+  state_topic: "stat/sonoffgarage/POWER1"
+  command_topic: "cmnd/sonoffgarage/POWER1"
+  availability_topic: "tele/sonoffgarage/LWT"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: true
+
+- platform: mqtt
+  name: "Sonoff Jardin 1"
+  state_topic: "stat/sonoffjardin/POWER1"
+  command_topic: "cmnd/sonoffjardin/POWER1"
+  availability_topic: "tele/sonoffjardin/LWT"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: true
+
+##################################
+## BROADLINK
+- platform: broadlink
+  host: !secret broadlink_host
+  mac: '49:1D:A1:0D:43:B4'
+  timeout: 15
+  friendly_name: 'Broadlink'
+  type: rm2
+  switches:
+    comfee:
+      friendly_name: "Pompe à chaleur"
+      command_on:  '2600ca00928e14341312123413351310131113351212150f14331410131212361236111113351335121113351334143413341435113513131135131114101311131112111412111113351411123413351235131212111335121313341211131113111235133513aa919012351212123513361211150f1434121212111236121311111434143313111336133313111335123513351235133611351311133513111311121213101411140f131113351211143414341334131113111334131113351311131112111335133513000d050000000000000000000000000000'
+      command_off: '2600ca00909012341311153313351312121013351312131013351212131013351433131114341311123514351334143412111334133513341311131212121212133413101410133611351335131113111212121212111312121114101334133512351335123513ac908f143511111336123512121212123512121211133513121113123513341212123514101334133513351235141014331335143313111311131113111334141112121334123613341310150f1411131112111212141111111336123612351235133512000d050000000000000000000000000000'

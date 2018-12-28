@@ -1,0 +1,51 @@
+# vscode
+.vscode
+
+# not the data for docker containers
+/data
+
+# no logs
+/**/*.log*
+# zwave log
+/**/OZW_Log.txt
+
+# not the database if it exists
+/**/home-assistant_v2.db
+
+# not all the secrets 
+/**/secrets.yaml
+/**/mqtt_config.sh
+/**/alexa_config.sh
+/**/backup_config.sh
+/**/google_calendars.yaml
+
+# no python compiled files
+/**/__pycache__
+
+# no icloud information
+/**/icloud
+
+# no tts (only temp)
+/**/tts
+
+# not the storage folder
+/**/.storage/*
+
+/**/harmony_*.conf
+/**/plex.conf
+
+/**/known_devices.yaml
+
+/**/tmp
+
+/**/.HA_VERSION
+/**/.google.token
+/**/.uuid
+
+/docker-build/**/config
+/docker-build/**/conf
+/docker-build/**/confhass
+
+/**/icloud.py
+
+/**/ip_bans.yaml

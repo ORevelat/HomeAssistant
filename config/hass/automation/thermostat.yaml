@@ -1,0 +1,197 @@
+---
+
+###############################################################
+## mode Thermostat
+
+- alias: Arrêt mode Thermostat
+  trigger:
+  - platform: state
+    entity_id: input_select.thermostat_mode
+    to: 'Arrêt'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.radiator_parents
+        option: 'Arrêt'
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.radiator_thea
+        option: 'Arrêt'
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.radiator_salon
+        option: 'Arrêt'
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.radiator_sallemanger
+        option: 'Arrêt'
+
+- alias: Away mode Thermostat
+  trigger:
+  - platform: state
+    entity_id: input_select.thermostat_mode
+    to: 'Away'
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.thermostat_rdc
+        value: 19
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.thermostat_parents
+        value: 18
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.thermostat_thea
+        value: 18
+
+- alias: Maison mode Thermostat
+  trigger:
+  - platform: state
+    entity_id: input_select.thermostat_mode
+    to: 'Maison'
+  action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.thermostat_rdc
+        value: 21
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.thermostat_parents
+        value: 19
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.thermostat_thea
+        value: 19
+
+###############################################################
+## Thermostats RDC réglage auto température
+##     -2° nuit / consigne
+##     matin / consigne 
+##     -1° journée / consigne
+##     soir / consigne 
+##     > lun,mar,jeu,ven
+## 
+##     -2° nuit / consigne
+##     matin-soir / consigne 
+##     > mer,sam,dim
+
+- alias: Thermostat RDC - matin
+  trigger:
+  - platform: time
+    at: '05:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - thu
+      - fri
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_rdc
+        value: >
+          {{ states('input_number.thermostat_rdc') | float }}
+
+- alias: Thermostat RDC - journée
+  trigger:
+  - platform: time
+    at: '08:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - thu
+      - fri
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_rdc
+        value: >
+          {{ states('input_number.thermostat_rdc') | float - (1 | float) }}
+
+- alias: Thermostat RDC - soirée
+  trigger:
+  - platform: time
+    at: '17:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - thu
+      - fri
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_rdc
+        value: >
+          {{ states('input_number.thermostat_rdc') | float }}
+
+- alias: Thermostat RDC - matin au soir
+  trigger:
+  - platform: time
+    at: '07:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - wed
+      - sat
+      - sun
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_rdc
+        value: >
+          {{ states('input_number.thermostat_rdc') | float }}
+
+- alias: Thermostat RDC - nuit
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_rdc
+        value: >
+          {{ states('input_number.thermostat_rdc') | float - (2 | float) }}
+
+###############################################################
+## Thermostats CHAMBRES réglage auto température
+##     -1° nuit / consigne
+##     journée / consigne
+
+- alias: Thermostat Chambres - journée
+  trigger:
+  - platform: time
+    at: '07:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_parents
+        value: >
+          {{ states('input_number.thermostat_parents') | float }}
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_thea
+        value: >
+          {{ states('input_number.thermostat_thea') | float }}
+
+- alias: Thermostat Chambres - nuit
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_parents
+        value: > 
+          {{ states('input_number.thermostat_parents') | float - (1 | float) }}
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.thermostat_consigne_thea
+        value: >
+          {{ states('input_number.thermostat_thea') | float - (1 | float) }}
+

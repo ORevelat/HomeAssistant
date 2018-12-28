@@ -1,0 +1,25 @@
+---
+
+- alias: Allumer deco Noël (intérieur)
+  trigger:
+    platform: time
+    at: '17:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.enable_christmas_decoration
+      state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.sonoff_salon
+
+- alias: Eteindre deco Noël (intérieur)
+  trigger:
+    platform: time
+    at: '21:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.enable_christmas_decoration
+      state: 'on'    
+  action:
+    - service: switch.turn_off
+      entity_id: switch.sonoff_salon

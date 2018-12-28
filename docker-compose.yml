@@ -1,0 +1,103 @@
+version: '3.1'
+
+services:
+
+  influxdb:
+    image: influxdb
+    container_name: influxdb-hass
+    restart: always
+    ports:
+      - "8086:8086"
+    volumes:
+      - /srv/data/butler/data/influxdb:/var/lib/influxdb
+    logging:
+      options:
+        max-size: 10m
+    # root ?
+
+  postgresdb:
+    image: postgres
+    container_name: postgresdb-hass
+    restart: always
+    #environment:
+    #  POSTGRES_PASSWORD: myverysecretpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - /srv/data/butler/data/postgresdb:/var/lib/postgresql/data
+    logging:
+      options:
+        max-size: 10m
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana-hass
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - /srv/data/butler/data/grafana:/var/lib/grafana
+    logging:
+      options:
+        max-size: 10m
+    depends_on:
+      - influxdb
+    # 472:472
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto-hass
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - /srv/data/butler/data/mosquitto:/mosquitto/data
+      - /srv/data/butler/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    logging:
+      options:
+        max-size: 10m
+    # mosquitto 100:101
+
+  homeassistant:
+    container_name: hass
+    # use cutom image with own dependencies
+    image: homeassistant/socat:latest
+    restart: always
+    ports:
+      - "8123:8123"
+    environment:
+      - SOCAT_ZWAVE_HOST=192.168.254.225
+      - SOCAT_ZWAVE_PORT=54320
+      - SOCAT_ZWAVE_LINK=/dev/zwave
+    volumes:
+      - /srv/data/butler/config/hass:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/ttyACM0:/dev/rflink
+    logging:
+      options:
+        max-size: 10m
+    depends_on:
+      - mosquitto
+      - postgresdb
+      - influxdb
+
+  appdaemon:
+    container_name: appdaemon
+    # use cutom image with own dependencies
+    image: appdaemon/gammu:latest
+    restart: always
+    volumes:
+      # need to have both appdaemon + hass folder accessible
+      - /srv/data/butler/config/appdaemon:/conf
+      - /srv/data/butler/config/hass:/confhass
+      - /etc/localtime:/etc/localtime:ro
+      - /srv/data/butler/config/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
+    devices:
+      - /dev/ttyUSB1:/dev/ttyUSB0
+    logging:
+      options:
+        max-size: 10m
+    depends_on:
+      - homeassistant

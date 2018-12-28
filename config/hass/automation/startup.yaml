@@ -1,0 +1,40 @@
+---
+- alias: Démarrage HomeAssistant
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoffgarage/power1
+      payload: ''
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoffsalon/power
+      payload: ''
+  - service: mqtt.publish
+    data:
+      topic: cmnd/sonoffjardin/power1
+      payload: ''
+
+- alias: Démarrage Z-Wave
+  trigger:
+    - platform: event
+      event_type: zwave.network_ready
+    - platform: event
+      event_type: zwave.network_complete
+  action:
+    - delay: '00:01:00'
+    - service: automation.trigger
+      entity_id: automation.thermostat_on__chambre_parents
+    - service: automation.trigger
+      entity_id: automation.thermostat_on__chambre_thea
+    - service: automation.trigger
+      entity_id: automation.thermostat_on__rez_de_chaussee
+    - delay: '00:00:30'
+    - service: automation.trigger
+      entity_id: automation.thermostat_off__chambre_parents
+    - service: automation.trigger
+      entity_id: automation.thermostat_off__chambre_thea
+    - service: automation.trigger
+      entity_id: automation.thermostat_off__rez_de_chaussee

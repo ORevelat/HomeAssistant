@@ -1,0 +1,120 @@
+########################
+#   my awesome Home
+########################
+
+homeassistant:
+  name: Maison
+  latitude: !secret base_latitude
+  longitude: !secret base_longitude
+  elevation: !secret base_elevation
+  unit_system: metric
+  time_zone: Europe/Paris
+  temperature_unit: C
+  customize: !include customize.yaml
+  customize_glob: !include customize-glob.yaml
+
+frontend:
+updater:
+  reporting: no
+sun:
+config:
+map:
+
+http:
+  server_port: !secret http_base_port
+  base_url: !secret http_base_url
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret http_trusted_proxy_1
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
+logger:
+  default: warn
+  logs:
+    homeassistant.components: warn
+    homeassistant.components.zwave: warn
+
+## Components
+
+media_player:
+  - platform: plex
+    entity_namespace: 'plex'
+  - platform: squeezebox
+    host: !secret squeeze_host
+
+remote:
+  - platform: harmony
+    name: Salon
+    host: !secret harmony_salon_host
+
+camera:
+  - platform: foscam
+    name: "Rez de chaussée"
+    ip: !secret camera_rdc_url
+    port: !secret camera_rdc_port
+    username: !secret camera_rdc_username
+    password: !secret camera_rdc_password
+
+google:
+  client_id: !secret google_calendar_clientid
+  client_secret: !secret google_calendar_secret
+  track_new_calendar: false
+
+weather:
+  - platform: yweather
+    woeid: 12722810
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+
+python_script:
+
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+  # - platform: ddwrt
+  #   host: !secret archerc7_host
+  #   username: !secret archerc7_username
+  #   password: !secret archerc7_password
+  #   interval_seconds: 60
+  #   consider_home: 180
+  #   new_device_defaults:
+  #     track_new_devices: false
+
+rflink:
+  port: /dev/rflink
+  wait_for_ack: false
+  reconnect_interval: 10
+  ignore_devices:
+    - alectov5_*
+    - firstline_*
+    - gontemphygro_*
+    - blyss_*
+    - cresta_*
+    - digitech_*
+    - tunex_*
+    
+zwave:
+  usb_path: /dev/zwave
+  network_key: !secret zwave_key
+
+## Includes
+
+recorder: !include recorder.yaml
+logbook: !include logbook.yaml
+history: !include history.yaml
+influxdb: !include influxdb.yaml
+mqtt: !include mosquitto.yaml
+zone: !include zones.yaml
+automation: !include_dir_merge_list automation
+group: !include groups.yaml
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
+input_select: !include input_select.yaml
+input_number: !include input_number.yaml
+input_boolean: !include input_boolean.yaml
+switch: !include switches.yaml
+shell_command: !include shell_commands.yaml

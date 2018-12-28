@@ -1,0 +1,7 @@
+
+use_include_order: True
+include:
+  entities:
+    - sensor.auribeausursiagne_temperature
+    - sensor.oregontemphygro_2d0a_temp
+    - sensor.oregontemp_2340_temp
