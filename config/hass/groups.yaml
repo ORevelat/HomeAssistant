@@ -15,6 +15,7 @@ default_view:
   - group.volets_rdc
   - group.lumieres
   - group.interrupteurs
+  - group.ConsommationMaison
 
 RdC:
   name: Rez de chaussée
@@ -406,3 +407,11 @@ InfoLumiereSalleManger:
   - sensor.fibaro_dimmer_salle_a_manger_power
   - sensor.fibaro_dimmer_salle_a_manger_energy
 
+ConsommationMaison:
+  control: hidden
+  name: Consommation
+  entities:
+  - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_voltage
+  - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_current
+  - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_power
+  - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_energy_2
