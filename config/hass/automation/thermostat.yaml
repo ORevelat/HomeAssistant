@@ -45,11 +45,14 @@
         entity_id: input_number.thermostat_thea
         value: 18
 
-- alias: Maison mode Thermostat
+- alias: Maison/Vacances mode Thermostat
   trigger:
   - platform: state
     entity_id: input_select.thermostat_mode
     to: 'Maison'
+  - platform: state
+    entity_id: input_select.thermostat_mode
+    to: 'Vacances'
   action:
     - service: input_number.set_value
       data:
@@ -74,19 +77,22 @@
 ## 
 ##     -2° nuit / consigne
 ##     matin-soir / consigne 
-##     > mer,sam,dim
-
+##     > mer,sam,dim - Home
+##     > lun,mar,mer,jeu,ven,sam,dim - Vacances
+##
 - alias: Thermostat RDC - matin
   trigger:
   - platform: time
     at: '05:30:00'
   condition:
-  - condition: time
-    weekday:
-      - mon
-      - tue
-      - thu
-      - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - thu
+        - fri
+    - condition: template
+      value_template: "{{ not is_state('input_select.thermostat_mod', 'Vacances') }}"
   action:
     - service: input_number.set_value
       data_template:
@@ -99,12 +105,17 @@
   - platform: time
     at: '08:30:00'
   condition:
-  - condition: time
-    weekday:
-      - mon
-      - tue
-      - thu
-      - fri
+    condition: or
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Vacances'
   action:
     - service: input_number.set_value
       data_template:
@@ -117,12 +128,14 @@
   - platform: time
     at: '17:00:00'
   condition:
-  - condition: time
-    weekday:
-      - mon
-      - tue
-      - thu
-      - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - thu
+        - fri
+    - condition: template
+      value_template: "{{ not is_state('input_select.thermostat_mod', 'Vacances') }}"
   action:
     - service: input_number.set_value
       data_template:
@@ -135,11 +148,16 @@
   - platform: time
     at: '07:30:00'
   condition:
-  - condition: time
-    weekday:
-      - wed
-      - sat
-      - sun
+    condition: or
+    conditions:
+      - condition: time
+        weekday:
+          - wed
+          - sat
+          - sun
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Vacances'
   action:
     - service: input_number.set_value
       data_template:

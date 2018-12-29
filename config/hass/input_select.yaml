@@ -10,6 +10,7 @@ thermostat_mode:
     - Arrêt
     - Away
     - Maison
+    - Vacances
 
 ########################
 ##     RADIATEURS

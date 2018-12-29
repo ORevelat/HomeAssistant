@@ -21,20 +21,13 @@
   trigger:
     - platform: event
       event_type: zwave.network_ready
-    - platform: event
-      event_type: zwave.network_complete
   action:
     - delay: '00:01:00'
-    - service: automation.trigger
-      entity_id: automation.thermostat_on__chambre_parents
-    - service: automation.trigger
-      entity_id: automation.thermostat_on__chambre_thea
-    - service: automation.trigger
-      entity_id: automation.thermostat_on__rez_de_chaussee
-    - delay: '00:00:30'
-    - service: automation.trigger
-      entity_id: automation.thermostat_off__chambre_parents
-    - service: automation.trigger
-      entity_id: automation.thermostat_off__chambre_thea
-    - service: automation.trigger
-      entity_id: automation.thermostat_off__rez_de_chaussee
+    # request all thermostats to set to Confort
+    - service: input_select.select_option
+      data: 
+        entity_id: input_select.radiator_parents,input_select.radiator_thea,input_select.radiator_salon,input_select.radiator_sallemanger
+        option: 'Confort'
+    - delay: '00:00:10'
+    # wait a bit and request an update of all thermostats
+    - event: THERMOSTAT_UPDATE

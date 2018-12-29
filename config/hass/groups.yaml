@@ -3,7 +3,7 @@
 ## Views
 
 default_view:
-# Home:
+#Home:
   name: Maison
   view: yes
   icon: mdi:home
