@@ -92,7 +92,7 @@
         - thu
         - fri
     - condition: template
-      value_template: "{{ not is_state('input_select.thermostat_mod', 'Vacances') }}"
+      value_template: "{{ not is_state('input_select.thermostat_mode', 'Vacances') }}"
   action:
     - service: input_number.set_value
       data_template:
@@ -105,17 +105,14 @@
   - platform: time
     at: '08:30:00'
   condition:
-    condition: or
-    conditions:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - thu
-          - fri
-      - condition: state
-        entity_id: input_select.thermostat_mode
-        state: 'Vacances'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - thu
+        - fri
+    - condition: template
+      value_template: "{{ not is_state('input_select.thermostat_mode', 'Vacances') }}"
   action:
     - service: input_number.set_value
       data_template:
@@ -135,7 +132,7 @@
         - thu
         - fri
     - condition: template
-      value_template: "{{ not is_state('input_select.thermostat_mod', 'Vacances') }}"
+      value_template: "{{ not is_state('input_select.thermostat_mode', 'Vacances') }}"
   action:
     - service: input_number.set_value
       data_template:
@@ -155,9 +152,8 @@
           - wed
           - sat
           - sun
-      - condition: state
-        entity_id: input_select.thermostat_mode
-        state: 'Vacances'
+      - condition: template
+        value_template: "{{ is_state('input_select.thermostat_mode', 'Vacances') }}"
   action:
     - service: input_number.set_value
       data_template:
