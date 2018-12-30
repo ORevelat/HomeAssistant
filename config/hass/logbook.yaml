@@ -4,48 +4,9 @@ exclude:
     - group
     - updater
   entities:
-    # - group.all_automations
-    # - group.all_covers
-    # - group.all_devices
-    # - group.all_lights
-    # - group.all_remotes
-    # - group.all_switches
-    # - group.automations
-    # - group.automationscontrol
-    # - group.batteries
-    # - group.calendar
-    # - group.cameras
-    # - group.equipements
-    # - group.etage
-    # - group.fibaroeyeetage
-    # - group.fibaroeyesam
-    # - group.hifi
-    # - group.home
-    # - group.household
-    # - group.interior_cameras
-    # - group.lumieres
-    # - group.lumieres_etage
-    # - group.lumieres_rdc
-    # - group.rdc
-    # - group.salledebain
-    # - group.servershealth
-    # - group.system
-    # - group.servershealth
-    # - group.thermometerbureau
-    # - group.thermometerjardin
-    # - group.thermometerparents
-    # - group.thermometersalon
-    # - group.thermometerthea
-    # - group.thermostat
-    # - group.thermostat_home
-    # - group.thermostat_parents
-    # - group.thermostat_rdc
-    # - group.thermostat_thea
-    # - group.tv
-    # - group.volets_rdc
-    # - group.weather
-    # - group.weatheralert
-    # - group.weatherdashboard
     # do not need motion tracking
     - binary_sensor.fibaro_motion_etage_sensor
     - binary_sensor.fibaro_motion_salle_a_manger_sensor
+    #
+    - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_unknown
+    
