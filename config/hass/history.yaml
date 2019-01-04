@@ -4,4 +4,4 @@ include:
   entities:
     - sensor.auribeausursiagne_temperature
     - sensor.oregontemphygro_2d0a_temp
-    - sensor.oregontemp_2340_temp
+    - sensor.oregontemp_1d40_temp

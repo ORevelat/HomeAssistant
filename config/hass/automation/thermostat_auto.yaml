@@ -6,14 +6,14 @@
 - alias: Thermostat On - Rez de chaussée
   trigger:
   - platform: template
-    value_template: "{{ (states('sensor.oregontemp_2340_temp') | float) < ((states('input_number.thermostat_consigne_rdc') | float) - (0.1 | float)) }}"
+    value_template: "{{ (states('sensor.oregontemp_1d40_temp') | float) < ((states('input_number.thermostat_consigne_rdc') | float) - (0.1 | float)) }}"
   - platform: state
     entity_id: input_select.thermostat_mode
   - platform: event
     event_type: THERMOSTAT_UPDATE
   condition:
     - condition: template
-      value_template: "{{ (states('sensor.oregontemp_2340_temp') | float) < ((states('input_number.thermostat_consigne_rdc') | float) - (0.1 | float)) }}"
+      value_template: "{{ (states('sensor.oregontemp_1d40_temp') | float) < ((states('input_number.thermostat_consigne_rdc') | float) - (0.1 | float)) }}"
     - condition: template
       value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
   action:
@@ -25,14 +25,14 @@
 - alias: Thermostat Off - Rez de chaussée
   trigger:
   - platform: template
-    value_template: "{{ (states('sensor.oregontemp_2340_temp') | float) >  ((states('input_number.thermostat_consigne_rdc') | float) + (0.1 | float)) }}"
+    value_template: "{{ (states('sensor.oregontemp_1d40_temp') | float) >  ((states('input_number.thermostat_consigne_rdc') | float) + (0.1 | float)) }}"
   - platform: state
     entity_id: input_select.thermostat_mode
   - platform: event
     event_type: THERMOSTAT_UPDATE
   condition:
     - condition: template
-      value_template: "{{ (states('sensor.oregontemp_2340_temp') | float) > ((states('input_number.thermostat_consigne_rdc') | float) + (0.1 | float)) }}"
+      value_template: "{{ (states('sensor.oregontemp_1d40_temp') | float) > ((states('input_number.thermostat_consigne_rdc') | float) + (0.1 | float)) }}"
   action:
     service: input_select.select_option
     data:

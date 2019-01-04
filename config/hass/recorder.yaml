@@ -51,7 +51,7 @@ exclude:
     - sensor.weather_alerte_crue
     - sensor.weather_alerte_risques
     - sensor.weather_alerte_vigilance
-    - weather.yweather
+    - weather.dark_sky
     - light.fibaro_dimmer_bureau_level_2
     - light.fibaro_dimmer_entree_level_2
     - light.fibaro_dimmer_escalier_level_2
@@ -146,7 +146,7 @@ exclude:
     - sensor.fibaro_roller_shutter_salon_exporting
     - sensor.fibaro_roller_shutter_salon_power
     - sensor.fibaro_roller_shutter_salon_power_2
-    - sensor.oregontemp_2340_bat
+    - sensor.oregontemp_1d40_bat
     - sensor.oregontemphygro_2d0a_bat
     - sensor.oregontemphygro_2d0a_hstatus
     - sensor.oregontemphygro_5288a_bat

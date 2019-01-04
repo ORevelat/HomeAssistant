@@ -68,7 +68,7 @@ WeatherDashboard:
   entities:
   - group.weather
   - group.WeatherAlert
-  - weather.yweather
+  - weather.dark_sky
   - group.thermometerjardin
 
 Cameras:
@@ -160,7 +160,7 @@ Volets_RDC:
 Thermostat_RDC:
   name: Thermostat
   entities:
-  - sensor.oregontemp_2340_temp
+  - sensor.oregontemp_1d40_temp
   - input_number.thermostat_rdc
   - input_number.thermostat_consigne_rdc
   - input_select.radiator_salon
@@ -253,7 +253,7 @@ Batteries:
   control: hidden
   name: Batteries
   entities:
-  - sensor.oregontemp_2340_bat
+  - sensor.oregontemp_1d40_bat
   - sensor.oregontemphygro_2d0a_bat
   - sensor.oregontemphygro_5288a_bat
   - sensor.oregontemphygro_628da_bat
@@ -319,8 +319,8 @@ ThermometerSalon:
   control: hidden
   name: Salon
   entities:
-    - sensor.oregontemp_2340_temp
-    - sensor.oregontemp_2340_bat
+    - sensor.oregontemp_1d40_temp
+    - sensor.oregontemp_1d40_bat
 
 ThermometerJardin:
   control: hidden
