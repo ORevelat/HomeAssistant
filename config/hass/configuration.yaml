@@ -100,6 +100,7 @@ rflink:
 zwave:
   usb_path: /dev/zwave
   network_key: !secret zwave_key
+  debug: false
 
 ## Includes
 

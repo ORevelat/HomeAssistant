@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+
+  homeassistant:
+    container_name: hass-test
+    image: homeassistant/home-assistant:0.84.6
+    restart: always
+    ports:
+      - "58123:8123"
+    volumes:
+      - /srv/data/butler/docker-test/hass:/config
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: 10m

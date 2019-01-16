@@ -104,3 +104,69 @@
 ## RFLINK
 - platform: rflink
   automatic_add: True
+
+################################
+## HP GEN8 SERVERS
+
+  - platform: hp_ilo
+    host: !secret hp_ilo_gen8_1
+    username: !secret hp_ilo_gen8_username
+    password: !secret hp_ilo_gen8_password
+    monitored_variables:
+      - name: Gen81 Uptime
+        sensor_type: server_power_on_time
+      - name: Gen81 Fanspeed
+        sensor_type: server_health
+        unit_of_measurement: '%'
+        value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
+      - name: Gen81 Temperature
+        sensor_type: server_health
+        unit_of_measurement: '°C'
+        value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
+      - name: Gen81 Status
+        sensor_type: server_health
+        value_template: >-
+          {% if (ilo_data.health_at_a_glance["bios_hardware"].status == 'OK') and
+                (ilo_data.health_at_a_glance["fans"].status == 'OK') and
+                (ilo_data.health_at_a_glance["temperature"].status == 'OK') and
+                (ilo_data.health_at_a_glance["power_supplies"].status == 'OK') and
+                (ilo_data.health_at_a_glance["processor"].status == 'OK') and
+                (ilo_data.health_at_a_glance["memory"].status == 'OK') and
+                (ilo_data.health_at_a_glance["network"].status == 'OK') and
+                (ilo_data.health_at_a_glance["storage"].status == 'OK') 
+          %}
+            OK
+          {% else %}
+            KO
+          {% endif %}
+  - platform: hp_ilo
+    host: !secret hp_ilo_gen8_2
+    username: !secret hp_ilo_gen8_username
+    password: !secret hp_ilo_gen8_password
+    monitored_variables:
+      - name: Gen82 Uptime
+        sensor_type: server_power_on_time
+      - name: Gen82 Fanspeed
+        sensor_type: server_health
+        unit_of_measurement: '%'
+        value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
+      - name: Gen82 Temperature
+        sensor_type: server_health
+        unit_of_measurement: '°C'
+        value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
+      - name: Gen82 Status
+        sensor_type: server_health
+        value_template: >-
+          {% if (ilo_data.health_at_a_glance["bios_hardware"].status == 'OK') and
+                (ilo_data.health_at_a_glance["fans"].status == 'OK') and
+                (ilo_data.health_at_a_glance["temperature"].status == 'OK') and
+                (ilo_data.health_at_a_glance["power_supplies"].status == 'OK') and
+                (ilo_data.health_at_a_glance["processor"].status == 'OK') and
+                (ilo_data.health_at_a_glance["memory"].status == 'OK') and
+                (ilo_data.health_at_a_glance["network"].status == 'OK') and
+                (ilo_data.health_at_a_glance["storage"].status == 'OK') 
+          %}
+            OK
+          {% else %}
+            KO
+          {% endif %}

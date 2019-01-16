@@ -147,8 +147,8 @@ exclude:
     - sensor.fibaro_roller_shutter_salon_power
     - sensor.fibaro_roller_shutter_salon_power_2
     - sensor.oregontemp_1d40_bat
-    - sensor.oregontemphygro_2d0a_bat
-    - sensor.oregontemphygro_2d0a_hstatus
+    - sensor.oregontemphygro_2d58_bat
+    - sensor.oregontemphygro_2d58_hstatus
     - sensor.oregontemphygro_5288a_bat
     - sensor.oregontemphygro_5288a_hstatus
     - sensor.oregontemphygro_628da_bat
@@ -192,3 +192,11 @@ exclude:
     - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_energy
     - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_power_factor
     - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_unknown
+    - sensor.hp_ilo_gen81_fanspeed
+    - sensor.hp_ilo_gen81_status
+    - sensor.hp_ilo_gen81_temperature
+    - sensor.hp_ilo_gen81_uptime
+    - sensor.hp_ilo_gen82_fanspeed
+    - sensor.hp_ilo_gen82_status
+    - sensor.hp_ilo_gen82_temperature
+    - sensor.hp_ilo_gen82_uptime

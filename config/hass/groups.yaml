@@ -254,7 +254,7 @@ Batteries:
   name: Batteries
   entities:
   - sensor.oregontemp_1d40_bat
-  - sensor.oregontemphygro_2d0a_bat
+  - sensor.oregontemphygro_2d58_bat
   - sensor.oregontemphygro_5288a_bat
   - sensor.oregontemphygro_628da_bat
   - sensor.oregontemphygro_728f5_bat
@@ -326,10 +326,10 @@ ThermometerJardin:
   control: hidden
   name: Jardin
   entities:
-    - sensor.oregontemphygro_2d0a_temp
-    - sensor.oregontemphygro_2d0a_hum
-    - sensor.oregontemphygro_2d0a_hstatus
-    - sensor.oregontemphygro_2d0a_bat
+    - sensor.oregontemphygro_2d58_temp
+    - sensor.oregontemphygro_2d58_hum
+    - sensor.oregontemphygro_2d58_hstatus
+    - sensor.oregontemphygro_2d58_bat
 
 FibaroEyeEtage:
   control: hidden

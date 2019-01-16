@@ -4,9 +4,6 @@ exclude:
     - group
     - updater
   entities:
-    # do not need motion tracking
     - binary_sensor.fibaro_motion_etage_sensor
     - binary_sensor.fibaro_motion_salle_a_manger_sensor
-    #
     - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_unknown
-    

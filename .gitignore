@@ -46,6 +46,8 @@
 /docker-build/**/conf
 /docker-build/**/confhass
 
+/docker-test/hass
+
 /**/icloud.py
 
 /**/ip_bans.yaml
