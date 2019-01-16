@@ -85,6 +85,8 @@ Equipements:
   entities:
   - group.system
   - group.servershealth
+  - group.HP_GEN8_1
+  - group.HP_GEN8_2
   # - group.batteries
   - group.InfoLumiereSalleManger
   - group.InfoLumiereSalon
@@ -415,3 +417,19 @@ ConsommationMaison:
   - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_current
   - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_power
   - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_energy_2
+
+HP_GEN8_1:
+  name: Microserver HP Gen8 - 1
+  entities:
+  - sensor.hp_ilo_gen81_status
+  - sensor.hp_ilo_gen81_uptime
+  - sensor.hp_ilo_gen81_fanspeed
+  - sensor.hp_ilo_gen81_temperature
+
+HP_GEN8_2:
+  name: Microserver HP Gen8 - 2
+  entities:
+  - sensor.hp_ilo_gen82_status
+  - sensor.hp_ilo_gen82_uptime
+  - sensor.hp_ilo_gen82_fanspeed
+  - sensor.hp_ilo_gen82_temperature

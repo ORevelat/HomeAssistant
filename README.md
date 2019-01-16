@@ -2,9 +2,9 @@
 # Overview
 Ma configuration personnelle de Home Assistant, utilisée quotidiennement au travers de ses automatisations et de Alexa.
 
-Modifications régulières au grès des envies et différents tests (bon normalement pas en live car une VM dédiée pour cela, mais ca arrive :D).
+Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.82.1**
+Mise à jour pour Home Assistant: **0.84.6**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, de deux raspberry et d'assistants Alexa (Echo et Echo Dot).
@@ -46,6 +46,8 @@ Après avoir utilisé directement Home Assistant en mode venv python sur l'OS di
   * Mosquitto broker
   * InfluxDB
   * Grafana
+  * Test - Home Assistant 
+  * Test - AppDaemon
 
 #### Image docker customisées
 J'utilise des images docker customisées de Home Assitant et AppDaemon afin de faciliter mon utilisation de:
