@@ -101,3 +101,13 @@ services:
         max-size: 10m
     depends_on:
       - homeassistant
+
+  tasmoadmin:
+    container_name: tasmoadmin
+    image: raymondmm/tasmoadmin
+    restart: always
+    ports:
+      - "5556:80"
+    logging:
+      options:
+        max-size: 10m  

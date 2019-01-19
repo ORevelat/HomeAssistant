@@ -16,9 +16,9 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * les fils pilote (Qubino)
   * mesure de la consomation au compteur (Qubino)
   * prises avec mesure de consomation (NeoCoolcam)
-- des SonOff (des Basic et un Pro 4Ch) avec firmware Tasmotta
+- des SonOff (des Basic, des S26 et un Pro 4Ch) avec firmware Tasmotta
 - des périphériques BT-LE (Xiaomi miflora, thermomètre)
-- des périqphériques Zigbee (work in progress !)
+- des périphériques Zigbee (work in progress !)
 - une DOTI
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
 - un Amazon Echo de façon quotidienne
@@ -46,6 +46,7 @@ Après avoir utilisé directement Home Assistant en mode venv python sur l'OS di
   * Mosquitto broker
   * InfluxDB
   * Grafana
+  * Tasmota Admin
   * Test - Home Assistant 
   * Test - AppDaemon
 

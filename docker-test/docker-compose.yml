@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
 
-  homeassistant:
+  homeassistant-test:
     container_name: hass-test
     image: homeassistant/home-assistant:0.84.6
     restart: always
@@ -14,3 +14,17 @@ services:
     logging:
       options:
         max-size: 10m
+
+  appdaemon-test:
+    container_name: appdaemon
+    image: appdaemon/gammu:latest
+    restart: always
+    volumes:
+      - /srv/data/butler/docker-test/appdaemon/config:/conf
+      - /srv/data/butler/docker-test/appdaemon/hass:/confhass
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: 10m
+    depends_on:
+      - homeassistant
