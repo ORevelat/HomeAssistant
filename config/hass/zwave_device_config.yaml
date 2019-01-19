@@ -1,6 +1,6 @@
 sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_current:
   ignored: false
-  polling_intensity: 1
+  polling_intensity: 0
 sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_energy:
   ignored: false
   polling_intensity: 0
@@ -9,7 +9,7 @@ sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_energy_2:
   polling_intensity: 0
 sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_power:
   ignored: false
-  polling_intensity: 0
+  polling_intensity: 1
 sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_power_factor:
   ignored: false
   polling_intensity: 0

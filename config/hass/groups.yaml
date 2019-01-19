@@ -413,8 +413,6 @@ ConsommationMaison:
   control: hidden
   name: Consommation
   entities:
-  - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_voltage
-  - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_current
   - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_power
   - sensor.qubino_zmnhtdx_smart_meter_s4_s5_s6_energy_2
 

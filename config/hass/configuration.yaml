@@ -30,10 +30,12 @@ http:
   login_attempts_threshold: 3
 
 logger:
-  default: warn
+  default: error
   logs:
-    homeassistant.components: warn
-    homeassistant.components.zwave: warn
+    root: error
+    openzwave: error
+    libopenzwave: error
+    homeassistant.components.zwave: error
 
 ## Components
 
@@ -42,6 +44,8 @@ media_player:
     entity_namespace: 'plex'
   - platform: squeezebox
     host: !secret squeeze_host
+    port: !secret squeeze_port
+    name: Logitech Media Server
 
 remote:
   - platform: harmony
@@ -101,6 +105,7 @@ zwave:
   usb_path: /dev/zwave
   network_key: !secret zwave_key
   debug: false
+
 
 ## Includes
 
