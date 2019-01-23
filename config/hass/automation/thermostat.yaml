@@ -103,7 +103,7 @@
 - alias: Thermostat RDC - journée
   trigger:
   - platform: time
-    at: '08:30:00'
+    at: '07:30:00'
   condition:
     - condition: time
       weekday:
