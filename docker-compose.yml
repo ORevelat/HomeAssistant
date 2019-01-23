@@ -5,7 +5,7 @@ services:
   influxdb:
     image: influxdb
     container_name: influxdb-hass
-    restart: always
+    restart: unless-stopped
     ports:
       - "8086:8086"
     volumes:
@@ -18,7 +18,7 @@ services:
   postgresdb:
     image: postgres
     container_name: postgresdb-hass
-    restart: always
+    restart: unless-stopped
     #environment:
     #  POSTGRES_PASSWORD: myverysecretpassword
     ports:
@@ -32,7 +32,7 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana-hass
-    restart: always
+    restart: unless-stopped
     ports:
       - "3000:3000"
     volumes:
@@ -47,7 +47,7 @@ services:
   mosquitto:
     image: eclipse-mosquitto
     container_name: mosquitto-hass
-    restart: always
+    restart: unless-stopped
     ports:
       - "1883:1883"
       - "9001:9001"
@@ -63,7 +63,7 @@ services:
     container_name: hass
     # use cutom image with own dependencies
     image: homeassistant/socat:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - "8123:8123"
     environment:
@@ -87,7 +87,7 @@ services:
     container_name: appdaemon
     # use cutom image with own dependencies
     image: appdaemon/gammu:latest
-    restart: always
+    restart: unless-stopped
     volumes:
       # need to have both appdaemon + hass folder accessible
       - /srv/data/butler/config/appdaemon:/conf
@@ -95,17 +95,17 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /srv/data/butler/config/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
     devices:
-      - /dev/ttyUSB1:/dev/ttyUSB0
+      - /dev/ttyUSB0:/dev/ttyUSB0
     logging:
       options:
         max-size: 10m
-    depends_on:
-      - homeassistant
+    #depends_on:
+    #  - homeassistant
 
   tasmoadmin:
     container_name: tasmoadmin
     image: raymondmm/tasmoadmin
-    restart: always
+    restart: unless-stopped
     ports:
       - "5556:80"
     logging:
