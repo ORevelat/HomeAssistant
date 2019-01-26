@@ -11,7 +11,8 @@ RUN apt-get install --assume-yes socat
 RUN apt-get install --assume-yes jq
 
 # update ozw config - not sure if it really helps :(
-RUN ln -s /usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml /config/options.xml 
+RUN mv /usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml /usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml.original
+RUN ln -s /config/options.xml /usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
 
 # clear apt stuff
 
