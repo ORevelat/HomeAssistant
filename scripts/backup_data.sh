@@ -15,7 +15,7 @@ popd >/dev/null
 echo "put $BACKUP_FILE" | sftp -P $nas_port $nas_user@$nas_host:/srv/dev-disk-by-label-DISK1/Backup-Hass.io/data
 
 # keep 4 files for backup on NAS
-ssh -p $nas_port $nas_user@$nas_host "cd /srv/dev-disk-by-label-DISK1/Backup-Hass.io/data && ls -1tr | head -n -15 | xargs -d '\n' rm -f --"
+ssh -p $nas_port $nas_user@$nas_host "cd /srv/dev-disk-by-label-DISK1/Backup-Hass.io/data && ls -1tr | head -n -4 | xargs -d '\n' rm -f --"
 
 # do not keep backup on local
 rm -f $BACKUP_FILE
