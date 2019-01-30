@@ -113,8 +113,8 @@
   username: !secret hp_ilo_gen8_username
   password: !secret hp_ilo_gen8_password
   monitored_variables:
-    - name: Gen81 Uptime
-      sensor_type: server_power_on_time
+    # - name: Gen81 Uptime
+    #   sensor_type: server_power_on_time
     - name: Gen81 Fanspeed
       sensor_type: server_health
       unit_of_measurement: '%'
@@ -144,8 +144,8 @@
   username: !secret hp_ilo_gen8_username
   password: !secret hp_ilo_gen8_password
   monitored_variables:
-    - name: Gen82 Uptime
-      sensor_type: server_power_on_time
+    # - name: Gen82 Uptime
+    #   sensor_type: server_power_on_time
     - name: Gen82 Fanspeed
       sensor_type: server_health
       unit_of_measurement: '%'

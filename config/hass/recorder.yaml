@@ -195,8 +195,8 @@ exclude:
     - sensor.hp_ilo_gen81_fanspeed
     - sensor.hp_ilo_gen81_status
     - sensor.hp_ilo_gen81_temperature
-    - sensor.hp_ilo_gen81_uptime
+    # - sensor.hp_ilo_gen81_uptime
     - sensor.hp_ilo_gen82_fanspeed
     - sensor.hp_ilo_gen82_status
     - sensor.hp_ilo_gen82_temperature
-    - sensor.hp_ilo_gen82_uptime
+    # - sensor.hp_ilo_gen82_uptime

@@ -420,7 +420,6 @@ HP_GEN8_1:
   name: Microserver HP Gen8 - 1
   entities:
   - sensor.hp_ilo_gen81_status
-  - sensor.hp_ilo_gen81_uptime
   - sensor.hp_ilo_gen81_fanspeed
   - sensor.hp_ilo_gen81_temperature
 
@@ -428,6 +427,5 @@ HP_GEN8_2:
   name: Microserver HP Gen8 - 2
   entities:
   - sensor.hp_ilo_gen82_status
-  - sensor.hp_ilo_gen82_uptime
   - sensor.hp_ilo_gen82_fanspeed
   - sensor.hp_ilo_gen82_temperature
