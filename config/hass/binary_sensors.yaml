@@ -12,8 +12,14 @@
   scan_interval: 60
 
 - platform: ping
-  name: "Esxi"
-  host: !secret host_esxi
+  name: "Esxi 1"
+  host: !secret host_esxi_1
+  count: 1
+  scan_interval: 60
+
+- platform: ping
+  name: "Esxi 2"
+  host: !secret host_esxi_2
   count: 1
   scan_interval: 60
 

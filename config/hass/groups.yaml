@@ -160,7 +160,7 @@ Volets_RDC:
   - cover.fibaro_roller_shutter_salle_a_manger_level
   
 Thermostat_RDC:
-  name: Thermostat
+  name: Rez de chaussée
   entities:
   - sensor.oregontemp_1d40_temp
   - input_number.thermostat_rdc
@@ -226,7 +226,8 @@ ServersHealth:
   entities:
   - binary_sensor.broadlink_rm_pro
   - binary_sensor.camera_salon
-  - binary_sensor.esxi
+  - binary_sensor.esxi_1
+  - binary_sensor.esxi_2
   - binary_sensor.imprimante
   - binary_sensor.livebox
   - binary_sensor.mi_3_android_tv
