@@ -1,6 +1,0 @@
----
-
-sendsms:
-  module: sms_send
-  class: SmsSend
-  verbose_log: true

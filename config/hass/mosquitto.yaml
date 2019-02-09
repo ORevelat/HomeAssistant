@@ -1,8 +1,0 @@
----
-broker: !secret mosquitto_host
-port: !secret mosquitto_port
-client_id: home-assistant
-keepalive: 60
-username: !secret mosquitto_username
-password: !secret mosquitto_password
-protocol: 3.1.1

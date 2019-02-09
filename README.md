@@ -4,10 +4,10 @@ Ma configuration personnelle de Home Assistant, utilisée quotidiennement au tra
 
 Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.84.6**
+Mise à jour pour Home Assistant: **0.86.4**
 
 # Environnement
-Grosso modo mon installation domotique tourne autour d'une VM, de deux raspberry et d'assistants Alexa (Echo et Echo Dot).
+Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
 
 Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat, ou alors d'utiliser MQTT pour publier les données. Pour ce dernier point, j'ai réaliser un petit soft python qui me permet de récupérer à interval régulier des infos et de les publier.
 
@@ -29,53 +29,51 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
 
 #### Hardware
 - VM (ESXi) 
-- 2 CPU / 2 Go de RAM
-- 8+40 Go de disque dur
-- RFLink
-- stick USB HSDPA Huawei E169
+- 4 CPU / 4 Go de RAM
+- 40+8 Go de disque dur
+- dongles USB
+  * clé Aeotec ZWave Gen5
+  * RFLink
+  * clé HSDPA Huawei E169
+  * clé Bluetooth LE CSR 4.0
+  * clé Zigate - en cours (mais je n'ai pas encore d'utilisation concrète)
 
 #### Software
 Après avoir utilisé directement Home Assistant en mode venv python sur l'OS directement, je suis passé sur une installation utilisant Docker pour la facilité de mise à jour principalement (outre le fait que le principe des conteneurs c'est le bien !).
+De plus j'utilise Portainer pour la gestion des différentes stacks et containers.
 
 - Linux Debian Stretch
-- Docker CE (18.x) avec Docker-Compose
+- Docker CE (18.x + docker-compose)
 - Conteneurs:
-  * Home Assistant
-  * Appdaemon
-  * PostgreSQL
-  * Mosquitto broker
-  * InfluxDB
-  * Grafana
-  * Tasmota Admin
-  * Test - Home Assistant 
-  * Test - AppDaemon
+  * Portainers
+  * stack Automation
+    * Home Assistant
+    * Appdaemon
+    * PostgreSQL
+    * InfluxDB
+    * TasmoAdmin
+  * stack Utils
+    * Mosquitto server
+    * Grafana
+  * stack Automation Test
+    * Home Assistant(s)
+    * AppDaemon
+
+Docker gère bien d'autre conteneur tel que:
+  * Sites Web
+  * Db Mongo - pour les sites webs principalement
+  * Reverse Proxy - tout le traffic entrant (via un Firewall pFSense) passe par lui
+  * Certbot - pour la génération / renew de mes certificats SSL
+  * ...
 
 #### Image docker customisées
-J'utilise des images docker customisées de Home Assitant et AppDaemon afin de faciliter mon utilisation de:
-- clé ZWave
-- RFLink
-- dongle 3G
+J'utilise des images docker customisées principalement pour me faciliter mon utilisation de périphériques ou de mise à jour.
 
 Aucune modification du logiciel officiel, mais un ajout de certaines dépendances / logiciels, ainsi que la mise à jour apt de rigueur.
 
 Disponible dans le répertoire /docker-build.
 
 ### Raspberry n°1
-
-#### Hardware
-- Raspberry PI 2B
-- clé USB Bluetooth LE CSR 4.0
-- Dongle Aeotec ZWave Gen5
-
-En cours (mais je n'ai pas encore d'utilisation concrète)
-- Dongle Zigate
-
-#### Software
-- Raspbian Stretch sur une µSD de 4Go
-- socat pour exposer l'Aeotec et la Zigate via TCP/IP
-- Python + logiciel home-made pour envoyer les infos de périfériques BT-LE via MQTT (anciennement les scripts shell dispo dans le repositorie sous /scripts)
-
-### Raspberry n°2
 Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de-chaussé, donc j'ai déporté un vieu PI du tirroir directement dans le salon.
 
 #### Hardware

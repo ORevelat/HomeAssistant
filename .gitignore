@@ -1,16 +1,26 @@
 # vscode
 .vscode
 
-# not the data for docker containers
-/data
-
 # no logs
 /**/*.log*
-# zwave log
-/**/OZW_Log.txt
 
-# not the database if it exists
+# no python compiled files
+/**/__pycache__
+
+# specific files for HA
+/**/OZW_Log.txt
 /**/home-assistant_v2.db
+/**/.HA_VERSION
+/**/.google.token
+/**/.uuid
+/**/icloud
+/**/tts
+/**/.storage/*
+/**/known_devices.yaml
+/**/harmony_*.conf
+/**/plex.conf
+/**/ip_bans.yaml
+/**/www/img/*
 
 # not all the secrets 
 /**/secrets.yaml
@@ -19,35 +29,8 @@
 /**/backup_config.sh
 /**/google_calendars.yaml
 
-# no python compiled files
-/**/__pycache__
-
-# no icloud information
-/**/icloud
-
-# no tts (only temp)
-/**/tts
-
-# not the storage folder
-/**/.storage/*
-
-/**/harmony_*.conf
-/**/plex.conf
-
-/**/known_devices.yaml
-
+# no tmp fodler
 /**/tmp
 
-/**/.HA_VERSION
-/**/.google.token
-/**/.uuid
-
-/docker-build/**/config
-/docker-build/**/conf
-/docker-build/**/confhass
-
+# script to log once using 2FA 
 /**/icloud.py
-
-/**/ip_bans.yaml
-
-/**/www/img/*
