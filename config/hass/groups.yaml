@@ -22,7 +22,7 @@ RdC:
   view: yes
   icon: mdi:sofa
   entities:
-  - remote.salon
+#  - remote.salon
   - group.lumieres_rdc
   - group.volets_rdc
   - group.thermometersalon
@@ -241,7 +241,7 @@ ServersHealth:
 TV:
   name: TV/Vidéo
   entities:
-  - remote.salon
+#  - remote.salon
   - sensor.plex
 
 WeatherAlert:

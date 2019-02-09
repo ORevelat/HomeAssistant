@@ -47,10 +47,10 @@ media_player:
     port: !secret squeeze_port
     name: Logitech Media Server
 
-remote:
-  - platform: harmony
-    name: Salon
-    host: !secret harmony_salon_host
+# remote:
+#   - platform: harmony
+#     name: Salon
+#     host: !secret harmony_salon_host
 
 camera:
   - platform: foscam
