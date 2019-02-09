@@ -26,5 +26,3 @@ services:
     logging:
       options:
         max-size: 10m
-    depends_on:
-      - homeassistant
