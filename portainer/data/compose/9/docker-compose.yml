@@ -1,0 +1,68 @@
+version: '2'
+
+services:
+  tasmoadmin:
+    container_name: tasmoadmin
+    image: raymondmm/tasmoadmin
+    restart: always
+    ports:
+      - "5556:80"
+    logging:
+      options:
+        max-size: 10m
+ 
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    restart: always
+    ports:
+      - "8086:8086"
+    volumes:
+      - /srv/disk1/data/influxdb:/var/lib/influxdb
+    logging:
+      options:
+        max-size: 10m
+
+  postgresdb:
+    image: postgres
+    container_name: postgresdb
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: dADOu1973
+    ports:
+      - "5432:5432"
+    volumes:
+      - /srv/disk1/data/postgresdb:/var/lib/postgresql/data
+    logging:
+      options:
+        max-size: 10m        
+
+  homeassistant:
+    container_name: hass
+    # use cutom image with own dependencies
+    image: homeassistant:latest
+    restart: always
+    ports:
+      - "8123:8123"
+    volumes:
+      - /srv/disk1/data/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      options:
+        max-size: 10m
+
+  appdaemon:
+    container_name: appdaemon
+    image: appdaemon-gammu:latest
+    restart: always
+    volumes:
+      - /srv/disk1/data/appdaemon/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /srv/disk1/data/appdaemon/data:/conf
+      - /srv/disk1/data/homeassistant:/confhass
+#    devices:
+#      - /dev/ttyUSB0:/dev/ttyUSB0
+    logging:
+      options:
+        max-size: 10m
+        

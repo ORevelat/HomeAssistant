@@ -1,0 +1,12 @@
+sensor:
+  ## Moon
+  - platform: moon
+
+  ## Date and time
+  - platform: time_date
+    display_options:
+      - 'date_time'
+
+  ## Uptime
+  - platform: uptime
+    unit_of_measurement: days

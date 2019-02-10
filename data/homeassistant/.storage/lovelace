@@ -1,0 +1,73 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [],
+                    "icon": "mdi:home",
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "weather.dark_sky",
+                            "name": "Auribeau sur Siagne",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sun.sun",
+                                    "name": "Soleil"
+                                },
+                                {
+                                    "entity": "sensor.moon",
+                                    "name": "Lune"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_temperature",
+                                    "name": "Temp\u00e9rature ext\u00e9rieure"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_weather",
+                                    "name": "Condition actuelle"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_wind_speed",
+                                    "name": "Vitesse du vent"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_rain_chance",
+                                    "name": "Probabilit\u00e9 de pluie"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_thunder_chance",
+                                    "name": "Probabilit\u00e9 d'orage"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_snow_chance",
+                                    "name": "Probabilit\u00e9 de neige"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_freeze_chance",
+                                    "name": "Probabilit\u00e9 de gel"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "M\u00e9t\u00e9o",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:weather-partlycloudy",
+                    "title": "M\u00e9t\u00e9o"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

@@ -1,0 +1,3 @@
+
+shell_command:
+  alexa_say: /config/shell_scripts/alexa_remote_control.sh -d "{{device}}" -e speak:"{{text}}"

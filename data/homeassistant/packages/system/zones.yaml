@@ -1,0 +1,25 @@
+
+zone:
+  - name: Home
+    latitude: !secret zone_lat_home
+    longitude: !secret zone_lon_home
+    radius: 25
+    icon: mdi:home
+
+  - name: Median
+    latitude: !secret zone_lat_median
+    longitude: !secret zone_lon_median
+    icon: mdi:briefcase
+    radius: 50
+
+  - name: Ecole
+    latitude: !secret zone_lat_school
+    longitude: !secret zone_lon_school
+    radius: 50
+    icon: mdi:chair-school
+
+  - name: Collège
+    latitude: !secret zone_lat_middleschool
+    longitude: !secret zone_lon_middleschool
+    radius: 50
+    icon: mdi:school

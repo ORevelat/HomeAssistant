@@ -1,0 +1,14 @@
+appdaemon:
+  threads: 10
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret hass_url
+      token: !secret hass_token
+
+log:                                            
+  accessfile: /conf/logs/appdaemon-access.log
+  errorfile: /conf/logs/appdaemon-error.log
+  logfile: /conf/logs/appdaemon.log
+  log_generations: 3
+  log_size: 1000000

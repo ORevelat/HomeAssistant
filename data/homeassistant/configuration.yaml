@@ -1,0 +1,17 @@
+homeassistant:
+  name: !secret base_name
+  latitude: !secret base_latitude
+  longitude: !secret base_longitude
+  elevation: !secret base_elevation
+  unit_system: metric
+  time_zone: Europe/Paris
+  temperature_unit: C
+  packages: !include_dir_named packages
+
+frontend:
+updater:
+  reporting: no
+sun:
+config:
+map:
+#python_script:

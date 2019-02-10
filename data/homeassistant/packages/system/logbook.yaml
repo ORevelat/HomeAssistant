@@ -1,0 +1,6 @@
+logbook:
+  exclude:
+    domains:
+      - group
+      - updater
+    # entities:

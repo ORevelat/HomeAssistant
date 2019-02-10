@@ -1,0 +1,6 @@
+
+history:
+  use_include_order: True
+  include:
+    entities:
+      - sensor.auribeau_sur_siagne_temperature

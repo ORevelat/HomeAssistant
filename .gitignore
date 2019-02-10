@@ -1,36 +1,60 @@
 # vscode
 .vscode
 
-# no logs
-/**/*.log*
+# system
+/lost+found
 
-# no python compiled files
+# data
+/data/*
+!/data/homeassistant
+!/data/appdaemon
+
+# build
+/docker-build/*
+!/docker-build/homeassistant
+!/docker-build/appdaemon-gammu
+
+# portainer
+/portainer/*
+!/portainer/data
+/portainer/data/*
+!/portainer/data/compose
+/portainer/data/compose/*
+!/portainer/data/compose/9
+
+# not relevant files & folders
 /**/__pycache__
+/**/*.log*
+/**/tmp
 
-# specific files for HA
-/**/OZW_Log.txt
-/**/home-assistant_v2.db
-/**/.HA_VERSION
-/**/.google.token
-/**/.uuid
-/**/icloud
-/**/tts
-/**/.storage/*
-/**/known_devices.yaml
-/**/harmony_*.conf
-/**/plex.conf
-/**/ip_bans.yaml
-/**/www/img/*
+# specific files & folders for HA
+/data/homeassistant/.cloud
+/data/homeassistant/.storage/*
+!/data/homeassistant/.storage/lovelace
+/data/homeassistant/.uuid
+/data/homeassistant/home-assistant_v2.db
+/data/homeassistant/secrets.yaml
+/data/homeassistant/deps
+/data/homeassistant/tts
+/data/homeassistant/ip_bans.yaml
+/data/homeassistant/www/img/*
 
-# not all the secrets 
-/**/secrets.yaml
+# specific files & folders for AppDaemon
+/data/appdaemon/data/logs
+/data/appdaemon/data/secrets.yaml
+# -- script to log once using 2FA 
+/data/appdaemon/data/icloud.py
+
+# /**/OZW_Log.txt
+# /**/.google.token
+# /**/icloud
+# /**/known_devices.yaml
+# /**/harmony_*.conf
+# /**/plex.conf
+#/**/google_calendars.yaml
+
+# not all the secrets for scripts
 /**/mqtt_config.sh
 /**/alexa_config.sh
 /**/backup_config.sh
-/**/google_calendars.yaml
 
-# no tmp fodler
-/**/tmp
-
-# script to log once using 2FA 
-/**/icloud.py
