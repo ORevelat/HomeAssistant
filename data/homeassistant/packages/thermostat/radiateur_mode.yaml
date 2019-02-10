@@ -1,0 +1,51 @@
+
+input_select:
+  # THERMOSTATS
+  thermostat_mode:
+    icon: mdi:nest-thermostat
+    options:
+      - Arrêt
+      - Away
+      - Maison
+      - Vacances
+
+  # RADIATEURS
+  radiator_parents:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_thea:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_salon:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_sallemanger:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort

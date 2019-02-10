@@ -3,24 +3,10 @@ recorder:
   purge_interval: 1
   purge_keep_days: 7
   db_url: !secret recorder_db_url
-  exclude:
+  include:
     domains:
-      - logger
-      - media_player
-      - persistent_notification
-      - sun
-      - weather
-      - zone
-      - zwave
+      - input_boolean
+      - input_number
+      - input_select
     entities:
-      - sensor.auribeau_sur_siagne_freeze_chance
-      - sensor.auribeau_sur_siagne_next_rain
-      - sensor.auribeau_sur_siagne_rain_chance
-      - sensor.auribeau_sur_siagne_snow_chance
-      - sensor.auribeau_sur_siagne_thunder_chance
-      - sensor.auribeau_sur_siagne_uv
-      - sensor.auribeau_sur_siagne_weather
-      - sensor.auribeau_sur_siagne_wind_speed
-      - sensor.date_time
-      - sensor.moon
-      - sensor.uptime
+      - sensor.auribeau_sur_siagne_temperature

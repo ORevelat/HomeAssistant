@@ -1,0 +1,8 @@
+
+camera:
+  - platform: foscam
+    name: "Rez de chaussée"
+    ip: !secret camera_rdc_url
+    port: !secret camera_rdc_port
+    username: !secret camera_rdc_username
+    password: !secret camera_rdc_password

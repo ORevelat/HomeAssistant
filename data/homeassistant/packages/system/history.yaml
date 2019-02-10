@@ -1,4 +1,6 @@
 
+# can only use entities present in recorder component
+
 history:
   use_include_order: True
   include:

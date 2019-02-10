@@ -38,6 +38,7 @@
 /data/homeassistant/tts
 /data/homeassistant/ip_bans.yaml
 /data/homeassistant/www/img/*
+/data/homeassistant/plex.conf
 
 # specific files & folders for AppDaemon
 /data/appdaemon/data/logs

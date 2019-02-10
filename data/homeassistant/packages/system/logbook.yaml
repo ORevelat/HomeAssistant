@@ -1,3 +1,6 @@
+
+# can only use entities present in recorder component
+
 logbook:
   exclude:
     domains:

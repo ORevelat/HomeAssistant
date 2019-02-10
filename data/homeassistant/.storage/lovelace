@@ -12,6 +12,98 @@
                 },
                 {
                     "badges": [],
+                    "cards": [],
+                    "icon": "mdi:sofa",
+                    "title": "Rez de chauss\u00e9e"
+                },
+                {
+                    "badges": [],
+                    "cards": [],
+                    "icon": "mdi:hotel",
+                    "title": "Etage"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_select.thermostat_mode",
+                                    "icon": "mdi:thermostat-box",
+                                    "name": "Mode"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Thermostat",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.thermostat_rdc",
+                                    "name": "Confort"
+                                },
+                                {
+                                    "entity": "input_number.thermostat_consigne_rdc",
+                                    "name": "Consigne"
+                                },
+                                {
+                                    "entity": "input_select.radiator_salon",
+                                    "name": "Salon"
+                                },
+                                {
+                                    "entity": "input_select.radiator_sallemanger",
+                                    "name": "Salle \u00e0 Manger"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Rez de chauss\u00e9e",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.thermostat_parents",
+                                    "name": "Confort"
+                                },
+                                {
+                                    "entity": "input_number.thermostat_consigne_parents",
+                                    "name": "Consigne"
+                                },
+                                {
+                                    "entity": "input_select.radiator_parents",
+                                    "name": "Parents"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ch. des Parents",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.thermostat_thea",
+                                    "name": "Confort"
+                                },
+                                {
+                                    "entity": "input_number.thermostat_consigne_thea",
+                                    "name": "Consigne"
+                                },
+                                {
+                                    "entity": "input_select.radiator_thea",
+                                    "name": "Th\u00e9a"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ch. de Th\u00e9a",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:thermometer-lines",
+                    "title": "Chauffage"
+                },
+                {
+                    "badges": [],
                     "cards": [
                         {
                             "entity": "weather.dark_sky",
@@ -64,6 +156,152 @@
                     ],
                     "icon": "mdi:weather-partlycloudy",
                     "title": "M\u00e9t\u00e9o"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.mi_speaker_wifi",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.plex"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Serveur Plex ",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:play-circle-outline",
+                    "title": "Audio/Vid\u00e9o"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "camera_image": "camera.rez_de_chaussee",
+                            "entities": [
+                                "camera.rez_de_chaussee"
+                            ],
+                            "image": null,
+                            "title": "Rez de chauss\u00e9e",
+                            "type": "picture-glance"
+                        }
+                    ],
+                    "icon": "mdi:cctv",
+                    "title": "Cam\u00e9ras"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.date_time"
+                                },
+                                {
+                                    "entity": "sensor.uptime"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hp_ilo_gen81_status",
+                                            "name": "Status"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_ilo_gen81_fanspeed",
+                                            "name": "Vitesse ventilateur"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_ilo_gen81_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "HP Gen8 n\u00b01",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hp_ilo_gen82_status",
+                                            "name": "Status"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_ilo_gen82_fanspeed",
+                                            "name": "Vitesse ventilateur"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_ilo_gen82_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "HP Gen8 n\u00b02",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Non connect\u00e9s"
+                            },
+                            "entities": [
+                                "binary_sensor.livebox",
+                                "binary_sensor.pfsense",
+                                "binary_sensor.esxi_1",
+                                "binary_sensor.esxi_2",
+                                "binary_sensor.tp_link_archer_c7",
+                                "binary_sensor.tp_link_wa830re",
+                                "binary_sensor.broadlink_rm_pro",
+                                "binary_sensor.camera_salon",
+                                "binary_sensor.docker_stacks",
+                                "binary_sensor.imprimante",
+                                "binary_sensor.mi_speaker_network",
+                                "binary_sensor.open_media_vault",
+                                "binary_sensor.mi_3_android_tv"
+                            ],
+                            "state_filter": [
+                                "off"
+                            ],
+                            "type": "entity-filter"
+                        }
+                    ],
+                    "icon": "mdi:server-security",
+                    "title": "Equipements"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "input_boolean.enable_covers_sunrise",
+                                "input_boolean.enable_covers_sunset",
+                                "input_boolean.enable_weather_alert_notif",
+                                "input_boolean.enable_light_garage",
+                                "input_boolean.enable_garden_fountain",
+                                "input_boolean.enable_garden_projector",
+                                "input_boolean.enable_mosquito_switch",
+                                "input_boolean.enable_pool_pump",
+                                "input_boolean.enable_christmas_decoration"
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:home-automation",
+                    "title": "Automatismes"
                 }
             ]
         }

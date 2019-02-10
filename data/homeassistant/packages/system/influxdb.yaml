@@ -6,24 +6,10 @@ influxdb:
   password: !secret influxdb_password
   max_retries: 3
   default_measurement: state
-  exclude:
-    domains:
-      - logger
-      - media_player
-      - persistent_notification
-      - sun
-      - weather
-      - zone
-      - zwave
+  include:
     entities:
-      - sensor.auribeau_sur_siagne_freeze_chance
-      - sensor.auribeau_sur_siagne_next_rain
-      - sensor.auribeau_sur_siagne_rain_chance
-      - sensor.auribeau_sur_siagne_snow_chance
-      - sensor.auribeau_sur_siagne_thunder_chance
-      - sensor.auribeau_sur_siagne_uv
-      - sensor.auribeau_sur_siagne_weather
-      - sensor.auribeau_sur_siagne_wind_speed
-      - sensor.date_time
-      - sensor.moon
-      - sensor.uptime
+      - sensor.auribeau_sur_siagne_temperature
+      - sensor.hp_ilo_gen81_fanspeed
+      - sensor.hp_ilo_gen81_temperature
+      - sensor.hp_ilo_gen82_fanspeed
+      - sensor.hp_ilo_gen82_temperature

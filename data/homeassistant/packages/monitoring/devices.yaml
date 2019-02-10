@@ -1,0 +1,79 @@
+
+binary_sensor:
+  - platform: ping
+    name: "Livebox"
+    host: !secret host_livebox
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "PfSense"
+    host: !secret host_zeus
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Esxi 1"
+    host: !secret host_esxi_1
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Esxi 2"
+    host: !secret host_esxi_2
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "TP-Link Archer C7"
+    host: !secret host_archerc7
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "TP-Link WA830RE"
+    host: !secret host_wa830
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Broadlink RM Pro"
+    host: !secret host_rmpro
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Caméra Salon"
+    host: !secret host_cam_salon
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Imprimante"
+    host: !secret host_imprimante
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Mi 3 Android TV"
+    host: !secret host_androidtv
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Mi Speaker Network"
+    host: !secret host_mispeaker
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Docker stacks"
+    host: !secret host_hyperion
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Open Media Vault"
+    host: !secret host_omv
+    count: 1
+    scan_interval: 60
