@@ -1,0 +1,13 @@
+switch:
+  - platform: mqtt
+    name: "Sonoff Salon"
+    state_topic: "stat/sonoffsalon/POWER"
+    command_topic: "cmnd/sonoffsalon/POWER"
+    availability_topic: "tele/sonoffsalon/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true
+  

@@ -42,28 +42,34 @@ services:
   homeassistant:
     container_name: hass
     # use cutom image with own dependencies
-    image: homeassistant:latest
+    image: my-homeassistant:latest
     restart: always
     ports:
       - "8123:8123"
     volumes:
       - /srv/disk1/data/homeassistant:/config
+      - /srv/disk1/data/homeassistant/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
       - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/rflink:/dev/rflink
+      - /dev/zwave:/dev/zwave
+      - /dev/zigbee:/dev/zigbee
     logging:
       options:
         max-size: 10m
 
   appdaemon:
     container_name: appdaemon
-    image: appdaemon-gammu:latest
+    # use cutom image with own dependencies
+    image: my-appdaemon:latest
     restart: always
     volumes:
       - /srv/disk1/data/appdaemon/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
       - /etc/localtime:/etc/localtime:ro
       - /srv/disk1/data/appdaemon/data:/conf
       - /srv/disk1/data/homeassistant:/confhass
-#    devices:
-#      - /dev/ttyUSB0:/dev/ttyUSB0
+    devices:
+      - /dev/hsdpa:/dev/hsdpa
     logging:
       options:
         max-size: 10m

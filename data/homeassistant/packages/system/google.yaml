@@ -1,0 +1,15 @@
+
+google:
+  client_id: !secret google_calendar_clientid
+  client_secret: !secret google_calendar_secret
+  track_new_calendar: false
+
+sensor:
+  - platform: template
+    sensors:
+      calendar_next_text:
+        friendly_name: 'Prochain événement'
+        value_template: '{{ states.calendar.home_assistant.attributes.message }}'
+      calendar_next_time:
+        friendly_name: 'à'
+        value_template: "{{ as_timestamp(states.calendar.home_assistant.attributes.start_time) | timestamp_custom('%HH%M') }}"

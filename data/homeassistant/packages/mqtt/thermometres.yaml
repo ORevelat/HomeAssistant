@@ -1,0 +1,11 @@
+sensor:
+  - platform: mqtt
+    state_topic: "house/xiaomith/sensor_sdb"
+    name: "XiaomiTempHygro1"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.temperature }}"
+    json_attributes_topic: "house/xiaomith/sensor_sdb"
+    # json_attributes:
+    #   - temperature
+    #   - humidity
+    #   - battery

@@ -39,6 +39,11 @@
 /data/homeassistant/ip_bans.yaml
 /data/homeassistant/www/img/*
 /data/homeassistant/plex.conf
+/data/homeassistant/google_calendars.yaml
+/data/homeassistant/known_devices.yaml
+/data/homeassistant/.google.token
+/data/homeassistant/OZW_Log.txt
+/data/homeassistant/pyozw.sqlite
 
 # specific files & folders for AppDaemon
 /data/appdaemon/data/logs
@@ -46,13 +51,8 @@
 # -- script to log once using 2FA 
 /data/appdaemon/data/icloud.py
 
-# /**/OZW_Log.txt
-# /**/.google.token
 # /**/icloud
-# /**/known_devices.yaml
 # /**/harmony_*.conf
-# /**/plex.conf
-#/**/google_calendars.yaml
 
 # not all the secrets for scripts
 /**/mqtt_config.sh

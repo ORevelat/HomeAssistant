@@ -1,0 +1,25 @@
+---
+locate_olivier:
+  module: locate_iphone
+  class: iCloud
+  run_every: 30
+  name: !secret icloud_name_user1
+  account_name: !secret icloud_key_user1
+  account_passwd: !secret icloud_pwd_user1
+  
+locate_sandrine:
+  module: locate_iphone
+  class: iCloud
+  run_every: 30
+  name: !secret icloud_name_user2
+  account_name: !secret icloud_key_user2
+  account_passwd: !secret icloud_pwd_user2
+
+locate_thea:
+  module: locate_iphone
+  class: iCloud
+  run_every: 30
+  name: !secret icloud_name_user3
+  account_name: !secret icloud_key_user3
+  account_passwd: !secret icloud_pwd_user3
+  iphone_id: !secret icloud_id_user3

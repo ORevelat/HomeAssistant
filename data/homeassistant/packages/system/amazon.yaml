@@ -1,0 +1,8 @@
+
+shell_command:
+  alexa_say: /config/shell_scripts/alexa_remote_control.sh -d "{{device}}" -e speak:"{{text}}"
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key

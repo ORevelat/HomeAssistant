@@ -1,0 +1,108 @@
+
+###############################################################
+## Thermostats RDC réglage auto température
+##     -2° nuit / consigne
+##     matin / consigne 
+##     -1° journée / consigne
+##     soir / consigne 
+##     > lun,mar,jeu,ven
+## 
+##     -2° nuit / consigne
+##     matin-soir / consigne 
+##     > mer,sam,dim - Home
+##     > lun,mar,mer,jeu,ven,sam,dim - Vacances
+##
+
+automation:
+
+  - alias: Thermostat RDC - matin
+    trigger:
+    - platform: time
+      at: '05:30:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: template
+        value_template: "{{ not is_state('input_select.thermostat_mode', 'Vacances') }}"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.thermostat_consigne_rdc
+          value: >
+            {{ states('input_number.thermostat_rdc') | float }}
+
+  - alias: Thermostat RDC - journée
+    trigger:
+    - platform: time
+      at: '08:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: template
+        value_template: "{{ not is_state('input_select.thermostat_mode', 'Vacances') }}"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.thermostat_consigne_rdc
+          value: >
+            {{ states('input_number.thermostat_rdc') | float - (1 | float) }}
+
+  - alias: Thermostat RDC - soirée
+    trigger:
+    - platform: time
+      at: '17:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: template
+        value_template: "{{ not is_state('input_select.thermostat_mode', 'Vacances') }}"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.thermostat_consigne_rdc
+          value: >
+            {{ states('input_number.thermostat_rdc') | float }}
+
+  - alias: Thermostat RDC - matin au soir
+    trigger:
+    - platform: time
+      at: '07:30:00'
+    condition:
+      condition: or
+      conditions:
+        - condition: time
+          weekday:
+            - wed
+            - sat
+            - sun
+        - condition: template
+          value_template: "{{ is_state('input_select.thermostat_mode', 'Vacances') }}"
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.thermostat_consigne_rdc
+          value: >
+            {{ states('input_number.thermostat_rdc') | float }}
+
+  - alias: Thermostat RDC - nuit
+    trigger:
+    - platform: time
+      at: '22:30:00'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.thermostat_consigne_rdc
+          value: >
+            {{ states('input_number.thermostat_rdc') | float - (2 | float) }}

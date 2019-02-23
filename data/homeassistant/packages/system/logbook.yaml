@@ -6,4 +6,6 @@ logbook:
     domains:
       - group
       - updater
+      - calendar
+      - input_number
     # entities:

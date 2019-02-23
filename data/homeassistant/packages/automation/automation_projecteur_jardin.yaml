@@ -1,0 +1,27 @@
+---
+
+automation:
+
+  - alias: Allumer projecteur du jardin
+    trigger:
+      platform: time
+      at: '18:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.enable_garden_projector
+        state: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.sonoff_jardin_1
+
+  - alias: Eteindre projecteur du jardin
+    trigger:
+      platform: time
+      at: '23:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.enable_garden_projector
+        state: 'on'    
+    action:
+      - service: switch.turn_off
+        entity_id: switch.sonoff_jardin_1

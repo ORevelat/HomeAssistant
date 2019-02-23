@@ -1,0 +1,12 @@
+switch:
+  - platform: mqtt
+    name: "Sonoff Jardin 1"
+    state_topic: "stat/sonoffjardin/POWER1"
+    command_topic: "cmnd/sonoffjardin/POWER1"
+    availability_topic: "tele/sonoffjardin/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true

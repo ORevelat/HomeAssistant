@@ -1,0 +1,150 @@
+##
+## Mapping d'un input_select au pourcentage pour un qubino fil pilote
+##
+
+automation:
+
+  - alias: Selecteur Pilote Confort
+    trigger:
+      platform: state
+      entity_id:
+        - input_select.radiator_parents
+        - input_select.radiator_thea
+        - input_select.radiator_salon
+        - input_select.radiator_sallemanger
+      to: 'Confort'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: > 
+            {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
+              light.qubino_pilot_parents_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
+              light.qubino_pilot_thea_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
+              light.qubino_pilot_salon_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
+              light.qubino_pilot_salle_a_manger_level
+            {% endif %}
+          brightness_pct: 99 
+
+  - alias: Selecteur Pilote Confort -1
+    trigger:
+      platform: state
+      entity_id:
+        - input_select.radiator_parents
+        - input_select.radiator_thea
+        - input_select.radiator_salon
+        - input_select.radiator_sallemanger
+      to: 'Confort -1'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: >
+            {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
+              light.qubino_pilot_parents_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
+              light.qubino_pilot_thea_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
+              light.qubino_pilot_salon_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
+              light.qubino_pilot_salle_a_manger_level
+            {% endif %}
+          brightness_pct: 50  
+
+  - alias: Selecteur Pilote Confort -2
+    trigger:
+      platform: state
+      entity_id:
+        - input_select.radiator_parents
+        - input_select.radiator_thea
+        - input_select.radiator_salon
+        - input_select.radiator_sallemanger
+      to: 'Confort -2'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: >
+            {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
+              light.qubino_pilot_parents_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
+              light.qubino_pilot_thea_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
+              light.qubino_pilot_salon_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
+              light.qubino_pilot_salle_a_manger_level
+            {% endif %}
+          brightness_pct: 40
+
+  - alias: Selecteur Pilote Eco 
+    trigger:
+      platform: state
+      entity_id:
+        - input_select.radiator_parents
+        - input_select.radiator_thea
+        - input_select.radiator_salon
+        - input_select.radiator_sallemanger
+      to: 'Eco'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: >
+            {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
+              light.qubino_pilot_parents_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
+              light.qubino_pilot_thea_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
+              light.qubino_pilot_salon_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
+              light.qubino_pilot_salle_a_manger_level
+            {% endif %}
+          brightness_pct: 30 
+
+  - alias: Selecteur Pilote Hors-gel
+    trigger:
+      platform: state
+      entity_id:
+        - input_select.radiator_parents
+        - input_select.radiator_thea
+        - input_select.radiator_salon
+        - input_select.radiator_sallemanger
+      to: 'Hors-gel'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: >
+            {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
+              light.qubino_pilot_parents_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
+              light.qubino_pilot_thea_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
+              light.qubino_pilot_salon_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
+              light.qubino_pilot_salle_a_manger_level
+            {% endif %}
+          brightness_pct: 20
+
+  - alias: Selecteur Pilote Arrêt 
+    trigger:
+      platform: state
+      entity_id:
+        - input_select.radiator_parents
+        - input_select.radiator_thea
+        - input_select.radiator_salon
+        - input_select.radiator_sallemanger
+      to: 'Arrêt'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: >
+            {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
+              light.qubino_pilot_parents_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
+              light.qubino_pilot_thea_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
+              light.qubino_pilot_salon_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
+              light.qubino_pilot_salle_a_manger_level
+            {% endif %}
+          brightness_pct: 0 
+

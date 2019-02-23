@@ -1,0 +1,12 @@
+switch:
+  - platform: mqtt
+    name: "Sonoff Garage/Portail"
+    state_topic: "stat/sonoffgarage/POWER1"
+    command_topic: "cmnd/sonoffgarage/POWER1"
+    availability_topic: "tele/sonoffgarage/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true

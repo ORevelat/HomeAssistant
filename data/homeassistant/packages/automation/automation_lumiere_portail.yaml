@@ -1,0 +1,24 @@
+---
+
+automation:
+
+  - alias: Allumer détecteur lumière Garage/Portail
+    trigger:
+      - platform: sun
+        event: sunset
+    condition:
+      - condition: state
+        entity_id: input_boolean.enable_light_garage
+        state: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.sonoff_garageportail
+
+  - alias: Eteindre détecteur lumière Garage/Portail
+    trigger:
+      - platform: sun
+        event: sunrise
+    action:
+      - service: switch.turn_off
+        entity_id: switch.sonoff_garageportail
+

@@ -13,3 +13,22 @@ influxdb:
       - sensor.hp_ilo_gen81_temperature
       - sensor.hp_ilo_gen82_fanspeed
       - sensor.hp_ilo_gen82_temperature
+      - sensor.oregontemphygro_5288a_temp
+      - sensor.oregontemphygro_5288a_hum
+      - sensor.oregontemphygro_628da_temp
+      - sensor.oregontemphygro_628da_hum
+      - sensor.oregontemphygro_728f5_temp
+      - sensor.oregontemphygro_728f5_hum
+      - sensor.oregontemphygro_2d58_temp
+      - sensor.oregontemphygro_2d58_hum
+      - sensor.oregontemp_1d40_temp
+      - sensor.miflora1
+      - sensor.miflora2
+      - sensor.xiaomitemphygro1
+      - sensor.fibaro_motion_etage_temperature
+      - sensor.fibaro_motion_etage_luminance
+      - sensor.fibaro_motion_salle_a_manger_temperature
+      - sensor.fibaro_motion_salle_a_manger_luminance
+      - sensor.qubino_smart_meter_power
+      - sensor.qubino_smart_meter_energy
+    
