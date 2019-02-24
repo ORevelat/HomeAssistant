@@ -12,7 +12,6 @@ zip -9 -q -r $BACKUP_FILE portainer/data/compose/9
 zip -9 -q -r $BACKUP_FILE scripts
 zip -9 -q -r $BACKUP_FILE data/homeassistant -x"data/homeassistant/deps/*" -x"data/homeassistant/home-assistant_v2.db" -x"data/homeassistant/home-assistant.log" -x"data/homeassistant/tts/*" -x"data/homeassistant/www/tts/*" 
 zip -9 -q -r $BACKUP_FILE data/appdaemon -x"data/appdaemon/logs/*"
-#zip -9 -q -r $BACKUP_FILE docker-build -x"homeassistant-socat/config/*" -x"appdaemon-gammu/conf/*" -x"appdaemon-gammu/confhass/*"
 popd >/dev/null
 
 # push backup to NAS
