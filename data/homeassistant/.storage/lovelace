@@ -30,31 +30,6 @@
                             "type": "glance"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.calendar_next_text"
-                                },
-                                {
-                                    "entity": "sensor.calendar_next_time"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Calendrier",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_select.thermostat_mode",
-                                    "icon": "mdi:thermostat-box",
-                                    "name": "Mode"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Thermostat",
-                            "type": "entities"
-                        },
-                        {
                             "cards": [
                                 {
                                     "entity": "sensor.qubino_smart_meter_power",
@@ -82,6 +57,18 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_select.thermostat_mode",
+                                    "icon": "mdi:thermostat-box",
+                                    "name": "Mode"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Thermostat",
+                            "type": "entities"
                         },
                         {
                             "card": {
@@ -121,6 +108,36 @@
                             },
                             "show_empty": true,
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.date_time"
+                                        },
+                                        {
+                                            "entity": "sensor.uptime"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.calendar_next_text"
+                                        },
+                                        {
+                                            "entity": "sensor.calendar_next_time"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Calendrier",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:home",
@@ -660,31 +677,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.date_time"
-                                },
-                                {
-                                    "entity": "sensor.uptime"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.calendar_next_text"
-                                },
-                                {
-                                    "entity": "sensor.calendar_next_time"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Calendrier - Home Assistant",
-                            "type": "entities"
-                        },
                         {
                             "cards": [
                                 {
