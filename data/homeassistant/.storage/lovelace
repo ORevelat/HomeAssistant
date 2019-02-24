@@ -1,6 +1,12 @@
 {
     "data": {
         "config": {
+            "resources": [
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/js/monster-card.js"
+                }
+            ],
             "title": "Home",
             "views": [
                 {
@@ -76,6 +82,45 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Lumi\u00e8res allum\u00e9es",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "domain": "light",
+                                        "state": "on"
+                                    }
+                                ]
+                            },
+                            "show_empty": true,
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Prises allum\u00e9es",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "switch.qubino_pilot_*"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "domain": "switch",
+                                        "state": "on"
+                                    }
+                                ]
+                            },
+                            "show_empty": true,
+                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:home",

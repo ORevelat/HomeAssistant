@@ -9,6 +9,11 @@ homeassistant:
   packages: !include_dir_named packages
 
 frontend:
+  javascript_version: latest
+  extra_html_url:
+    - /local/lovelace/html/hass-fontawesome-solid.html
+    - /local/lovelace/html/hass-fontawesome-regular.html
+    - /local/lovelace/html/hass-fontawesome-brands.html
 updater:
   reporting: no
 sun:
