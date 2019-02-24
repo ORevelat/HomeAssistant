@@ -12,7 +12,7 @@ automation:
         state: 'on'
     action:
       - service: switch.turn_on
-        entity_id: switch.sonoff_garageportail
+        entity_id: switch.sonoff_garage_portail
 
   - alias: Eteindre détecteur lumière Garage/Portail
     trigger:
@@ -20,5 +20,5 @@ automation:
         event: sunrise
     action:
       - service: switch.turn_off
-        entity_id: switch.sonoff_garageportail
+        entity_id: switch.sonoff_garage_portail
 
