@@ -25,20 +25,6 @@ services:
       options:
         max-size: 10m
 
-  postgresdb:
-    image: postgres
-    container_name: postgresdb
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: dADOu1973
-    ports:
-      - "5432:5432"
-    volumes:
-      - /srv/disk1/data/postgresdb:/var/lib/postgresql/data
-    logging:
-      options:
-        max-size: 10m        
-
   homeassistant:
     container_name: hass
     # use cutom image with own dependencies
