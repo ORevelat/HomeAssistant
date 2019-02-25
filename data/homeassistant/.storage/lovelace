@@ -77,6 +77,11 @@
                                 "type": "entities"
                             },
                             "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "light.qubino_*"
+                                    }
+                                ],
                                 "include": [
                                     {
                                         "domain": "light",
