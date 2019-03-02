@@ -80,7 +80,8 @@
                                 "exclude": [
                                     {
                                         "entity_id": "light.qubino_*"
-                                    }
+                                    },
+                                    "light.fibaro_dimmer_*_2"
                                 ],
                                 "include": [
                                     {
@@ -514,7 +515,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.mi_speaker_wifi",
+                            "entity": "media_player.mi_speaker_wifi_2",
                             "type": "media-control"
                         },
                         {
