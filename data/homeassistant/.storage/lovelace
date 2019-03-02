@@ -81,7 +81,9 @@
                                     {
                                         "entity_id": "light.qubino_*"
                                     },
-                                    "light.fibaro_dimmer_*_2"
+                                    {
+                                        "entity_id": "light.fibaro_dimmer_*_2"
+                                    }
                                 ],
                                 "include": [
                                     {
@@ -750,6 +752,24 @@
                                 "off"
                             ],
                             "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Consommation",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.fibaro_dimmer_*_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.prise_*_power"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:server-security",
