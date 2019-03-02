@@ -8,7 +8,7 @@ BACKUP_DATE=$(date +"%Y%m%d_%H%M%S")
 BACKUP_FILE=/tmp/docker-stacks_$BACKUP_DATE.zip
 
 pushd /srv/disk1 >/dev/null
-zip -9 -q -r $BACKUP_FILE *
+zip -9 -q -r $BACKUP_FILE * -x"lost+found"
 popd >/dev/null
 
 # push backup to NAS
