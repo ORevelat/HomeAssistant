@@ -3,4 +3,3 @@ media_player:
   - platform: squeezebox
     host: !secret squeeze_host
     port: !secret squeeze_port
-    name: Logitech Media Server
