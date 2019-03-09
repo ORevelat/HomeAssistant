@@ -59,4 +59,20 @@ services:
     logging:
       options:
         max-size: 10m
-        
+
+  nodered:
+    container_name: nodered
+    image: nodered/node-red-docker:v8
+    restart: always
+    user: 1000:1000
+    ports:
+      - "1880:1880"
+    volumes:
+      - /srv/disk1/data/nodered:/data
+    environment:
+      - TZ="Europe/Paris"
+      - FLOWS="my_flows.json"
+    logging:
+      options:
+        max-size: 10m
+
