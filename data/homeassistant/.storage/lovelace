@@ -5,6 +5,14 @@
                 {
                     "type": "js",
                     "url": "/local/lovelace/js/monster-card.js"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/js/card-tools.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/lovelace/js/secondaryinfo-entity-row.js"
                 }
             ],
             "title": "Home",
@@ -159,15 +167,21 @@
                             "entities": [
                                 {
                                     "entity": "cover.fibaro_roller_shutter_cuisine_level",
-                                    "name": "Cuisine"
+                                    "name": "Cuisine",
+                                    "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_cuisine_level.attributes.current_position ]]%",
+                                    "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
                                     "entity": "cover.fibaro_roller_shutter_salon_level",
-                                    "name": "Salon"
+                                    "name": "Salon",
+                                    "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salon_level.attributes.current_position ]]%",
+                                    "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
                                     "entity": "cover.fibaro_roller_shutter_salle_a_manger_level",
-                                    "name": "Salle \u00e0 manger"
+                                    "name": "Salle \u00e0 manger",
+                                    "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salle_a_manger_level.attributes.current_position ]]%",
+                                    "type": "custom:secondaryinfo-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -193,19 +207,18 @@
                             "entities": [
                                 {
                                     "entity": "sensor.fibaro_motion_salle_a_manger_temperature",
-                                    "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "sensor.fibaro_motion_salle_a_manger_luminance",
-                                    "name": "Luminosit\u00e9"
+                                    "name": "Temp\u00e9rature",
+                                    "secondary_info": "Luminosit\u00e9 de [[ sensor.fibaro_motion_salle_a_manger_luminance ]] lux",
+                                    "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
                                     "entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor",
                                     "name": "Pr\u00e9sence"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "title": "Salle \u00e0 manger",
-                            "type": "glance"
+                            "type": "entities"
                         },
                         {
                             "cards": [
@@ -283,104 +296,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.fibaro_motion_etage_temperature",
-                                    "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "sensor.fibaro_motion_etage_luminance",
-                                    "name": "Luminosit\u00e9"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_motion_etage_sensor",
-                                    "name": "Pr\u00e9sence"
-                                }
-                            ],
-                            "title": "Couloir",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.oregontemphygro_5288a_temp",
-                                    "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_5288a_hum",
-                                    "name": "Humidit\u00e9"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_5288a_hstatus",
-                                    "name": "Status"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_5288a_bat",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Ch. Parents",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.oregontemphygro_728f5_temp",
-                                    "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_728f5_hum",
-                                    "name": "Humidit\u00e9"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_728f5_hstatus",
-                                    "name": "Status"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_728f5_bat",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Bureau",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.xiaomitemphygro1",
-                                    "name": "Temp\u00e9rature"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Salle de bain",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.oregontemphygro_628da_temp",
-                                    "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_628da_hum",
-                                    "name": "Humidit\u00e9"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_628da_hstatus",
-                                    "name": "Status"
-                                },
-                                {
-                                    "entity": "sensor.oregontemphygro_628da_bat",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Ch. Th\u00e9a",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "light.fibaro_dimmer_escalier_level",
                                     "name": "Escaliers"
                                 },
@@ -416,6 +331,87 @@
                             "show_name": true,
                             "title": "Prises",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.fibaro_motion_etage_temperature",
+                                    "name": "Temp\u00e9rature",
+                                    "secondary_info": "Luminosit\u00e9 de [[ sensor.fibaro_motion_etage_luminance ]] lux",
+                                    "type": "custom:secondaryinfo-entity-row"
+                                },
+                                {
+                                    "entity": "binary_sensor.fibaro_motion_etage_sensor",
+                                    "name": "Pr\u00e9sence"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Couloir",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.oregontemphygro_5288a_temp",
+                                    "name": "Temp\u00e9rature",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_5288a_hum ]]% ([[ sensor.oregontemphygro_5288a_hstatus ]])",
+                                    "type": "custom:secondaryinfo-entity-row"
+                                },
+                                {
+                                    "entity": "sensor.oregontemphygro_5288a_bat",
+                                    "name": "Batterie"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ch. Parents",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.oregontemphygro_628da_temp",
+                                    "name": "Temp\u00e9rature",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_628da_hum ]]% ([[ sensor.oregontemphygro_628da_hstatus ]])",
+                                    "type": "custom:secondaryinfo-entity-row"
+                                },
+                                {
+                                    "entity": "sensor.oregontemphygro_628da_bat",
+                                    "name": "Batterie"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ch. Th\u00e9a",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.oregontemphygro_728f5_temp",
+                                    "name": "Temp\u00e9rature",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_728f5_hum ]]% ([[ sensor.oregontemphygro_728f5_hstatus ]])",
+                                    "type": "custom:secondaryinfo-entity-row"
+                                },
+                                {
+                                    "entity": "sensor.oregontemphygro_728f5_bat",
+                                    "name": "Batterie"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Bureau",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.xiaomitemphygro1",
+                                    "name": "Temp\u00e9rature",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.xiaomitemphygro1.attributes.humidity ]]%",
+                                    "type": "custom:secondaryinfo-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Salle de bain",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:hotel",
@@ -735,9 +731,11 @@
                             },
                             "entities": [
                                 "binary_sensor.livebox",
-                                "binary_sensor.pfsense",
                                 "binary_sensor.esxi_1",
                                 "binary_sensor.esxi_2",
+                                "binary_sensor.vm_zeus_server",
+                                "binary_sensor.vm_atlas_server",
+                                "binary_sensor.vm_hyperion_server",
                                 "binary_sensor.tp_link_archer_c7",
                                 "binary_sensor.tp_link_wa830re",
                                 "binary_sensor.broadlink_rm_pro",
@@ -745,7 +743,6 @@
                                 "binary_sensor.docker_stacks",
                                 "binary_sensor.imprimante",
                                 "binary_sensor.mi_speaker_network",
-                                "binary_sensor.open_media_vault",
                                 "binary_sensor.mi_3_android_tv"
                             ],
                             "state_filter": [

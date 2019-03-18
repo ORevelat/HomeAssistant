@@ -14,6 +14,9 @@
 !/docker-build/homeassistant
 !/docker-build/appdaemon-gammu
 
+# test
+/docker-tests/*
+
 # portainer
 /portainer/*
 !/portainer/data

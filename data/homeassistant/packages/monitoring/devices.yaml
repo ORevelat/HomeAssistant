@@ -7,7 +7,7 @@ binary_sensor:
     scan_interval: 60
 
   - platform: ping
-    name: "PfSense"
+    name: "VM Zeus server"
     host: !secret host_zeus
     count: 1
     scan_interval: 60
@@ -67,13 +67,13 @@ binary_sensor:
     scan_interval: 60
 
   - platform: ping
-    name: "Docker stacks"
+    name: "VM Hyperion server"
     host: !secret host_hyperion
     count: 1
     scan_interval: 60
 
   - platform: ping
-    name: "Open Media Vault"
-    host: !secret host_omv
+    name: "VM Atlas server"
+    host: !secret host_atlas
     count: 1
     scan_interval: 60
