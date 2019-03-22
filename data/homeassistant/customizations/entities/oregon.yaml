@@ -1,0 +1,38 @@
+
+## SALON
+sensor.oregontemp_1d40_temp:
+  friendly_name: Température Salon
+sensor.oregontemp_1d40_bat:
+  friendly_name: Température Salon
+
+## CH PARENTS
+sensor.oregontemphygro_5288a_temp:
+  friendly_name: Température Ch. Parents
+sensor.oregontemphygro_5288a_hum:
+  friendly_name: Humidité Ch. Parents
+sensor.oregontemphygro_5288a_bat:
+  friendly_name: Batterie Ch. Parents
+
+## CH THEA
+sensor.oregontemphygro_628da_temp:
+  friendly_name: Température Ch. Théa
+sensor.oregontemphygro_628da_hum:
+  friendly_name: Humidité Ch. Théa
+sensor.oregontemphygro_628da_bat:
+  friendly_name: Batterie Ch. Théa
+
+## BUREAU
+sensor.oregontemphygro_728f5_temp:
+  friendly_name: Température Bureau
+sensor.oregontemphygro_728f5_hum:
+  friendly_name: Humidité Bureau
+sensor.oregontemphygro_728f5_bat:
+  friendly_name: Batterie Bureau
+
+## JARDIN
+sensor.oregontemphygro_2d58_temp:
+  friendly_name: Température Jardin
+sensor.oregontemphygro_2d58_hum:
+  friendly_name: Humidité Jardin
+sensor.oregontemphygro_2d58_bat:
+  friendly_name: Batterie Jardin

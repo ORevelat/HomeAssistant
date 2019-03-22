@@ -1,0 +1,5 @@
+sun.sun:
+  friendly_name: Soleil
+
+sensor.moon:
+  friendly_name: Lune
