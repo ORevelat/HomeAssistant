@@ -1,1 +1,8 @@
 ---
+camera:
+  - platform: foscam
+    name: "Jardin Rivière"
+    ip: !secret camera_jardin1_url
+    port: !secret camera_jardin1_port
+    username: !secret camera_jardin1_username
+    password: !secret camera_jardin1_password
