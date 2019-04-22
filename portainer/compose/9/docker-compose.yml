@@ -8,7 +8,7 @@ services:
     ports:
       - "5556:80"
     volumes:
-      - /srv/disk1/data/tasmoadmin:/data 
+      - //srv/disk1/docker-data/data/tasmoadmin:/data 
     logging:
       options:
         max-size: 10m
@@ -20,7 +20,7 @@ services:
     ports:
       - "8086:8086"
     volumes:
-      - /srv/disk1/data/influxdb:/var/lib/influxdb
+      - /srv/disk1/docker-data/data/influxdb:/var/lib/influxdb
     logging:
       options:
         max-size: 10m
@@ -33,8 +33,8 @@ services:
     ports:
       - "8123:8123"
     volumes:
-      - /srv/disk1/data/homeassistant:/config
-      - /srv/disk1/data/homeassistant/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
+      - /srv/disk1/docker-data/data/homeassistant:/config
+      - /srv/disk1/docker-data/data/homeassistant/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
       - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/rflink:/dev/rflink
@@ -50,12 +50,12 @@ services:
     image: my-appdaemon:latest
     restart: always
     volumes:
-      - /srv/disk1/data/appdaemon/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
+      - /srv/disk1/docker-data/data/appdaemon/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
       - /etc/localtime:/etc/localtime:ro
-      - /srv/disk1/data/appdaemon/data:/conf
-      - /srv/disk1/data/homeassistant:/confhass
+      - /srv/disk1/docker-data/data/appdaemon/data:/conf
+      - /srv/disk1/docker-data/data/homeassistant:/confhass
     devices:
-      - /dev/hsdpa:/dev/hsdpa
+      - /dev/hspa:/dev/hspa
     logging:
       options:
         max-size: 10m
@@ -68,7 +68,7 @@ services:
     ports:
       - "1880:1880"
     volumes:
-      - /srv/disk1/data/nodered:/data
+      - /srv/disk1/docker-data/data/nodered:/data
     environment:
       - TZ="Europe/Paris"
       - FLOWS="my_flows.json"

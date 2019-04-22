@@ -1,5 +1,5 @@
 
 media_player:
-  - platform: squeezebox
-    host: !secret squeeze_host
-    port: !secret squeeze_port
+ - platform: squeezebox
+   host: !secret squeeze_host
+   port: !secret squeeze_port

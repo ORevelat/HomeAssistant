@@ -19,11 +19,9 @@
 
 # portainer
 /portainer/*
-!/portainer/data
-/portainer/data/*
-!/portainer/data/compose
-/portainer/data/compose/*
-!/portainer/data/compose/9
+!/portainer/compose
+/portainer/compose/*
+!/portainer/compose/9
 
 # not relevant files & folders
 /**/__pycache__

@@ -1,10 +1,10 @@
 
 media_player:
-  - platform: plex
-    entity_namespace: 'plex'
+ - platform: plex
+   entity_namespace: 'plex'
 
 sensor:
-  - platform: plex
-    host: !secret plex_host
-    port: !secret plex_port
-    name: Plex
+ - platform: plex
+   host: !secret plex_host
+   port: !secret plex_port
+   name: Plex

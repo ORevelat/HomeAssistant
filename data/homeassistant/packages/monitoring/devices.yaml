@@ -13,14 +13,20 @@ binary_sensor:
     scan_interval: 60
 
   - platform: ping
-    name: "Esxi 1"
-    host: !secret host_esxi_1
+    name: "Proxmox VE-1"
+    host: !secret host_pve_1
     count: 1
     scan_interval: 60
 
   - platform: ping
-    name: "Esxi 2"
-    host: !secret host_esxi_2
+    name: "Proxmox VE-2"
+    host: !secret host_pve_2
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "VM Hyperion server"
+    host: !secret host_hyperion
     count: 1
     scan_interval: 60
 
@@ -63,17 +69,5 @@ binary_sensor:
   - platform: ping
     name: "Mi Speaker Network"
     host: !secret host_mispeaker
-    count: 1
-    scan_interval: 60
-
-  - platform: ping
-    name: "VM Hyperion server"
-    host: !secret host_hyperion
-    count: 1
-    scan_interval: 60
-
-  - platform: ping
-    name: "VM Atlas server"
-    host: !secret host_atlas
     count: 1
     scan_interval: 60

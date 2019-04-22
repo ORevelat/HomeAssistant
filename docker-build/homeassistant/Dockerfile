@@ -1,4 +1,4 @@
-FROM "homeassistant/home-assistant:0.88.2"
+FROM "homeassistant/home-assistant:0.90.2"
 LABEL maintainer="Nobody"
 
 COPY start.sh /start.sh

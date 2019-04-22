@@ -28,13 +28,13 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
 ### Home Assistant
 
 #### Hardware
-- VM (ESXi) 
+- VM (Proxmox) 
 - 4 CPU / 4 Go de RAM
-- 40+8 Go de disque dur
+- 30+10 Go de disque dur
 - dongles USB
   * clé Aeotec ZWave Gen5
   * RFLink
-  * clé HSDPA Huawei E169
+  * clé HSPA Huawei E169
   * clé Bluetooth LE CSR 4.0
   * clé Zigate - en cours (mais je n'ai pas encore d'utilisation concrète)
 

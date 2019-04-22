@@ -7,15 +7,15 @@ source $folder/backup_config.sh
 BACKUP_DATE=$(date +"%Y%m%d_%H%M%S")
 BACKUP_FILE=/tmp/docker-stacks_$BACKUP_DATE.zip
 
-pushd /srv/disk1 >/dev/null
+pushd /srv/disk1/docker-data >/dev/null
 zip -9 -q -r $BACKUP_FILE * -x"lost+found"
 popd >/dev/null
 
 # push backup to NAS
-echo "put $BACKUP_FILE" | sftp -P $nas_port $nas_user@$nas_host:/srv/dev-disk-by-label-DISK1/Backup-Hyperion/docker-stacks
+echo "put $BACKUP_FILE" | sftp -P $nas_port $nas_user@$nas_host:/mnt/backup_hyperion/docker-stacks
 
 # keep 10 files for backup on NAS
-ssh -p $nas_port $nas_user@$nas_host "cd /srv/dev-disk-by-label-DISK1/Backup-Hyperion/docker-stacks && ls -1tr | head -n -10 | xargs -d '\n' rm -f --"
+ssh -p $nas_port $nas_user@$nas_host "cd /mnt/backup_hyperion/docker-stacks && ls -1tr | head -n -10 | xargs -d '\n' rm -f --"
 
 # do not keep backup on local
 rm -f $BACKUP_FILE
