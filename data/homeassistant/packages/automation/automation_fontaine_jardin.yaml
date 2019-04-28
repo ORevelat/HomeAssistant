@@ -12,7 +12,7 @@ automation:
         state: 'on'
     action:
       - service: switch.turn_on
-        entity_id: switch.sonoff_jardin_1
+        entity_id: switch.sonoff_4ch_jardin_1
 
   - alias: Eteindre fontaine du jardin
     trigger:
@@ -24,4 +24,4 @@ automation:
         state: 'on'    
     action:
       - service: switch.turn_off
-        entity_id: switch.sonoff_jardin_1
+        entity_id: switch.sonoff_4ch_jardin_1

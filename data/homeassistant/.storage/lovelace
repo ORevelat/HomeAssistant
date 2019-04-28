@@ -596,6 +596,22 @@
                                 {
                                     "entity": "switch.sonoff_jardin_1",
                                     "name": "Prise jardin n\u00b01"
+                                },
+                                {
+                                    "entity": "switch.sonoff_4ch_jardin_1",
+                                    "name": "Prise jardin 4CH n\u00b01"
+                                },
+                                {
+                                    "entity": "switch.sonoff_4ch_jardin_2",
+                                    "name": "Prise jardin 4CH n\u00b02"
+                                },
+                                {
+                                    "entity": "switch.sonoff_4ch_jardin_3",
+                                    "name": "Prise jardin 4CH n\u00b03"
+                                },
+                                {
+                                    "entity": "switch.sonoff_4ch_jardin_4",
+                                    "name": "Prise jardin 4CH n\u00b04"
                                 }
                             ],
                             "title": "Interrupteurs",
