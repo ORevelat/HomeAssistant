@@ -75,7 +75,7 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Thermostat",
+                            "title": "Chauffage",
                             "type": "entities"
                         },
                         {
@@ -429,7 +429,7 @@
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Thermostat",
+                            "title": "Chauffage",
                             "type": "entities"
                         },
                         {
@@ -592,10 +592,6 @@
                                 {
                                     "entity": "switch.sonoff_garage_portail",
                                     "name": "Lumi\u00e8re garage/portail"
-                                },
-                                {
-                                    "entity": "switch.sonoff_jardin_1",
-                                    "name": "Prise jardin n\u00b01"
                                 },
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_1",
