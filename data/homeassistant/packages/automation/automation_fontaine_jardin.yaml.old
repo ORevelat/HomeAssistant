@@ -1,0 +1,27 @@
+---
+
+automation:
+
+  - alias: Allumer fontaine du jardin
+    trigger:
+      platform: time
+      at: '09:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.enable_garden_fountain
+        state: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.sonoff_4ch_jardin_1
+
+  - alias: Eteindre fontaine du jardin
+    trigger:
+      platform: time
+      at: '19:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.enable_garden_fountain
+        state: 'on'    
+    action:
+      - service: switch.turn_off
+        entity_id: switch.sonoff_4ch_jardin_1

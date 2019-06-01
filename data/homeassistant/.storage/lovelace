@@ -744,8 +744,8 @@
                             },
                             "entities": [
                                 "binary_sensor.livebox",
-                                "binary_sensor.esxi_1",
-                                "binary_sensor.esxi_2",
+                                "binary_sensor.proxmox_ve_1",
+                                "binary_sensor.proxmox_ve_2",
                                 "binary_sensor.vm_zeus_server",
                                 "binary_sensor.vm_atlas_server",
                                 "binary_sensor.vm_hyperion_server",
