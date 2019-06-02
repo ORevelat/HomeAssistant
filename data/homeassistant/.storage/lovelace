@@ -21,6 +21,65 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "input_select.thermostat_mode",
+                                    "icon": "mdi:thermostat-box",
+                                    "name": "Mode"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Chauffage",
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.qubino_smart_meter_power",
+                                    "max": 10000,
+                                    "min": 0,
+                                    "name": " ",
+                                    "severity": {
+                                        "green": 0,
+                                        "red": 9000,
+                                        "yellow": 4500
+                                    },
+                                    "theme": "default",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entity": "sensor.qubino_smart_meter_power_factor",
+                                    "max": 1,
+                                    "min": 0,
+                                    "name": "cos(phi)",
+                                    "severity": {
+                                        "green": 0.85,
+                                        "red": 0.5,
+                                        "yellow": 0.6
+                                    },
+                                    "theme": "default",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.qubino_smart_meter_energy",
+                                            "icon": "mdi:power-settings",
+                                            "name": "Puissance"
+                                        },
+                                        {
+                                            "entity": "sensor.qubino_smart_meter_energy_2",
+                                            "icon": "mdi:power-settings",
+                                            "name": "Consommation"
+                                        }
+                                    ],
+                                    "theme": "default",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
                             "columns": 3,
                             "entities": [
                                 {
@@ -36,47 +95,6 @@
                             "show_name": false,
                             "title": "Pr\u00e9sence",
                             "type": "glance"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "sensor.qubino_smart_meter_power",
-                                    "max": 10000,
-                                    "min": 0,
-                                    "name": "Puissance",
-                                    "severity": {
-                                        "green": 0,
-                                        "red": 9000,
-                                        "yellow": 4500
-                                    },
-                                    "theme": "default",
-                                    "type": "gauge"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.qubino_smart_meter_energy",
-                                            "icon": "mdi:power-settings",
-                                            "name": "Consommation"
-                                        }
-                                    ],
-                                    "theme": "default",
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_select.thermostat_mode",
-                                    "icon": "mdi:thermostat-box",
-                                    "name": "Mode"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Chauffage",
-                            "type": "entities"
                         },
                         {
                             "card": {
