@@ -292,7 +292,7 @@
                                     "name": "Prise salon"
                                 }
                             ],
-                            "title": "Interrupteurs",
+                            "title": "Prises",
                             "type": "glance"
                         },
                         {
@@ -693,12 +693,12 @@
                                     "name": "Probabilit\u00e9 d'orage"
                                 },
                                 {
-                                    "entity": "sensor.auribeau_sur_siagne_snow_chance",
-                                    "name": "Probabilit\u00e9 de neige"
-                                },
-                                {
                                     "entity": "sensor.auribeau_sur_siagne_freeze_chance",
                                     "name": "Probabilit\u00e9 de gel"
+                                },
+                                {
+                                    "entity": "sensor.auribeau_sur_siagne_snow_chance",
+                                    "name": "Probabilit\u00e9 de neige"
                                 }
                             ],
                             "show_header_toggle": false,
