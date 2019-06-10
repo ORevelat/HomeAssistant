@@ -80,21 +80,27 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "columns": 3,
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "device_tracker.iphone_olivier"
+                                    "entity": "person.olivier",
+                                    "image": "https://hass.revelat.eu:48880/local/img/olivier.jpg",
+                                    "show_name": false,
+                                    "type": "picture-entity"
                                 },
                                 {
-                                    "entity": "device_tracker.iphone_sandrine"
+                                    "entity": "person.sandrine",
+                                    "image": "https://hass.revelat.eu:48880/local/img/sandrine.jpg",
+                                    "show_name": false,
+                                    "type": "picture-entity"
                                 },
                                 {
-                                    "entity": "device_tracker.iphone_thea"
+                                    "entity": "person.thea",
+                                    "image": "https://hass.revelat.eu:48880/local/img/thea.jpg",
+                                    "show_name": false,
+                                    "type": "picture-entity"
                                 }
                             ],
-                            "show_name": false,
-                            "title": "Pr\u00e9sence",
-                            "type": "glance"
+                            "type": "horizontal-stack"
                         },
                         {
                             "card": {

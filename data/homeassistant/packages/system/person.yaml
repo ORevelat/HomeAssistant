@@ -1,0 +1,16 @@
+
+person:
+  - name: Olivier
+    id: olivier_revelat
+    device_trackers:
+      - device_tracker.iphone_olivier
+
+  - name: Sandrine
+    id: sandrine_maziere
+    device_trackers:
+      - device_tracker.iphone_sandrine
+
+  - name: Théa
+    id: thea_revelat
+    device_trackers:
+      - device_tracker.iphone_thea
