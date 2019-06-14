@@ -9,6 +9,7 @@ recorder:
       - input_number
       - input_select
       - device_tracker
+      - person
     entities:
       - sensor.auribeau_sur_siagne_temperature
       - sensor.oregontemphygro_5288a_temp
