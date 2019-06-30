@@ -4,7 +4,7 @@ Ma configuration personnelle de Home Assistant, utilisée quotidiennement au tra
 
 Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.94.1**
+Mise à jour pour Home Assistant: **0.94.4**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
@@ -18,7 +18,7 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * prises avec mesure de consomation (NeoCoolcam)
 - des SonOff (des Basic, des S26 et un Pro 4Ch) avec firmware Tasmotta
 - des périphériques BT-LE (Xiaomi miflora, thermomètre)
-- des périphériques Zigbee (work in progress !)
+- des périphériques Zigbee (work in progress sur 2nd instance)
 - une DOTI
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
 - un Amazon Echo de façon quotidienne

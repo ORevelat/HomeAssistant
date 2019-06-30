@@ -6,13 +6,13 @@ weather:
   #   api_key: !secret openweathermap_api_key
   #   mode: daily
 
-meteo_france:
-    - city: '06810'
-      monitored_conditions:
-        - temperature
-        - weather
-        - wind_speed
-        - rain_chance
-        - freeze_chance
-        - snow_chance
-        - thunder_chance
+# meteo_france:
+#   - city: '06810'
+#     monitored_conditions:
+#       - temperature
+#       - weather
+#       - wind_speed
+#       - rain_chance
+#       - freeze_chance
+#       - snow_chance
+#       - thunder_chance

@@ -4,13 +4,16 @@ person:
     id: olivier_revelat
     device_trackers:
       - device_tracker.iphone_olivier
+      - device_tracker.58_40_4e_71_ec_ff
 
   - name: Sandrine
     id: sandrine_maziere
     device_trackers:
       - device_tracker.iphone_sandrine
+      - device_tracker.68_fb_7e_2a_ca_62
 
   - name: Théa
     id: thea_revelat
     device_trackers:
       - device_tracker.iphone_thea
+      - device_tracker.20_ab_37_70_88_e2

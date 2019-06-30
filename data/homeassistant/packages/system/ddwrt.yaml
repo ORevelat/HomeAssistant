@@ -1,0 +1,22 @@
+
+device_tracker:
+
+  - platform: ddwrt
+    host: !secret ddwrt_archerc7_ip
+    username: !secret ddwrt_archerc7_user
+    password: !secret ddwrt_archerc7_pwd
+    interval_seconds: 30
+    consider_home: 180
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+
+  - platform: ddwrt
+    host: !secret ddwrt_wa830_ip
+    username: !secret ddwrt_wa830_user
+    password: !secret ddwrt_wa830_pwd
+    interval_seconds: 30
+    consider_home: 180
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
