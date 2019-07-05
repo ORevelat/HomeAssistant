@@ -1,6 +1,4 @@
----
+hello_world:
+  module: hello
+  class: HelloWorld
 
-sendsms:
-  module: sms_send
-  class: SmsSend
-  verbose_log: true

@@ -28,7 +28,7 @@ services:
   homeassistant:
     container_name: hass
     # use cutom image with own dependencies
-    image: my-homeassistant:0.94.1
+    image: my-homeassistant:0.94.4
     restart: always
     ports:
       - "8123:8123"
@@ -50,12 +50,8 @@ services:
     image: my-appdaemon:latest
     restart: always
     volumes:
-      - /srv/disk1/docker-data/data/appdaemon/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
       - /etc/localtime:/etc/localtime:ro
       - /srv/disk1/docker-data/data/appdaemon/data:/conf
-      - /srv/disk1/docker-data/data/homeassistant:/confhass
-    #devices:
-    #  - /dev/hspa:/dev/hspa
     logging:
       options:
         max-size: 10m

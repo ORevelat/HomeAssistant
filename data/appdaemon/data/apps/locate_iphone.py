@@ -32,11 +32,11 @@ class iCloud(hass.Hass):
 
 			api = PyiCloudService(self.args["account_name"], self.args["account_passwd"])
 
-			if api.requires_2fa:
-				self.my_log('requires_2fa is True for account ' + self.args["account_name"])
+			if api.requires_2sa:
+				self.my_log('requires_2sa is True for account ' + self.args["account_name"])
 
 				api.authenticate()
-				if api.requires_2fa:
+				if api.requires_2sa:
 					raise Exception('Unknown failure')
 
 			try:
@@ -54,6 +54,7 @@ class iCloud(hass.Hass):
 
 				data = {}
 				data['_type'] = "location"
+				data['t'] = "c"	# c/u GPS, b BTLE
 				data['tid'] = self.args["name"]
 				data['lon'] = location["longitude"]
 				data['lat'] = location["latitude"]
@@ -64,7 +65,7 @@ class iCloud(hass.Hass):
 
 				json_data = json.dumps(data, ensure_ascii=False)
 
-				# self.my_log(json_data)
+				self.my_log(json_data)
 				self.call_service("mqtt/publish", topic = topic, payload = json_data, qos = "1", retain = "false")
 
 			except PyiCloudNoDevicesException:
