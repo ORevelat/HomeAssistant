@@ -25,6 +25,21 @@ services:
       options:
         max-size: 10m
 
+  zwave2mqtt:
+    container_name: zwave2mqtt
+    image: robertslando/zwave2mqtt:latest
+    restart: always
+    user: 1000:1000
+    ports:
+      - "8091:8091"
+    volumes:
+      - /srv/disk1/docker-data/data/zwave2mqtt:/usr/src/app/store
+#    devices:
+#      - /dev/zwave:/dev/zwave
+    logging:
+      options:
+        max-size: 10m
+
   homeassistant:
     container_name: hass
     # use cutom image with own dependencies
