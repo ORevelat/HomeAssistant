@@ -55,6 +55,12 @@ binary_sensor:
     scan_interval: 60
 
   - platform: ping
+    name: "Caméra Jardin (back)"
+    host: !secret host_cam_jardin1
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
     name: "Imprimante"
     host: !secret host_imprimante
     count: 1
