@@ -4,9 +4,10 @@ shell_command:
 
 alexa:
   smart_home:
-    endpoint: !secret alexa_endpoint
-    client_id: !secret alexa_client_id
-    client_secret: !secret alexa_client_secret
+    # no proactive mode with haaska
+    # endpoint: !secret alexa_endpoint
+    # client_id: !secret alexa_client_id
+    # client_secret: !secret alexa_client_secret
     filter:
       exclude_domains:
         - automation
