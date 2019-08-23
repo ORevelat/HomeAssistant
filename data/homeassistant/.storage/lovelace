@@ -13,6 +13,10 @@
                 {
                     "type": "module",
                     "url": "/local/lovelace/js/secondaryinfo-entity-row.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/surveillance-card/surveillance-card.js"
                 }
             ],
             "title": "Home",
@@ -587,7 +591,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.mi_speaker_wifi_2",
+                            "entity": "media_player.tv_salon",
                             "type": "media-control"
                         },
                         {
@@ -599,6 +603,10 @@
                             "show_header_toggle": false,
                             "title": "Serveur Plex ",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.mi_speaker_wifi_2",
+                            "type": "media-control"
                         }
                     ],
                     "icon": "mdi:play-circle-outline",
@@ -608,38 +616,24 @@
                     "badges": [],
                     "cards": [
                         {
-                            "camera_image": "camera.rez_de_chaussee",
-                            "entities": [
-                                "camera.rez_de_chaussee",
+                            "cameras": [
                                 {
-                                    "entity": "sensor.oregontemp_1d40_temp"
+                                    "entity": "camera.rez_de_chaussee",
+                                    "motion_entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_motion_etage_sensor"
+                                    "entity": "camera.jardin_riviere"
                                 }
                             ],
-                            "image": null,
-                            "title": "Rez de chauss\u00e9e",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "camera_image": "camera.jardin_riviere",
-                            "entities": [
-                                "camera.jardin_riviere",
-                                {
-                                    "entity": "sensor.oregontemphygro_2d58_temp"
-                                }
-                            ],
-                            "image": null,
-                            "title": "Jardin (rivi\u00e8re)",
-                            "type": "picture-glance"
+                            "thumb_interval": 10,
+                            "type": "custom:surveillance-card",
+                            "update_interval": 1
                         }
                     ],
                     "icon": "mdi:cctv",
-                    "title": "Cam\u00e9ras"
+                    "panel": true,
+                    "theme": "Backend-selected",
+                    "title": "Surveillance"
                 },
                 {
                     "badges": [],
@@ -776,6 +770,19 @@
                                 ]
                             },
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.potential_breaking_changes"
+                                },
+                                {
+                                    "entity": "sensor.hacs"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Home Assistant",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:server-security",
@@ -805,46 +812,12 @@
                                 "title": "Automatismes non activ\u00e9s"
                             },
                             "entities": [
-                                "automation.allumer_deco_noel_interieur",
-                                "automation.allumer_diffuseur_moustiques",
-                                "automation.allumer_detecteur_lumiere_garage_portail",
-                                "automation.allumer_fontaine_du_jardin",
-                                "automation.allumer_pompe_de_la_piscine_am",
-                                "automation.allumer_pompe_de_la_piscine_pm",
-                                "automation.allumer_projecteur_du_jardin",
-                                "automation.arret_mode_thermostat",
-                                "automation.away_mode_thermostat",
-                                "automation.demarrage_homeassistant",
-                                "automation.demarrage_z_wave",
-                                "automation.eteindre_deco_noel_interieur",
-                                "automation.eteindre_diffuseur_moustiques",
-                                "automation.eteindre_detecteur_lumiere_garage_portail",
-                                "automation.eteindre_fontaine_du_jardin",
-                                "automation.eteindre_pompe_de_la_piscine_am",
-                                "automation.eteindre_pompe_de_la_piscine_pm",
-                                "automation.eteindre_projecteur_du_jardin",
-                                "automation.fermeture_automatique_des_volets",
-                                "automation.maison_vacances_mode_thermostat",
-                                "automation.ouverture_automatique_des_volets",
                                 "automation.selecteur_pilote_arret",
                                 "automation.selecteur_pilote_confort",
                                 "automation.selecteur_pilote_confort_1",
                                 "automation.selecteur_pilote_confort_2",
                                 "automation.selecteur_pilote_eco",
-                                "automation.selecteur_pilote_hors_gel",
-                                "automation.thermostat_off_chambre_parents",
-                                "automation.thermostat_off_chambre_thea",
-                                "automation.thermostat_off_rez_de_chaussee",
-                                "automation.thermostat_on_chambre_parents",
-                                "automation.thermostat_on_chambre_thea",
-                                "automation.thermostat_on_rez_de_chaussee",
-                                "automation.thermostat_rdc_journee",
-                                "automation.thermostat_rdc_matin",
-                                "automation.thermostat_rdc_matin_au_soir",
-                                "automation.thermostat_rdc_nuit",
-                                "automation.thermostat_rdc_soiree",
-                                "automation.thermostat_chambres_journee",
-                                "automation.thermostat_chambres_nuit"
+                                "automation.selecteur_pilote_hors_gel"
                             ],
                             "show_empty": false,
                             "state_filter": [
