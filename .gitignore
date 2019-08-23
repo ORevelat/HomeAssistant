@@ -45,10 +45,12 @@
 /data/homeassistant/.google.token
 /data/homeassistant/OZW_Log.txt
 /data/homeassistant/pyozw.sqlite
+/data/homeassistant/custom_components
 
 # specific files & folders for AppDaemon
 /data/appdaemon/data/logs
 /data/appdaemon/data/secrets.yaml
+/data/appdaemon/data/icloud
 # -- script to log once using 2FA 
 /data/appdaemon/data/icloud.py
 

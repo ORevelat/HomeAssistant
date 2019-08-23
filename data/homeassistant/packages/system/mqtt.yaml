@@ -6,6 +6,8 @@ mqtt:
   username: !secret mosquitto_username
   password: !secret mosquitto_password
   protocol: 3.1.1
+  discovery: true
+  discovery_prefix: hassconfig
   birth_message:
     topic: 'hass/status'
     payload: 'online'
