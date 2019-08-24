@@ -5,5 +5,5 @@ history:
   use_include_order: True
   include:
     entities:
-      - sensor.auribeau_sur_siagne_temperature
+      - sensor.dark_sky_temperature
       - sensor.oregontemp_1d40_temp

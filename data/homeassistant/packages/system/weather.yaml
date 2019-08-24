@@ -6,6 +6,17 @@ weather:
   #   api_key: !secret openweathermap_api_key
   #   mode: daily
 
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    language: fr
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+    scan_interval:
+      minutes: 15
+
 # meteo_france:
 #   - city: '06810'
 #     monitored_conditions:

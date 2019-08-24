@@ -11,7 +11,7 @@ recorder:
       - device_tracker
       - person
     entities:
-      - sensor.auribeau_sur_siagne_temperature
+      - sensor.dark_sky_temperature
       - sensor.oregontemphygro_5288a_temp
       - sensor.oregontemphygro_5288a_hum
       - sensor.oregontemphygro_628da_temp
