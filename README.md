@@ -4,7 +4,7 @@ Ma configuration personnelle de Home Assistant, utilisée quotidiennement au tra
 
 Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.94.4**
+Mise à jour pour Home Assistant: **0.97.2**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
@@ -18,11 +18,11 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * prises avec mesure de consomation (NeoCoolcam)
 - des SonOff (des Basic, des S26 et un Pro 4Ch) avec firmware Tasmotta
 - des périphériques BT-LE (Xiaomi miflora, thermomètre)
-- des périphériques Zigbee (work in progress sur 2nd instance)
+- des périphériques Zigbee (work in progress sur instance de test)
 - une DOTI
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
-- un Amazon Echo de façon quotidienne
-  * commande vocale avec une skill home-made
+- Amazon Echo/Dot de façon quotidienne
+  * commande vocale via le bridge Haaska
   * TTS via un script shell
 
 ### Home Assistant
@@ -36,7 +36,7 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * RFLink
   * clé HSPA Huawei E169
   * clé Bluetooth LE CSR 4.0
-  * clé Zigate - en cours (mais je n'ai pas encore d'utilisation concrète)
+  * clé Zigbee Zigate
 
 #### Software
 Après avoir utilisé directement Home Assistant en mode venv python sur l'OS directement, je suis passé sur une installation utilisant Docker pour la facilité de mise à jour principalement (outre le fait que le principe des conteneurs c'est le bien !).
@@ -74,7 +74,7 @@ Aucune modification du logiciel officiel, mais un ajout de certaines dépendance
 Disponible dans le répertoire /docker-build.
 
 ### Raspberry n°1
-Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de-chaussé, donc j'ai déporté un vieu PI du tirroir directement dans le salon.
+Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de-chaussé, donc j'ai déporté un vieux PI du tirroir directement dans le salon.
 
 #### Hardware
 - Raspberry PI 1B
