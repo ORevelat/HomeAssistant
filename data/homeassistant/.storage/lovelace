@@ -104,18 +104,6 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "input_select.thermostat_mode",
-                                    "icon": "mdi:thermostat-box",
-                                    "name": "Mode"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Chauffage",
-                            "type": "entities"
-                        },
-                        {
                             "cards": [
                                 {
                                     "cards": [
@@ -340,6 +328,10 @@
                                 {
                                     "entity": "switch.sonoff_salon",
                                     "name": "Prise salon"
+                                },
+                                {
+                                    "entity": "switch.sonoff_bibliotheque_haut",
+                                    "name": "Prise Biblioth\u00e8que"
                                 }
                             ],
                             "title": "Prises",
