@@ -31,14 +31,56 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "input_select.thermostat_mode",
-                                    "icon": "mdi:thermostat-box",
-                                    "name": "Mode"
+                                    "entity": "sensor.dark_sky_summary",
+                                    "name": "Actuellement",
+                                    "secondary_info": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[ sensor.dark_sky_temperature ]] \u00b0C",
+                                    "type": "custom:secondaryinfo-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Chauffage",
                             "type": "entities"
+                        },
+                        {
+                            "dateSize": 130,
+                            "entities": [
+                                {
+                                    "entity": "calendar.home_assistant"
+                                },
+                                {
+                                    "entity": "calendar.olivier_revelat_gmail_com"
+                                },
+                                {
+                                    "entity": "calendar.jours_feries_en_france",
+                                    "type": "holiday"
+                                }
+                            ],
+                            "maxDaysToShow": 2,
+                            "showDate": true,
+                            "title": "Calendriers",
+                            "type": "custom:atomic-calendar"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "person.olivier",
+                                    "image": "https://hass.revelat.eu:48880/local/img/olivier.jpg",
+                                    "show_name": false,
+                                    "type": "picture-entity"
+                                },
+                                {
+                                    "entity": "person.sandrine",
+                                    "image": "https://hass.revelat.eu:48880/local/img/sandrine.jpg",
+                                    "show_name": false,
+                                    "type": "picture-entity"
+                                },
+                                {
+                                    "entity": "person.thea",
+                                    "image": "https://hass.revelat.eu:48880/local/img/thea.jpg",
+                                    "show_name": false,
+                                    "type": "picture-entity"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         },
                         {
                             "cards": [
@@ -88,27 +130,16 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "cards": [
+                            "entities": [
                                 {
-                                    "entity": "person.olivier",
-                                    "image": "https://hass.revelat.eu:48880/local/img/olivier.jpg",
-                                    "show_name": false,
-                                    "type": "picture-entity"
-                                },
-                                {
-                                    "entity": "person.sandrine",
-                                    "image": "https://hass.revelat.eu:48880/local/img/sandrine.jpg",
-                                    "show_name": false,
-                                    "type": "picture-entity"
-                                },
-                                {
-                                    "entity": "person.thea",
-                                    "image": "https://hass.revelat.eu:48880/local/img/thea.jpg",
-                                    "show_name": false,
-                                    "type": "picture-entity"
+                                    "entity": "input_select.thermostat_mode",
+                                    "icon": "mdi:thermostat-box",
+                                    "name": "Mode"
                                 }
                             ],
-                            "type": "horizontal-stack"
+                            "show_header_toggle": false,
+                            "title": "Chauffage",
+                            "type": "entities"
                         },
                         {
                             "card": {
@@ -132,7 +163,7 @@
                                     }
                                 ]
                             },
-                            "show_empty": true,
+                            "show_empty": false,
                             "type": "custom:monster-card"
                         },
                         {
@@ -154,27 +185,8 @@
                                     }
                                 ]
                             },
-                            "show_empty": true,
+                            "show_empty": false,
                             "type": "custom:monster-card"
-                        },
-                        {
-                            "dateSize": 130,
-                            "entities": [
-                                {
-                                    "entity": "calendar.home_assistant"
-                                },
-                                {
-                                    "entity": "calendar.olivier_revelat_gmail_com"
-                                },
-                                {
-                                    "entity": "calendar.jours_feries_en_france",
-                                    "type": "holiday"
-                                }
-                            ],
-                            "maxDaysToShow": 2,
-                            "showDate": true,
-                            "title": "Calendriers",
-                            "type": "custom:atomic-calendar"
                         }
                     ],
                     "icon": "mdi:home",
