@@ -17,6 +17,10 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/surveillance-card/surveillance-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/atomic_calendar/atomic_calendar.js"
                 }
             ],
             "title": "Home",
@@ -154,34 +158,23 @@
                             "type": "custom:monster-card"
                         },
                         {
-                            "cards": [
+                            "dateSize": 130,
+                            "entities": [
                                 {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.date_time"
-                                        },
-                                        {
-                                            "entity": "sensor.uptime"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "type": "entities"
+                                    "entity": "calendar.home_assistant"
                                 },
                                 {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.calendar_next_text"
-                                        },
-                                        {
-                                            "entity": "sensor.calendar_next_time"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "Calendrier",
-                                    "type": "entities"
+                                    "entity": "calendar.olivier_revelat_gmail_com"
+                                },
+                                {
+                                    "entity": "calendar.jours_feries_en_france",
+                                    "type": "holiday"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "maxDaysToShow": 2,
+                            "showDate": true,
+                            "title": "Calendriers",
+                            "type": "custom:atomic-calendar"
                         }
                     ],
                     "icon": "mdi:home",
@@ -685,6 +678,22 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "sensor.uptime"
+                                },
+                                {
+                                    "entity": "sensor.potential_breaking_changes"
+                                },
+                                {
+                                    "entity": "sensor.hacs"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Home Assistant",
+                            "type": "entities"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entities": [
@@ -730,6 +739,24 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
+                                "title": "Consommation",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.fibaro_dimmer_*_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.prise_*_power"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
                                 "title": "Non connect\u00e9s"
                             },
                             "entities": [
@@ -752,37 +779,6 @@
                                 "off"
                             ],
                             "type": "entity-filter"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Consommation",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.fibaro_dimmer_*_power"
-                                    },
-                                    {
-                                        "entity_id": "sensor.prise_*_power"
-                                    }
-                                ]
-                            },
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.potential_breaking_changes"
-                                },
-                                {
-                                    "entity": "sensor.hacs"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Home Assistant",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:server-security",
