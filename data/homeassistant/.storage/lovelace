@@ -29,35 +29,56 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.dark_sky_summary",
-                                    "name": "Actuellement",
-                                    "secondary_info": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[ sensor.dark_sky_temperature ]] \u00b0C",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
-                        {
-                            "dateSize": 130,
-                            "entities": [
-                                {
-                                    "entity": "calendar.home_assistant"
+                                    "elements": [
+                                        {
+                                            "entity": "sensor.time",
+                                            "style": {
+                                                "color": "rgb(64,64,64)",
+                                                "font-size": "4vw",
+                                                "left": "50%",
+                                                "top": "50%"
+                                            },
+                                            "type": "state-label"
+                                        }
+                                    ],
+                                    "image": "/local/img/fond_blanc.png",
+                                    "type": "picture-elements"
                                 },
                                 {
-                                    "entity": "calendar.olivier_revelat_gmail_com"
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dark_sky_summary",
+                                            "name": "Actuellement",
+                                            "secondary_info": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[ sensor.dark_sky_temperature ]] \u00b0C",
+                                            "type": "custom:secondaryinfo-entity-row"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "type": "entities"
                                 },
                                 {
-                                    "entity": "calendar.jours_feries_en_france",
-                                    "type": "holiday"
+                                    "dateSize": 130,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.home_assistant"
+                                        },
+                                        {
+                                            "entity": "calendar.olivier_revelat_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.jours_feries_en_france",
+                                            "type": "holiday"
+                                        }
+                                    ],
+                                    "maxDaysToShow": 2,
+                                    "showDate": true,
+                                    "title": "Calendriers",
+                                    "type": "custom:atomic-calendar"
                                 }
                             ],
-                            "maxDaysToShow": 2,
-                            "showDate": true,
-                            "title": "Calendriers",
-                            "type": "custom:atomic-calendar"
+                            "type": "vertical-stack"
                         },
                         {
                             "cards": [
@@ -83,53 +104,6 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "cards": [
-                                {
-                                    "entity": "sensor.qubino_smart_meter_power",
-                                    "max": 10000,
-                                    "min": 0,
-                                    "name": " ",
-                                    "severity": {
-                                        "green": 0,
-                                        "red": 9000,
-                                        "yellow": 4500
-                                    },
-                                    "theme": "default",
-                                    "type": "gauge"
-                                },
-                                {
-                                    "entity": "sensor.qubino_smart_meter_power_factor",
-                                    "max": 1,
-                                    "min": 0,
-                                    "name": "cos(phi)",
-                                    "severity": {
-                                        "green": 0.85,
-                                        "red": 0.5,
-                                        "yellow": 0.6
-                                    },
-                                    "theme": "default",
-                                    "type": "gauge"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.qubino_smart_meter_energy",
-                                            "icon": "mdi:power-settings",
-                                            "name": "Puissance"
-                                        },
-                                        {
-                                            "entity": "sensor.qubino_smart_meter_energy_2",
-                                            "icon": "mdi:power-settings",
-                                            "name": "Consommation"
-                                        }
-                                    ],
-                                    "theme": "default",
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "input_select.thermostat_mode",
@@ -142,51 +116,112 @@
                             "type": "entities"
                         },
                         {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Lumi\u00e8res allum\u00e9es",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "light.qubino_*"
-                                    },
-                                    {
-                                        "entity_id": "light.fibaro_dimmer_*_2"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "domain": "light",
-                                        "state": "on"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.qubino_smart_meter_power",
+                                            "max": 10000,
+                                            "min": 0,
+                                            "name": " ",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 9000,
+                                                "yellow": 4500
+                                            },
+                                            "theme": "default",
+                                            "type": "gauge"
+                                        },
+                                        {
+                                            "entity": "sensor.qubino_smart_meter_power_factor",
+                                            "max": 1,
+                                            "min": 0,
+                                            "name": "cos(phi)",
+                                            "severity": {
+                                                "green": 0.85,
+                                                "red": 0.5,
+                                                "yellow": 0.6
+                                            },
+                                            "theme": "default",
+                                            "type": "gauge"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.qubino_smart_meter_energy",
+                                                    "icon": "mdi:power-settings",
+                                                    "name": "Puissance"
+                                                },
+                                                {
+                                                    "entity": "sensor.qubino_smart_meter_energy_2",
+                                                    "icon": "mdi:power-settings",
+                                                    "name": "Consommation"
+                                                }
+                                            ],
+                                            "type": "entities"
+                                        }
+                                    ],
+                                    "type": "vertical-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         },
                         {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Prises allum\u00e9es",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "entity_id": "switch.qubino_pilot_*"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "domain": "switch",
-                                        "state": "on"
-                                    }
-                                ]
-                            },
-                            "show_empty": false,
-                            "type": "custom:monster-card"
+                            "cards": [
+                                {
+                                    "card": {
+                                        "show_header_toggle": false,
+                                        "title": "Lumi\u00e8res allum\u00e9es",
+                                        "type": "entities"
+                                    },
+                                    "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "light.qubino_*"
+                                            },
+                                            {
+                                                "entity_id": "light.fibaro_dimmer_*_2"
+                                            }
+                                        ],
+                                        "include": [
+                                            {
+                                                "domain": "light",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    "show_empty": false,
+                                    "type": "custom:monster-card"
+                                },
+                                {
+                                    "card": {
+                                        "show_header_toggle": false,
+                                        "title": "Prises allum\u00e9es",
+                                        "type": "entities"
+                                    },
+                                    "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "switch.qubino_pilot_*"
+                                            }
+                                        ],
+                                        "include": [
+                                            {
+                                                "domain": "switch",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    "show_empty": false,
+                                    "type": "custom:monster-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:home",
@@ -644,6 +679,11 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entity": "weather.dark_sky",
+                            "name": "Auribeau sur Siagne",
+                            "type": "weather-forecast"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sun.sun",
@@ -676,11 +716,6 @@
                             "show_header_toggle": false,
                             "title": "Vigilance m\u00e9t\u00e9o",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "weather.dark_sky",
-                            "name": "Auribeau sur Siagne",
-                            "type": "weather-forecast"
                         }
                     ],
                     "icon": "mdi:weather-partlycloudy",
