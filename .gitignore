@@ -12,7 +12,8 @@
 # build
 /docker-build/*
 !/docker-build/homeassistant
-!/docker-build/appdaemon-gammu
+!/docker-build/appdaemon
+!/docker-build/nodered-gammu
 
 # test
 /docker-tests/*
