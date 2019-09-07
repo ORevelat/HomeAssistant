@@ -23,3 +23,9 @@ zone:
     longitude: !secret zone_lon_middleschool
     radius: 50
     icon: mdi:school
+
+  - name: Lycée
+    latitude: !secret zone_lat_highschool
+    longitude: !secret zone_lon_highschool
+    radius: 100
+    icon: mdi:school

@@ -47,6 +47,7 @@
 /data/homeassistant/OZW_Log.txt
 /data/homeassistant/pyozw.sqlite
 /data/homeassistant/custom_components
+/data/homeassistant/alexa_*
 /data/homeassistant/www/**/*.gz
 
 # specific files & folders for AppDaemon

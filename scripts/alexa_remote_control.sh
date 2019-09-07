@@ -31,7 +31,7 @@ BROWSER='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
 ###########################################
 # nothing to configure below here
 #
-TMP="/tmp"
+TMP="/config/shell_scripts/tmp"
 COOKIE="${TMP}/.alexa.cookie"
 DEVLIST="${TMP}/.alexa.devicelist.json"
 

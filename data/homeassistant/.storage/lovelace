@@ -627,6 +627,18 @@
                             "type": "media-control"
                         },
                         {
+                            "entity": "media_player.echo_salon",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.echo_bureau",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.echo_chambre",
+                            "type": "media-control"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.plex"
@@ -792,6 +804,28 @@
                                 ]
                             },
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.linky_yesterday"
+                                },
+                                {
+                                    "entity": "sensor.linky_current_month"
+                                },
+                                {
+                                    "entity": "sensor.linky_last_month"
+                                },
+                                {
+                                    "entity": "sensor.linky_current_year"
+                                },
+                                {
+                                    "entity": "sensor.linky_last_year"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Linky",
+                            "type": "entities"
                         },
                         {
                             "card": {

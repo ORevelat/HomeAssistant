@@ -31,4 +31,9 @@ influxdb:
       - sensor.fibaro_motion_salle_a_manger_luminance
       - sensor.qubino_smart_meter_power
       - sensor.qubino_smart_meter_energy
+      - sensor.linky_current_month
+      - sensor.linky_current_year
+      - sensor.linky_last_month
+      - sensor.linky_last_year
+      - sensor.linky_yesterday
     
