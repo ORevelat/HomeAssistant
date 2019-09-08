@@ -3,7 +3,7 @@
 sensor.oregontemp_1d40_temp:
   friendly_name: Température Salon
 sensor.oregontemp_1d40_bat:
-  friendly_name: Température Salon
+  friendly_name: Batterie Salon
 
 ## CH PARENTS
 sensor.oregontemphygro_5288a_temp:
