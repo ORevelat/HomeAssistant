@@ -36,7 +36,7 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * RFLink
   * clé HSPA Huawei E169
   * clé Bluetooth LE CSR 4.0
-  * clé CC2531 Zigbee ~clé Zigbee Zigate~
+  * clé CC2531 Zigbee ~~clé Zigbee Zigate~~
 
 #### Software
 Après avoir utilisé directement Home Assistant en mode venv python sur l'OS directement, je suis passé sur une installation utilisant Docker pour la facilité de mise à jour principalement (outre le fait que le principe des conteneurs c'est le bien !).
