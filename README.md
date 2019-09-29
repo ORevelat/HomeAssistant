@@ -9,7 +9,7 @@ Mise à jour pour Home Assistant: **0.97.2**
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
 
-Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat, ou alors d'utiliser MQTT pour publier les données. Pour ce dernier point, j'ai réaliser un petit soft python qui me permet de récupérer à interval régulier des infos et de les publier.
+Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données. Pour ce dernier point, j'ai réaliser un petit soft python qui me permet de récupérer à interval régulier des infos et de les publier pour quelques périphériques Xiaomi.
 
 - une 20ène de périphériques ZWave (dont certains ne sont pas encore la) principalement pour
   * les lumières (Fibaro)
@@ -23,7 +23,7 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
 - Amazon Echo/Dot de façon quotidienne
   * commande vocale via le bridge Haaska
-  * TTS via un script shell
+  * TTS via Alexa Media Player (HACS)
 
 ### Home Assistant
 
@@ -36,7 +36,7 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
   * RFLink
   * clé HSPA Huawei E169
   * clé Bluetooth LE CSR 4.0
-  * clé Zigbee Zigate
+  * clé CC2531 Zigbee ~clé Zigbee Zigate~
 
 #### Software
 Après avoir utilisé directement Home Assistant en mode venv python sur l'OS directement, je suis passé sur une installation utilisant Docker pour la facilité de mise à jour principalement (outre le fait que le principe des conteneurs c'est le bien !).
@@ -52,12 +52,14 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
     * PostgreSQL
     * InfluxDB
     * TasmoAdmin
+    * Zigbee2Mqtt
+    * Zigbee2MqttAssistant
   * stack Utils
     * Mosquitto server
     * Grafana
   * stack Automation Test
     * Home Assistant(s)
-    * AppDaemon
+    * Zwave2Mqtt
 
 Docker gère bien d'autre conteneur tel que:
   * Sites Web

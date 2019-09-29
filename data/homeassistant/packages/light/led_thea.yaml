@@ -1,0 +1,6 @@
+light:
+  - platform: flux_led
+    devices:
+      192.168.254.50:
+        name: led_chambre_thea
+        mode: "rgbw"

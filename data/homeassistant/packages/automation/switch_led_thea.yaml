@@ -1,0 +1,99 @@
+
+automation:
+
+- alias: Bandeau Led On
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.0x00158d0002337696_click
+    to: 'single'
+  condition: 
+    condition: state
+    entity_id: light.led_chambre_thea
+    state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.led_chambre_thea
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.led_chambre_thea
+        rgb_color: [0,0,0]
+        brightness: 1
+        white_value: 255
+
+- alias: Bandeau Led Off
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.0x00158d0002337696_click
+    to: 'single'
+  condition: 
+    condition: state
+    entity_id: light.led_chambre_thea
+    state: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.led_chambre_thea
+
+- alias: Bandeau Led Color1
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.0x00158d0002337696_click
+    to: 'double'
+  condition: 
+    condition: state
+    entity_id: light.led_chambre_thea
+    state: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.led_chambre_thea
+      brightness: 255
+      rgb_color: [255,0,43]
+      white_value: 0
+
+- alias: Bandeau Led Color2
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.0x00158d0002337696_click
+    to: 'triple'
+  condition: 
+    condition: state
+    entity_id: light.led_chambre_thea
+    state: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.led_chambre_thea
+      brightness: 61
+      rgb_color: [49,0,62]
+      white_value: 0
+
+- alias: Bandeau Led Color3
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.0x00158d0002337696_click
+    to: 'quadruple'
+  condition: 
+    condition: state
+    entity_id: light.led_chambre_thea
+    state: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.led_chambre_thea
+      brightness: 255
+      rgb_color: [0,119,255]
+      white_value: 0

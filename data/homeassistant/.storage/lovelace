@@ -372,6 +372,10 @@
                                     "name": "Ch. Th\u00e9a"
                                 },
                                 {
+                                    "entity": "light.led_chambre_thea",
+                                    "name": "CH. Th\u00e9a Leds"
+                                },
+                                {
                                     "entity": "light.fibaro_dimmer_salledebain_level",
                                     "name": "Salle de bain"
                                 }
@@ -897,6 +901,38 @@
                     ],
                     "icon": "mdi:home-automation",
                     "title": "Automatismes"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bureau_presence_sensor_illuminance"
+                                },
+                                {
+                                    "entity": "binary_sensor.bureau_presence_sensor_occupancy"
+                                },
+                                {
+                                    "entity": "sensor.0x00158d00032170fc_temperature"
+                                },
+                                {
+                                    "entity": "sensor.0x00158d00032170fc_humidity"
+                                },
+                                {
+                                    "entity": "sensor.0x00158d00032170fc_pressure"
+                                },
+                                {
+                                    "entity": "sensor.0x00158d0002337696_click"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:zigbee",
+                    "path": "zigbee",
+                    "title": "Zigbee"
                 }
             ]
         }

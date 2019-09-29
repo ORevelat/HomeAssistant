@@ -25,25 +25,10 @@ services:
       options:
         max-size: 10m
 
-  zwave2mqtt:
-    container_name: zwave2mqtt
-    image: robertslando/zwave2mqtt:latest
-    restart: always
-    user: 1000:1000
-    ports:
-      - "8091:8091"
-    volumes:
-      - /srv/disk1/docker-data/data/zwave2mqtt:/usr/src/app/store
-#    devices:
-#      - /dev/zwave:/dev/zwave
-    logging:
-      options:
-        max-size: 10m
-
   homeassistant:
     container_name: hass
     # use cutom image with own dependencies
-    image: my-homeassistant:0.94.4
+    image: my-homeassistant:0.97.2
     restart: always
     ports:
       - "8123:8123"
@@ -54,7 +39,6 @@ services:
     devices:
       - /dev/rflink:/dev/rflink
       - /dev/zwave:/dev/zwave
-      - /dev/zigbee:/dev/zigbee
     logging:
       options:
         max-size: 10m
@@ -91,3 +75,32 @@ services:
       options:
         max-size: 10m
 
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    restart: always
+    volumes:
+      - /srv/disk1/docker-data/data/zigbee2mqtt:/app/data
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/zigbee2:/dev/zigbee
+    environment:
+      TIMEZONE: Europe/Paris    
+    logging:
+      options:
+        max-size: 10m
+
+  zigbee2mqttassistant:
+    container_name: zigbee2mqttassistant
+    image: carldebilly/zigbee2mqttassistant
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      Z2MA_SETTINGS__MQTTSERVER: 192.168.254.220
+      Z2MA_SETTINGS__MQTTUSERNAME: hass
+      Z2MA_SETTINGS__MQTTPASSWORD: Wjy9SYTe3oH5
+      TIMEZONE: Europe/Paris    
+    logging:
+      options:
+        max-size: 10m
