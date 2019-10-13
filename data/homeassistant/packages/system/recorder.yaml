@@ -27,4 +27,6 @@ recorder:
       - sensor.fibaro_motion_etage_temperature
       - sensor.fibaro_motion_salle_a_manger_temperature
       - sensor.qubino_smart_meter_power
+      - sensor.0x00158d00032170fc_temperature
+      - sensor.0x00158d00032170fc_humidity
       

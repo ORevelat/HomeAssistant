@@ -726,7 +726,7 @@
                             "type": "entities"
                         }
                     ],
-                    "icon": "mdi:weather-partlycloudy",
+                    "icon": "mdi:weather-partly-cloudy",
                     "title": "M\u00e9t\u00e9o"
                 },
                 {

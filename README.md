@@ -4,12 +4,12 @@ Ma configuration personnelle de Home Assistant, utilisée quotidiennement au tra
 
 Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.97.2**
+Mise à jour pour Home Assistant: **0.99.3**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
 
-Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données. Pour ce dernier point, j'ai réaliser un petit soft python qui me permet de récupérer à interval régulier des infos et de les publier pour quelques périphériques Xiaomi.
+Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données. Pour ce dernier point, j'ai réaliser un petit soft python qui me permet de récupérer à interval régulier des infos et de les publier pour quelques périphériques Xiaomi 'captés' depuis un Raspberry PI.
 
 - une 20ène de périphériques ZWave (dont certains ne sont pas encore la) principalement pour
   * les lumières (Fibaro)
@@ -45,7 +45,7 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
 - Linux Debian Stretch
 - Docker CE (18.x + docker-compose)
 - Conteneurs:
-  * Portainers
+  * Portainer
   * stack Automation
     * Home Assistant
     * Appdaemon
@@ -67,6 +67,10 @@ Docker gère bien d'autre conteneur tel que:
   * Reverse Proxy - tout le traffic entrant (via un Firewall pFSense) passe par lui
   * Certbot - pour la génération / renew de mes certificats SSL
   * ...
+
+Et pour démarrer portainer:
+
+    docker run -d -p 9002:9000 --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/your/data/portainer:/data --name  portainer portainer/portainer
 
 #### Image docker customisées
 J'utilise des images docker customisées principalement pour me faciliter mon utilisation de périphériques ou de mise à jour.

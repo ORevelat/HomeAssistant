@@ -27,8 +27,7 @@ services:
 
   homeassistant:
     container_name: hass
-    # use cutom image with own dependencies
-    image: my-homeassistant:0.97.2
+    image: homeassistant/home-assistant:0.99.3
     restart: always
     ports:
       - "8123:8123"

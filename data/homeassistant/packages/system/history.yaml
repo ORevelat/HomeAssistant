@@ -6,4 +6,5 @@ history:
   include:
     entities:
       - sensor.dark_sky_temperature
+      - sensor.oregontemphygro_2d58_temp
       - sensor.oregontemp_1d40_temp
