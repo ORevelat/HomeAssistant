@@ -9,18 +9,29 @@ Mise à jour pour Home Assistant: **0.99.3**
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
 
-Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données. Pour ce dernier point, j'ai réaliser un petit soft python qui me permet de récupérer à interval régulier des infos et de les publier pour quelques périphériques Xiaomi 'captés' depuis un Raspberry PI.
+Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données.\
+Dans ce sens, j'utilise ou je crée de petit soft python:
+- [zigbee2mqtt](https://www.zigbee2mqtt.io/)
+- ble2mqtt (developpé), pour quelques périphériques Xiaomi 'captés' depuis un Raspberry PI.
+- rflink2mqtt (developpé), basé surl'approche de zigbee2mqtt et zwave2mqtt
+- [zwave2mqtt](https://github.com/OpenZWave/Zwave2Mqtt) - test en cours
 
+Au final, mon installation se compose de:
 - une 20ène de périphériques ZWave (dont certains ne sont pas encore la) principalement pour
   * les lumières (Fibaro)
   * les fils pilote (Qubino)
+  * de capteurs de présences (Fibaro)
   * mesure de la consomation au compteur (Qubino)
   * prises avec mesure de consomation (NeoCoolcam)
 - des SonOff (des Basic, des S26 et un Pro 4Ch) avec firmware Tasmotta
 - des périphériques BT-LE (Xiaomi miflora, thermomètre)
-- des périphériques Zigbee (work in progress sur instance de test)
+- des périphériques Zigbee
+  * thermomètres
+  * bouton multi-click
+  * détecteur de présence
 - une DOTI
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
+- bandeau LED (via controlleur [magichome](https://www.aliexpress.com/item/32727054293.html))
 - Amazon Echo/Dot de façon quotidienne
   * commande vocale via le bridge Haaska
   * TTS via Alexa Media Player (HACS)
@@ -54,6 +65,7 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
     * TasmoAdmin
     * Zigbee2Mqtt
     * Zigbee2MqttAssistant
+    * RFLink2Mqtt
   * stack Utils
     * Mosquitto server
     * Grafana
