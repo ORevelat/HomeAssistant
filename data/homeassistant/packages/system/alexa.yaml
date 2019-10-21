@@ -23,18 +23,18 @@ alexa:
         - light.fibaro_dimmer_entree_level
         - light.fibaro_dimmer_salle_a_manger_level
         - light.fibaro_dimmer_salon_level
-        - sensor.oregontemp_1d40_temp
+        - sensor.thermometer_salon_temperature
         - light.fibaro_dimmer_escalier_level
         - sensor.fibaro_motion_etage_temperature
         - light.fibaro_dimmer_bureau_level
-        - sensor.oregontemphygro_728f5_temp
+        - sensor.thermometer_bureau_temperature
         - light.fibaro_dimmer_parents_level
-        - sensor.oregontemphygro_5288a_temp
+        - sensor.thermometer_chambre_parents_temperature
         - light.fibaro_dimmer_thea_level
-        - sensor.oregontemphygro_628da_temp
+        - sensor.thermometer_chambre_thea_temperature
         - light.fibaro_dimmer_salledebain_level
         - sensor.xiaomitemphygro1
-        - sensor.oregontemphygro_2d58_temp
+        - sensor.thermometer_jardin_temperature
     entity_config:
       cover.fibaro_roller_shutter_cuisine_level:
         name: cuisine
@@ -48,7 +48,7 @@ alexa:
         name: salle à manger
       light.fibaro_dimmer_salon_level:
         name: salon
-      sensor.oregontemp_1d40_temp:
+      sensor.thermometer_salon_temperature:
         name: salon
         display_categories: TEMPERATURE_SENSOR
       light.fibaro_dimmer_escalier_level:
@@ -58,17 +58,17 @@ alexa:
         display_categories: TEMPERATURE_SENSOR
       light.fibaro_dimmer_bureau_level:
         name: bureau
-      sensor.oregontemphygro_728f5_temp:
+      sensor.thermometer_bureau_temperature:
         name: bureau
         display_categories: TEMPERATURE_SENSOR
       light.fibaro_dimmer_parents_level:
         name: chambre parents
-      sensor.oregontemphygro_5288a_temp:
+      sensor.thermometer_chambre_parents_temperature:
         name: chambre parents
         display_categories: TEMPERATURE_SENSOR
       light.fibaro_dimmer_thea_level:
         name: chambre théa
-      sensor.oregontemphygro_628da_temp:
+      sensor.thermometer_chambre_thea_temperature:
         name: chambre théa
         display_categories: TEMPERATURE_SENSOR
       light.fibaro_dimmer_salledebain_level:
@@ -76,6 +76,6 @@ alexa:
       sensor.xiaomitemphygro1:
         name: salle de bain
         display_categories: TEMPERATURE_SENSOR
-      sensor.oregontemphygro_2d58_temp:
+      sensor.thermometer_jardin_temperature:
         name: jardin
         display_categories: TEMPERATURE_SENSOR

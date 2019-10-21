@@ -247,12 +247,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemp_1d40_temp",
-                                    "name": "Temp\u00e9rature"
+                                    "entity": "sensor.thermometer_salon_temperature"
                                 },
                                 {
-                                    "entity": "sensor.oregontemp_1d40_bat",
-                                    "name": "Batterie"
+                                    "entity": "sensor.thermometer_salon_battery"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -416,13 +414,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemphygro_5288a_temp",
+                                    "entity": "sensor.thermometer_chambre_parents_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_5288a_hum ]]% ([[ sensor.oregontemphygro_5288a_hstatus ]])",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_chambre_parents_humidity ]]% ([[ sensor.thermometer_chambre_parents_humiditystatus ]])",
                                     "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.oregontemphygro_5288a_bat",
+                                    "entity": "sensor.thermometer_chambre_parents_battery",
                                     "name": "Batterie"
                                 }
                             ],
@@ -433,13 +431,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemphygro_628da_temp",
+                                    "entity": "sensor.thermometer_chambre_thea_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_628da_hum ]]% ([[ sensor.oregontemphygro_628da_hstatus ]])",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_chambre_thea_humidity ]]% ([[ sensor.thermometer_chambre_thea_humiditystatus ]])",
                                     "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.oregontemphygro_628da_bat",
+                                    "entity": "sensor.thermometer_chambre_thea_battery",
                                     "name": "Batterie"
                                 }
                             ],
@@ -450,13 +448,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemphygro_728f5_temp",
+                                    "entity": "sensor.thermometer_bureau_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_728f5_hum ]]% ([[ sensor.oregontemphygro_728f5_hstatus ]])",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_bureau_humidity ]]% ([[ sensor.thermometer_bureau_humiditystatus ]])",
                                     "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.oregontemphygro_728f5_bat",
+                                    "entity": "sensor.thermometer_bureau_battery",
                                     "name": "Batterie"
                                 }
                             ],
@@ -487,13 +485,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemphygro_2d58_temp",
+                                    "entity": "sensor.thermometer_jardin_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.oregontemphygro_2d58_hum ]]% ([[ sensor.oregontemphygro_2d58_hstatus ]])",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_jardin_humidity ]]% ([[ sensor.thermometer_jardin_humiditystatus ]])",
                                     "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.oregontemphygro_2d58_bat",
+                                    "entity": "sensor.thermometer_jardin_battery",
                                     "name": "Batterie"
                                 }
                             ],
@@ -549,7 +547,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemp_1d40_temp",
+                                    "entity": "sensor.thermometer_salon_temperature",
                                     "name": "Temp\u00e9rature"
                                 },
                                 {
@@ -576,7 +574,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemphygro_5288a_temp",
+                                    "entity": "sensor.thermometer_chambre_parents_temperature",
                                     "name": "Temp\u00e9rature"
                                 },
                                 {
@@ -599,7 +597,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.oregontemphygro_628da_temp",
+                                    "entity": "sensor.thermometer_chambre_thea_temperature",
                                     "name": "Temp\u00e9rature"
                                 },
                                 {
@@ -627,10 +625,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.tv_salon",
-                            "type": "media-control"
-                        },
-                        {
                             "entity": "media_player.echo_salon",
                             "type": "media-control"
                         },
@@ -651,10 +645,6 @@
                             "show_header_toggle": false,
                             "title": "Serveur Plex ",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.mi_speaker_wifi_2",
-                            "type": "media-control"
                         }
                     ],
                     "icon": "mdi:play-circle-outline",

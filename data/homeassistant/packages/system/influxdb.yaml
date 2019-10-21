@@ -13,15 +13,15 @@ influxdb:
       - sensor.hp_ilo_gen81_temperature
       - sensor.hp_ilo_gen82_fanspeed
       - sensor.hp_ilo_gen82_temperature
-      - sensor.oregontemphygro_5288a_temp
-      - sensor.oregontemphygro_5288a_hum
-      - sensor.oregontemphygro_628da_temp
-      - sensor.oregontemphygro_628da_hum
-      - sensor.oregontemphygro_728f5_temp
-      - sensor.oregontemphygro_728f5_hum
-      - sensor.oregontemphygro_2d58_temp
-      - sensor.oregontemphygro_2d58_hum
-      - sensor.oregontemp_1d40_temp
+      - sensor.thermometer_jardin_temperature
+      - sensor.thermometer_jardin_humidity
+      - sensor.thermometer_chambre_parents_temperature
+      - sensor.thermometer_chambre_parents_humidity
+      - sensor.thermometer_chambre_thea_temperature
+      - sensor.thermometer_chambre_thea_humidity
+      - sensor.thermometer_bureau_temperature
+      - sensor.thermometer_bureau_humidity
+      - sensor.thermometer_salon_temperature
       - sensor.miflora1
       - sensor.miflora2
       - sensor.xiaomitemphygro1
@@ -36,4 +36,6 @@ influxdb:
       - sensor.linky_last_month
       - sensor.linky_last_year
       - sensor.linky_yesterday
-    
+      - sensor.0x00158d00032170fc_temperature
+      - sensor.0x00158d00032170fc_humidity
+ 
