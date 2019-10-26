@@ -13,7 +13,7 @@ Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périph�
 Dans ce sens, j'utilise ou je crée de petit soft python:
 - [zigbee2mqtt](https://www.zigbee2mqtt.io/)
 - ble2mqtt (developpé), pour quelques périphériques Xiaomi 'captés' depuis un Raspberry PI.
-- rflink2mqtt (developpé), basé surl'approche de zigbee2mqtt et zwave2mqtt
+- rflink2mqtt (developpé), basé sur l'approche de zigbee2mqtt et zwave2mqtt
 - [zwave2mqtt](https://github.com/OpenZWave/Zwave2Mqtt) - test en cours
 
 Au final, mon installation se compose de:
