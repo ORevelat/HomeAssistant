@@ -7,3 +7,5 @@ logger:
     libopenzwave: error
     homeassistant.components.zwave: error
     homeassistant.components.ddwrt: critical
+    homeassistant.components.linky: warning
+    
