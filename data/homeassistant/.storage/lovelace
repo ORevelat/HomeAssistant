@@ -465,9 +465,9 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.xiaomitemphygro1",
+                                    "entity": "sensor.thermometer_salle_de_bain_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.xiaomitemphygro1.attributes.humidity ]]%",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_salle_de_bain_humidity ]]%",
                                     "type": "custom:secondaryinfo-entity-row"
                                 }
                             ],
