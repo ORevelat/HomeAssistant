@@ -23,7 +23,7 @@ recorder:
       - sensor.thermometer_salon_temperature
       - sensor.miflora1
       - sensor.miflora2
-      - sensor.xiaomitemphygro1
+      - sensor.thermometer_salle_de_bain_temperature
       - sensor.fibaro_motion_etage_temperature
       - sensor.fibaro_motion_salle_a_manger_temperature
       - sensor.qubino_smart_meter_power
