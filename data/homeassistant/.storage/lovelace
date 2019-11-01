@@ -247,10 +247,12 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.thermometer_salon_temperature"
+                                    "entity": "sensor.thermometer_salon_temperature",
+                                    "name": "Temp\u00e9rature"
                                 },
                                 {
-                                    "entity": "sensor.thermometer_salon_battery"
+                                    "entity": "sensor.thermometer_salon_battery",
+                                    "name": "Batterie"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -296,6 +298,7 @@
                             "type": "horizontal-stack"
                         },
                         {
+                            "columns": 4,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_entree_level",
@@ -352,6 +355,7 @@
                     "badges": [],
                     "cards": [
                         {
+                            "columns": 4,
                             "entities": [
                                 {
                                     "entity": "light.fibaro_dimmer_escalier_level",
@@ -371,7 +375,7 @@
                                 },
                                 {
                                     "entity": "light.led_chambre_thea",
-                                    "name": "CH. Th\u00e9a Leds"
+                                    "name": "Ch. Th\u00e9a Leds"
                                 },
                                 {
                                     "entity": "light.fibaro_dimmer_salledebain_level",
@@ -500,6 +504,7 @@
                             "type": "entities"
                         },
                         {
+                            "columns": 3,
                             "entities": [
                                 {
                                     "entity": "switch.sonoff_garage_portail",
@@ -616,6 +621,10 @@
                             "show_header_toggle": false,
                             "title": "Ch. de Th\u00e9a",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "climate.daikinap92707",
+                            "type": "thermostat"
                         }
                     ],
                     "icon": "mdi:thermometer-lines",
