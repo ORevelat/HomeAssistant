@@ -57,7 +57,7 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
 - Docker CE (18.x + docker-compose)
 - Conteneurs:
   * Portainer
-  * stack Automation
+  * **stack Automation**
     * Home Assistant
     * Appdaemon
     * PostgreSQL
@@ -66,10 +66,10 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
     * Zigbee2Mqtt
     * Zigbee2MqttAssistant
     * RFLink2Mqtt
-  * stack Utils
+  * **stack Utils**
     * Mosquitto server
     * Grafana
-  * stack Automation Test
+  * **stack Automation Test**
     * Home Assistant(s)
     * Zwave2Mqtt
 
@@ -84,20 +84,33 @@ Et pour démarrer portainer:
 
     docker run -d -p 9002:9000 --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/your/data/portainer:/data --name  portainer portainer/portainer
 
-#### Image docker customisées
+### Image docker customisées
 J'utilise des images docker customisées principalement pour me faciliter mon utilisation de périphériques ou de mise à jour.
 
 Aucune modification du logiciel officiel, mais un ajout de certaines dépendances / logiciels, ainsi que la mise à jour apt de rigueur.
 
 Disponible dans le répertoire /docker-build.
 
-### Raspberry n°1
+### Logiciels maison
+Inspirés de zigbee2mqtt, et écris en python.
+
+#### Ble2mqtt
+Envoie les infos de périfériques BT-LE vers MQTT. Support de l'autodiscovery MQTT de Home Assistant.
+
+#### Rflink2mqtt
+Envoie les infos de périfériques captés via un RFLink vers MQTT. Support de l'autodiscovery MQTT de Home Assistant.
+
+### Raspberry n°1 modèle 1B
 Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de-chaussé, donc j'ai déporté un vieux PI du tirroir directement dans le salon.
 
-#### Hardware
-- Raspberry PI 1B
 - clé USB Bluetooth LE Sena UD100-G03
 
-#### Software
-- Raspbian Stretch sur une µSD de 4Go
-- Python + logiciel home-made pour envoyer les infos de périfériques BT-LE via MQTT (anciennement les scripts shell dispo dans le repositorie sous /scripts)
+Software
+- Raspbian Stretch
+- Logiciel ble2mqtt
+
+### Raspberry n°2 - modèle 3B
+
+Software
+- Raspbian Buster
+- Logiciel ble2mqtt
