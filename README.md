@@ -12,8 +12,8 @@ Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et
 Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données.\
 Dans ce sens, j'utilise ou je crée de petit soft python:
 - [zigbee2mqtt](https://www.zigbee2mqtt.io/)
-- ble2mqtt (developpé), pour quelques périphériques Xiaomi 'captés' depuis un Raspberry PI.
-- rflink2mqtt (developpé), basé sur l'approche de zigbee2mqtt et zwave2mqtt
+- ble2mqtt
+- rflink2mqtt
 - [zwave2mqtt](https://github.com/OpenZWave/Zwave2Mqtt) - test en cours
 
 Au final, mon installation se compose de:
@@ -92,7 +92,7 @@ Aucune modification du logiciel officiel, mais un ajout de certaines dépendance
 Disponible dans le répertoire /docker-build.
 
 ### Logiciels maison
-Inspirés de zigbee2mqtt, et écris en python.
+Inspirés de zigbee2mqtt et zwave2mqtt, et écris en python.
 
 #### Ble2mqtt
 Envoie les infos de périfériques BT-LE vers MQTT. Support de l'autodiscovery MQTT de Home Assistant.
