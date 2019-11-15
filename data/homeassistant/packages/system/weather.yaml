@@ -7,8 +7,20 @@ sensor:
   - platform: darksky
     api_key: !secret darksky_api_key
     language: fr
+    forecast:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
     monitored_conditions:
       - summary
       - temperature
+      - apparent_temperature
+      - icon
+      - humidity
+      - wind_speed
+      - temperature_high
+      - temperature_low
     scan_interval:
       minutes: 15
