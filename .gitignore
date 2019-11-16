@@ -49,7 +49,7 @@
 /data/homeassistant/custom_components
 /data/homeassistant/alexa_*
 /data/homeassistant/www/**/*.gz
-/data/homeassistant/www/**/config.js
+/data/homeassistant/www/**/secrets.js
 
 # specific files & folders for AppDaemon
 /data/appdaemon/data/logs
