@@ -37,9 +37,8 @@ var CONFIG = {
       styles: { fontSize: '40px' },
       leftBottom: [{ type: SCREENSAVER_ITEMS.DATETIME }],
       slides: [
-         { bg: 'images/bg2.png' },
          {
-            bg: 'images/bg2.png',
+            bg: 'images/bg5.jpg',
             rightTop: [
                {
                   type: SCREENSAVER_ITEMS.CUSTOM_HTML,
@@ -54,7 +53,7 @@ var CONFIG = {
    pages: [
       {
          title: 'Main page',
-         bg: 'images/bg1.jpeg',
+         bg: 'images/bg5.jpg',
          icon: 'mdi-home-outline',
          groups: [
             {
@@ -227,6 +226,52 @@ var CONFIG = {
                            default: return 'mdi-numeric-9-plus-circle-outline';
                         }
                      }
+                  },
+                  {
+                     position: [0, 2.5],
+                     height: 1,
+                     width: 1.5,
+                     type: TYPES.CUSTOM,
+                     id: {},
+                     title: 'Allumées',
+                     subtitle: 'Prises',
+                     action: function (item, entity) {
+                        window.openPage(CONFIG.pages[2]);
+                     },
+                     icon: function() {
+                        var lights = [
+                           "&switch.sonoff_garage_portail.state",
+                           "&switch.sonoff_4ch_jardin_1.state",
+                           "&switch.sonoff_4ch_jardin_2.state",
+                           "&switch.sonoff_4ch_jardin_3.state",
+                           "&switch.sonoff_4ch_jardin_4.state",
+                           "&switch.prise_neocoolcam_tv_hifi_switch.state",
+                           "&switch.sonoff_salon.state",
+                           "&switch.sonoff_bibliotheque_haut.state",
+                           "&switch.prise_neocoolcam_switch.state"
+                        ];
+
+                        var count = 0;
+                        for (i = 0; i < lights.length; i++) {
+                           if (this.parseFieldValue(lights[i]) === "on") {
+                              count++;
+                           }
+                        }
+
+                        switch (count) {
+                           case 0: return 'mdi-numeric-0-circle-outline';
+                           case 1: return 'mdi-numeric-1-circle-outline';
+                           case 2: return 'mdi-numeric-2-circle-outline';
+                           case 3: return 'mdi-numeric-3-circle-outline';
+                           case 4: return 'mdi-numeric-4-circle-outline';
+                           case 5: return 'mdi-numeric-5-circle-outline';
+                           case 6: return 'mdi-numeric-6-circle-outline';
+                           case 7: return 'mdi-numeric-7-circle-outline';
+                           case 8: return 'mdi-numeric-8-circle-outline';
+                           case 9: return 'mdi-numeric-9-circle-outline';
+                           default: return 'mdi-numeric-9-plus-circle-outline';
+                        }
+                     }
                   }
                ]
             },
@@ -343,13 +388,13 @@ var CONFIG = {
       },
       {
          title: 'Lumières',
-         bg: 'images/bg1.jpeg',
+         bg: 'images/bg5.jpg',
          icon: 'mdi-lightbulb',
          tileSize: 120,
          groups: [
             {
                title: 'Rez de chaussée',
-               height: 2,
+               height: 3,
                items: [
                   {
                      position: [0, 0],
@@ -426,7 +471,7 @@ var CONFIG = {
             },
             {
                title: 'Etage',
-               height: 2,
+               height: 3,
                items: [
                   {
                      position: [0, 0],
@@ -504,7 +549,7 @@ var CONFIG = {
       },
       {
          title: 'Prises',
-         bg: 'images/bg1.jpeg',
+         bg: 'images/bg5.jpg',
          icon: 'mdi-power-plug',
          tileSize: 120,
          groups: [
