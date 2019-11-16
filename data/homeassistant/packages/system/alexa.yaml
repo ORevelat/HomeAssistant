@@ -16,24 +16,27 @@ alexa:
         - sensor
         - switch
         - light
+        - media_player
+        - climate
       include_entities:
+        - climate.daikinap92707
         - cover.fibaro_roller_shutter_cuisine_level
         - cover.fibaro_roller_shutter_salon_level
         - cover.fibaro_roller_shutter_salle_a_manger_level
         - light.fibaro_dimmer_entree_level
         - light.fibaro_dimmer_salle_a_manger_level
         - light.fibaro_dimmer_salon_level
-        - sensor.thermometer_salon_temperature
         - light.fibaro_dimmer_escalier_level
-        - sensor.fibaro_motion_etage_temperature
         - light.fibaro_dimmer_bureau_level
-        - sensor.thermometer_bureau_temperature
         - light.fibaro_dimmer_parents_level
-        - sensor.thermometer_chambre_parents_temperature
         - light.fibaro_dimmer_thea_level
-        - sensor.thermometer_chambre_thea_temperature
         - light.fibaro_dimmer_salledebain_level
-        - sensor.xiaomitemphygro1
+        - sensor.thermometer_salon_temperature
+        - sensor.fibaro_motion_etage_temperature
+        - sensor.thermometer_bureau_temperature
+        - sensor.thermometer_chambre_parents_temperature
+        - sensor.thermometer_chambre_thea_temperature
+        - sensor.thermometer_salle_de_bain_temperature
         - sensor.thermometer_jardin_temperature
     entity_config:
       cover.fibaro_roller_shutter_cuisine_level:
@@ -48,32 +51,32 @@ alexa:
         name: salle à manger
       light.fibaro_dimmer_salon_level:
         name: salon
+      light.fibaro_dimmer_escalier_level:
+        name: escalier
+      light.fibaro_dimmer_bureau_level:
+        name: bureau
+      light.fibaro_dimmer_parents_level:
+        name: chambre parents
+      light.fibaro_dimmer_thea_level:
+        name: chambre théa
+      light.fibaro_dimmer_salledebain_level:
+        name: salle de bain
       sensor.thermometer_salon_temperature:
         name: salon
         display_categories: TEMPERATURE_SENSOR
-      light.fibaro_dimmer_escalier_level:
-        name: escalier
       sensor.fibaro_motion_etage_temperature:
         name: escalier
         display_categories: TEMPERATURE_SENSOR
-      light.fibaro_dimmer_bureau_level:
-        name: bureau
       sensor.thermometer_bureau_temperature:
         name: bureau
         display_categories: TEMPERATURE_SENSOR
-      light.fibaro_dimmer_parents_level:
-        name: chambre parents
       sensor.thermometer_chambre_parents_temperature:
         name: chambre parents
         display_categories: TEMPERATURE_SENSOR
-      light.fibaro_dimmer_thea_level:
-        name: chambre théa
       sensor.thermometer_chambre_thea_temperature:
         name: chambre théa
         display_categories: TEMPERATURE_SENSOR
-      light.fibaro_dimmer_salledebain_level:
-        name: salle de bain
-      sensor.xiaomitemphygro1:
+      sensor.thermometer_salle_de_bain_temperature:
         name: salle de bain
         display_categories: TEMPERATURE_SENSOR
       sensor.thermometer_jardin_temperature:
