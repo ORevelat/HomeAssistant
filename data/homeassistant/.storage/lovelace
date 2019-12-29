@@ -333,6 +333,10 @@
                                 {
                                     "entity": "switch.sonoff_bibliotheque_haut",
                                     "name": "Prise Biblioth\u00e8que"
+                                },
+                                {
+                                    "entity": "switch.sonoff_cuisine",
+                                    "name": "Prise Cuisine"
                                 }
                             ],
                             "title": "Prises",
@@ -489,13 +493,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.thermometer_jardin_temperature",
+                                    "entity": "sensor.2db3_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_jardin_humidity ]]% ([[ sensor.thermometer_jardin_humiditystatus ]])",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.2db3_humidity ]]% ([[ sensor.2db3_humiditystatus ]])",
                                     "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.thermometer_jardin_battery",
+                                    "entity": "sensor.2db3_battery",
                                     "name": "Batterie"
                                 }
                             ],

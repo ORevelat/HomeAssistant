@@ -1,0 +1,13 @@
+switch:
+  - platform: mqtt
+    name: "Sonoff cuisine"
+    state_topic: "stat/sonoffs26/POWER"
+    command_topic: "cmnd/sonoffs26/POWER"
+    availability_topic: "tele/sonoffs26/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true
+  

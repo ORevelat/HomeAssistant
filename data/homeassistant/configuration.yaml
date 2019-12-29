@@ -21,6 +21,7 @@ updater:
   reporting: no
 sun:
 config:
+mobile_app:
 map:
 #python_script:
 system_health:
