@@ -5,9 +5,8 @@ input_select:
     icon: mdi:nest-thermostat
     options:
       - Arrêt
-      - Away
-      - Maison
-      - Vacances
+      - Absent
+      - Normal
 
   # RADIATEURS
   radiator_parents:

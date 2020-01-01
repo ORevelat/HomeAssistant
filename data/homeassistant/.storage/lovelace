@@ -562,7 +562,7 @@
                                 }
                             ],
                             "maxDaysToShow": 0,
-                            "showDate": true,
+                            "showDate": false,
                             "showMonth": false,
                             "title": "Programmation",
                             "type": "custom:atomic-calendar"
@@ -572,10 +572,6 @@
                                 {
                                     "entity": "sensor.thermometer_salon_temperature",
                                     "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "input_number.thermostat_rdc",
-                                    "name": "Confort"
                                 },
                                 {
                                     "entity": "input_number.thermostat_consigne_rdc",
@@ -601,10 +597,6 @@
                                     "name": "Temp\u00e9rature"
                                 },
                                 {
-                                    "entity": "input_number.thermostat_parents",
-                                    "name": "Confort"
-                                },
-                                {
                                     "entity": "input_number.thermostat_consigne_parents",
                                     "name": "Consigne"
                                 },
@@ -622,10 +614,6 @@
                                 {
                                     "entity": "sensor.thermometer_chambre_thea_temperature",
                                     "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "input_number.thermostat_thea",
-                                    "name": "Confort"
                                 },
                                 {
                                     "entity": "input_number.thermostat_consigne_thea",
@@ -883,15 +871,42 @@
                     "cards": [
                         {
                             "entities": [
-                                "input_boolean.enable_covers_sunrise",
-                                "input_boolean.enable_covers_sunset",
-                                "input_boolean.enable_weather_alert_notif",
-                                "input_boolean.enable_light_garage",
-                                "input_boolean.enable_garden_fountain",
-                                "input_boolean.enable_garden_projector",
-                                "input_boolean.enable_mosquito_switch",
-                                "input_boolean.enable_pool_pump",
-                                "input_boolean.enable_christmas_decoration"
+                                {
+                                    "entity": "input_boolean.enable_covers_sunrise"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_covers_sunset"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_weather_alert_notif"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_light_garage"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_garden_fountain"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_garden_projector"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_mosquito_switch"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_pool_pump"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_christmas_decoration"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_thermostat_rdc"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_thermostat_bedroom_parents"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_thermostat_bedroom_thea"
+                                }
                             ],
                             "show_header_toggle": false,
                             "type": "entities"

@@ -2,37 +2,50 @@
 input_boolean:
 
   enable_covers_sunrise:
-      name: Ouverture automatique des Volets
-      icon: mdi:weather-sunset-up
+    name: Ouverture automatique des Volets
+    icon: mdi:weather-sunset-up
 
   enable_covers_sunset:
-      name: Fermeture automatique des Volets
-      icon: mdi:weather-sunset-down
+    name: Fermeture automatique des Volets
+    icon: mdi:weather-sunset-down
 
   enable_mosquito_switch:
-      name: Diffuseur moustique salon
-      icon: mdi:checkbox-marked-circle-outline
+    name: Diffuseur moustique salon
+    icon: mdi:checkbox-marked-circle-outline
 
   enable_pool_pump:
-      name: Pompe de la piscine
-      icon: mdi:pool
+    name: Pompe de la piscine
+    icon: mdi:pool
 
   enable_garden_fountain:
-      name: Fontaine du jardin
-      icon: mdi:pot
+    name: Fontaine du jardin
+    icon: mdi:pot
 
   enable_garden_projector:
-      name: Projecteur du jardin
-      icon: mdi:projector
+    name: Projecteur du jardin
+    icon: mdi:projector
 
   enable_weather_alert_notif:
-      name: Notification des alertes météo
-      icon: mdi:comment-alert-outline
+    name: Notification des alertes météo
+    icon: mdi:comment-alert-outline
 
   enable_christmas_decoration:
-      name: Décorations de Noël
-      icon: mdi:pine-tree
+    name: Décorations de Noël
+    icon: mdi:pine-tree
 
   enable_light_garage:
-      name: Détecteur lumière garage/portail
-      icon: mdi:spotlight-beam
+    name: Détecteur lumière garage/portail
+    icon: mdi:spotlight-beam
+
+  enable_thermostat_rdc:
+    name: Thermostat automatique Rez de Chaussée
+    icon: mdi:radiator
+
+  enable_thermostat_bedroom_parents:
+    name: Thermostat automatique Ch. Parents
+    icon: mdi:radiator
+
+  enable_thermostat_bedroom_thea:
+    name: Thermostat automatique Ch. Théa
+    icon: mdi:radiator
+  
