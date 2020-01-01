@@ -62,7 +62,7 @@
                                     "dateSize": 130,
                                     "entities": [
                                         {
-                                            "entity": "calendar.home_assistant"
+                                            "entity": "calendar.homeassistant_general"
                                         },
                                         {
                                             "entity": "calendar.olivier_revelat_gmail_com"
@@ -552,6 +552,20 @@
                             "show_header_toggle": false,
                             "title": "Chauffage",
                             "type": "entities"
+                        },
+                        {
+                            "dateFormat": "MMMM",
+                            "dateSize": 130,
+                            "entities": [
+                                {
+                                    "entity": "calendar.homeassistant_chauffage"
+                                }
+                            ],
+                            "maxDaysToShow": 0,
+                            "showDate": true,
+                            "showMonth": false,
+                            "title": "Programmation",
+                            "type": "custom:atomic-calendar"
                         },
                         {
                             "entities": [
