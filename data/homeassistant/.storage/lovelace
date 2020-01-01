@@ -493,13 +493,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.2db3_temperature",
+                                    "entity": "sensor.thermometer_jardin_temperature",
                                     "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.2db3_humidity ]]% ([[ sensor.2db3_humiditystatus ]])",
+                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_jardin_humidity ]]% ([[ sensor.thermometer_jardin_humiditystatus ]])",
                                     "type": "custom:secondaryinfo-entity-row"
                                 },
                                 {
-                                    "entity": "sensor.2db3_battery",
+                                    "entity": "sensor.thermometer_jardin_battery",
                                     "name": "Batterie"
                                 }
                             ],

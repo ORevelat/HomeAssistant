@@ -30,9 +30,9 @@ sensor.oregontemphygro_728f5_bat:
   friendly_name: Batterie Bureau
 
 ## JARDIN
-sensor.oregontemphygro_2d58_temp:
+sensor.oregontemphygro_2db4_temp:
   friendly_name: Température Jardin
-sensor.oregontemphygro_2d58_hum:
+sensor.oregontemphygro_2db4_hum:
   friendly_name: Humidité Jardin
-sensor.oregontemphygro_2d58_bat:
+sensor.oregontemphygro_2db4_bat:
   friendly_name: Batterie Jardin
