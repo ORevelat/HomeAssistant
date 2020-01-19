@@ -4,7 +4,7 @@ Ma configuration personnelle de Home Assistant, utilisée quotidiennement au tra
 
 Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.99.3**
+Mise à jour pour Home Assistant: **0.102.3**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
@@ -66,6 +66,7 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
     * Zigbee2Mqtt
     * Zigbee2MqttAssistant
     * RFLink2Mqtt
+    * Ble2Mqtt
   * **stack Utils**
     * Mosquitto server
     * Grafana
@@ -107,10 +108,4 @@ Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de
 
 Software
 - Raspbian Stretch
-- Logiciel ble2mqtt
-
-### Raspberry n°2 - modèle 3B
-
-Software
-- Raspbian Buster
 - Logiciel ble2mqtt

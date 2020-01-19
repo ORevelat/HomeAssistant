@@ -26,8 +26,8 @@ services:
         max-size: 10m
 
   homeassistant:
-    container_name: hass
-    image: homeassistant/home-assistant:0.99.3
+    container_name: homeassistant
+    image: homeassistant/home-assistant:0.102.3
     restart: always
     ports:
       - "8123:8123"
@@ -36,7 +36,6 @@ services:
       - /srv/disk1/docker-data/data/homeassistant/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
       - /etc/localtime:/etc/localtime:ro
     devices:
-      - /dev/rflink:/dev/rflink
       - /dev/zwave:/dev/zwave
     logging:
       options:
@@ -100,6 +99,35 @@ services:
       Z2MA_SETTINGS__MQTTUSERNAME: hass
       Z2MA_SETTINGS__MQTTPASSWORD: Wjy9SYTe3oH5
       TIMEZONE: Europe/Paris    
+    logging:
+      options:
+        max-size: 10m
+
+  rflink2mqtt:
+    container_name: rflink2mqtt
+    image: rflink2mqtt
+    restart: always
+    volumes:
+      - /srv/disk1/docker-data/data/rflink2mqtt:/data
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/rflink:/dev/rflink
+    environment:
+      TIMEZONE: Europe/Paris
+    logging:
+      options:
+        max-size: 10m
+
+  ble2mqtt:
+    container_name: ble2mqtt
+    image: ble2mqtt
+    restart: always
+    network_mode: host
+    volumes:
+      - /srv/disk1/docker-data/data/ble2mqtt:/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TIMEZONE: Europe/Paris
     logging:
       options:
         max-size: 10m
