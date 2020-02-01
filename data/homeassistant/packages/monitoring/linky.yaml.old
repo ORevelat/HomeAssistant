@@ -1,5 +1,0 @@
-
-sensor:
-  - platform: linky
-    username: !secret linky_id
-    password: !secret linky_secret

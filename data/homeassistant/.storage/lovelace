@@ -4,10 +4,6 @@
             "resources": [
                 {
                     "type": "js",
-                    "url": "/local/lovelace/js/monster-card.js"
-                },
-                {
-                    "type": "js",
                     "url": "/local/lovelace/js/card-tools.js"
                 },
                 {
@@ -16,11 +12,23 @@
                 },
                 {
                     "type": "module",
+                    "url": "/local/lovelace/js/battery-entity.js?v=0.1"
+                },
+                {
+                    "type": "module",
                     "url": "/community_plugin/surveillance-card/surveillance-card.js"
                 },
                 {
                     "type": "module",
                     "url": "/community_plugin/atomic_calendar/atomic_calendar.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/mini-graph-card/mini-graph-card-bundle.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/lovelace-auto-entities/auto-entities.js"
                 }
             ],
             "title": "Home",
@@ -106,35 +114,67 @@
                         {
                             "cards": [
                                 {
-                                    "cards": [
+                                    "cards": null,
+                                    "color_thresholds": [
+                                        {
+                                            "color": "#00ff00",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#38ff00",
+                                            "value": 1000
+                                        },
+                                        {
+                                            "color": "#71ff00",
+                                            "value": 2000
+                                        },
+                                        {
+                                            "color": "#aaff00",
+                                            "value": 3000
+                                        },
+                                        {
+                                            "color": "#e2ff00",
+                                            "value": 4000
+                                        },
+                                        {
+                                            "color": "#ffe200",
+                                            "value": 5000
+                                        },
+                                        {
+                                            "color": "#ffaa00",
+                                            "value": 6000
+                                        },
+                                        {
+                                            "color": "#ff7100",
+                                            "value": 7000
+                                        },
+                                        {
+                                            "color": "#ff3800",
+                                            "value": 8000
+                                        },
+                                        {
+                                            "color": "#ff0000",
+                                            "value": 9000
+                                        }
+                                    ],
+                                    "entities": [
                                         {
                                             "entity": "sensor.qubino_smart_meter_power",
-                                            "max": 10000,
-                                            "min": 0,
-                                            "name": " ",
-                                            "severity": {
-                                                "green": 0,
-                                                "red": 9000,
-                                                "yellow": 4500
-                                            },
-                                            "theme": "default",
-                                            "type": "gauge"
+                                            "state_adaptive_color": true
                                         },
                                         {
                                             "entity": "sensor.qubino_smart_meter_power_factor",
-                                            "max": 1,
-                                            "min": 0,
-                                            "name": "cos(phi)",
-                                            "severity": {
-                                                "green": 0.85,
-                                                "red": 0.5,
-                                                "yellow": 0.6
-                                            },
-                                            "theme": "default",
-                                            "type": "gauge"
+                                            "show_graph": false,
+                                            "show_state": true
                                         }
                                     ],
-                                    "type": "horizontal-stack"
+                                    "group_by": "hour",
+                                    "icon": "mdi:gauge",
+                                    "name": "Consommation",
+                                    "show": {
+                                        "graph": "bar"
+                                    },
+                                    "type": "custom:mini-graph-card"
                                 },
                                 {
                                     "cards": [
@@ -184,7 +224,7 @@
                                         ]
                                     },
                                     "show_empty": false,
-                                    "type": "custom:monster-card"
+                                    "type": "custom:auto-entities"
                                 },
                                 {
                                     "card": {
@@ -206,7 +246,7 @@
                                         ]
                                     },
                                     "show_empty": false,
-                                    "type": "custom:monster-card"
+                                    "type": "custom:auto-entities"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -245,38 +285,6 @@
                             "type": "entities"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.thermometer_salon_temperature",
-                                    "name": "Temp\u00e9rature"
-                                },
-                                {
-                                    "entity": "sensor.thermometer_salon_battery",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Salon",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.fibaro_motion_salle_a_manger_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Luminosit\u00e9 de [[ sensor.fibaro_motion_salle_a_manger_luminance ]] lux",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                },
-                                {
-                                    "entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor",
-                                    "name": "Pr\u00e9sence"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Salle \u00e0 manger",
-                            "type": "entities"
-                        },
-                        {
                             "cards": [
                                 {
                                     "entity": "sensor.miflora2",
@@ -298,27 +306,58 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "columns": 4,
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "light.fibaro_dimmer_entree_level",
-                                    "name": "Entr\u00e9e"
-                                },
-                                {
-                                    "entity": "light.fibaro_dimmer_salle_a_manger_level",
-                                    "name": "Salle \u00e0 manger"
-                                },
-                                {
-                                    "entity": "light.fibaro_dimmer_salon_level",
-                                    "name": "Salon"
-                                },
-                                {
-                                    "entity": "light.fibaro_dimmer_escalier_level",
-                                    "name": "Escaliers"
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_motion_salle_a_manger_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.fibaro_motion_salle_a_manger_luminance",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                },
+                                                {
+                                                    "entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Salle \u00e0 manger",
+                                            "state_map": [
+                                                {
+                                                    "label": " ",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "label": "Pr\u00e9sence",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_salon_temperature"
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Salon",
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 }
                             ],
-                            "title": "Lumi\u00e8res",
-                            "type": "glance"
+                            "type": "vertical-stack"
                         },
                         {
                             "entities": [
@@ -343,12 +382,26 @@
                             "type": "glance"
                         },
                         {
+                            "columns": 4,
                             "entities": [
                                 {
-                                    "entity": "switch.comfee"
+                                    "entity": "light.fibaro_dimmer_entree_level",
+                                    "name": "Entr\u00e9e"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_salle_a_manger_level",
+                                    "name": "Salle \u00e0 manger"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_salon_level",
+                                    "name": "Salon"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_escalier_level",
+                                    "name": "Escaliers"
                                 }
                             ],
-                            "title": "Commandes",
+                            "title": "Lumi\u00e8res",
                             "type": "glance"
                         }
                     ],
@@ -403,72 +456,102 @@
                             "type": "glance"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.fibaro_motion_etage_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Luminosit\u00e9 de [[ sensor.fibaro_motion_etage_luminance ]] lux",
-                                    "type": "custom:secondaryinfo-entity-row"
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.fibaro_motion_etage_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.fibaro_motion_etage_luminance",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                },
+                                                {
+                                                    "entity": "binary_sensor.fibaro_motion_etage_sensor",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Couloir",
+                                            "state_map": [
+                                                {
+                                                    "label": " ",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "label": "Pr\u00e9sence",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_bureau_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.thermometer_bureau_humidity",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Bureau",
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 },
                                 {
-                                    "entity": "binary_sensor.fibaro_motion_etage_sensor",
-                                    "name": "Pr\u00e9sence"
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_chambre_parents_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.thermometer_chambre_parents_humidity",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Chambre Parents",
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_chambre_thea_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.thermometer_chambre_thea_humidity",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Chambre Th\u00e9a",
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Couloir",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.thermometer_chambre_parents_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_chambre_parents_humidity ]]% ([[ sensor.thermometer_chambre_parents_humiditystatus ]])",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                },
-                                {
-                                    "entity": "sensor.thermometer_chambre_parents_battery",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Ch. Parents",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.thermometer_chambre_thea_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_chambre_thea_humidity ]]% ([[ sensor.thermometer_chambre_thea_humiditystatus ]])",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                },
-                                {
-                                    "entity": "sensor.thermometer_chambre_thea_battery",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Ch. Th\u00e9a",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.thermometer_bureau_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_bureau_humidity ]]% ([[ sensor.thermometer_bureau_humiditystatus ]])",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                },
-                                {
-                                    "entity": "sensor.thermometer_bureau_battery",
-                                    "name": "Batterie"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Bureau",
-                            "type": "entities"
+                            "type": "vertical-stack"
                         },
                         {
                             "entities": [
@@ -493,19 +576,20 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.thermometer_jardin_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_jardin_humidity ]]% ([[ sensor.thermometer_jardin_humiditystatus ]])",
-                                    "type": "custom:secondaryinfo-entity-row"
+                                    "color": "green",
+                                    "entity": "sensor.thermometer_jardin_temperature"
                                 },
                                 {
-                                    "entity": "sensor.thermometer_jardin_battery",
-                                    "name": "Batterie"
+                                    "entity": "sensor.thermometer_jardin_humidity",
+                                    "show_graph": false,
+                                    "show_state": true
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Jardin",
-                            "type": "entities"
+                            "group_by": "hour",
+                            "hour24": true,
+                            "hours_to_show": 24,
+                            "name": "Jardin",
+                            "type": "custom:mini-graph-card"
                         },
                         {
                             "columns": 3,
@@ -754,6 +838,46 @@
                             "type": "entities"
                         },
                         {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Consommation",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.fibaro_dimmer_*_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.prise_*_power"
+                                    }
+                                ]
+                            },
+                            "type": "custom:auto-entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.linky_yesterday"
+                                },
+                                {
+                                    "entity": "sensor.linky_current_month"
+                                },
+                                {
+                                    "entity": "sensor.linky_last_month"
+                                },
+                                {
+                                    "entity": "sensor.linky_current_year"
+                                },
+                                {
+                                    "entity": "sensor.linky_last_year"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Linky",
+                            "type": "entities"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entities": [
@@ -795,46 +919,6 @@
                                 }
                             ],
                             "type": "horizontal-stack"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Consommation",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.fibaro_dimmer_*_power"
-                                    },
-                                    {
-                                        "entity_id": "sensor.prise_*_power"
-                                    }
-                                ]
-                            },
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.linky_yesterday"
-                                },
-                                {
-                                    "entity": "sensor.linky_current_month"
-                                },
-                                {
-                                    "entity": "sensor.linky_last_month"
-                                },
-                                {
-                                    "entity": "sensor.linky_current_year"
-                                },
-                                {
-                                    "entity": "sensor.linky_last_year"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Linky",
-                            "type": "entities"
                         },
                         {
                             "card": {
@@ -933,6 +1017,55 @@
                     ],
                     "icon": "mdi:home-automation",
                     "title": "Automatismes"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Niveau des batteries",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.fibaro_motion_*_battery_level",
+                                        "options": {
+                                            "type": "custom:battery-entity"
+                                        },
+                                        "state": "<= 100"
+                                    },
+                                    {
+                                        "attributes": {
+                                            "battery": "<= 100"
+                                        },
+                                        "entity_id": "sensor.*_battery",
+                                        "options": {
+                                            "type": "custom:battery-entity"
+                                        }
+                                    },
+                                    {
+                                        "entity_id": "sensor.thermometer_*_battery"
+                                    },
+                                    {
+                                        "attributes": {
+                                            "battery_level": "<= 100"
+                                        },
+                                        "entity_id": "*device_tracker.*",
+                                        "options": {
+                                            "type": "custom:battery-entity"
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "low_battery_list",
+                            "type": "custom:auto-entities"
+                        }
+                    ],
+                    "icon": "mdi:battery",
+                    "path": "batteries",
+                    "title": "Batteries"
                 },
                 {
                     "badges": [],

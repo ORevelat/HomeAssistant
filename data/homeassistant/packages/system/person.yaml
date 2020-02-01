@@ -10,7 +10,7 @@ person:
     id: sandrine_maziere
     device_trackers:
       - device_tracker.iphone_sandrine
-      - device_tracker.68_fb_7e_2a_ca_62
+      - device_tracker.d0_c5_f3_e4_45_d8
 
   - name: Théa
     id: thea_revelat
