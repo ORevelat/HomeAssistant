@@ -101,6 +101,11 @@ Envoie les infos de périfériques BT-LE vers MQTT. Support de l'autodiscovery M
 #### Rflink2mqtt
 Envoie les infos de périfériques captés via un RFLink vers MQTT. Support de l'autodiscovery MQTT de Home Assistant.
 
+### Deepstack
+Utilisation d'une stack [Deepstack](https://python.deepstack.cc/) et d'un custom composant [Deepstack-object](https://github.com/ORevelat/HASS-Deepstack-object).
+
+Détection de personne des caméras, avec sauvegarde sur disque de l'image + bounding-boxes si une détection.
+
 ### Raspberry n°1 modèle 1B
 Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de-chaussé, donc j'ai déporté un vieux PI du tirroir directement dans le salon.
 
