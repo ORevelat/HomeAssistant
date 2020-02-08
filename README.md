@@ -85,6 +85,13 @@ Et pour démarrer portainer:
 
     docker run -d -p 9002:9000 --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/your/data/portainer:/data --name  portainer portainer/portainer
 
+
+### Deepstack
+Utilisation d'une stack [Deepstack](https://python.deepstack.cc/) et d'un custom composant [Deepstack-object](https://github.com/ORevelat/HASS-Deepstack-object).
+
+Détection de personne des caméras, avec sauvegarde sur disque de l'image + bounding-boxes si une détection.
+
+
 ### Image docker customisées
 J'utilise des images docker customisées principalement pour me faciliter mon utilisation de périphériques ou de mise à jour.
 
@@ -100,11 +107,6 @@ Envoie les infos de périfériques BT-LE vers MQTT. Support de l'autodiscovery M
 
 #### Rflink2mqtt
 Envoie les infos de périfériques captés via un RFLink vers MQTT. Support de l'autodiscovery MQTT de Home Assistant.
-
-### Deepstack
-Utilisation d'une stack [Deepstack](https://python.deepstack.cc/) et d'un custom composant [Deepstack-object](https://github.com/ORevelat/HASS-Deepstack-object).
-
-Détection de personne des caméras, avec sauvegarde sur disque de l'image + bounding-boxes si une détection.
 
 ### Raspberry n°1 modèle 1B
 Malgré une très bonne clé BT-LE, dure de capter des périphériques au rez-de-chaussé, donc j'ai déporté un vieux PI du tirroir directement dans le salon.
