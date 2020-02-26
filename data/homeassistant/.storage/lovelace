@@ -776,6 +776,50 @@
                     "badges": [],
                     "cards": [
                         {
+                            "cards": [
+                                {
+                                    "aspect_ratio": "50%",
+                                    "card": null,
+                                    "entity": "camera.detection_rez_de_chaussee",
+                                    "show_name": false,
+                                    "show_state": false,
+                                    "type": "picture-entity"
+                                },
+                                {
+                                    "aspect_ratio": "50%",
+                                    "card": null,
+                                    "entity": "camera.detection_jardin",
+                                    "show_name": false,
+                                    "show_state": false,
+                                    "type": "picture-entity"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "image_processing.rdc_detector",
+                                    "name": "Rez de chauss\u00e9e"
+                                },
+                                {
+                                    "entity": "image_processing.jardin_riviere_detector",
+                                    "name": "Jardin (rivi\u00e8re)"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Camera processing",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:run-fast",
+                    "path": "",
+                    "title": "D\u00e9tection surveillance"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "entity": "weather.dark_sky",
                             "name": "Auribeau sur Siagne",
                             "type": "weather-forecast"

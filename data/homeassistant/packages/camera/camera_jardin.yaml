@@ -6,3 +6,6 @@ camera:
     port: !secret camera_jardin1_port
     username: !secret camera_jardin1_username
     password: !secret camera_jardin1_password
+  - platform: local_file
+    file_path: /config/www/deepstack/jardin_riviere_detector_latest_person.jpg
+    name: "Détection Jardin"

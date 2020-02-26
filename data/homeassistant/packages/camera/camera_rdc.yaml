@@ -6,3 +6,6 @@ camera:
     port: !secret camera_rdc_port
     username: !secret camera_rdc_username
     password: !secret camera_rdc_password
+  - platform: local_file
+    file_path: /config/www/deepstack/rdc_detector_latest_person.jpg
+    name: "Détection Rez de chaussée"

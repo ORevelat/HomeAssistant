@@ -1,0 +1,56 @@
+image_processing:
+  - platform: deepstack_object
+    ip_address: !secret host_chaos
+    port: 5000
+    api_key: !secret deepstack_token
+    # scan_interval: 30 # Optional, in seconds
+    save_file_folder: /config/www/deepstack
+    save_timestamped_file: True
+    target: person
+    source:
+    - entity_id: camera.rez_de_chaussee
+      name: rdc_detector
+  - platform: deepstack_object
+    ip_address: !secret host_chaos
+    port: 5000
+    api_key: !secret deepstack_token
+    # scan_interval: 30 # Optional, in seconds
+    save_file_folder: /config/www/deepstack
+    save_timestamped_file: True
+    target: person
+    source:
+    - entity_id: camera.jardin_riviere
+      name: jardin_riviere_detector
+
+automation:
+  - alias: Camera Detection 1
+    trigger:
+      platform: time_pattern
+      minutes: '*'
+      seconds: 0
+    action:
+    - data:
+        entity_id: image_processing.rdc_detector
+      service: image_processing.scan
+  
+  - alias: Camera Detection 2
+    trigger:
+      platform: time_pattern
+      minutes: '*'
+      seconds: 30
+    action:
+    - data:
+        entity_id: image_processing.jardin_riviere_detector
+      service: image_processing.scan
+  
+  - alias: Image Detection Zip
+    trigger:
+      platform: time
+      at: '02:00:00'
+    action:
+      - service: shell_command.image_zip_rdc
+      - service: shell_command.image_zip_jardin_riviere
+  
+shell_command:
+  image_zip_rdc: /config/scripts/image_detection_zip.sh rdc_detector
+  image_zip_jardin_riviere: /config/scripts/image_detection_zip.sh jardin_riviere_detector
