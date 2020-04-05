@@ -941,25 +941,6 @@
                                     "show_header_toggle": false,
                                     "title": "HP Gen8 n\u00b01",
                                     "type": "entities"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.hp_ilo_gen82_status",
-                                            "name": "Status"
-                                        },
-                                        {
-                                            "entity": "sensor.hp_ilo_gen82_fanspeed",
-                                            "name": "Vitesse ventilateur"
-                                        },
-                                        {
-                                            "entity": "sensor.hp_ilo_gen82_temperature",
-                                            "name": "Temp\u00e9rature"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "HP Gen8 n\u00b02",
-                                    "type": "entities"
                                 }
                             ],
                             "type": "horizontal-stack"
@@ -971,7 +952,6 @@
                             },
                             "entities": [
                                 "binary_sensor.livebox",
-                                "binary_sensor.proxmox_ve_1",
                                 "binary_sensor.proxmox_ve_2",
                                 "binary_sensor.vm_zeus_server",
                                 "binary_sensor.vm_atlas_server",
