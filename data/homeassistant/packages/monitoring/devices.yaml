@@ -12,11 +12,11 @@ binary_sensor:
     count: 1
     scan_interval: 60
 
-  - platform: ping
-    name: "Proxmox VE-1"
-    host: !secret host_pve_1
-    count: 1
-    scan_interval: 60
+  # - platform: ping
+  #   name: "Proxmox VE-1"
+  #   host: !secret host_pve_1
+  #   count: 1
+  #   scan_interval: 60
 
   - platform: ping
     name: "Proxmox VE-2"
@@ -39,12 +39,6 @@ binary_sensor:
   - platform: ping
     name: "TP-Link WA830RE"
     host: !secret host_wa830
-    count: 1
-    scan_interval: 60
-
-  - platform: ping
-    name: "Broadlink RM Pro"
-    host: !secret host_rmpro
     count: 1
     scan_interval: 60
 

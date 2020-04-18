@@ -3,22 +3,6 @@
         "config": {
             "resources": [
                 {
-                    "type": "js",
-                    "url": "/local/lovelace/js/card-tools.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/lovelace/js/secondaryinfo-entity-row.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/lovelace/js/battery-entity.js?v=0.1"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/surveillance-card/surveillance-card.js"
-                },
-                {
                     "type": "module",
                     "url": "/community_plugin/atomic_calendar/atomic_calendar.js"
                 },
@@ -29,6 +13,22 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/lovelace-auto-entities/auto-entities.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/hacsfiles/lovelace-battery-entity/battery-entity.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/hacsfiles/secondaryinfo-entity-row/secondaryinfo-entity-row.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/hacsfiles/lovelace-card-tools/card-tools.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/hacsfiles/lovelace-layout-card/layout-card.js"
                 }
             ],
             "title": "Home",
@@ -753,66 +753,87 @@
                     "badges": [],
                     "cards": [
                         {
-                            "cameras": [
-                                {
-                                    "entity": "camera.rez_de_chaussee",
-                                    "motion_entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor"
-                                },
-                                {
-                                    "entity": "camera.jardin_riviere"
-                                }
-                            ],
-                            "thumb_interval": 10,
-                            "type": "custom:surveillance-card",
-                            "update_interval": 1
-                        }
-                    ],
-                    "icon": "mdi:cctv",
-                    "panel": true,
-                    "theme": "Backend-selected",
-                    "title": "Surveillance"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
                             "cards": [
                                 {
-                                    "aspect_ratio": "50%",
-                                    "card": null,
-                                    "entity": "camera.detection_rez_de_chaussee",
-                                    "show_name": false,
-                                    "show_state": false,
-                                    "type": "picture-entity"
-                                },
-                                {
-                                    "aspect_ratio": "50%",
-                                    "card": null,
-                                    "entity": "camera.detection_jardin",
-                                    "show_name": false,
-                                    "show_state": false,
-                                    "type": "picture-entity"
+                                    "cards": [
+                                        {
+                                            "content": "Camera",
+                                            "gridcol": "1 / 5",
+                                            "gridrow": "1 / 2",
+                                            "type": "markdown"
+                                        },
+                                        {
+                                            "aspect_ratio": "0%",
+                                            "camera_image": "camera.rez_de_chaussee",
+                                            "entities": [],
+                                            "gridcol": "1 / 3",
+                                            "gridrow": "2 / 3",
+                                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                                            "type": "picture-glance"
+                                        },
+                                        {
+                                            "aspect_ratio": "0%",
+                                            "camera_image": "camera.jardin_riviere",
+                                            "entities": [],
+                                            "gridcol": "3 / 5",
+                                            "gridrow": "2 / 3",
+                                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                                            "type": "picture-glance"
+                                        },
+                                        {
+                                            "content": "Detection",
+                                            "gridcol": "1 / 5",
+                                            "gridrow": "3 / 4",
+                                            "type": "markdown"
+                                        },
+                                        {
+                                            "aspect_ratio": "50%",
+                                            "entity": "camera.detection_rez_de_chaussee",
+                                            "gridcol": "1 / 3",
+                                            "gridrow": "4 / 5",
+                                            "show_name": false,
+                                            "show_state": false,
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "aspect_ratio": "50%",
+                                            "entity": "camera.detection_jardin",
+                                            "gridcol": "3 / 5",
+                                            "gridrow": "4 / 5",
+                                            "show_name": false,
+                                            "show_state": false,
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "image_processing.rdc_detector",
+                                                    "name": "Rez de chauss\u00e9e"
+                                                },
+                                                {
+                                                    "entity": "image_processing.jardin_riviere_detector",
+                                                    "name": "Jardin (rivi\u00e8re)"
+                                                }
+                                            ],
+                                            "gridcol": "1 / 5",
+                                            "gridrow": "5 / 6",
+                                            "type": "entities"
+                                        }
+                                    ],
+                                    "gridcols": "25% 25% 25% 25%",
+                                    "gridrows": "auto auto auto auto auto",
+                                    "layout": "grid",
+                                    "type": "custom:layout-card"
                                 }
                             ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "image_processing.rdc_detector",
-                                    "name": "Rez de chauss\u00e9e"
-                                },
-                                {
-                                    "entity": "image_processing.jardin_riviere_detector",
-                                    "name": "Jardin (rivi\u00e8re)"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Camera processing",
-                            "type": "entities"
+                            "column_width": "100%",
+                            "layout": "vertical",
+                            "min_width": "100%",
+                            "type": "custom:layout-card"
                         }
                     ],
                     "icon": "mdi:run-fast",
+                    "panel": false,
                     "path": "",
                     "title": "D\u00e9tection surveillance"
                 },
@@ -958,7 +979,6 @@
                                 "binary_sensor.vm_hyperion_server",
                                 "binary_sensor.tp_link_archer_c7",
                                 "binary_sensor.tp_link_wa830re",
-                                "binary_sensor.broadlink_rm_pro",
                                 "binary_sensor.camera_salon",
                                 "binary_sensor.docker_stacks",
                                 "binary_sensor.imprimante",
