@@ -15,5 +15,4 @@ person:
   - name: Théa
     id: thea_revelat
     device_trackers:
-      - device_tracker.iphone_thea
       - device_tracker.20_ab_37_70_88_e2

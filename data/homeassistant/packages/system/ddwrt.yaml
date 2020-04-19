@@ -9,7 +9,6 @@ device_tracker:
     consider_home: 300
     new_device_defaults:
       track_new_devices: false
-      hide_if_away: false
 
   - platform: ddwrt
     host: !secret ddwrt_wa830_ip
@@ -19,4 +18,3 @@ device_tracker:
     consider_home: 300
     new_device_defaults:
       track_new_devices: false
-      hide_if_away: false

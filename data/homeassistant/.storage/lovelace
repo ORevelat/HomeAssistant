@@ -1,36 +1,6 @@
 {
     "data": {
         "config": {
-            "resources": [
-                {
-                    "type": "module",
-                    "url": "/community_plugin/atomic_calendar/atomic_calendar.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/mini-graph-card/mini-graph-card-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-auto-entities/auto-entities.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/hacsfiles/lovelace-battery-entity/battery-entity.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/hacsfiles/secondaryinfo-entity-row/secondaryinfo-entity-row.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/hacsfiles/lovelace-card-tools/card-tools.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/hacsfiles/lovelace-layout-card/layout-card.js"
-                }
-            ],
             "title": "Home",
             "views": [
                 {

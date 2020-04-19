@@ -4,7 +4,7 @@ Ma configuration personnelle de Home Assistant, utilisée quotidiennement au tra
 
 Modifications régulières au grès des envies et différents tests (bon normalement pas en live car un container docker dédié pour cela, mais ca arrive :D).
 
-Mise à jour pour Home Assistant: **0.102.3**
+Mise à jour pour Home Assistant: **0.107.7**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, d'un raspberry et d'assistants Alexa (Echo et Echo Dot).
@@ -32,7 +32,7 @@ Au final, mon installation se compose de:
 - une DOTI
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
 - bandeau LED (via controlleur [magichome](https://www.aliexpress.com/item/32727054293.html))
-- Amazon Echo/Dot de façon quotidienne
+- Amazon Echo/Dot/Show de façon quotidienne
   * commande vocale via le bridge Haaska
   * TTS via Alexa Media Player (HACS)
 
