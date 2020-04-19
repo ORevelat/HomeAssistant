@@ -1,6 +1,7 @@
 
 alexa:
   smart_home:
+    locale: fr-FR
     # no proactive mode with haaska
     # endpoint: !secret alexa_endpoint
     # client_id: !secret alexa_client_id
