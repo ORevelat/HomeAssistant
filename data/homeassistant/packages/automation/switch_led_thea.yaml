@@ -76,7 +76,7 @@ automation:
       entity_id:
         - light.led_chambre_thea
       brightness: 61
-      rgb_color: [49,0,62]
+      rgb_color: [121,159,203]
       white_value: 0
 
 - alias: Bandeau Led Color3
