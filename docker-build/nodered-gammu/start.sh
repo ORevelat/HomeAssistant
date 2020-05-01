@@ -10,5 +10,4 @@ export LC_ALL=fr_FR.UTF-8
 export LANG=fr_FR.UTF-8
 export LANGUAGE=fr_FR.UTF-8
 
-cd /usr/src/node-red
-/usr/local/bin/node $NODE_OPTIONS node_modules/node-red/red.js -v $FLOWS "--userDir" "/data"
+node-red -v /data/my_flows.json --userDir /data

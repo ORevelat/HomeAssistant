@@ -27,7 +27,7 @@ services:
 
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/home-assistant:0.102.3
+    image: homeassistant/home-assistant:0.107.7
     restart: always
     ports:
       - "8123:8123"
@@ -55,7 +55,7 @@ services:
 
   nodered:
     container_name: nodered
-    image: my-nodered:latest
+    image: my-nodered:1.0.6
     restart: always
     user: 1000:1000
     ports:

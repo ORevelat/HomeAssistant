@@ -1,21 +1,17 @@
-FROM "nodered/node-red-docker:v8"
-LABEL maintainer="Nobody"
+FROM node:12-buster-slim
 
 USER root
 
+RUN apt-get update && apt-get --assume-yes install apt-utils sudo gammu-smsd locales iputils-ping procps
+
+RUN sed -i 's/^# *\(fr_FR.UTF-8\)/\1/' /etc/locale.gen && locale-gen
+
+RUN adduser node sudo && echo 'node ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+RUN npm install -g --unsafe-perm node-red
+
 COPY start.sh /start.sh
-
-RUN apt-get update
-RUN apt-get --assume-yes install apt-utils
-RUN apt-get --assume-yes install sudo
-RUN apt-get --assume-yes install gammu-smsd
-RUN apt-get --assume-yes install locales
-RUN sed -i 's/^# *\(fr_FR.UTF-8\)/\1/' /etc/locale.gen
-RUN locale-gen
-
-RUN adduser node sudo
-
-RUN echo 'node ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+COPY gammu-smsdrc.conf /etc/gammu-smsdrc
 
 USER node
 

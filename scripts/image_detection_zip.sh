@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#
+# alpine needs additional packages
+# - zip
+# - coreutils
+# - findutils
+#
+
 if [[ $# -eq 0 ]] ; then
     exit 1
 fi
