@@ -58,8 +58,8 @@ var CONFIG = {
          groups: [
             {
                title: '',
-               width: 2,
                height: 3,
+               width: 2,
                items: [
                   {
                      position: [0, 0],
@@ -97,7 +97,7 @@ var CONFIG = {
                      position: [0, 1],
                      type: TYPES.WEATHER_LIST,
                      width: 2,
-                     height: 2,
+                     height: 1.5,
                      title: 'Prévisions',
                      id: {},
                      icons: {
@@ -116,7 +116,7 @@ var CONFIG = {
                      primaryTitle: 'Prévision',
                      list: [1, 2, 3, 4, 5].map(function (id) {
                         var forecast = "&sensor.dark_sky_overnight_low_temperature_" + id + "d.state - ";
-                        forecast += "&sensor.dark_sky_daytime_high_temperature_" + id + "d.state";
+                        forecast += "&sensor.dark_sky_daytime_high_temperature_" + id + "d.state ";
                         forecast += "&sensor.dark_sky_daytime_high_temperature_" + id + "d.attributes.unit_of_measurement";
 
                         var weekday = new Array(7);
@@ -155,7 +155,7 @@ var CONFIG = {
                ]
             },
             {
-               title: 'Maison',
+               title: '',
                height: 3,
                items: [
                   {
@@ -182,7 +182,7 @@ var CONFIG = {
                      },
                   },
                   {
-                     position: [0, 1.5],
+                     position: [2, 0],
                      height: 1,
                      width: 1.5,
                      type: TYPES.CUSTOM,
@@ -190,7 +190,7 @@ var CONFIG = {
                      title: 'Allumées',
                      subtitle: 'Lumières',
                      action: function (item, entity) {
-                        window.openPage(CONFIG.pages[1]);
+                        window.openPage(CONFIG.pages[2]);
                      },
                      icon: function() {
                         var lights = [
@@ -228,7 +228,7 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [0, 2.5],
+                     position: [2, 1],
                      height: 1,
                      width: 1.5,
                      type: TYPES.CUSTOM,
@@ -236,7 +236,7 @@ var CONFIG = {
                      title: 'Allumées',
                      subtitle: 'Prises',
                      action: function (item, entity) {
-                        window.openPage(CONFIG.pages[2]);
+                        window.openPage(CONFIG.pages[3]);
                      },
                      icon: function() {
                         var lights = [
@@ -274,7 +274,15 @@ var CONFIG = {
                      }
                   }
                ]
-            },
+            }
+         ]
+      },
+      {
+         title: 'Températures',
+         bg: 'images/bg5.jpg',
+         icon: 'mdi-temperature-celsius',
+         tileSize: 120,
+         groups: [
             {
                title: 'Extérieur',
                width: 1,
@@ -282,8 +290,10 @@ var CONFIG = {
                items: [
                   {
                      position: [0, 0],
+                     height: 1.25,
                      type: TYPES.SENSOR,
                      title: 'Jardin',
+                     subtitle: 'Humidité ' + '&sensor.thermometer_jardin_humidity.state' + '&sensor.thermometer_jardin_humidity.attributes.unit_of_measurement',
                      id: 'sensor.thermometer_jardin_temperature',
                      state: false,
                      filter: function (value) {
@@ -300,6 +310,7 @@ var CONFIG = {
                items: [
                   {
                      position: [0, 0],
+                     height: 1.25,
                      type: TYPES.SENSOR,
                      title: 'Salon',
                      id: 'sensor.thermometer_salon_temperature',
@@ -310,10 +321,12 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [0, 1],
+                     position: [0, 1.25],
                      type: TYPES.SENSOR,
+                     height: 1.25,
                      title: 'Salle à manger',
                      id: 'sensor.fibaro_motion_salle_a_manger_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_salle_a_manger_luminance.state' + '&sensor.fibaro_motion_salle_a_manger_luminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -330,8 +343,10 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      type: TYPES.SENSOR,
+                     height: 1.25,
                      title: 'Couloir',
                      id: 'sensor.fibaro_motion_etage_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_etage_luminance.state' + '&sensor.fibaro_motion_etage_luminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -341,8 +356,10 @@ var CONFIG = {
                   {
                      position: [1, 0],
                      type: TYPES.SENSOR,
+                     height: 1.25,
                      title: 'Salle de bain',
-                     id: 'sensor.thermometer_salle_de_bain_temperature',
+                     id: 'sensor.0x00158d00032170fc_temperature',
+                     subtitle: 'Humidité ' + '&sensor.0x00158d00032170fc_humidity.state' + '&sensor.0x00158d00032170fc_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -350,10 +367,12 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [1, 1],
+                     position: [1, 1.25],
                      type: TYPES.SENSOR,
+                     height: 1.25,
                      title: 'Bureau',
                      id: 'sensor.thermometer_bureau_temperature',
+                     subtitle: 'Humidité ' + '&sensor.thermometer_bureau_humidity.state' + '&sensor.thermometer_bureau_humidity.attributes.unit_of_measurement',                    
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -363,8 +382,10 @@ var CONFIG = {
                   {
                      position: [2, 0],
                      type: TYPES.SENSOR,
+                     height: 1.25,
                      title: 'Chambre Parents',
                      id: 'sensor.thermometer_chambre_parents_temperature',
+                     subtitle: 'Humidité ' + '&sensor.thermometer_chambre_parents_humidity.state' + '&sensor.thermometer_chambre_parents_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -372,10 +393,12 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [2, 1],
+                     position: [2, 1.25],
                      type: TYPES.SENSOR,
+                     height: 1.25,
                      title: 'Chambre Théa',
                      id: 'sensor.thermometer_chambre_thea_temperature',
+                     subtitle: 'Humidité ' + '&sensor.thermometer_chambre_thea_humidity.state' + '&sensor.thermometer_chambre_thea_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -573,7 +596,7 @@ var CONFIG = {
                   },
                   {
                      position: [0, 1],
-                     title: 'Jardin 1',
+                     title: 'Fontaine',
                      id: 'switch.sonoff_4ch_jardin_1',
                      type: TYPES.SWITCH,
                      states: {
@@ -587,7 +610,7 @@ var CONFIG = {
                   },
                   {
                      position: [1, 1],
-                     title: 'Jardin 2',
+                     title: 'Piscine G.',
                      id: 'switch.sonoff_4ch_jardin_2',
                      type: TYPES.SWITCH,
                      states: {
@@ -601,7 +624,7 @@ var CONFIG = {
                   },
                   {
                      position: [0, 2],
-                     title: 'Jardin 3',
+                     title: 'Piscine D',
                      id: 'switch.sonoff_4ch_jardin_3',
                      type: TYPES.SWITCH,
                      states: {
@@ -665,6 +688,20 @@ var CONFIG = {
                      position: [0, 1],
                      title: 'Bibliothèque',
                      id: 'switch.sonoff_bibliotheque_haut',
+                     type: TYPES.SWITCH,
+                     states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-power-plug",
+                        off: "mdi-power-plug-off",
+                     }
+                  },
+                  {
+                     position: [1, 1],
+                     title: 'Cuisine',
+                     id: 'switch.sonoff_cuisine',
                      type: TYPES.SWITCH,
                      states: {
                         on: "On",
