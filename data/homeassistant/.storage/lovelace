@@ -519,22 +519,31 @@
                                         }
                                     ],
                                     "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.0x00158d00032170fc_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.0x00158d00032170fc_humidity",
+                                                    "show_graph": false,
+                                                    "show_state": true
+                                                }
+                                            ],
+                                            "group_by": "hour",
+                                            "hour24": true,
+                                            "hours_to_show": 24,
+                                            "name": "Salle de bain",
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 }
                             ],
                             "type": "vertical-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.thermometer_salle_de_bain_temperature",
-                                    "name": "Temp\u00e9rature",
-                                    "secondary_info": "Humidit\u00e9 de [[ sensor.thermometer_salle_de_bain_humidity ]]%",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Salle de bain",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:hotel",
@@ -1072,6 +1081,9 @@
                                 },
                                 {
                                     "entity": "input_boolean.enable_thermostat_bedroom_thea"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_thermostat_rdc_clim"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1164,10 +1176,10 @@
                                     "entity": "sensor.0x00158d00032170fc_temperature"
                                 },
                                 {
-                                    "entity": "sensor.0x00158d00032170fc_humidity"
+                                    "entity": "sensor.0x00158d00032170fc_pressure"
                                 },
                                 {
-                                    "entity": "sensor.0x00158d00032170fc_pressure"
+                                    "entity": "sensor.0x00158d00032170fc_humidity"
                                 },
                                 {
                                     "entity": "sensor.0x00158d0002337696_click"
