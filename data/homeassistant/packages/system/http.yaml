@@ -4,8 +4,7 @@ http:
   base_url: !secret http_base_url
   use_x_forwarded_for: true
   trusted_proxies:
-    - !secret http_trusted_proxy_1
-    - !secret http_trusted_proxy_2
-    - !secret http_trusted_network_1
+    - !secret http_trusted_reverseproxy
+    - !secret http_trusted_network_docker_automation
   ip_ban_enabled: true
   login_attempts_threshold: 3
