@@ -41,17 +41,17 @@ services:
       options:
         max-size: 10m
 
-  appdaemon:
-    container_name: appdaemon
-    # use cutom image with own dependencies
-    image: my-appdaemon:latest
-    restart: always
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /srv/disk1/docker-data/data/appdaemon/data:/conf
-    logging:
-      options:
-        max-size: 10m
+#  appdaemon:
+#    container_name: appdaemon
+#    # use cutom image with own dependencies
+#    image: my-appdaemon:latest
+#    restart: always
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /srv/disk1/docker-data/data/appdaemon/data:/conf
+#    logging:
+#      options:
+#        max-size: 10m
 
   nodered:
     container_name: nodered
@@ -105,7 +105,7 @@ services:
 
   rflink2mqtt:
     container_name: rflink2mqtt
-    image: rflink2mqtt:0.8.2
+    image: rflink2mqtt:0.8.3
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
