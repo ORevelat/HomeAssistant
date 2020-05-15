@@ -61,19 +61,22 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "person.olivier",
+                                    "aspect_ratio": "100%",
+                                    "entity": "person.olivier_2",
                                     "image": "https://hass.revelat.eu:48880/local/img/olivier.jpg",
                                     "show_name": false,
                                     "type": "picture-entity"
                                 },
                                 {
-                                    "entity": "person.sandrine",
+                                    "aspect_ratio": "100%",
+                                    "entity": "person.sandrine_2",
                                     "image": "https://hass.revelat.eu:48880/local/img/sandrine.jpg",
                                     "show_name": false,
                                     "type": "picture-entity"
                                 },
                                 {
-                                    "entity": "person.thea",
+                                    "aspect_ratio": "100%",
+                                    "entity": "person.thea_2",
                                     "image": "https://hass.revelat.eu:48880/local/img/thea.jpg",
                                     "show_name": false,
                                     "type": "picture-entity"
@@ -84,7 +87,6 @@
                         {
                             "cards": [
                                 {
-                                    "cards": null,
                                     "color_thresholds": [
                                         {
                                             "color": "#00ff00",
@@ -147,24 +149,35 @@
                                     "type": "custom:mini-graph-card"
                                 },
                                 {
-                                    "cards": [
+                                    "entities": [
                                         {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.qubino_smart_meter_energy",
-                                                    "icon": "mdi:power-settings",
-                                                    "name": "Puissance"
-                                                },
-                                                {
-                                                    "entity": "sensor.qubino_smart_meter_energy_2",
-                                                    "icon": "mdi:power-settings",
-                                                    "name": "Consommation"
-                                                }
-                                            ],
-                                            "type": "entities"
+                                            "entity": "sensor.hourly_energy",
+                                            "name": "Heure",
+                                            "secondary_info": "&nbsp;&nbsp;[[ sensor.hourly_consumption_day ]] kWh (HP) / [[ sensor.hourly_consumption_night ]] kWh (HC)",
+                                            "type": "custom:secondaryinfo-entity-row"
+                                        },
+                                        {
+                                            "entity": "sensor.daily_energy",
+                                            "name": "Jour",
+                                            "secondary_info": "&nbsp;&nbsp;[[ sensor.daily_consumption_day ]] kWh (HP) / [[ sensor.daily_consumption_night ]] kWh (HC)",
+                                            "type": "custom:secondaryinfo-entity-row"
+                                        },
+                                        {
+                                            "entity": "sensor.monthly_energy",
+                                            "name": "Mois",
+                                            "secondary_info": "&nbsp;&nbsp;[[ sensor.monthly_consumption_day ]] kWh (HP) / [[ sensor.monthly_consumption_night ]] kWh (HC)",
+                                            "type": "custom:secondaryinfo-entity-row"
+                                        },
+                                        {
+                                            "entity": "sensor.yearly_energy",
+                                            "name": "Ann\u00e9e",
+                                            "secondary_info": "&nbsp;&nbsp;[[ sensor.yearly_consumption_day ]] kWh (HP) / [[ sensor.yearly_consumption_night ]] kWh (HC)",
+                                            "type": "custom:secondaryinfo-entity-row"
                                         }
                                     ],
-                                    "type": "vertical-stack"
+                                    "show_header_toggle": false,
+                                    "title": "D\u00e9tails",
+                                    "type": "entities"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -877,6 +890,46 @@
                             "layout": "vertical",
                             "min_width": "100%",
                             "type": "custom:layout-card"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.rez_de_chaussee",
+                            "camera_view": "live",
+                            "entities": [
+                                {
+                                    "entity": "image_processing.rdc_detector"
+                                },
+                                {
+                                    "entity": "camera.detection_rez_de_chaussee"
+                                }
+                            ],
+                            "entity": "camera.detection_rez_de_chaussee",
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "tap_action": {
+                                "action": "more-info"
+                            },
+                            "title": "Rez de chauss\u00e9e",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.jardin_riviere",
+                            "camera_view": "live",
+                            "entities": [
+                                {
+                                    "entity": "image_processing.jardin_riviere_detector"
+                                },
+                                {
+                                    "entity": "camera.detection_jardin"
+                                }
+                            ],
+                            "entity": "camera.detection_rez_de_chaussee",
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "tap_action": {
+                                "action": "more-info"
+                            },
+                            "title": "Jardin (rivi\u00e8re)",
+                            "type": "picture-glance"
                         }
                     ],
                     "icon": "mdi:run-fast",
