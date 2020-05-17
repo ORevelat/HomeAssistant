@@ -29,16 +29,16 @@ sensor:
     sensors:
       hourly_energy:
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.hourly_consumption_day')|float + states('sensor.hourly_consumption_night')|float }}"
+        value_template: "{{ states('sensor.hourly_consumption_day')|float|round(1) + states('sensor.hourly_consumption_night')|float|round(1) }}"
       daily_energy:
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_consumption_day')|float + states('sensor.daily_consumption_night')|float }}"
+        value_template: "{{ states('sensor.daily_consumption_day')|float|round(1) + states('sensor.daily_consumption_night')|float|round(1) }}"
       monthly_energy:
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_consumption_day')|float + states('sensor.monthly_consumption_night')|float }}"
+        value_template: "{{ states('sensor.monthly_consumption_day')|float|round(1) + states('sensor.monthly_consumption_night')|float|round(1) }}"
       yearly_energy:
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.yearly_consumption_day')|float + states('sensor.yearly_consumption_night')|float }}"
+        value_template: "{{ states('sensor.yearly_consumption_day')|float|round(1) + states('sensor.yearly_consumption_night')|float|round(1) }}"
 
 automation:
   - id: set_night
