@@ -139,6 +139,7 @@
                         {
                             "cards": [
                                 {
+                                    "aggregate_func": "max",
                                     "color_thresholds": [
                                         {
                                             "color": "#00ff00",
@@ -146,45 +147,51 @@
                                         },
                                         {
                                             "color": "#38ff00",
-                                            "value": 1000
+                                            "value": 0.5
                                         },
                                         {
                                             "color": "#71ff00",
-                                            "value": 2000
+                                            "value": 1
                                         },
                                         {
                                             "color": "#aaff00",
-                                            "value": 3000
+                                            "value": 1.5
                                         },
                                         {
                                             "color": "#e2ff00",
-                                            "value": 4000
+                                            "value": 2
                                         },
                                         {
                                             "color": "#ffe200",
-                                            "value": 5000
+                                            "value": 2.5
                                         },
                                         {
                                             "color": "#ffaa00",
-                                            "value": 6000
+                                            "value": 3
                                         },
                                         {
                                             "color": "#ff7100",
-                                            "value": 7000
+                                            "value": 4
                                         },
                                         {
                                             "color": "#ff3800",
-                                            "value": 8000
+                                            "value": 5
                                         },
                                         {
                                             "color": "#ff0000",
-                                            "value": 9000
+                                            "value": 6
                                         }
                                     ],
                                     "entities": [
                                         {
-                                            "entity": "sensor.qubino_smart_meter_power",
+                                            "entity": "sensor.hourly_energy",
+                                            "name": "Energie consomm\u00e9e",
                                             "state_adaptive_color": true
+                                        },
+                                        {
+                                            "entity": "sensor.qubino_smart_meter_power",
+                                            "show_graph": false,
+                                            "show_state": true
                                         },
                                         {
                                             "entity": "sensor.qubino_smart_meter_power_factor",
@@ -247,6 +254,7 @@
                                     "entities": [
                                         {
                                             "entity": "sensor.daily_energy",
+                                            "name": "Energie consomm\u00e9e",
                                             "state_adaptive_color": true
                                         }
                                     ],

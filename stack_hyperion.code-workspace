@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "\\\\hyperion\\docker_data"
+			"path": "."
 		}
 	],
 	"settings": {}
