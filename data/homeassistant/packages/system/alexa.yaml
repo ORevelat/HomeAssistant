@@ -10,15 +10,17 @@ alexa:
       exclude_domains:
         - automation
         - binary_sensor
+        - climate
         - cover
         - group
+        - image_processing
         - input_boolean
+        - input_number
+        - light
+        - media_player
         - script
         - sensor
         - switch
-        - light
-        - media_player
-        - climate
       include_entities:
         - climate.daikinap92707
         - cover.fibaro_roller_shutter_cuisine_level

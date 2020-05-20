@@ -859,6 +859,10 @@
                             "type": "media-control"
                         },
                         {
+                            "entity": "media_player.echo_show",
+                            "type": "media-control"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.plex"
