@@ -45,9 +45,9 @@ automation:
     alias: 'Set tariff Night'    
     trigger:
         - platform: time
-          at: '02:00:00'
+          at: '01:56:00'
         - platform: time
-          at: '14:00:00'
+          at: '13:56:00'
     action:
         - service: utility_meter.select_tariff
           data:
@@ -61,9 +61,9 @@ automation:
     alias: 'Set tariff Day'
     trigger:
         - platform: time
-          at: '07:00:00'
+          at: '06:56:00'
         - platform: time
-          at: '17:00:00'
+          at: '16:56:00'
     action:
         - service: utility_meter.select_tariff
           data:
