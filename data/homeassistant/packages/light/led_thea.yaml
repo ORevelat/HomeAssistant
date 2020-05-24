@@ -9,8 +9,7 @@ automation:
   - alias: Bandeau Led On
     trigger:
       platform: state
-      entity_id:
-        - sensor.0x00158d0002337696_click
+      entity_id: sensor.0x00158d0002337696_click
       to: 'single'
     condition: 
       condition: state
@@ -33,8 +32,7 @@ automation:
   - alias: Bandeau Led Off
     trigger:
       platform: state
-      entity_id:
-        - sensor.0x00158d0002337696_click
+      entity_id: sensor.0x00158d0002337696_click
       to: 'single'
     condition: 
       condition: state
@@ -49,8 +47,7 @@ automation:
   - alias: Bandeau Led Color1
     trigger:
       platform: state
-      entity_id:
-        - sensor.0x00158d0002337696_click
+      entity_id: sensor.0x00158d0002337696_click
       to: 'double'
     condition: 
       condition: state
@@ -68,8 +65,7 @@ automation:
   - alias: Bandeau Led Color2
     trigger:
       platform: state
-      entity_id:
-        - sensor.0x00158d0002337696_click
+      entity_id: sensor.0x00158d0002337696_click
       to: 'triple'
     condition: 
       condition: state
@@ -87,8 +83,7 @@ automation:
   - alias: Bandeau Led Color3
     trigger:
       platform: state
-      entity_id:
-        - sensor.0x00158d0002337696_click
+      entity_id: sensor.0x00158d0002337696_click
       to: 'quadruple'
     condition: 
       condition: state
