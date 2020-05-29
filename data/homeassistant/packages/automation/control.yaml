@@ -52,3 +52,13 @@ input_boolean:
   enable_thermostat_rdc_clim:
     name: Thermostat Climatisation Rez de Chaussée
     icon: mdi:radiator
+  
+input_select:
+  
+  cover_close_mode_salon:
+    icon: mdi:weather-sunset-down
+    options:
+      - "100"
+      - "30"
+      - "15"
+      - "0"
