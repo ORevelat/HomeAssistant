@@ -16,6 +16,7 @@ alexa:
         - image_processing
         - input_boolean
         - input_number
+        - input_select
         - light
         - media_player
         - script
@@ -35,53 +36,59 @@ alexa:
         - light.fibaro_dimmer_thea_level
         - light.fibaro_dimmer_salledebain_level
         - sensor.thermometer_salon_temperature
+        - sensor.fibaro_motion_salle_a_manger_temperature
         - sensor.fibaro_motion_etage_temperature
         - sensor.thermometer_bureau_temperature
         - sensor.thermometer_chambre_parents_temperature
         - sensor.thermometer_chambre_thea_temperature
-        - sensor.thermometer_salle_de_bain_temperature
+        - sensor.0x00158d00032170fc_temperature
         - sensor.thermometer_jardin_temperature
     entity_config:
+      climate.daikinap92707:
+        name: thermostat salon
       cover.fibaro_roller_shutter_cuisine_level:
-        name: cuisine
+        name: volet cuisine
       cover.fibaro_roller_shutter_salon_level:
-        name: salon
+        name: volet salon
       cover.fibaro_roller_shutter_salle_a_manger_level:
-        name: salle à manger
+        name: volet salle à manger
       light.fibaro_dimmer_entree_level:
-        name: entrée
+        name: lumière entrée
       light.fibaro_dimmer_salle_a_manger_level:
-        name: salle à manger
+        name: lumière salle à manger
       light.fibaro_dimmer_salon_level:
-        name: salon
+        name: lumière salon
       light.fibaro_dimmer_escalier_level:
-        name: escalier
+        name: lumière escalier
       light.fibaro_dimmer_bureau_level:
-        name: bureau
+        name: lumière bureau
       light.fibaro_dimmer_parents_level:
-        name: chambre parents
+        name: lumière chambre parents
       light.fibaro_dimmer_thea_level:
-        name: chambre théa
+        name: lumière chambre théa
       light.fibaro_dimmer_salledebain_level:
-        name: salle de bain
+        name: lumière salle de bain
       sensor.thermometer_salon_temperature:
-        name: salon
+        name: température salon
+        display_categories: TEMPERATURE_SENSOR
+      sensor.fibaro_motion_salle_a_manger_temperature:
+        name: température salle à manger
         display_categories: TEMPERATURE_SENSOR
       sensor.fibaro_motion_etage_temperature:
-        name: escalier
-        display_categories: TEMPERATURE_SENSOR
+        name: température escalier
+        display_categories: TEMPERATURE_SENSOR  
       sensor.thermometer_bureau_temperature:
-        name: bureau
+        name: température bureau
         display_categories: TEMPERATURE_SENSOR
       sensor.thermometer_chambre_parents_temperature:
-        name: chambre parents
+        name: température chambre parents
         display_categories: TEMPERATURE_SENSOR
       sensor.thermometer_chambre_thea_temperature:
-        name: chambre théa
+        name: température chambre théa
         display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_salle_de_bain_temperature:
-        name: salle de bain
+      sensor.0x00158d00032170fc_temperature:
+        name: température salle de bain
         display_categories: TEMPERATURE_SENSOR
       sensor.thermometer_jardin_temperature:
-        name: jardin
+        name: température jardin
         display_categories: TEMPERATURE_SENSOR
