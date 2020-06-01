@@ -59,6 +59,53 @@ input_select:
     icon: mdi:weather-sunset-down
     options:
       - "100"
+      - "50"
       - "30"
       - "15"
       - "0"
+
+  cover_close_mode_salle_a_manger:
+    icon: mdi:weather-sunset-down
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_close_mode_cuisine:
+    icon: mdi:weather-sunset-down
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_open_mode_salon:
+    icon: mdi:weather-sunset-up
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_open_mode_salle_a_manger:
+    icon: mdi:weather-sunset-up
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_open_mode_cuisine:
+    icon: mdi:weather-sunset-up
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+  
