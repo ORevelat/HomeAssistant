@@ -121,6 +121,9 @@
                                         "exclude": [
                                             {
                                                 "entity_id": "switch.qubino_pilot_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.echo_*"
                                             }
                                         ],
                                         "include": [
@@ -412,7 +415,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Salle \u00e0 manger",
                                             "state_map": [
                                                 {
@@ -434,7 +437,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Salon",
                                             "type": "custom:mini-graph-card"
                                         }
@@ -562,7 +565,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Couloir",
                                             "state_map": [
                                                 {
@@ -589,7 +592,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Bureau",
                                             "type": "custom:mini-graph-card"
                                         }
@@ -611,7 +614,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Chambre Parents",
                                             "type": "custom:mini-graph-card"
                                         },
@@ -628,7 +631,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Chambre Th\u00e9a",
                                             "type": "custom:mini-graph-card"
                                         }
@@ -650,7 +653,7 @@
                                             ],
                                             "group_by": "hour",
                                             "hour24": true,
-                                            "hours_to_show": 24,
+                                            "hours_to_show": 36,
                                             "name": "Salle de bain",
                                             "type": "custom:mini-graph-card"
                                         }
@@ -681,7 +684,7 @@
                             ],
                             "group_by": "hour",
                             "hour24": true,
-                            "hours_to_show": 24,
+                            "hours_to_show": 36,
                             "name": "Jardin",
                             "type": "custom:mini-graph-card"
                         },

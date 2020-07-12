@@ -1,0 +1,5 @@
+
+linky:
+  - username: !secret linky_user
+    password: !secret linky_pwd
+    timeout: 15
