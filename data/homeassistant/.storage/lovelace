@@ -710,6 +710,14 @@
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_4",
                                     "name": "Prise jardin 4CH n\u00b04"
+                                },
+                                {
+                                    "entity": "switch.sonoff_riviere_a",
+                                    "name": "Limi\u00e8res rivi\u00e8re"
+                                },
+                                {
+                                    "entity": "switch.sonoff_riviere_b",
+                                    "name": "Prise rivi\u00e8re"
                                 }
                             ],
                             "title": "Interrupteurs",

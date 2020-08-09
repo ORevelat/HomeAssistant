@@ -1,9 +1,21 @@
 switch:
   - platform: mqtt
-    name: "Sonoff Jardin 1"
-    state_topic: "stat/sonoffjardin/POWER1"
-    command_topic: "cmnd/sonoffjardin/POWER1"
-    availability_topic: "tele/sonoffjardin/LWT"
+    name: "Sonoff Riviere A"
+    state_topic: "stat/sonoffrivierea/POWER1"
+    command_topic: "cmnd/sonoffrivierea/POWER1"
+    availability_topic: "tele/sonoffrivierea/LWT"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    qos: 1
+    retain: true
+
+  - platform: mqtt
+    name: "Sonoff Riviere B"
+    state_topic: "stat/sonoffriviereb/POWER"
+    command_topic: "cmnd/sonoffriviereb/POWER"
+    availability_topic: "tele/sonoffriviereb/LWT"
     payload_on: "ON"
     payload_off: "OFF"
     payload_available: "Online"
