@@ -192,7 +192,7 @@ var CONFIG = {
                      action: function (item, entity) {
                         window.openPage(CONFIG.pages[2]);
                      },
-                     icon: function() {
+                     icon: function () {
                         var lights = [
                            "&light.fibaro_dimmer_bureau_level.state",
                            "&light.fibaro_dimmer_entree_level.state",
@@ -202,7 +202,9 @@ var CONFIG = {
                            "&light.fibaro_dimmer_salledebain_level.state",
                            "&light.fibaro_dimmer_salon_level.state",
                            "&light.fibaro_dimmer_thea_level.state",
-                           "&light.led_chambre_thea.state"
+                           "&light.led_chambre_thea.state",
+                           "&switch.sonoff_riviere_a.state",
+                           "&switch.sonoff_4ch_jardin_4.state"
                         ];
 
                         var count = 0;
@@ -238,13 +240,12 @@ var CONFIG = {
                      action: function (item, entity) {
                         window.openPage(CONFIG.pages[3]);
                      },
-                     icon: function() {
+                     icon: function () {
                         var lights = [
                            "&switch.sonoff_garage_portail.state",
                            "&switch.sonoff_4ch_jardin_1.state",
                            "&switch.sonoff_4ch_jardin_2.state",
                            "&switch.sonoff_4ch_jardin_3.state",
-                           "&switch.sonoff_4ch_jardin_4.state",
                            "&switch.prise_neocoolcam_tv_hifi_switch.state",
                            "&switch.sonoff_salon.state",
                            "&switch.sonoff_bibliotheque_haut.state",
@@ -272,6 +273,36 @@ var CONFIG = {
                            default: return 'mdi-numeric-9-plus-circle-outline';
                         }
                      }
+                  },
+                  {
+                     position: [4, 0],
+                     width: 1,
+                     type: TYPES.DEVICE_TRACKER,
+                     id: 'device_tracker.hass_olivier',
+                     map: 'yandex',
+                     states: {
+                        home: "Home",
+                        not_home: "Away",
+                        office: "Office",
+                     },
+                     zoomLevels: [9, 13, 16],
+                     hideEntityPicture: false,
+                     slidesDelay: 2
+                  },
+                  {
+                     position: [4, 1],
+                     width: 1,
+                     type: TYPES.DEVICE_TRACKER,
+                     id: 'device_tracker.hass_sandrine',
+                     map: 'yandex',
+                     states: {
+                        home: "Home",
+                        not_home: "Away",
+                        office: "Office",
+                     },
+                     zoomLevels: [9, 13, 16],
+                     hideEntityPicture: false,
+                     slidesDelay: 2
                   }
                ]
             }
@@ -372,7 +403,7 @@ var CONFIG = {
                      height: 1.25,
                      title: 'Bureau',
                      id: 'sensor.thermometer_bureau_temperature',
-                     subtitle: 'Humidité ' + '&sensor.thermometer_bureau_humidity.state' + '&sensor.thermometer_bureau_humidity.attributes.unit_of_measurement',                    
+                     subtitle: 'Humidité ' + '&sensor.thermometer_bureau_humidity.state' + '&sensor.thermometer_bureau_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -415,6 +446,40 @@ var CONFIG = {
          icon: 'mdi-lightbulb',
          tileSize: 120,
          groups: [
+            {
+               title: 'Jardin',
+               height: 3,
+               items: [
+                  {
+                     position: [0, 0],
+                     title: 'Rivière',
+                     id: 'switch.sonoff_riviere_a',
+                     type: TYPES.LIGHT,
+                     states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-lightbulb-on",
+                        off: "mdi-lightbulb",
+                     }
+                  },
+                  {
+                     position: [0, 1],
+                     title: 'Terrasse',
+                     id: 'switch.sonoff_4ch_jardin_4',
+                     type: TYPES.LIGHT,
+                     states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-lightbulb-on",
+                        off: "mdi-lightbulb",
+                     }
+                  },
+               ]
+            },
             {
                title: 'Rez de chaussée',
                height: 3,
@@ -577,7 +642,7 @@ var CONFIG = {
          tileSize: 120,
          groups: [
             {
-               title: 'Extérieur',
+               title: 'Jardin',
                height: 3,
                items: [
                   {
@@ -595,7 +660,7 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [0, 1],
+                     position: [1, 0],
                      title: 'Fontaine',
                      id: 'switch.sonoff_4ch_jardin_1',
                      type: TYPES.SWITCH,
@@ -609,7 +674,7 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [1, 1],
+                     position: [2, 0],
                      title: 'Piscine G.',
                      id: 'switch.sonoff_4ch_jardin_2',
                      type: TYPES.SWITCH,
@@ -623,8 +688,8 @@ var CONFIG = {
                      }
                   },
                   {
-                     position: [0, 2],
-                     title: 'Piscine D',
+                     position: [2, 1],
+                     title: 'Piscine D.',
                      id: 'switch.sonoff_4ch_jardin_3',
                      type: TYPES.SWITCH,
                      states: {
@@ -635,21 +700,7 @@ var CONFIG = {
                         on: "mdi-power-plug",
                         off: "mdi-power-plug-off",
                      }
-                  },
-                  {
-                     position: [1, 2],
-                     title: 'Jardin 4',
-                     id: 'switch.sonoff_4ch_jardin_4',
-                     type: TYPES.SWITCH,
-                     states: {
-                        on: "On",
-                        off: "Off"
-                     },
-                     icons: {
-                        on: "mdi-power-plug",
-                        off: "mdi-power-plug-off",
-                     }
-                  },
+                  }
                ]
             },
             {
