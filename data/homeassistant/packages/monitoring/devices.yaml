@@ -31,10 +31,16 @@ binary_sensor:
     scan_interval: 60
 
   - platform: ping
-    name: "TP-Link Archer C7"
-    host: !secret host_archerc7
+    name: "Unify AP AC-PRO"
+    host: !secret host_uap_ac_pro
     count: 1
     scan_interval: 60
+
+  # - platform: ping
+  #   name: "TP-Link Archer C7"
+  #   host: !secret host_archerc7
+  #   count: 1
+  #   scan_interval: 60
 
   # - platform: ping
   #   name: "TP-Link WA830RE"

@@ -15,7 +15,7 @@ services:
 
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/home-assistant:0.107.7
+    image: homeassistant/home-assistant:0.111.4
     restart: always
     ports:
       - "8123:8123"
@@ -44,7 +44,7 @@ services:
       - TZ=Europe/Paris
       - FLOWS=my_flows.json
     devices:
-      - /dev/hspa:/dev/hspa
+      - /dev/hspa_modem:/dev/hspa
     logging:
       options:
         max-size: 10m
@@ -69,7 +69,7 @@ services:
     image: carldebilly/zigbee2mqttassistant
     restart: always
     ports:
-      - 8080:80
+      - 8090:80
     environment:
       Z2MA_SETTINGS__MQTTSERVER: 192.168.254.220
       Z2MA_SETTINGS__MQTTUSERNAME: hass

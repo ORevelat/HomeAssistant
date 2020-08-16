@@ -1,0 +1,9 @@
+media_player:
+  - platform: samsungtv_tizen
+    host: !secret tv_samsung_ip
+    port: 8002
+    mac: 'fc:03:9f:3e:82:c6'
+    name: TV Salon
+    api_key: !secret tv_samsung_apikey
+    device_id: !secret tv_samsung_deviceid
+    update_method: websockets

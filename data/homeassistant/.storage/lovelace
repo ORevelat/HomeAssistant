@@ -914,6 +914,10 @@
                             "type": "media-control"
                         },
                         {
+                            "entity": "media_player.tv_salon",
+                            "type": "media-control"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.plex"
