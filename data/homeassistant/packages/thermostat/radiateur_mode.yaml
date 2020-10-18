@@ -48,3 +48,13 @@ input_select:
       - Confort -2
       - Confort -1
       - Confort
+
+  radiator_salledebain:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort

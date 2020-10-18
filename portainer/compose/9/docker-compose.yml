@@ -51,37 +51,39 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt
+    image: koenkk/zigbee2mqtt:1.15.0
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/zigbee2mqtt:/app/data
       - /etc/localtime:/etc/localtime:ro
     devices:
       - /dev/zigbee2:/dev/zigbee
+    ports:
+      - 8090:8080
     environment:
       TIMEZONE: Europe/Paris    
     logging:
       options:
         max-size: 10m
 
-  zigbee2mqttassistant:
-    container_name: zigbee2mqttassistant
-    image: carldebilly/zigbee2mqttassistant
-    restart: always
-    ports:
-      - 8090:80
-    environment:
-      Z2MA_SETTINGS__MQTTSERVER: 192.168.254.220
-      Z2MA_SETTINGS__MQTTUSERNAME: hass
-      Z2MA_SETTINGS__MQTTPASSWORD: Wjy9SYTe3oH5
-      TIMEZONE: Europe/Paris    
-    logging:
-      options:
-        max-size: 10m
+#  zigbee2mqttassistant:
+#    container_name: zigbee2mqttassistant
+#    image: carldebilly/zigbee2mqttassistant
+#    restart: always
+#    ports:
+#      - 8091:80
+#    environment:
+#      Z2MA_SETTINGS__MQTTSERVER: 192.168.254.220
+#      Z2MA_SETTINGS__MQTTUSERNAME: hass
+#      Z2MA_SETTINGS__MQTTPASSWORD: Wjy9SYTe3oH5
+#      TIMEZONE: Europe/Paris    
+#    logging:
+#      options:
+#        max-size: 10m
 
   rflink2mqtt:
     container_name: rflink2mqtt
-    image: rflink2mqtt:0.8.3
+    image: rflink2mqtt:0.8.4
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
@@ -90,20 +92,21 @@ services:
       - /dev/rflink:/dev/rflink
     environment:
       TIMEZONE: Europe/Paris
+      LOG_LEVEL: DEBUG
     logging:
       options:
         max-size: 10m
 
-  ble2mqtt:
-    container_name: ble2mqtt
-    image: ble2mqtt
-    restart: always
-    network_mode: host
-    volumes:
-      - /srv/disk1/docker-data/data/ble2mqtt:/data
-      - /etc/localtime:/etc/localtime:ro
-    environment:
-      TIMEZONE: Europe/Paris
-    logging:
-      options:
-        max-size: 10m
+#  ble2mqtt:
+#    container_name: ble2mqtt
+#    image: ble2mqtt
+#    restart: always
+#    network_mode: host
+#    volumes:
+#      - /srv/disk1/docker-data/data/ble2mqtt:/data
+#      - /etc/localtime:/etc/localtime:ro
+#    environment:
+#      TIMEZONE: Europe/Paris
+#    logging:
+#      options:
+#        max-size: 10m

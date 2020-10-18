@@ -22,3 +22,10 @@ input_number:
     mode: box
     icon: mdi:thermometer
 
+  thermostat_consigne_salledebain:
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+    icon: mdi:thermometer
+

@@ -318,54 +318,64 @@
                                     "type": "section"
                                 },
                                 {
-                                    "entity": "cover.fibaro_roller_shutter_cuisine_level",
-                                    "name": "Cuisine",
-                                    "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_cuisine_level.attributes.current_position ]]%",
-                                    "type": "custom:secondaryinfo-entity-row"
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.cover_open_mode_cuisine",
+                                            "name": "Automatisme ouverture"
+                                        },
+                                        {
+                                            "entity": "input_select.cover_close_mode_cuisine",
+                                            "name": "Automatisme fermeture"
+                                        }
+                                    ],
+                                    "head": {
+                                        "entity": "cover.fibaro_roller_shutter_cuisine_level",
+                                        "name": "Cuisine",
+                                        "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_cuisine_level.attributes.current_position ]]%",
+                                        "type": "custom:secondaryinfo-entity-row"
+                                    },
+                                    "open": false,
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "cover.fibaro_roller_shutter_salon_level",
-                                    "name": "Salon",
-                                    "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salon_level.attributes.current_position ]]%",
-                                    "type": "custom:secondaryinfo-entity-row"
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.cover_open_mode_salle_a_manger",
+                                            "name": "Automatisme ouverture"
+                                        },
+                                        {
+                                            "entity": "input_select.cover_close_mode_salle_a_manger",
+                                            "name": "Automatisme fermeture"
+                                        }
+                                    ],
+                                    "head": {
+                                        "entity": "cover.fibaro_roller_shutter_salle_a_manger_level",
+                                        "name": "Salle \u00e0 manger",
+                                        "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salle_a_manger_level.attributes.current_position ]]%",
+                                        "type": "custom:secondaryinfo-entity-row"
+                                    },
+                                    "open": false,
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "cover.fibaro_roller_shutter_salle_a_manger_level",
-                                    "name": "Salle \u00e0 manger",
-                                    "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salle_a_manger_level.attributes.current_position ]]%",
-                                    "type": "custom:secondaryinfo-entity-row"
-                                },
-                                {
-                                    "label": "Position d'ouverture",
-                                    "type": "section"
-                                },
-                                {
-                                    "entity": "input_select.cover_open_mode_cuisine",
-                                    "name": "Volet cuisine"
-                                },
-                                {
-                                    "entity": "input_select.cover_open_mode_salon",
-                                    "name": "Volet salon"
-                                },
-                                {
-                                    "entity": "input_select.cover_open_mode_salle_a_manger",
-                                    "name": "Volet salle \u00e0 manger"
-                                },
-                                {
-                                    "label": "Position de fermeture",
-                                    "type": "section"
-                                },
-                                {
-                                    "entity": "input_select.cover_close_mode_cuisine",
-                                    "name": "Volet cuisine"
-                                },
-                                {
-                                    "entity": "input_select.cover_close_mode_salon",
-                                    "name": "Volet salon"
-                                },
-                                {
-                                    "entity": "input_select.cover_close_mode_salle_a_manger",
-                                    "name": "Volet salle \u00e0 manger"
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.cover_open_mode_salon",
+                                            "name": "Automatisme ouverture"
+                                        },
+                                        {
+                                            "entity": "input_select.cover_close_mode_salon",
+                                            "name": "Automatisme fermeture"
+                                        }
+                                    ],
+                                    "head": {
+                                        "entity": "cover.fibaro_roller_shutter_salon_level",
+                                        "name": "Salon",
+                                        "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salon_level.attributes.current_position ]]%",
+                                        "type": "custom:secondaryinfo-entity-row"
+                                    },
+                                    "open": false,
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -731,17 +741,202 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "input_select.thermostat_mode",
-                                    "icon": "mdi:thermostat-box",
-                                    "name": "Mode"
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "input_select.thermostat_mode",
+                                                    "icon": "mdi:thermostat-box",
+                                                    "name": "Mode"
+                                                }
+                                            ],
+                                            "gridcol": "2 / 4",
+                                            "gridrow": "1 / 2",
+                                            "show_header_toggle": false,
+                                            "title": "Chauffage",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_salon_temperature",
+                                                    "name": "Temp\u00e9rature"
+                                                },
+                                                {
+                                                    "entity": "input_number.thermostat_consigne_rdc",
+                                                    "name": "Consigne"
+                                                },
+                                                {
+                                                    "entity": "input_select.radiator_salon",
+                                                    "name": "Salon"
+                                                },
+                                                {
+                                                    "entity": "input_select.radiator_sallemanger",
+                                                    "name": "Salle \u00e0 Manger"
+                                                }
+                                            ],
+                                            "gridcol": "1 / 2",
+                                            "gridrow": "2 / 3",
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Rez de chauss\u00e9e",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "dateFormat": "MMMM",
+                                            "dateSize": 130,
+                                            "entities": [
+                                                {
+                                                    "entity": "calendar.homeassistant_chauffage"
+                                                }
+                                            ],
+                                            "gridcol": "2 / 3",
+                                            "gridrow": "2 / 3",
+                                            "maxDaysToShow": 0,
+                                            "showDate": false,
+                                            "showMonth": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Programmation",
+                                            "type": "custom:atomic-calendar"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.0x00158d00032170fc_temperature",
+                                                    "name": "Temp\u00e9rature"
+                                                },
+                                                {
+                                                    "entity": "input_number.thermostat_consigne_salledebain",
+                                                    "name": "Consigne"
+                                                },
+                                                {
+                                                    "entity": "input_select.radiator_salledebain",
+                                                    "name": "Salle de Bain"
+                                                }
+                                            ],
+                                            "gridcol": "3 / 4",
+                                            "gridrow": "2 / 3",
+                                            "show_header_toggle": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Salle de bain",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "dateFormat": "MMMM",
+                                            "dateSize": 130,
+                                            "entities": [
+                                                {
+                                                    "entity": "calendar.hass_chauffage_salle_de_bain"
+                                                }
+                                            ],
+                                            "gridcol": "4 / 5",
+                                            "gridrow": "2 / 3",
+                                            "maxDaysToShow": 0,
+                                            "showDate": false,
+                                            "showMonth": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Programmation",
+                                            "type": "custom:atomic-calendar"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_chambre_parents_temperature",
+                                                    "name": "Temp\u00e9rature"
+                                                },
+                                                {
+                                                    "entity": "input_number.thermostat_consigne_parents",
+                                                    "name": "Consigne"
+                                                },
+                                                {
+                                                    "entity": "input_select.radiator_parents",
+                                                    "name": "Parents"
+                                                }
+                                            ],
+                                            "gridcol": "1 / 2",
+                                            "gridrow": "3 / 4",
+                                            "show_header_toggle": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Ch. des Parents",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "dateFormat": "MMMM",
+                                            "dateSize": 130,
+                                            "entities": [
+                                                {
+                                                    "entity": "calendar.hass_chauffage_chambres"
+                                                }
+                                            ],
+                                            "gridcol": "2 / 3",
+                                            "gridrow": "3 / 4",
+                                            "maxDaysToShow": 0,
+                                            "showDate": false,
+                                            "showMonth": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Programmation",
+                                            "type": "custom:atomic-calendar"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.thermometer_chambre_thea_temperature",
+                                                    "name": "Temp\u00e9rature"
+                                                },
+                                                {
+                                                    "entity": "input_number.thermostat_consigne_thea",
+                                                    "name": "Consigne"
+                                                },
+                                                {
+                                                    "entity": "input_select.radiator_thea",
+                                                    "name": "Th\u00e9a"
+                                                }
+                                            ],
+                                            "gridcol": "3 / 4",
+                                            "gridrow": "3 / 4",
+                                            "show_header_toggle": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Ch. de Th\u00e9a",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "dateFormat": "MMMM",
+                                            "dateSize": 130,
+                                            "entities": [
+                                                {
+                                                    "entity": "calendar.hass_chauffage_chambres"
+                                                }
+                                            ],
+                                            "gridcol": "4 / 5",
+                                            "gridrow": "3 / 4",
+                                            "maxDaysToShow": 0,
+                                            "showDate": false,
+                                            "showMonth": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "title": "Programmation",
+                                            "type": "custom:atomic-calendar"
+                                        }
+                                    ],
+                                    "gridcols": "25% 25% 25% 25%",
+                                    "gridrows": "auto auto auto",
+                                    "layout": "grid",
+                                    "type": "custom:layout-card"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Chauffage",
-                            "type": "entities"
-                        },
+                            "column_width": "100%",
+                            "layout": "vertical",
+                            "type": "custom:layout-card"
+                        }
+                    ],
+                    "icon": "mdi:thermometer-lines",
+                    "panel": true,
+                    "path": "",
+                    "title": "Chauffage"
+                },
+                {
+                    "badges": [],
+                    "cards": [
                         {
                             "cards": [
                                 {
@@ -766,133 +961,10 @@
                                 }
                             ],
                             "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.thermometer_salon_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.thermostat_consigne_rdc",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_salon",
-                                                    "name": "Salon"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_sallemanger",
-                                                    "name": "Salle \u00e0 Manger"
-                                                }
-                                            ],
-                                            "show_header_toggle": false,
-                                            "title": "Rez de chauss\u00e9e",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.homeassistant_chauffage"
-                                                }
-                                            ],
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showMonth": false,
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.thermometer_chambre_parents_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.thermostat_consigne_parents",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_parents",
-                                                    "name": "Parents"
-                                                }
-                                            ],
-                                            "show_header_toggle": false,
-                                            "title": "Ch. des Parents",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.hass_chauffage_chambres"
-                                                }
-                                            ],
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showMonth": false,
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.thermometer_chambre_thea_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.thermostat_consigne_thea",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_thea",
-                                                    "name": "Th\u00e9a"
-                                                }
-                                            ],
-                                            "show_header_toggle": false,
-                                            "title": "Ch. de Th\u00e9a",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.hass_chauffage_chambres"
-                                                }
-                                            ],
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showMonth": false,
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
                         }
                     ],
                     "icon": "mdi:thermometer-lines",
-                    "title": "Chauffage"
+                    "title": "Climatisation"
                 },
                 {
                     "badges": [],
@@ -1179,6 +1251,9 @@
                                 },
                                 {
                                     "entity": "input_boolean.enable_thermostat_bedroom_thea"
+                                },
+                                {
+                                    "entity": "input_boolean.enable_thermostat_salledebain"
                                 },
                                 {
                                     "entity": "input_boolean.enable_thermostat_rdc_clim"

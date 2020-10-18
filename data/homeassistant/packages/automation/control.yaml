@@ -49,6 +49,10 @@ input_boolean:
     name: Thermostat Ch. Théa
     icon: mdi:radiator
 
+  enable_thermostat_salledebain:
+    name: Thermostat Salle de Bain
+    icon: mdi:radiator
+    
   enable_thermostat_rdc_clim:
     name: Thermostat Climatisation Rez de Chaussée
     icon: mdi:radiator

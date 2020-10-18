@@ -12,6 +12,7 @@ automation:
         - input_select.radiator_thea
         - input_select.radiator_salon
         - input_select.radiator_sallemanger
+        - input_select.radiator_salledebain
       to: 'Confort'
     action:
       - service: light.turn_on
@@ -25,6 +26,8 @@ automation:
               light.qubino_pilot_salon_level
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
               light.qubino_pilot_salle_a_manger_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
+              light.qubino_pilot_salle_de_bain_level
             {% endif %}
           brightness_pct: 99 
 
@@ -36,6 +39,7 @@ automation:
         - input_select.radiator_thea
         - input_select.radiator_salon
         - input_select.radiator_sallemanger
+        - input_select.radiator_salledebain
       to: 'Confort -1'
     action:
       - service: light.turn_on
@@ -49,6 +53,8 @@ automation:
               light.qubino_pilot_salon_level
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
               light.qubino_pilot_salle_a_manger_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
+              light.qubino_pilot_salle_de_bain_level
             {% endif %}
           brightness_pct: 50  
 
@@ -60,6 +66,7 @@ automation:
         - input_select.radiator_thea
         - input_select.radiator_salon
         - input_select.radiator_sallemanger
+        - input_select.radiator_salledebain
       to: 'Confort -2'
     action:
       - service: light.turn_on
@@ -73,6 +80,8 @@ automation:
               light.qubino_pilot_salon_level
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
               light.qubino_pilot_salle_a_manger_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
+              light.qubino_pilot_salle_de_bain_level
             {% endif %}
           brightness_pct: 40
 
@@ -84,6 +93,7 @@ automation:
         - input_select.radiator_thea
         - input_select.radiator_salon
         - input_select.radiator_sallemanger
+        - input_select.radiator_salledebain
       to: 'Eco'
     action:
       - service: light.turn_on
@@ -97,6 +107,8 @@ automation:
               light.qubino_pilot_salon_level
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
               light.qubino_pilot_salle_a_manger_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
+              light.qubino_pilot_salle_de_bain_level
             {% endif %}
           brightness_pct: 30 
 
@@ -108,6 +120,7 @@ automation:
         - input_select.radiator_thea
         - input_select.radiator_salon
         - input_select.radiator_sallemanger
+        - input_select.radiator_salledebain
       to: 'Hors-gel'
     action:
       - service: light.turn_on
@@ -121,6 +134,8 @@ automation:
               light.qubino_pilot_salon_level
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
               light.qubino_pilot_salle_a_manger_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
+              light.qubino_pilot_salle_de_bain_level
             {% endif %}
           brightness_pct: 20
 
@@ -132,6 +147,7 @@ automation:
         - input_select.radiator_thea
         - input_select.radiator_salon
         - input_select.radiator_sallemanger
+        - input_select.radiator_salledebain
       to: 'Arrêt'
     action:
       - service: light.turn_on
@@ -145,6 +161,8 @@ automation:
               light.qubino_pilot_salon_level
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
               light.qubino_pilot_salle_a_manger_level
+            {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
+              light.qubino_pilot_salle_de_bain_level
             {% endif %}
           brightness_pct: 0 
 
