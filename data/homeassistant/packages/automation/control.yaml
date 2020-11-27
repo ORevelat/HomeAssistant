@@ -56,7 +56,11 @@ input_boolean:
   enable_thermostat_rdc_clim:
     name: Thermostat Climatisation Rez de Chaussée
     icon: mdi:radiator
-  
+
+  enable_thermostat_etage_clim:
+    name: Thermostat Climatisation Etage
+    icon: mdi:radiator
+    
 input_select:
   
   cover_close_mode_salon:
