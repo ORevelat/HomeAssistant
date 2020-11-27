@@ -83,7 +83,7 @@ services:
 
   rflink2mqtt:
     container_name: rflink2mqtt
-    image: rflink2mqtt:0.8.4
+    image: rflink2mqtt:0.8.5
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
