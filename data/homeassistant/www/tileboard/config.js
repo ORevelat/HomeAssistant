@@ -700,7 +700,22 @@ var CONFIG = {
                         on: "mdi-power-plug",
                         off: "mdi-power-plug-off",
                      }
+                  },
+                  {
+                     position: [0, 1],
+                     title: 'Rivière',
+                     id: 'switch.sonoff_riviere_b',
+                     type: TYPES.SWITCH,
+                     states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-power-plug",
+                        off: "mdi-power-plug-off",
+                     }
                   }
+
                ]
             },
             {
