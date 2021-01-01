@@ -1,0 +1,97 @@
+
+  smart_home:
+    locale: fr-FR
+    # no proactive mode with haaska
+    # endpoint: !secret alexa_endpoint
+    # client_id: !secret alexa_client_id
+    # client_secret: !secret alexa_client_secret
+    filter:
+      exclude_domains:
+        - automation
+        - binary_sensor
+        - camera
+        - climate
+        - cover
+        - group
+        - image_processing
+        - input_boolean
+        - input_number
+        - input_select
+        - light
+        - media_player
+        - script
+        - sensor
+        - switch
+      include_entities:
+        - climate.daikinap81691
+        - climate.daikinap92707
+        - cover.fibaro_roller_shutter_cuisine_level
+        - cover.fibaro_roller_shutter_salon_level
+        - cover.fibaro_roller_shutter_salle_a_manger_level
+        - light.fibaro_dimmer_bureau_instance_1_level
+        - light.fibaro_dimmer_entree_instance_1_level
+        - light.fibaro_dimmer_escalier_instance_1_level
+        - light.fibaro_dimmer_parents_instance_1_level
+        - light.fibaro_dimmer_salle_a_manger_instance_1_level
+        - light.fibaro_dimmer_salledebain_instance_1_level
+        - light.fibaro_dimmer_salon_instance_1_level
+        - light.fibaro_dimmer_thea_instance_1_level
+        - sensor.thermometer_bureau_temperature
+        - sensor.thermometer_chambre_parents_temperature
+        - sensor.thermometer_chambre_thea_temperature
+        - sensor.thermometer_jardin_temperature
+        - sensor.thermometer_salon_temperature
+        - sensor.fibaro_motion_etage_air_temperature
+        - sensor.fibaro_motion_salle_a_manger_air_temperature
+        - sensor.salle_de_bain_thermometer_temperature
+    entity_config:
+      climate.daikinap81691:
+        name: thermostat étage
+      climate.daikinap92707:
+        name: thermostat salon
+      cover.fibaro_roller_shutter_cuisine_level:
+        name: volet cuisine
+      cover.fibaro_roller_shutter_salon_level:
+        name: volet salon
+      cover.fibaro_roller_shutter_salle_a_manger_level:
+        name: volet salle à manger
+      light.fibaro_dimmer_entree_instance_1_level:
+        name: lumière entrée
+      light.fibaro_dimmer_salle_a_manger_instance_1_level:
+        name: lumière salle à manger
+      light.fibaro_dimmer_salon_instance_1_level:
+        name: lumière salon
+      light.fibaro_dimmer_escalier_instance_1_level:
+        name: lumière escalier
+      light.fibaro_dimmer_bureau_instance_1_level:
+        name: lumière bureau
+      light.fibaro_dimmer_parents_instance_1_level:
+        name: lumière chambre parents
+      light.fibaro_dimmer_thea_instance_1_level:
+        name: lumière chambre théa
+      light.fibaro_dimmer_salledebain_instance_1_level:
+        name: lumière salle de bain
+      sensor.thermometer_salon_temperature:
+        name: température salon
+        display_categories: TEMPERATURE_SENSOR
+      sensor.fibaro_motion_salle_a_manger_air_temperature:
+        name: température salle à manger
+        display_categories: TEMPERATURE_SENSOR
+      sensor.fibaro_motion_etage_air_temperature:
+        name: température escalier
+        display_categories: TEMPERATURE_SENSOR  
+      sensor.thermometer_bureau_temperature:
+        name: température bureau
+        display_categories: TEMPERATURE_SENSOR
+      sensor.thermometer_chambre_parents_temperature:
+        name: température chambre parents
+        display_categories: TEMPERATURE_SENSOR
+      sensor.thermometer_chambre_thea_temperature:
+        name: température chambre théa
+        display_categories: TEMPERATURE_SENSOR
+      sensor.salle_de_bain_thermometer_temperature:
+        name: température salle de bain
+        display_categories: TEMPERATURE_SENSOR
+      sensor.thermometer_jardin_temperature:
+        name: température jardin
+        display_categories: TEMPERATURE_SENSOR

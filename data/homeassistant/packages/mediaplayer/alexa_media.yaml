@@ -1,9 +1,0 @@
-
-alexa_media:
-  accounts:
-    - email: !secret alexa_media_account
-      password: !secret alexa_media_secret
-      url: amazon.fr
-      exclude_devices:
-        - "This Device"
-        - "Olivier's Alexa Apps"

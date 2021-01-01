@@ -1,0 +1,8 @@
+
+## LOGBOOK
+
+  exclude:
+    domains:
+      - group
+      - updater
+      - calendar

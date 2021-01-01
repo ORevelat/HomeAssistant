@@ -1,0 +1,24 @@
+
+## CAMERA
+
+  # CAMERA
+  - platform: foscam
+    name: "Rez de chaussée"
+    ip: !secret host_cam_salon
+    port: !secret camera_salon_port
+    username: !secret camera_salon_username
+    password: !secret camera_salon_password
+  - platform: foscam
+    name: "Jardin Rivière"
+    ip: !secret host_cam_jardin1
+    port: !secret camera_jardin1_port
+    username: !secret camera_jardin1_username
+    password: !secret camera_jardin1_password
+
+  # LATEST DETECTION IMAGE
+  - platform: local_file
+    file_path: /config/www/deepstack/rdc_detector_latest_person.jpg
+    name: "Détection Rez de chaussée"
+  - platform: local_file
+    file_path: /config/www/deepstack/jardin_riviere_detector_latest_person.jpg
+    name: "Détection Jardin rivière"

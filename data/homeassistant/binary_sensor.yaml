@@ -1,0 +1,68 @@
+
+## BINARY_SENSOR
+
+  - platform: ping
+    name: "Livebox"
+    host: !secret host_livebox
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "OpnSense"
+    host: !secret host_opnsense
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Proxmox VE"
+    host: !secret host_pve
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "VM Hyperion server"
+    host: !secret host_hyperion
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "VM Chaos server"
+    host: !secret host_chaos
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Unify AP AC-PRO"
+    host: !secret host_uap_ac_pro
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Caméra Salon"
+    host: !secret host_cam_salon
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Caméra Jardin (back)"
+    host: !secret host_cam_jardin1
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Imprimante"
+    host: !secret host_imprimante
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Samsung TV"
+    host: !secret host_samsungtv
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Mi 3 Android TV"
+    host: !secret host_androidtv
+    count: 1
+    scan_interval: 60

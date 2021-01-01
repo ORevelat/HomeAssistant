@@ -1,0 +1,29 @@
+
+## UTILITY METER
+
+# ENERGY CONSUMPTION
+
+  hourly_consumption:
+      source: sensor.home_energy_filtered
+      cycle: hourly
+      tariffs:
+          - day
+          - night
+  daily_consumption:
+      source: sensor.home_energy_filtered
+      cycle: daily
+      tariffs:
+          - day
+          - night
+  monthly_consumption:
+      source: sensor.home_energy_filtered
+      cycle: monthly
+      tariffs:
+          - day
+          - night
+  yearly_consumption:
+      source: sensor.home_energy_filtered
+      cycle: yearly
+      tariffs:
+          - day
+          - night

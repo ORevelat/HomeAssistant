@@ -1,0 +1,63 @@
+
+## INPUT_BOOLEAN
+
+  # AUTOMATION
+  automation_enable_covers_sunrise:
+    name: Ouverture automatique des Volets
+    icon: mdi:weather-sunset-up
+
+  automation_enable_covers_sunset:
+    name: Fermeture automatique des Volets
+    icon: mdi:weather-sunset-down
+
+  automation_enable_mosquito_switch:
+    name: Diffuseur moustique salon
+    icon: mdi:checkbox-marked-circle-outline
+
+  automation_enable_pool_pump:
+    name: Pompe de la piscine
+    icon: mdi:pool
+
+  automation_enable_garden_fountain:
+    name: Fontaine du jardin
+    icon: mdi:pot
+
+  automation_enable_garden_projector:
+    name: Projecteur du jardin
+    icon: mdi:projector
+
+  automation_enable_weather_alert_notif:
+    name: Notification des alertes météo
+    icon: mdi:comment-alert-outline
+
+  automation_enable_christmas_decoration:
+    name: Décorations de Noël
+    icon: mdi:pine-tree
+
+  automation_enable_light_garage:
+    name: Détecteur lumière garage/portail
+    icon: mdi:spotlight-beam
+
+  automation_enable_thermostat_rdc:
+    name: Thermostat Rez de Chaussée
+    icon: mdi:radiator
+
+  automation_enable_thermostat_bedroom_parents:
+    name: Thermostat Ch. Parents
+    icon: mdi:radiator
+
+  automation_enable_thermostat_bedroom_thea:
+    name: Thermostat Ch. Théa
+    icon: mdi:radiator
+
+  automation_enable_thermostat_salledebain:
+    name: Thermostat Salle de Bain
+    icon: mdi:radiator
+    
+  automation_enable_thermostat_rdc_clim:
+    name: Thermostat Climatisation Rez de Chaussée
+    icon: mdi:radiator
+
+  automation_enable_thermostat_etage_clim:
+    name: Thermostat Climatisation Etage
+    icon: mdi:radiator

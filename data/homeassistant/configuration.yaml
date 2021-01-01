@@ -1,27 +1,71 @@
 homeassistant:
-  name: !secret base_name
-  latitude: !secret base_latitude
-  longitude: !secret base_longitude
-  elevation: !secret base_elevation
-  unit_system: metric
-  time_zone: Europe/Paris
-  temperature_unit: C
-  packages: !include_dir_named packages
-  customize: !include_dir_merge_named customizations/entities
-  customize_domain: !include_dir_merge_named customizations/domains
-  customize_glob: !include_dir_merge_named customizations/glob
-
-frontend:
-  javascript_version: latest
-  extra_html_url:
-    - /local/lovelace/html/hass-fontawesome-solid.html
-    - /local/lovelace/html/hass-fontawesome-regular.html
-    - /local/lovelace/html/hass-fontawesome-brands.html
+  customize: !include customize.yaml
+default_config:
 updater:
-  reporting: no
-sun:
-config:
-mobile_app:
-map:
-#python_script:
-system_health:
+  reporting: false
+logger:
+  default: warn
+http:
+  server_port: 8123
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret http_trusted_reverseproxy
+    - !secret http_trusted_network_docker_automation
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
+## COMPONENTS ##
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+
+light:
+  - platform: flux_led
+    devices:
+      192.168.254.50:
+        name: led_chambre_thea
+        mode: "rgbw"
+
+google:
+  client_id: !secret google_calendar_clientid
+  client_secret: !secret google_calendar_secret
+  track_new_calendar: true
+
+breaking_changes:
+  scan_interval: 1800
+
+media_player:
+  - platform: samsungtv_tizen
+    host: !secret host_samsungtv
+    port: 8002
+    mac: !secret tv_samsung_mac
+    name: TV Salon
+    api_key: !secret tv_samsung_apikey
+    device_id: !secret tv_samsung_deviceid
+    update_method: websockets
+    # source_list: '{"TV": "ST_HDMI1", "BLURAY": "ST_HDMI2"}'
+    # app_list: '{"Netflix": "11101200001", "Amazon Video": "evKhCgZelL.AmazonIgnitionLauncher2 / org.tizen.ignition", "Plex": "kIciSQlYEM.plex"}'
+
+## INCLUDES ##
+
+automation: !include_dir_merge_list automation
+recorder: !include recorder.yaml
+logbook: !include logbook.yaml
+history: !include history.yaml
+# influxdb: !include influxdb.yaml
+group: !include groups.yaml
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensor.yaml
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+input_number: !include input_number.yaml
+switch: !include switch.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+shell_command: !include shell_command.yaml
+utility_meter: !include utility_meter.yaml
+alexa: !include alexa.yaml
+camera: !include camera.yaml
+image_processing: !include image_processing.yaml

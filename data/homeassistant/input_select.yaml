@@ -1,0 +1,117 @@
+
+## INPUT_SELECT
+
+  # THERMOSTATS
+  thermostat_mode:
+    icon: mdi:nest-thermostat
+    options:
+      - Arrêt
+      - Absent
+      - Normal
+
+  # RADIATEURS
+  radiator_parents:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_thea:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_salon:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_sallemanger:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  radiator_salledebain:
+    icon: mdi:radiator
+    options:
+      - Arrêt
+      - Hors-gel
+      - Eco
+      - Confort -2
+      - Confort -1
+      - Confort
+
+  # COVERS
+  cover_close_mode_salon:
+    icon: mdi:weather-sunset-down
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_close_mode_salle_a_manger:
+    icon: mdi:weather-sunset-down
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_close_mode_cuisine:
+    icon: mdi:weather-sunset-down
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_open_mode_salon:
+    icon: mdi:weather-sunset-up
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_open_mode_salle_a_manger:
+    icon: mdi:weather-sunset-up
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+
+  cover_open_mode_cuisine:
+    icon: mdi:weather-sunset-up
+    options:
+      - "100"
+      - "50"
+      - "30"
+      - "15"
+      - "0"
+  

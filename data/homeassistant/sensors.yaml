@@ -1,0 +1,82 @@
+
+## SENSORS
+
+  # Moon
+  - platform: moon
+
+  # Date and time
+  - platform: time_date
+    display_options:
+      - 'date_time'
+      - 'time_date'
+      - 'time'
+      - 'date'
+
+  # Uptime
+  - platform: uptime
+
+  # HP ILO
+  - platform: hp_ilo
+    host: !secret hp_ilo_gen8
+    username: !secret hp_ilo_gen8_username
+    password: !secret hp_ilo_gen8_password
+    monitored_variables:
+      - name: Gen8 Fanspeed
+        sensor_type: server_health
+        unit_of_measurement: '%'
+        value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
+      - name: Gen8 Temperature
+        sensor_type: server_health
+        unit_of_measurement: '°C'
+        value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
+      - name: Gen8 Status
+        sensor_type: server_health
+        value_template: >-
+          {% if (ilo_data.health_at_a_glance["bios_hardware"].status == 'OK') and
+                (ilo_data.health_at_a_glance["fans"].status == 'OK') and
+                (ilo_data.health_at_a_glance["temperature"].status == 'OK') and
+                (ilo_data.health_at_a_glance["power_supplies"].status == 'OK') and
+                (ilo_data.health_at_a_glance["processor"].status == 'OK') and
+                (ilo_data.health_at_a_glance["memory"].status == 'OK') and
+                (ilo_data.health_at_a_glance["network"].status == 'OK') and
+                (ilo_data.health_at_a_glance["storage"].status == 'OK') 
+          %}
+            OK
+          {% else %}
+            KO
+          {% endif %}
+
+  # MQTT
+  - platform: mqtt
+    name: Alerte Crue
+    state_topic: "VigilanceMeteo/alert_crue"
+  - platform: mqtt
+    name: Alerte Vigilance
+    state_topic: "VigilanceMeteo/alert_vigilance"
+  - platform: mqtt
+    name: Alerte Risques
+    state_topic: "VigilanceMeteo/alert_risques"
+
+  # ENERGY CONSUMPTION
+  - platform: template
+    sensors:
+      hourly_energy:
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.hourly_consumption_day')|float + states('sensor.hourly_consumption_night')|float)|round(2) }}"
+      daily_energy:
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.daily_consumption_day')|float + states('sensor.daily_consumption_night')|float)|round(2) }}"
+      monthly_energy:
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.monthly_consumption_day')|float + states('sensor.monthly_consumption_night')|float)|round(2) }}"
+      yearly_energy:
+        unit_of_measurement: kWh
+        value_template: "{{ (states('sensor.yearly_consumption_day')|float + states('sensor.yearly_consumption_night')|float)|round(2) }}"
+
+  - platform: filter
+    name: home_energy_filtered
+    entity_id: sensor.qubino_smart_meter_power_electric_kwh
+    filters:
+      - filter: outlier
+        window_size: 2
+        radius: 2

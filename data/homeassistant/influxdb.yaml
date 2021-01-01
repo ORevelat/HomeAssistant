@@ -1,0 +1,46 @@
+
+## INFLUXDB
+
+  host: !secret influxdb_host
+  port: !secret influxdb_port
+  database: !secret influxdb_db
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+  include:
+    entities:
+      - sensor.auribeau_sur_siagne_temperature
+      - sensor.hp_ilo_gen8_fanspeed
+      - sensor.hp_ilo_gen8_temperature
+      - sensor.thermometer_jardin_temperature
+      - sensor.thermometer_jardin_humidity
+      - sensor.thermometer_chambre_parents_temperature
+      - sensor.thermometer_chambre_parents_humidity
+      - sensor.thermometer_chambre_thea_temperature
+      - sensor.thermometer_chambre_thea_humidity
+      - sensor.thermometer_bureau_temperature
+      - sensor.thermometer_bureau_humidity
+      - sensor.thermometer_salon_temperature
+      - sensor.salle_de_bain_thermometer_temperature
+      - sensor.salle_de_bain_thermometer_humidity
+      - sensor.fibaro_motion_etage_air_temperature
+      - sensor.fibaro_motion_etage_illuminance
+      - sensor.fibaro_motion_salle_a_manger_air_temperature
+      - sensor.fibaro_motion_salle_a_manger_illuminance
+      - sensor.qubino_smart_meter_power_electric_w
+      - sensor.qubino_smart_meter_power_electric_kwh
+      - sensor.hourly_energy
+      - sensor.daily_energy
+      - sensor.monthly_energy
+      - sensor.yearly_energy
+      - sensor.hourly_consumption_day
+      - sensor.daily_consumption_day
+      - sensor.monthly_consumption_day
+      - sensor.yearly_consumption_day
+      - sensor.hourly_consumption_night
+      - sensor.daily_consumption_night
+      - sensor.monthly_consumption_night
+      - sensor.yearly_consumption_night
+
+ 

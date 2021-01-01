@@ -1,0 +1,32 @@
+
+## INPUT_NUMBER
+
+  # THERMOSTATS  
+  consigne_thermostat_rdc:
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+    icon: mdi:thermometer
+
+  consigne_thermostat_parents:
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+    icon: mdi:thermometer
+
+  consigne_thermostat_thea:
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+    icon: mdi:thermometer
+
+  consigne_thermostat_salledebain:
+    min: 15
+    max: 25
+    step: 1
+    mode: box
+    icon: mdi:thermometer
+

@@ -1,0 +1,12 @@
+
+## HISTORY
+
+  use_include_order: True
+  include:
+    entities:
+      - sensor.thermometer_bureau_temperature
+      - sensor.thermometer_chambre_parents_temperature
+      - sensor.thermometer_chambre_thea_temperature
+      - sensor.thermometer_jardin_temperature
+      - sensor.thermometer_salon_temperature
+      - light.led_chambre_thea

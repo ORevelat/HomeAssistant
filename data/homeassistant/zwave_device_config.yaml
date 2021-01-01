@@ -1,9 +1,0 @@
-sensor.qubino_smart_meter_unknown:
-  ignored: true
-  polling_intensity: 0
-sensor.qubino_smart_meter_power:
-  ignored: false
-  polling_intensity: 1
-sensor.qubino_smart_meter_energy:
-  ignored: false
-  polling_intensity: 1

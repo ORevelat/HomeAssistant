@@ -13,18 +13,32 @@ services:
       options:
         max-size: 10m
 
+#  homeassistant:
+#    container_name: homeassistant
+#    image: homeassistant/home-assistant:0.111.4
+#    restart: always
+#    ports:
+#      - "8124:8123"
+#    volumes:
+#      - /srv/disk1/docker-data/data/homeassistant_old:/config
+#      - /srv/disk1/docker-data/data/homeassistant_old/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
+#      - /etc/localtime:/etc/localtime:ro
+#    devices:
+#      - /dev/zwave:/dev/zwave
+#    logging:
+#      options:
+#        max-size: 10m
+
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/home-assistant:0.111.4
+    image: homeassistant/home-assistant:2020.12.1
     restart: always
+    user: 0:1000
     ports:
       - "8123:8123"
     volumes:
       - /srv/disk1/docker-data/data/homeassistant:/config
-      - /srv/disk1/docker-data/data/homeassistant/options.xml:/usr/local/lib/python3.6/site-packages/python_openzwave/ozw_config/options.xml
       - /etc/localtime:/etc/localtime:ro
-    devices:
-      - /dev/zwave:/dev/zwave
     logging:
       options:
         max-size: 10m
@@ -66,24 +80,9 @@ services:
       options:
         max-size: 10m
 
-#  zigbee2mqttassistant:
-#    container_name: zigbee2mqttassistant
-#    image: carldebilly/zigbee2mqttassistant
-#    restart: always
-#    ports:
-#      - 8091:80
-#    environment:
-#      Z2MA_SETTINGS__MQTTSERVER: 192.168.254.220
-#      Z2MA_SETTINGS__MQTTUSERNAME: hass
-#      Z2MA_SETTINGS__MQTTPASSWORD: Wjy9SYTe3oH5
-#      TIMEZONE: Europe/Paris    
-#    logging:
-#      options:
-#        max-size: 10m
-
   rflink2mqtt:
     container_name: rflink2mqtt
-    image: rflink2mqtt:0.8.5
+    image: rflink2mqtt:0.8.6
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
@@ -92,7 +91,7 @@ services:
       - /dev/rflink:/dev/rflink
     environment:
       TIMEZONE: Europe/Paris
-      LOG_LEVEL: DEBUG
+      LOG_LEVEL: INFO
     logging:
       options:
         max-size: 10m
@@ -110,3 +109,27 @@ services:
 #    logging:
 #      options:
 #        max-size: 10m
+
+  ozwd:
+    image: openzwave/ozwdaemon:allinone-latest
+    container_name: ozwd
+    security_opt:
+      - seccomp:unconfined
+    devices:
+      - /dev/zwave:/dev/ttyUSB0
+    volumes:
+      - /srv/disk1/docker-data/data/ozw:/opt/ozw/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "1983:1983"
+      - "5901:5901"
+      - "7800:7800"
+    environment:
+      MQTT_SERVER: "192.168.254.220"
+      MQTT_PORT: "1883"
+      MQTT_USERNAME: "hass"
+      MQTT_PASSWORD: "Wjy9SYTe3oH5"
+      USB_PATH: "/dev/ttyUSB0"
+      OZW_NETWORK_KEY: "0x2D,0xA6,0xCC,0xDC,0xD3,0x3D,0xEF,0x1C,0x9D,0xD5,0x89,0x3C,0x43,0x78,0xAD,0xF6"
+    restart: unless-stopped
+    

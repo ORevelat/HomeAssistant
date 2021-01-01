@@ -1,0 +1,5 @@
+
+## SHELL_COMMAND
+
+  image_zip_rdc: /config/scripts/image_detection_zip.sh rdc_detector
+  image_zip_jardin_riviere: /config/scripts/image_detection_zip.sh jardin_riviere_detector

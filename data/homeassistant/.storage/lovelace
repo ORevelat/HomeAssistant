@@ -1,12 +1,18 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
-            "title": "Home",
+            "title": "Maison",
             "views": [
                 {
+                    "path": "default_view",
+                    "title": "Home",
+                    "icon": "mdi:home",
                     "badges": [],
                     "cards": [
                         {
+                            "type": "vertical-stack",
                             "cards": [
                                 {
                                     "elements": [
@@ -25,22 +31,10 @@
                                     "type": "picture-elements"
                                 },
                                 {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.dark_sky_summary",
-                                            "name": "Actuellement",
-                                            "secondary_info": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[ sensor.dark_sky_temperature ]] \u00b0C",
-                                            "type": "custom:secondaryinfo-entity-row"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "type": "entities"
-                                },
-                                {
                                     "dateSize": 130,
                                     "entities": [
                                         {
-                                            "entity": "calendar.homeassistant_general"
+                                            "entity": "calendar.hass_general"
                                         },
                                         {
                                             "entity": "calendar.olivier_revelat_gmail_com"
@@ -51,32 +45,36 @@
                                         }
                                     ],
                                     "maxDaysToShow": 2,
-                                    "showDate": true,
+                                    "showDate": false,
+                                    "showWeekDay": true,
+                                    "showMonth": false,
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
                                     "title": "Calendriers",
-                                    "type": "custom:atomic-calendar"
+                                    "type": "custom:atomic-calendar-revive"
                                 }
-                            ],
-                            "type": "vertical-stack"
+                            ]
                         },
                         {
                             "cards": [
                                 {
                                     "aspect_ratio": "100%",
-                                    "entity": "person.olivier_2",
+                                    "entity": "person.olivier",
                                     "image": "https://hass.revelat.eu:48880/local/img/olivier.jpg",
                                     "show_name": false,
                                     "type": "picture-entity"
                                 },
                                 {
                                     "aspect_ratio": "100%",
-                                    "entity": "person.sandrine_2",
+                                    "entity": "person.sandrine",
                                     "image": "https://hass.revelat.eu:48880/local/img/sandrine.jpg",
                                     "show_name": false,
                                     "type": "picture-entity"
                                 },
                                 {
                                     "aspect_ratio": "100%",
-                                    "entity": "person.thea_2",
+                                    "entity": "person.thea",
                                     "image": "https://hass.revelat.eu:48880/local/img/thea.jpg",
                                     "show_name": false,
                                     "type": "picture-entity"
@@ -124,6 +122,9 @@
                                             },
                                             {
                                                 "entity_id": "switch.echo_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.fibaro_roller_*"
                                             }
                                         ],
                                         "include": [
@@ -192,12 +193,12 @@
                                             "state_adaptive_color": true
                                         },
                                         {
-                                            "entity": "sensor.qubino_smart_meter_power",
+                                            "entity": "sensor.qubino_smart_meter_power_electric_w",
                                             "show_graph": false,
                                             "show_state": true
                                         },
                                         {
-                                            "entity": "sensor.qubino_smart_meter_power_factor",
+                                            "entity": "sensor.qubino_smart_meter_power_electric_pf",
                                             "show_graph": false,
                                             "show_state": true
                                         }
@@ -304,12 +305,12 @@
                             ],
                             "type": "vertical-stack"
                         }
-                    ],
-                    "icon": "mdi:home",
-                    "path": "default_view",
-                    "title": "Home"
+                    ]
                 },
                 {
+                    "title": "Rez de chauss\u00e9e",
+                    "path": "rez-de-chaussee",
+                    "icon": "mdi:sofa",
                     "badges": [],
                     "cards": [
                         {
@@ -385,40 +386,19 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "sensor.miflora2",
-                                    "graph": "line",
-                                    "hours_to_show": 24,
-                                    "icon": "mdi:water-percent",
-                                    "name": "Non attribu\u00e9",
-                                    "type": "sensor"
-                                },
-                                {
-                                    "entity": "sensor.miflora1",
-                                    "graph": "line",
-                                    "hours_to_show": 24,
-                                    "icon": "mdi:water-percent",
-                                    "name": "Pied d'\u00e9l\u00e9phant",
-                                    "type": "sensor"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
                                     "cards": [
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.fibaro_motion_salle_a_manger_temperature"
+                                                    "entity": "sensor.fibaro_motion_salle_a_manger_air_temperature"
                                                 },
                                                 {
-                                                    "entity": "sensor.fibaro_motion_salle_a_manger_luminance",
+                                                    "entity": "sensor.fibaro_motion_salle_a_manger_illuminance",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 },
                                                 {
-                                                    "entity": "binary_sensor.fibaro_motion_salle_a_manger_sensor",
+                                                    "entity": "binary_sensor.fibaro_motion_salle_a_manger_home_security_motion_detected",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -458,9 +438,32 @@
                             "type": "vertical-stack"
                         },
                         {
+                            "columns": 4,
                             "entities": [
                                 {
-                                    "entity": "switch.prise_neocoolcam_tv_hifi_switch",
+                                    "entity": "light.fibaro_dimmer_entree_instance_1_level",
+                                    "name": "Entr\u00e9e"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_salle_a_manger_instance_1_level",
+                                    "name": "Salle \u00e0 manger"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_salon_instance_1_level",
+                                    "name": "Salon"
+                                },
+                                {
+                                    "entity": "light.fibaro_dimmer_escalier_instance_1_level",
+                                    "name": "Escaliers"
+                                }
+                            ],
+                            "title": "Lumi\u00e8res",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.prise_neocoolcam_tv_hifi",
                                     "name": "TV/Hifi"
                                 },
                                 {
@@ -478,54 +481,32 @@
                             ],
                             "title": "Prises",
                             "type": "glance"
-                        },
-                        {
-                            "columns": 4,
-                            "entities": [
-                                {
-                                    "entity": "light.fibaro_dimmer_entree_level",
-                                    "name": "Entr\u00e9e"
-                                },
-                                {
-                                    "entity": "light.fibaro_dimmer_salle_a_manger_level",
-                                    "name": "Salle \u00e0 manger"
-                                },
-                                {
-                                    "entity": "light.fibaro_dimmer_salon_level",
-                                    "name": "Salon"
-                                },
-                                {
-                                    "entity": "light.fibaro_dimmer_escalier_level",
-                                    "name": "Escaliers"
-                                }
-                            ],
-                            "title": "Lumi\u00e8res",
-                            "type": "glance"
                         }
-                    ],
-                    "icon": "mdi:sofa",
-                    "title": "Rez de chauss\u00e9e"
+                    ]
                 },
                 {
+                    "title": "Etage",
+                    "path": "etage",
+                    "icon": "mdi:bed",
                     "badges": [],
                     "cards": [
                         {
                             "columns": 4,
                             "entities": [
                                 {
-                                    "entity": "light.fibaro_dimmer_escalier_level",
+                                    "entity": "light.fibaro_dimmer_escalier_instance_1_level",
                                     "name": "Escaliers"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_bureau_level",
+                                    "entity": "light.fibaro_dimmer_bureau_instance_1_level",
                                     "name": "Bureau"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_parents_level",
+                                    "entity": "light.fibaro_dimmer_parents_instance_1_level",
                                     "name": "Ch. Parents"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_thea_level",
+                                    "entity": "light.fibaro_dimmer_thea_instance_1_level",
                                     "name": "Ch. Th\u00e9a"
                                 },
                                 {
@@ -533,7 +514,7 @@
                                     "name": "Ch. Th\u00e9a Leds"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_salledebain_level",
+                                    "entity": "light.fibaro_dimmer_salledebain_instance_1_level",
                                     "name": "Salle de bain"
                                 }
                             ],
@@ -545,7 +526,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.prise_neocoolcam_switch",
+                                    "entity": "switch.prise_neocoolcam",
                                     "name": "TV/Android box"
                                 }
                             ],
@@ -560,15 +541,15 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.fibaro_motion_etage_temperature"
+                                                    "entity": "sensor.fibaro_motion_etage_air_temperature"
                                                 },
                                                 {
-                                                    "entity": "sensor.fibaro_motion_etage_luminance",
+                                                    "entity": "sensor.fibaro_motion_etage_illuminance",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 },
                                                 {
-                                                    "entity": "binary_sensor.fibaro_motion_etage_sensor",
+                                                    "entity": "binary_sensor.fibaro_motion_etage_home_security_motion_detected",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -653,10 +634,10 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.0x00158d00032170fc_temperature"
+                                                    "entity": "sensor.salle_de_bain_thermometer_temperature"
                                                 },
                                                 {
-                                                    "entity": "sensor.0x00158d00032170fc_humidity",
+                                                    "entity": "sensor.salle_de_bain_thermometer_humidity",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -673,11 +654,13 @@
                             ],
                             "type": "vertical-stack"
                         }
-                    ],
-                    "icon": "mdi:hotel",
-                    "title": "Etage"
+                    ]
                 },
                 {
+                    "title": "Jardin",
+                    "path": "jardin",
+                    "icon": "mdi:pine-tree",
+                    "panel": false,
                     "badges": [],
                     "cards": [
                         {
@@ -699,6 +682,7 @@
                             "type": "custom:mini-graph-card"
                         },
                         {
+                            "type": "glance",
                             "columns": 3,
                             "entities": [
                                 {
@@ -723,15 +707,15 @@
                                 }
                             ],
                             "title": "Interrupteurs",
-                            "type": "glance"
+                            "state_color": true
                         },
                         {
-                            "columns": 3,
+                            "type": "glance",
                             "entities": [
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_4",
                                     "icon": "mdi:lightbulb",
-                                    "name": "Lumi\u00e8re terasse"
+                                    "name": "Lumi\u00e8re terrasse"
                                 },
                                 {
                                     "entity": "switch.sonoff_riviere_a",
@@ -739,16 +723,19 @@
                                     "name": "Lumi\u00e8res rivi\u00e8re"
                                 }
                             ],
+                            "title": "Lumi\u00e8res",
                             "show_icon": true,
                             "show_state": true,
-                            "title": "Lumi\u00e8res",
-                            "type": "glance"
+                            "show_name": true,
+                            "state_color": true
                         }
-                    ],
-                    "icon": "mdi:pine-tree",
-                    "title": "Jardin"
+                    ]
                 },
                 {
+                    "title": "Chauffage",
+                    "path": "chauffage",
+                    "icon": "mdi:thermometer-lines",
+                    "panel": true,
                     "badges": [],
                     "cards": [
                         {
@@ -776,7 +763,7 @@
                                                     "name": "Temp\u00e9rature"
                                                 },
                                                 {
-                                                    "entity": "input_number.thermostat_consigne_rdc",
+                                                    "entity": "input_number.consigne_thermostat_rdc",
                                                     "name": "Consigne"
                                                 },
                                                 {
@@ -790,7 +777,7 @@
                                             ],
                                             "gridcol": "1 / 2",
                                             "gridrow": "2 / 3",
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Rez de chauss\u00e9e",
                                             "type": "entities"
                                         },
@@ -799,26 +786,30 @@
                                             "dateSize": 130,
                                             "entities": [
                                                 {
-                                                    "entity": "calendar.homeassistant_chauffage"
+                                                    "entity": "calendar.hass_chauffage_rdc"
                                                 }
                                             ],
                                             "gridcol": "2 / 3",
                                             "gridrow": "2 / 3",
                                             "maxDaysToShow": 0,
                                             "showDate": false,
+                                            "showWeekDay": true,
                                             "showMonth": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "disableEventLink": true,
+                                            "disableLocationLink": true,
+                                            "showRelativeTime": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
+                                            "type": "custom:atomic-calendar-revive"
                                         },
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.0x00158d00032170fc_temperature",
+                                                    "entity": "sensor.salle_de_bain_thermometer_temperature",
                                                     "name": "Temp\u00e9rature"
                                                 },
                                                 {
-                                                    "entity": "input_number.thermostat_consigne_salledebain",
+                                                    "entity": "input_number.consigne_thermostat_salledebain",
                                                     "name": "Consigne"
                                                 },
                                                 {
@@ -829,7 +820,7 @@
                                             "gridcol": "3 / 4",
                                             "gridrow": "2 / 3",
                                             "show_header_toggle": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Salle de bain",
                                             "type": "entities"
                                         },
@@ -845,10 +836,14 @@
                                             "gridrow": "2 / 3",
                                             "maxDaysToShow": 0,
                                             "showDate": false,
+                                            "showWeekDay": true,
                                             "showMonth": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "disableEventLink": true,
+                                            "disableLocationLink": true,
+                                            "showRelativeTime": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
+                                            "type": "custom:atomic-calendar-revive"
                                         },
                                         {
                                             "entities": [
@@ -857,7 +852,7 @@
                                                     "name": "Temp\u00e9rature"
                                                 },
                                                 {
-                                                    "entity": "input_number.thermostat_consigne_parents",
+                                                    "entity": "input_number.consigne_thermostat_parents",
                                                     "name": "Consigne"
                                                 },
                                                 {
@@ -868,7 +863,7 @@
                                             "gridcol": "1 / 2",
                                             "gridrow": "3 / 4",
                                             "show_header_toggle": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Ch. des Parents",
                                             "type": "entities"
                                         },
@@ -884,10 +879,14 @@
                                             "gridrow": "3 / 4",
                                             "maxDaysToShow": 0,
                                             "showDate": false,
+                                            "showWeekDay": true,
                                             "showMonth": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "disableEventLink": true,
+                                            "disableLocationLink": true,
+                                            "showRelativeTime": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
+                                            "type": "custom:atomic-calendar-revive"
                                         },
                                         {
                                             "entities": [
@@ -896,7 +895,7 @@
                                                     "name": "Temp\u00e9rature"
                                                 },
                                                 {
-                                                    "entity": "input_number.thermostat_consigne_thea",
+                                                    "entity": "input_number.consigne_thermostat_thea",
                                                     "name": "Consigne"
                                                 },
                                                 {
@@ -907,7 +906,7 @@
                                             "gridcol": "3 / 4",
                                             "gridrow": "3 / 4",
                                             "show_header_toggle": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Ch. de Th\u00e9a",
                                             "type": "entities"
                                         },
@@ -923,10 +922,14 @@
                                             "gridrow": "3 / 4",
                                             "maxDaysToShow": 0,
                                             "showDate": false,
+                                            "showWeekDay": true,
                                             "showMonth": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
+                                            "disableEventLink": true,
+                                            "disableLocationLink": true,
+                                            "showRelativeTime": false,
+                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
                                             "title": "Programmation",
-                                            "type": "custom:atomic-calendar"
+                                            "type": "custom:atomic-calendar-revive"
                                         }
                                     ],
                                     "gridcols": "25% 25% 25% 25%",
@@ -939,46 +942,48 @@
                             "layout": "vertical",
                             "type": "custom:layout-card"
                         }
-                    ],
-                    "icon": "mdi:thermometer-lines",
-                    "panel": true,
-                    "path": "",
-                    "title": "Chauffage"
+                    ]
                 },
                 {
+                    "icon": "mdi:thermometer-lines",
+                    "title": "Climatisation",
+                    "path": "climatisation",
                     "badges": [],
                     "cards": [
                         {
+                            "type": "horizontal-stack",
                             "cards": [
                                 {
+                                    "type": "thermostat",
                                     "entity": "climate.daikinap92707",
-                                    "show_header_toggle": false,
-                                    "title": "Rez de Chauss\u00e9e",
-                                    "type": "thermostat"
+                                    "name": "Rez de Chauss\u00e9e"
                                 },
                                 {
                                     "dateFormat": "MMMM",
                                     "dateSize": 130,
                                     "entities": [
                                         {
-                                            "entity": "calendar.hass_chauffage_clim_rdc"
+                                            "entity": "calendar.hass_climatisation_rdc"
                                         }
                                     ],
                                     "maxDaysToShow": 0,
                                     "showDate": false,
+                                    "showWeekDay": true,
                                     "showMonth": false,
-                                    "title": "Programmation",
-                                    "type": "custom:atomic-calendar"
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "name": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
                                 }
-                            ],
-                            "type": "horizontal-stack"
+                            ]
                         },
                         {
                             "cards": [
                                 {
                                     "entity": "climate.daikinap81691",
                                     "show_header_toggle": false,
-                                    "title": "Etage",
+                                    "name": "Etage",
                                     "type": "thermostat"
                                 },
                                 {
@@ -991,12 +996,39 @@
                                     ],
                                     "maxDaysToShow": 0,
                                     "showDate": false,
+                                    "showWeekDay": true,
                                     "showMonth": false,
-                                    "title": "Programmation",
-                                    "type": "custom:atomic-calendar"
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "name": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
                                 }
                             ],
                             "type": "horizontal-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.daikinap92707"
+                                },
+                                {
+                                    "entity": "sensor.daikinap92707_inside_temperature"
+                                },
+                                {
+                                    "entity": "sensor.daikinap92707_outside_temperature"
+                                },
+                                {
+                                    "entity": "sensor.daikinap92707_total_power_consumption"
+                                },
+                                {
+                                    "entity": "sensor.daikinap92707_heat_energy_consumption"
+                                },
+                                {
+                                    "entity": "sensor.daikinap92707_cool_energy_consumption"
+                                }
+                            ],
+                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -1021,129 +1053,258 @@
                             ],
                             "show_header_toggle": false,
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "climate.daikinap92707"
-                                },
-                                {
-                                    "entity": "sensor.inside_temperature_daikinap92707_inside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.outside_temperature_daikinap92707_outside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.daikinap92707_total_power_consumption"
-                                },
-                                {
-                                    "entity": "sensor.daikinap92707_heat_energy_consumption"
-                                },
-                                {
-                                    "entity": "sensor.daikinap92707_cool_energy_consumption"
-                                }
-                            ],
-                            "type": "entities"
                         }
-                    ],
-                    "icon": "mdi:thermometer-lines",
-                    "title": "Climatisation"
+                    ]
                 },
                 {
+                    "icon": "mdi:play-circle-outline",
+                    "title": "Audio/Vid\u00e9o",
+                    "path": "audio-video",
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.echo_salon",
-                            "type": "media-control"
+                            "type": "media-control",
+                            "entity": "media_player.tv_salon"
                         },
                         {
-                            "entity": "media_player.echo_bureau",
-                            "type": "media-control"
+                            "type": "media-control",
+                            "entity": "media_player.echo_salon"
                         },
                         {
-                            "entity": "media_player.echo_chambre",
-                            "type": "media-control"
+                            "type": "media-control",
+                            "entity": "media_player.echo_bureau"
                         },
                         {
-                            "entity": "media_player.echo_show",
-                            "type": "media-control"
+                            "type": "media-control",
+                            "entity": "media_player.echo_chambre"
                         },
                         {
-                            "entity": "media_player.tv_salon",
-                            "type": "media-control"
+                            "type": "media-control",
+                            "entity": "media_player.echo_show"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.plex"
+                                    "entity": "sensor.plex_hyperion"
                                 }
                             ],
                             "show_header_toggle": false,
                             "title": "Serveur Plex ",
                             "type": "entities"
                         }
-                    ],
-                    "icon": "mdi:play-circle-outline",
-                    "title": "Audio/Vid\u00e9o"
+                    ]
                 },
                 {
+                    "icon": "mdi:run-fast",
+                    "title": "Surveillance",
+                    "path": "surveillance",
                     "badges": [],
                     "cards": [
                         {
-                            "aspect_ratio": "0%",
+                            "type": "picture-elements",
+                            "entity": "camera.rez_de_chaussee",
                             "camera_image": "camera.rez_de_chaussee",
                             "camera_view": "live",
-                            "entities": [
+                            "elements": [
                                 {
-                                    "entity": "image_processing.rdc_detector"
+                                    "type": "state-icon",
+                                    "icon": "mdi:run-fast",
+                                    "entity": "camera.rez_de_chaussee",
+                                    "title": "Live",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "25px"
+                                    }
                                 },
                                 {
+                                    "type": "state-icon",
+                                    "icon": "mdi:camera",
                                     "entity": "camera.detection_rez_de_chaussee",
-                                    "icon": "mdi:run-fast"
+                                    "title": "Image derni\u00e8re d\u00e9tection",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "75px"
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-up",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "25px",
+                                        "bottom": "50px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "up"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-down",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "25px",
+                                        "bottom": "0px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "down"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-left",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "50px",
+                                        "bottom": "25px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "left"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-right",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "0px",
+                                        "bottom": "25px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "right"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-top-left",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "50px",
+                                        "bottom": "50px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.bedroom",
+                                            "movement": "top_left"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-top-right",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "0px",
+                                        "bottom": "50px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "top_right"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-bottom-left",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "50px",
+                                        "bottom": "0px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "bottom_left"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "icon": "mdi:arrow-bottom-right",
+                                    "style": {
+                                        "background": "rgba(255, 255, 255, 0.5)",
+                                        "right": "0px",
+                                        "bottom": "0px"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "foscam.ptz",
+                                        "service_data": {
+                                            "entity_id": "camera.rez_de_chaussee",
+                                            "movement": "bottom_right"
+                                        }
+                                    }
                                 }
-                            ],
-                            "entity": "camera.rez_de_chaussee",
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "tap_action": {
-                                "action": "more-info"
-                            },
-                            "title": "Rez de chauss\u00e9e",
-                            "type": "picture-glance"
+                            ]
                         },
                         {
-                            "aspect_ratio": "0%",
+                            "type": "picture-elements",
+                            "entity": "camera.jardin_riviere",
                             "camera_image": "camera.jardin_riviere",
                             "camera_view": "live",
-                            "entities": [
+                            "elements": [
                                 {
-                                    "entity": "image_processing.jardin_riviere_detector"
+                                    "type": "state-icon",
+                                    "icon": "mdi:camera",
+                                    "entity": "camera.detection_jardin_riviere",
+                                    "title": "Image derni\u00e8re d\u00e9tection",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "75px"
+                                    }
                                 },
                                 {
-                                    "entity": "camera.detection_jardin",
-                                    "icon": "mdi:run-fast"
+                                    "type": "state-icon",
+                                    "icon": "mdi:run-fast",
+                                    "entity": "camera.jardin_riviere",
+                                    "title": "Live",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "25px"
+                                    }
                                 }
-                            ],
-                            "entity": "camera.jardin_riviere",
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "tap_action": {
-                                "action": "more-info"
-                            },
-                            "title": "Jardin (rivi\u00e8re)",
-                            "type": "picture-glance"
+                            ]
                         }
-                    ],
-                    "icon": "mdi:run-fast",
-                    "panel": false,
-                    "path": "",
-                    "title": "D\u00e9tection surveillance"
+                    ]
                 },
                 {
+                    "title": "M\u00e9t\u00e9o",
+                    "path": "meteo",
+                    "icon": "mdi:weather-partly-cloudy",
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "weather.dark_sky",
-                            "name": "Auribeau sur Siagne",
-                            "type": "weather-forecast"
+                            "type": "weather-forecast",
+                            "entity": "weather.auribeau_sur_siagne",
+                            "show_forecast": true,
+                            "secondary_info_attribute": "wind_speed"
                         },
                         {
                             "entities": [
@@ -1161,29 +1322,28 @@
                             "type": "entities"
                         },
                         {
+                            "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "sensor.weather_alert_crue",
-                                    "name": "Crue"
+                                    "entity": "sensor.alerte_crue"
                                 },
                                 {
-                                    "entity": "sensor.weather_alert_vigilance",
-                                    "name": "Vigilance"
+                                    "entity": "sensor.alerte_vigilance"
                                 },
                                 {
-                                    "entity": "sensor.weather_alert_risques",
-                                    "name": "Risques"
+                                    "entity": "sensor.alerte_risques"
                                 }
                             ],
-                            "show_header_toggle": false,
                             "title": "Vigilance m\u00e9t\u00e9o",
-                            "type": "entities"
+                            "show_header_toggle": false,
+                            "state_color": false
                         }
-                    ],
-                    "icon": "mdi:weather-partly-cloudy",
-                    "title": "M\u00e9t\u00e9o"
+                    ]
                 },
                 {
+                    "title": "Equipements",
+                    "path": "equipements",
+                    "icon": "mdi:server-security",
                     "badges": [],
                     "cards": [
                         {
@@ -1205,6 +1365,72 @@
                         {
                             "card": {
                                 "show_header_toggle": false,
+                                "title": "Non connect\u00e9s"
+                            },
+                            "entities": [
+                                "binary_sensor.livebox",
+                                "binary_sensor.opnsense",
+                                "binary_sensor.proxmox_ve",
+                                "binary_sensor.vm_hyperion_server",
+                                "binary_sensor.vm_chaos_server",
+                                "binary_sensor.unify_ap_ac_pro",
+                                "binary_sensor.camera_salon",
+                                "binary_sensor.camera_jardin_back",
+                                "binary_sensor.imprimante",
+                                "binary_sensor.mi_3_android_tv",
+                                "binary_sensor.samsung_tv"
+                            ],
+                            "state_filter": [
+                                "off"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hp_ilo_gen8_status",
+                                            "name": "Status"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_ilo_gen8_fanspeed",
+                                            "name": "Vitesse ventilateur"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_ilo_gen8_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "HP Gen8 microserver",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.*_battery",
+                                        "options": {
+                                            "type": "custom:battery-entity-row",
+                                            "warning": 50,
+                                            "crticial": 15,
+                                            "charging": true
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "card": {
+                                "show_header_toggle": false,
                                 "title": "Consommation",
                                 "type": "entities"
                             },
@@ -1214,244 +1440,107 @@
                                         "entity_id": "sensor.fibaro_dimmer_*_power"
                                     },
                                     {
-                                        "entity_id": "sensor.prise_*_power"
+                                        "entity_id": "sensor.prise_*_electric_w"
                                     }
                                 ]
                             },
                             "type": "custom:auto-entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.linky_yesterday"
-                                },
-                                {
-                                    "entity": "sensor.linky_current_month"
-                                },
-                                {
-                                    "entity": "sensor.linky_last_month"
-                                },
-                                {
-                                    "entity": "sensor.linky_current_year"
-                                },
-                                {
-                                    "entity": "sensor.linky_last_year"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Linky",
-                            "type": "entities"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.hp_ilo_gen81_status",
-                                            "name": "Status"
-                                        },
-                                        {
-                                            "entity": "sensor.hp_ilo_gen81_fanspeed",
-                                            "name": "Vitesse ventilateur"
-                                        },
-                                        {
-                                            "entity": "sensor.hp_ilo_gen81_temperature",
-                                            "name": "Temp\u00e9rature"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "HP Gen8 n\u00b01",
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Non connect\u00e9s"
-                            },
-                            "entities": [
-                                "binary_sensor.livebox",
-                                "binary_sensor.proxmox_ve_2",
-                                "binary_sensor.vm_zeus_server",
-                                "binary_sensor.vm_atlas_server",
-                                "binary_sensor.vm_hyperion_server",
-                                "binary_sensor.tp_link_archer_c7",
-                                "binary_sensor.tp_link_wa830re",
-                                "binary_sensor.camera_salon",
-                                "binary_sensor.docker_stacks",
-                                "binary_sensor.imprimante",
-                                "binary_sensor.mi_speaker_network",
-                                "binary_sensor.mi_3_android_tv"
-                            ],
-                            "state_filter": [
-                                "off"
-                            ],
-                            "type": "entity-filter"
                         }
-                    ],
-                    "icon": "mdi:server-security",
-                    "title": "Equipements"
+                    ]
                 },
                 {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.enable_covers_sunrise"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_covers_sunset"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_weather_alert_notif"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_light_garage"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_garden_fountain"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_garden_projector"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_mosquito_switch"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_pool_pump"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_christmas_decoration"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_thermostat_rdc"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_thermostat_bedroom_parents"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_thermostat_bedroom_thea"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_thermostat_salledebain"
-                                },
-                                {
-                                    "entity": "input_boolean.enable_thermostat_rdc_clim"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Automatismes non activ\u00e9s"
-                            },
-                            "entities": [
-                                "automation.selecteur_pilote_arret",
-                                "automation.selecteur_pilote_confort",
-                                "automation.selecteur_pilote_confort_1",
-                                "automation.selecteur_pilote_confort_2",
-                                "automation.selecteur_pilote_eco",
-                                "automation.selecteur_pilote_hors_gel"
-                            ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "off"
-                            ],
-                            "type": "entity-filter"
-                        }
-                    ],
+                    "title": "Automations",
+                    "path": "automations",
                     "icon": "mdi:home-automation",
-                    "title": "Automatismes"
-                },
-                {
                     "badges": [],
                     "cards": [
                         {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Niveau des batteries",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.fibaro_motion_*_battery_level",
-                                        "options": {
-                                            "type": "custom:battery-entity"
-                                        },
-                                        "state": "<= 100"
-                                    },
-                                    {
-                                        "attributes": {
-                                            "battery": "<= 100"
-                                        },
-                                        "entity_id": "sensor.*_battery",
-                                        "options": {
-                                            "type": "custom:battery-entity"
-                                        }
-                                    },
-                                    {
-                                        "entity_id": "sensor.thermometer_*_battery"
-                                    },
-                                    {
-                                        "attributes": {
-                                            "battery_level": "<= 100"
-                                        },
-                                        "entity_id": "*device_tracker.*",
-                                        "options": {
-                                            "type": "custom:battery-entity"
-                                        }
-                                    }
-                                ]
-                            },
-                            "id": "low_battery_list",
-                            "type": "custom:auto-entities"
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.automation_enable_weather_alert_notif"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_covers_sunrise"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_covers_sunset"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_light_garage"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_mosquito_switch"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_pool_pump"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_garden_fountain"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_garden_projector"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_christmas_decoration"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_rdc"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_bedroom_parents"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_bedroom_thea"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_salledebain"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_etage_clim"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_rdc_clim"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "state_color": true
                         }
-                    ],
-                    "icon": "mdi:battery",
-                    "path": "batteries",
-                    "title": "Batteries"
+                    ]
                 },
                 {
+                    "title": "Zigbee",
+                    "path": "zigbee",
+                    "icon": "mdi:zigbee",
                     "badges": [],
                     "cards": [
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.bureau_presence_sensor_illuminance"
+                                    "entity": "sensor.bureau_sensor_illuminance"
                                 },
                                 {
-                                    "entity": "binary_sensor.bureau_presence_sensor_occupancy"
+                                    "entity": "binary_sensor.bureau_sensor_occupancy"
                                 },
                                 {
-                                    "entity": "sensor.0x00158d00032170fc_temperature"
+                                    "entity": "sensor.salle_de_bain_thermometer_temperature"
                                 },
                                 {
-                                    "entity": "sensor.0x00158d00032170fc_pressure"
+                                    "entity": "sensor.salle_de_bain_thermometer_pressure"
                                 },
                                 {
-                                    "entity": "sensor.0x00158d00032170fc_humidity"
+                                    "entity": "sensor.salle_de_bain_thermometer_humidity"
                                 },
                                 {
-                                    "entity": "sensor.0x00158d0002337696_click"
+                                    "entity": "sensor.chambre_thea_multiswitch_click"
                                 }
                             ],
                             "show_header_toggle": false,
                             "type": "entities"
                         }
-                    ],
-                    "icon": "mdi:zigbee",
-                    "path": "zigbee",
-                    "title": "Zigbee"
+                    ]
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }
