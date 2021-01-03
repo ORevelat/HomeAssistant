@@ -67,10 +67,9 @@ var CONFIG = {
                      width: 2,
                      type: TYPES.WEATHER,
                      classes: ['-compact'],
-                     id: {},
+                     id: 'weather.auribeau_sur_siagne',
                      title: 'Météo',
-                     state: '&sensor.dark_sky_summary.state',
-                     icon: '&sensor.dark_sky_icon.state',
+                     state: '',
                      icons: {
                         'clear-day': 'clear',
                         'clear-night': 'nt-clear',
@@ -84,73 +83,14 @@ var CONFIG = {
                         'partly-cloudy-night': 'nt-partlycloudy'
                      },
                      fields: {
-                        summary: '&sensor.dark_sky_summary.state',
-                        temperature: '&sensor.dark_sky_temperature.state',
-                        temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
-                        windSpeed: '&sensor.dark_sky_wind_speed.state',
-                        windSpeedUnit: '&sensor.dark_sky_wind_speed.attributes.unit_of_measurement',
-                        humidity: '&sensor.dark_sky_humidity.state',
-                        humidityUnit: '&sensor.dark_sky_humidity.attributes.unit_of_measurement',
+                        summary: '@state',
+                        temperature: '@attributes.temperature',
+                        temperatureUnit: '°',
+                        windSpeed: '@attributes.wind_speed',
+                        windSpeedUnit: 'Km/h',
+                        humidity: '@attributes.humidity',
+                        humidityUnit: '%',
                      }
-                  },
-                  {
-                     position: [0, 1],
-                     type: TYPES.WEATHER_LIST,
-                     width: 2,
-                     height: 1.5,
-                     title: 'Prévisions',
-                     id: {},
-                     icons: {
-                        'clear-day': 'clear',
-                        'clear-night': 'nt-clear',
-                        'cloudy': 'cloudy',
-                        'rain': 'rain',
-                        'sleet': 'sleet',
-                        'snow': 'snow',
-                        'wind': 'hazy',
-                        'fog': 'fog',
-                        'partly-cloudy-day': 'partlycloudy',
-                        'partly-cloudy-night': 'nt-partlycloudy'
-                     },
-                     hideHeader: false,
-                     primaryTitle: 'Prévision',
-                     list: [1, 2, 3, 4, 5].map(function (id) {
-                        var forecast = "&sensor.dark_sky_overnight_low_temperature_" + id + "d.state - ";
-                        forecast += "&sensor.dark_sky_daytime_high_temperature_" + id + "d.state ";
-                        forecast += "&sensor.dark_sky_daytime_high_temperature_" + id + "d.attributes.unit_of_measurement";
-
-                        var weekday = new Array(7);
-                        weekday[0] = "Dim";
-                        weekday[1] = "Lun";
-                        weekday[2] = "Mar";
-                        weekday[3] = "Mer";
-                        weekday[4] = "Jeu";
-                        weekday[5] = "Ven";
-                        weekday[6] = "Sam";
-
-                        var month = new Array(12);
-                        month[0] = "Janv.";
-                        month[1] = "Févr.";
-                        month[2] = "Mars";
-                        month[3] = "Avr.";
-                        month[4] = "Mai";
-                        month[5] = "Juin";
-                        month[6] = "Juil.";
-                        month[7] = "Août";
-                        month[8] = "Sept.";
-                        month[9] = "Oct.";
-                        month[10] = "Nov.";
-                        month[11] = "Déc.";
-
-                        return {
-                           date: function () {
-                              var d = new Date(Date.now() + id * 24 * 60 * 60 * 1000);
-                              return weekday[d.getDay()] + ' ' + d.getDate() + ' ' + month[d.getMonth()];
-                           },
-                           icon: "&sensor.dark_sky_icon_" + id + "d.state",
-                           primary: forecast
-                        }
-                     })
                   }
                ]
             },
@@ -165,7 +105,7 @@ var CONFIG = {
                      title: 'Consommation',
                      subtitle: '',
                      type: TYPES.GAUGE,
-                     id: 'sensor.qubino_smart_meter_power',
+                     id: 'sensor.qubino_smart_meter_power_electric_w',
                      value: function (item, entity) {
                         return entity.state;
                      },
@@ -194,14 +134,14 @@ var CONFIG = {
                      },
                      icon: function () {
                         var lights = [
-                           "&light.fibaro_dimmer_bureau_level.state",
-                           "&light.fibaro_dimmer_entree_level.state",
-                           "&light.fibaro_dimmer_escalier_level.state",
-                           "&light.fibaro_dimmer_parents_level.state",
-                           "&light.fibaro_dimmer_salle_a_manger_level.state",
-                           "&light.fibaro_dimmer_salledebain_level.state",
-                           "&light.fibaro_dimmer_salon_level.state",
-                           "&light.fibaro_dimmer_thea_level.state",
+                           "&light.fibaro_dimmer_bureau_instance_1_level.state",
+                           "&light.fibaro_dimmer_entree_instance_1_level.state",
+                           "&light.fibaro_dimmer_escalier_instance_1_level.state",
+                           "&light.fibaro_dimmer_parents_instance_1_level.state",
+                           "&light.fibaro_dimmer_salle_a_manger_instance_1_level.state",
+                           "&light.fibaro_dimmer_salledebain_instance_1_level.state",
+                           "&light.fibaro_dimmer_salon_instance_1_level.state",
+                           "&light.fibaro_dimmer_thea_instance_1_level.state",
                            "&light.led_chambre_thea.state",
                            "&switch.sonoff_riviere_a.state",
                            "&switch.sonoff_4ch_jardin_4.state"
@@ -246,10 +186,10 @@ var CONFIG = {
                            "&switch.sonoff_4ch_jardin_1.state",
                            "&switch.sonoff_4ch_jardin_2.state",
                            "&switch.sonoff_4ch_jardin_3.state",
-                           "&switch.prise_neocoolcam_tv_hifi_switch.state",
+                           "&switch.prise_neocoolcam_tv_hifi.state",
                            "&switch.sonoff_salon.state",
                            "&switch.sonoff_bibliotheque_haut.state",
-                           "&switch.prise_neocoolcam_switch.state"
+                           "&switch.prise_neocoolcam.state"
                         ];
 
                         var count = 0;
@@ -356,8 +296,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Salle à manger',
-                     id: 'sensor.fibaro_motion_salle_a_manger_temperature',
-                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_salle_a_manger_luminance.state' + '&sensor.fibaro_motion_salle_a_manger_luminance.attributes.unit_of_measurement',
+                     id: 'sensor.fibaro_motion_etage_air_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_etage_illuminance.state' + '&sensor.fibaro_motion_etage_illuminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -376,8 +316,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Couloir',
-                     id: 'sensor.fibaro_motion_etage_temperature',
-                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_etage_luminance.state' + '&sensor.fibaro_motion_etage_luminance.attributes.unit_of_measurement',
+                     id: 'sensor.fibaro_motion_etage_air_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_etage_illuminance.state' + '&sensor.fibaro_motion_etage_illuminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -389,8 +329,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Salle de bain',
-                     id: 'sensor.0x00158d00032170fc_temperature',
-                     subtitle: 'Humidité ' + '&sensor.0x00158d00032170fc_humidity.state' + '&sensor.0x00158d00032170fc_humidity.attributes.unit_of_measurement',
+                     id: 'sensor.salle_de_bain_thermometer_temperature',
+                     subtitle: 'Humidité ' + '&sensor.salle_de_bain_thermometer_humidity.state' + '&sensor.salle_de_bain_thermometer_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -487,7 +427,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'Entrée',
-                     id: 'light.fibaro_dimmer_entree_level',
+                     id: 'light.fibaro_dimmer_entree_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -501,7 +441,7 @@ var CONFIG = {
                   {
                      position: [0, 1],
                      title: 'Escalier',
-                     id: 'light.fibaro_dimmer_escalier_level',
+                     id: 'light.fibaro_dimmer_escalier_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -515,7 +455,7 @@ var CONFIG = {
                   {
                      position: [1, 0],
                      title: 'Salon',
-                     id: 'light.fibaro_dimmer_salon_level',
+                     id: 'light.fibaro_dimmer_salon_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -529,7 +469,7 @@ var CONFIG = {
                   {
                      position: [1, 1],
                      title: 'Salle à manger',
-                     id: 'light.fibaro_dimmer_salle_a_manger_level',
+                     id: 'light.fibaro_dimmer_salle_a_manger_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -564,7 +504,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'Salle de bain',
-                     id: 'light.fibaro_dimmer_salledebain_level',
+                     id: 'light.fibaro_dimmer_salledebain_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -578,7 +518,7 @@ var CONFIG = {
                   {
                      position: [0, 1],
                      title: 'Bureau',
-                     id: 'light.fibaro_dimmer_bureau_level',
+                     id: 'light.fibaro_dimmer_bureau_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -592,7 +532,7 @@ var CONFIG = {
                   {
                      position: [1, 0],
                      title: 'Parents',
-                     id: 'light.fibaro_dimmer_parents_level',
+                     id: 'light.fibaro_dimmer_parents_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -606,7 +546,7 @@ var CONFIG = {
                   {
                      position: [2, 0],
                      title: 'Théa',
-                     id: 'light.fibaro_dimmer_thea_level',
+                     id: 'light.fibaro_dimmer_thea_instance_1_level',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -725,7 +665,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'TV/HiFi',
-                     id: 'switch.prise_neocoolcam_tv_hifi_switch',
+                     id: 'switch.prise_neocoolcam_tv_hifi',
                      type: TYPES.SWITCH,
                      states: {
                         on: "On",
@@ -787,7 +727,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'TV/Android box',
-                     id: 'switch.prise_neocoolcam_switch',
+                     id: 'switch.prise_neocoolcam',
                      type: TYPES.SWITCH,
                      states: {
                         on: "On",
