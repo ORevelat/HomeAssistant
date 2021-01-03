@@ -5,6 +5,8 @@ updater:
   reporting: false
 logger:
   default: warn
+  logs:
+    custom_components.samsungtv_tizen: error
 http:
   server_port: 8123
   use_x_forwarded_for: true
