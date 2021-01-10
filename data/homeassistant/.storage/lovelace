@@ -1095,7 +1095,7 @@
                     ]
                 },
                 {
-                    "icon": "mdi:run-fast",
+                    "icon": "mdi:cctv",
                     "title": "Surveillance",
                     "path": "surveillance",
                     "badges": [],
@@ -1108,7 +1108,7 @@
                             "elements": [
                                 {
                                     "type": "state-icon",
-                                    "icon": "mdi:run-fast",
+                                    "icon": "mdi:cctv",
                                     "entity": "camera.rez_de_chaussee",
                                     "title": "Live",
                                     "style": {
@@ -1118,7 +1118,7 @@
                                 },
                                 {
                                     "type": "state-icon",
-                                    "icon": "mdi:camera",
+                                    "icon": "mdi:run-fast",
                                     "entity": "camera.detection_rez_de_chaussee",
                                     "title": "Image derni\u00e8re d\u00e9tection",
                                     "style": {
@@ -1272,7 +1272,7 @@
                             "elements": [
                                 {
                                     "type": "state-icon",
-                                    "icon": "mdi:camera",
+                                    "icon": "mdi:run-fast",
                                     "entity": "camera.detection_jardin_riviere",
                                     "title": "Image derni\u00e8re d\u00e9tection",
                                     "style": {
@@ -1282,7 +1282,7 @@
                                 },
                                 {
                                     "type": "state-icon",
-                                    "icon": "mdi:run-fast",
+                                    "icon": "mdi:cctv",
                                     "entity": "camera.jardin_riviere",
                                     "title": "Live",
                                     "style": {

@@ -9,6 +9,7 @@
     domains:
       - updater
       - camera
+      - group
       - media_player
       - scene
       - script

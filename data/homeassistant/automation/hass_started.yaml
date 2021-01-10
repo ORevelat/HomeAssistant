@@ -1,0 +1,57 @@
+
+## HOMEASSISTANT STARTED
+
+  - id: hass_started_event
+    alias: Home Assistant started
+
+    trigger:
+      platform: homeassistant
+      event: start
+
+    action:
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoffgarage/power1
+        payload: ''
+
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoff4ch/power1
+        payload: ''
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoff4ch/power2
+        payload: ''
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoff4ch/power3
+        payload: ''
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoff4ch/power4
+        payload: ''
+
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoffsalon/power
+        payload: ''
+
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoffsalon2/power
+        payload: ''
+
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoffs26/power
+        payload: ''
+
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoffrivierea/power
+        payload: ''
+
+    - service: mqtt.publish
+      data:
+        topic: cmnd/sonoffriviereb/power
+        payload: ''

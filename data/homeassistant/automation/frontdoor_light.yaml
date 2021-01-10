@@ -1,0 +1,34 @@
+
+## FRONTDOOR LIGHT
+
+  - id: frontdoor_light_on
+    alias: Lumière Entrée/Garage On
+    
+    trigger:
+      platform: sun
+      event: sunset
+
+    condition:
+      - condition: state
+        entity_id: input_boolean.automation_enable_light_garage
+        state: 'on'
+    
+    action:
+      - service: switch.turn_on
+        entity_id: switch.sonoff_garage_portail
+
+  - id: frontdoor_light_off
+    alias: Lumière Entrée/Garage Off
+
+    trigger:
+      platform: sun
+      event: sunrise
+    
+    condition:
+      - condition: state
+        entity_id: input_boolean.automation_enable_light_garage
+        state: 'on'    
+    
+    action:
+      - service: switch.turn_off
+        entity_id: switch.sonoff_garage_portail

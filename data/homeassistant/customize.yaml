@@ -1,0 +1,8 @@
+sensor.daily_consumption_night:
+  unit_of_measurement: kWh
+sensor.hourly_consumption_night:
+  unit_of_measurement: kWh
+sensor.monthly_consumption_night:
+  unit_of_measurement: kWh
+sensor.yearly_consumption_night:
+  unit_of_measurement: kWh

@@ -1,0 +1,24 @@
+
+## ZWAVE NETWORK STARTED
+
+  - alias: Z-Wave Network started
+    id: zwave_started_event
+
+    trigger:
+      - platform: event
+        event_type: zwave.network_ready
+
+    # After 1min, set all radiators to Confort then 10sec later to Arrêt
+
+    action:
+      - delay: '00:01:00'
+      - service: input_select.select_option
+        data: 
+          entity_id: input_select.radiator_parents,input_select.radiator_thea,input_select.radiator_salon,input_select.radiator_sallemanger,input_select.radiator_salledebain
+          option: 'Confort'
+    
+      - delay: '00:00:10'
+      - service: input_select.select_option
+        data: 
+          entity_id: input_select.radiator_parents,input_select.radiator_thea,input_select.radiator_salon,input_select.radiator_sallemanger,input_select.radiator_salledebain
+          option: 'Arrêt'

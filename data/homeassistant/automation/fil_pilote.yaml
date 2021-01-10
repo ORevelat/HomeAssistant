@@ -10,6 +10,7 @@
         - input_select.radiator_sallemanger
         - input_select.radiator_salledebain
       to: 'Confort'
+    mode: queued
     action:
       - service: light.turn_on
         data_template:
@@ -37,6 +38,7 @@
         - input_select.radiator_sallemanger
         - input_select.radiator_salledebain
       to: 'Confort -1'
+    mode: queued
     action:
       - service: light.turn_on
         data_template:
@@ -64,6 +66,7 @@
         - input_select.radiator_sallemanger
         - input_select.radiator_salledebain
       to: 'Confort -2'
+    mode: queued
     action:
       - service: light.turn_on
         data_template:
@@ -91,6 +94,7 @@
         - input_select.radiator_sallemanger
         - input_select.radiator_salledebain
       to: 'Eco'
+    mode: queued
     action:
       - service: light.turn_on
         data_template:
@@ -118,6 +122,7 @@
         - input_select.radiator_sallemanger
         - input_select.radiator_salledebain
       to: 'Hors-gel'
+    mode: queued
     action:
       - service: light.turn_on
         data_template:
@@ -145,6 +150,7 @@
         - input_select.radiator_sallemanger
         - input_select.radiator_salledebain
       to: 'Arrêt'
+    mode: queued
     action:
       - service: light.turn_on
         data_template:
