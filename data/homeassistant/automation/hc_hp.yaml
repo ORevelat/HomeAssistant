@@ -8,6 +8,7 @@
           at: '01:56:00'
         - platform: time
           at: '13:56:00'
+
     action:
         - service: utility_meter.select_tariff
           data:
@@ -17,6 +18,7 @@
             - utility_meter.monthly_consumption
             - utility_meter.yearly_consumption
             tariff: night
+
   - id: set_edf_hp
     alias: 'EDF HP'
     trigger:
@@ -24,6 +26,7 @@
           at: '06:56:00'
         - platform: time
           at: '16:56:00'
+
     action:
         - service: utility_meter.select_tariff
           data:

@@ -3,7 +3,6 @@
 
   - id: christmas_decoration_on
     alias: Decoration Noël On
-    
     trigger:
       platform: time
       at: '17:00:00'
@@ -19,7 +18,6 @@
 
   - id: christmas_decoration_off
     alias: Decoration Noël Off
-    
     trigger:
       platform: time
       at: '21:30:00'

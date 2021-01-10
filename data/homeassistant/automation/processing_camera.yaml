@@ -1,30 +1,36 @@
 
 ## DETECTION CAMERA
 
-  - alias: Camera Detection 1
+  - id: camera_detection_processing_rdc
+    alias: Détection Caméra Rez de Chaussée
     trigger:
       platform: time_pattern
       minutes: '*'
       seconds: 0
+
     action:
     - data:
         entity_id: image_processing.rdc_detector
       service: image_processing.scan
   
-  - alias: Camera Detection 2
+  - id: camera_detection_processing_garden_river
+    alias: Détection Caméra Jardin Rivière
     trigger:
       platform: time_pattern
       minutes: '*'
       seconds: 30
+
     action:
     - data:
         entity_id: image_processing.jardin_riviere_detector
       service: image_processing.scan
   
-  - alias: Image Detection Zip
+  - id: camera_detection_zip_images
+    alias: Zip Image Détection Caméras
     trigger:
       platform: time
       at: '02:00:00'
+
     action:
       - service: shell_command.image_zip_rdc
       - service: shell_command.image_zip_jardin_riviere

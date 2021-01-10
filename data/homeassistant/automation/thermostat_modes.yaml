@@ -1,0 +1,77 @@
+
+## THERMOSTAT MODES
+
+  - id: thermostat_mode_stop
+    alias: Thermostate mode Arrêt
+    trigger:
+    - platform: state
+      entity_id: input_select.thermostat_mode
+      to: 'Arrêt'
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.radiator_parents
+          option: 'Arrêt'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.radiator_thea
+          option: 'Arrêt'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.radiator_salon
+          option: 'Arrêt'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.radiator_sallemanger
+          option: 'Arrêt'
+
+  - id: thermostat_mode_away
+    alias: Thermostat mode Absent
+    trigger:
+    - platform: state
+      entity_id: input_select.thermostat_mode
+      to: 'Absent'
+
+    action:
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_rdc
+          value: 19
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_parents
+          value: 17
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_thea
+          value: 17
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_salledebain
+          value: 17
+
+  - id: thermostat_mode_normal
+    alias: Thermostat mode Normal
+    trigger:
+    - platform: state
+      entity_id: input_select.thermostat_mode
+      to: 'Normal'
+
+    action:
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_rdc
+          value: 21
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_parents
+          value: 19
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_thea
+          value: 19
+      - service: input_number.set_value
+        data:
+          entity_id: input_number.consigne_thermostat_salledebain
+          value: 19

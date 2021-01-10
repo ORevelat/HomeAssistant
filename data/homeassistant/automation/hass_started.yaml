@@ -3,7 +3,6 @@
 
   - id: hass_started_event
     alias: Home Assistant started
-
     trigger:
       platform: homeassistant
       event: start

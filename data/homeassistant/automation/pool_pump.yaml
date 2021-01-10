@@ -3,7 +3,6 @@
 
   - id: pool_pump_on
     alias: Pompe Piscine On
-    
     trigger:
     - platform: time
       at: '10:00:00'
@@ -21,7 +20,6 @@
 
   - id: pool_pump_off
     alias: Pompe Piscine Off
-
     trigger:
     - platform: time
       at: '12:00:00'

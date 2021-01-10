@@ -3,7 +3,6 @@
 
   - id: garden_projector_on
     alias: Projecteur Jardin On
-    
     trigger:
       platform: sun
       event: sunset
@@ -19,7 +18,6 @@
 
   - id: garden_projector_off
     alias: Projecteur Jardin Off
-
     trigger:
       platform: time
       at: '23:00:00'

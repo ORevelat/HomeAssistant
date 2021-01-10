@@ -6,10 +6,12 @@
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
       to: 'single'
+
     condition: 
       condition: state
       entity_id: light.led_chambre_thea
       state: 'off'
+
     action:
       - service: light.turn_on
         data:
@@ -29,10 +31,12 @@
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
       to: 'single'
+
     condition: 
       condition: state
       entity_id: light.led_chambre_thea
       state: 'on'
+
     action:
       - service: light.turn_off
         data:
@@ -44,10 +48,12 @@
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
       to: 'double'
+
     condition: 
       condition: state
       entity_id: light.led_chambre_thea
       state: 'on'
+
     action:
       service: light.turn_on
       data:
@@ -62,10 +68,12 @@
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
       to: 'triple'
+
     condition: 
       condition: state
       entity_id: light.led_chambre_thea
       state: 'on'
+
     action:
       service: light.turn_on
       data:
@@ -80,10 +88,12 @@
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
       to: 'quadruple'
+  
     condition: 
       condition: state
       entity_id: light.led_chambre_thea
       state: 'on'
+  
     action:
       service: light.turn_on
       data:

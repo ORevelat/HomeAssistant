@@ -3,7 +3,6 @@
 
   - id: frontdoor_light_on
     alias: Lumière Entrée/Garage On
-    
     trigger:
       platform: sun
       event: sunset
@@ -19,7 +18,6 @@
 
   - id: frontdoor_light_off
     alias: Lumière Entrée/Garage Off
-
     trigger:
       platform: sun
       event: sunrise
