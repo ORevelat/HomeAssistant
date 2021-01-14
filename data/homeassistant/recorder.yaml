@@ -23,5 +23,5 @@
       - sensor.date_time
       - sensor.time_date
       - sensor.uptime
-      - automation.camera_detection_1
-      - automation.camera_detection_2
+      - automation.detection_camera_rez_de_chaussee
+      - automation.detection_camera_jardin_riviere

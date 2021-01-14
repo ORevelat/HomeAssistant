@@ -1,26 +1,19 @@
 
 ## IMAGE PROCESSING
 
-  - platform: deepstack_object
-    ip_address: !secret host_chaos
-    port: 5000
-    api_key: !secret deepstack_token
-    # scan_interval: 30 # Optional, in seconds
-    save_file_folder: /config/www/deepstack
-    save_timestamped_file: True
-    target: person
+  - platform: doods
+    url: !secret doods_url
+    detector: default
+    scan_interval: 10
+    timeout: 2
     source:
-    - entity_id: camera.rez_de_chaussee
-      name: rdc_detector
-
-  - platform: deepstack_object
-    ip_address: !secret host_chaos
-    port: 5000
-    api_key: !secret deepstack_token
-    # scan_interval: 30 # Optional, in seconds
-    save_file_folder: /config/www/deepstack
-    save_timestamped_file: True
-    target: person
-    source:
-    - entity_id: camera.jardin_riviere
-      name: jardin_riviere_detector
+      - entity_id: camera.rez_de_chaussee
+      - entity_id: camera.jardin_riviere
+    file_out:
+      - "/config/www/doods/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      - "/config/www/doods/{{ camera_entity.split('.')[1] }}/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
+    labels:
+      - name: person
+        confidence: 60
+        area:
+          covers: false

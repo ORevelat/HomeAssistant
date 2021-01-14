@@ -96,7 +96,7 @@
                                                 "entity_id": "light.qubino_*"
                                             },
                                             {
-                                                "entity_id": "light.fibaro_dimmer_*_2"
+                                                "entity_id": "light.fgd212_dimmer_2_instance_2_level*"
                                             }
                                         ],
                                         "include": [
@@ -220,31 +220,31 @@
                                         },
                                         {
                                             "color": "#38ff00",
-                                            "value": 10
+                                            "value": 15
                                         },
                                         {
                                             "color": "#71ff00",
-                                            "value": 25
-                                        },
-                                        {
-                                            "color": "#aaff00",
                                             "value": 20
                                         },
                                         {
-                                            "color": "#e2ff00",
+                                            "color": "#aaff00",
                                             "value": 25
                                         },
                                         {
-                                            "color": "#ffe200",
+                                            "color": "#e2ff00",
                                             "value": 30
                                         },
                                         {
-                                            "color": "#ffaa00",
+                                            "color": "#ffe200",
                                             "value": 35
                                         },
                                         {
-                                            "color": "#ff7100",
+                                            "color": "#ffaa00",
                                             "value": 40
+                                        },
+                                        {
+                                            "color": "#ff7100",
+                                            "value": 45
                                         },
                                         {
                                             "color": "#ff3800",
@@ -1505,6 +1505,19 @@
                             ],
                             "show_header_toggle": false,
                             "state_color": true
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:z-wave",
+                    "title": "Zwave",
+                    "path": "zwave",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:ozw-network-visualization-card",
+                            "integration": "ozw"
                         }
                     ]
                 },

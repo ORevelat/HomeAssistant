@@ -96,20 +96,6 @@ services:
       options:
         max-size: 10m
 
-#  ble2mqtt:
-#    container_name: ble2mqtt
-#    image: ble2mqtt
-#    restart: always
-#    network_mode: host
-#    volumes:
-#      - /srv/disk1/docker-data/data/ble2mqtt:/data
-#      - /etc/localtime:/etc/localtime:ro
-#    environment:
-#      TIMEZONE: Europe/Paris
-#    logging:
-#      options:
-#        max-size: 10m
-
   ozwd:
     image: openzwave/ozwdaemon:allinone-latest
     container_name: ozwd
@@ -132,4 +118,13 @@ services:
       USB_PATH: "/dev/ttyUSB0"
       OZW_NETWORK_KEY: "0x2D,0xA6,0xCC,0xDC,0xD3,0x3D,0xEF,0x1C,0x9D,0xD5,0x89,0x3C,0x43,0x78,0xAD,0xF6"
     restart: unless-stopped
-    
+
+  doods:
+    container_name: doods
+    image: snowzach/doods:latest
+    restart: unless-stopped
+    ports:
+      - "14666:8080"
+    logging:
+      options:
+        max-size: 10m
