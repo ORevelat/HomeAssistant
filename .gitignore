@@ -50,7 +50,7 @@
 /data/homeassistant/alexa_*
 /data/homeassistant/www/**/*.gz
 /data/homeassistant/www/**/secrets.js
-/data/homeassistant/www/deepstack/
+/data/homeassistant/www/doods/
 
 # specific files & folders for AppDaemon
 /data/appdaemon/data/logs
