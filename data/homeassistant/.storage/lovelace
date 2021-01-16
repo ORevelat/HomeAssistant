@@ -1119,147 +1119,11 @@
                                 {
                                     "type": "state-icon",
                                     "icon": "mdi:run-fast",
-                                    "entity": "camera.detection_rez_de_chaussee",
+                                    "entity": "camera.deepstack_rez_de_chaussee",
                                     "title": "Image derni\u00e8re d\u00e9tection",
                                     "style": {
                                         "bottom": "0px",
                                         "left": "75px"
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-up",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "25px",
-                                        "bottom": "50px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "up"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-down",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "25px",
-                                        "bottom": "0px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "down"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-left",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "50px",
-                                        "bottom": "25px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "left"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-right",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "0px",
-                                        "bottom": "25px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "right"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-top-left",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "50px",
-                                        "bottom": "50px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.bedroom",
-                                            "movement": "top_left"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-top-right",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "0px",
-                                        "bottom": "50px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "top_right"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-bottom-left",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "50px",
-                                        "bottom": "0px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "bottom_left"
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "icon",
-                                    "icon": "mdi:arrow-bottom-right",
-                                    "style": {
-                                        "background": "rgba(255, 255, 255, 0.5)",
-                                        "right": "0px",
-                                        "bottom": "0px"
-                                    },
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "foscam.ptz",
-                                        "service_data": {
-                                            "entity_id": "camera.rez_de_chaussee",
-                                            "movement": "bottom_right"
-                                        }
                                     }
                                 }
                             ]
@@ -1273,7 +1137,7 @@
                                 {
                                     "type": "state-icon",
                                     "icon": "mdi:run-fast",
-                                    "entity": "camera.detection_jardin_riviere",
+                                    "entity": "camera.deepstack_jardin_riviere",
                                     "title": "Image derni\u00e8re d\u00e9tection",
                                     "style": {
                                         "bottom": "0px",

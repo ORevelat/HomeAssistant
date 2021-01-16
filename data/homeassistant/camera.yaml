@@ -1,25 +1,20 @@
 
 ## CAMERA
 
-  # CAMERA
-  - platform: foscam
-    name: "Rez de chaussée"
-    ip: !secret host_cam_salon
-    port: !secret camera_salon_port
-    username: !secret camera_salon_username
-    password: !secret camera_salon_password
+  - platform: generic
+    name: rez_de_chaussee
+    still_image_url: !secret camera_salon_image_url
+    verify_ssl: false
 
-  - platform: foscam
-    name: "Jardin Rivière"
-    ip: !secret host_cam_jardin1
-    port: !secret camera_jardin1_port
-    username: !secret camera_jardin1_username
-    password: !secret camera_jardin1_password
+  - platform: generic
+    name: jardin_riviere
+    still_image_url: !secret camera_jardin1_image_url
+    verify_ssl: false
 
   # LATEST DETECTION IMAGE
-  - platform: generic
-    name: "Détection Rez de chaussée"
-    still_image_url: http://127.0.0.1:8123/local/doods/rez_de_chaussee_latest.jpg
-  - platform: generic
-    name: "Détection Jardin rivière"
-    still_image_url: http://127.0.0.1:8123/local/doods/jardin_riviere_latest.jpg
+  - platform: local_file
+    name: deepstack_rez_de_chaussee
+    file_path: /config/www/deepstack/rez_de_chaussee_latest.jpg
+  - platform: local_file
+    name: deepstack_jardin_rivière
+    file_path: /config/www/deepstack/jardin_riviere_latest.jpg
