@@ -6,7 +6,7 @@ fi
 
 DETECTOR=$1
 BACKUP_DATE=$(date -d "-2 day 12:00" +"%Y%m%d")
-BASE_FOLDER='/config/www/doods'
+BASE_FOLDER='/config/www/deepstack'
 
 cd ${BASE_FOLDER}/${DETECTOR}
 

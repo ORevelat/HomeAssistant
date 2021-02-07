@@ -18,15 +18,15 @@
         data_template:
           entity_id: > 
             {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
-              light.qubino_pilot_parents_level
+              light.radiateur_chambre_parents_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
-              light.qubino_pilot_thea_level
+              light.radiateur_chambre_thea_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
-              light.qubino_pilot_salon_level
+              light.radiateur_salon_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
-              light.qubino_pilot_salle_a_manger_level
+              light.radiateur_salle_a_manger_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
-              light.qubino_pilot_salle_de_bain_level
+              light.radiateur_salle_de_bain_current_value
             {% endif %}
           brightness_pct: 99 
 
@@ -48,15 +48,15 @@
         data_template:
           entity_id: >
             {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
-              light.qubino_pilot_parents_level
+              light.radiateur_chambre_parents_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
-              light.qubino_pilot_thea_level
+              light.radiateur_chambre_thea_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
-              light.qubino_pilot_salon_level
+              light.radiateur_salon_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
-              light.qubino_pilot_salle_a_manger_level
+              light.radiateur_salle_a_manger_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
-              light.qubino_pilot_salle_de_bain_level
+              light.radiateur_salle_de_bain_current_value
             {% endif %}
           brightness_pct: 50  
 
@@ -78,15 +78,15 @@
         data_template:
           entity_id: >
             {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
-              light.qubino_pilot_parents_level
+              light.radiateur_chambre_parents_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
-              light.qubino_pilot_thea_level
+              light.radiateur_chambre_thea_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
-              light.qubino_pilot_salon_level
+              light.radiateur_salon_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
-              light.qubino_pilot_salle_a_manger_level
+              light.radiateur_salle_a_manger_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
-              light.qubino_pilot_salle_de_bain_level
+              light.radiateur_salle_de_bain_current_value
             {% endif %}
           brightness_pct: 40
 
@@ -108,15 +108,15 @@
         data_template:
           entity_id: >
             {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
-              light.qubino_pilot_parents_level
+              light.radiateur_chambre_parents_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
-              light.qubino_pilot_thea_level
+              light.radiateur_chambre_thea_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
-              light.qubino_pilot_salon_level
+              light.radiateur_salon_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
-              light.qubino_pilot_salle_a_manger_level
+              light.radiateur_salle_a_manger_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
-              light.qubino_pilot_salle_de_bain_level
+              light.radiateur_salle_de_bain_current_value
             {% endif %}
           brightness_pct: 30 
 
@@ -138,15 +138,15 @@
         data_template:
           entity_id: >
             {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
-              light.qubino_pilot_parents_level
+              light.radiateur_chambre_parents_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
-              light.qubino_pilot_thea_level
+              light.radiateur_chambre_thea_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
-              light.qubino_pilot_salon_level
+              light.radiateur_salon_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
-              light.qubino_pilot_salle_a_manger_level
+              light.radiateur_salle_a_manger_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
-              light.qubino_pilot_salle_de_bain_level
+              light.radiateur_salle_de_bain_current_value
             {% endif %}
           brightness_pct: 20
 
@@ -168,15 +168,15 @@
         data_template:
           entity_id: >
             {% if trigger.to_state.entity_id == 'input_select.radiator_parents' %}
-              light.qubino_pilot_parents_level
+              light.radiateur_chambre_parents_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_thea' %}
-              light.qubino_pilot_thea_level
+              light.radiateur_chambre_thea_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salon' %}
-              light.qubino_pilot_salon_level
+              light.radiateur_salon_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_sallemanger' %}
-              light.qubino_pilot_salle_a_manger_level
+              light.radiateur_salle_a_manger_current_value
             {% elif trigger.to_state.entity_id == 'input_select.radiator_salledebain' %}
-              light.qubino_pilot_salle_de_bain_level
+              light.radiateur_salle_de_bain_current_value
             {% endif %}
           brightness_pct: 0 
 

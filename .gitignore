@@ -52,16 +52,6 @@
 /data/homeassistant/www/**/secrets.js
 /data/homeassistant/www/deepstack/
 
-# specific files & folders for AppDaemon
-/data/appdaemon/data/logs
-/data/appdaemon/data/secrets.yaml
-/data/appdaemon/data/icloud
-# -- script to log once using 2FA 
-/data/appdaemon/data/icloud.py
-
-# /**/icloud
-# /**/harmony_*.conf
-
 # not all the secrets for scripts
 /**/mqtt_config.sh
 /**/alexa_config.sh

@@ -75,7 +75,7 @@
 
   - platform: filter
     name: home_energy_filtered
-    entity_id: sensor.qubino_smart_meter_power_electric_kwh
+    entity_id: sensor.smart_meter_electric_consumed_kwh
     filters:
       - filter: outlier
         window_size: 2

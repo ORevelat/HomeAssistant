@@ -91,14 +91,6 @@
                                         "type": "entities"
                                     },
                                     "filter": {
-                                        "exclude": [
-                                            {
-                                                "entity_id": "light.qubino_*"
-                                            },
-                                            {
-                                                "entity_id": "light.fgd212_dimmer_2_instance_2_level*"
-                                            }
-                                        ],
                                         "include": [
                                             {
                                                 "domain": "light",
@@ -118,13 +110,13 @@
                                     "filter": {
                                         "exclude": [
                                             {
-                                                "entity_id": "switch.qubino_pilot_*"
+                                                "entity_id": "switch.radiateur_*_current_value"
                                             },
                                             {
                                                 "entity_id": "switch.echo_*"
                                             },
                                             {
-                                                "entity_id": "switch.fibaro_roller_*"
+                                                "entity_id": "switch.volet_*_current_value"
                                             }
                                         ],
                                         "include": [
@@ -193,12 +185,12 @@
                                             "state_adaptive_color": true
                                         },
                                         {
-                                            "entity": "sensor.qubino_smart_meter_power_electric_w",
+                                            "entity": "sensor.smart_meter_electric_consumed_w",
                                             "show_graph": false,
                                             "show_state": true
                                         },
                                         {
-                                            "entity": "sensor.qubino_smart_meter_power_electric_pf",
+                                            "entity": "sensor.smart_meter_electric_consumed_power_factor",
                                             "show_graph": false,
                                             "show_state": true
                                         }
@@ -330,9 +322,9 @@
                                         }
                                     ],
                                     "head": {
-                                        "entity": "cover.fibaro_roller_shutter_cuisine_level",
+                                        "entity": "cover.volet_cuisine_current_value",
                                         "name": "Cuisine",
-                                        "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_cuisine_level.attributes.current_position ]]%",
+                                        "secondary_info": "Ouvert \u00e0 [[ cover.volet_cuisine_current_value.attributes.current_position ]]%",
                                         "type": "custom:secondaryinfo-entity-row"
                                     },
                                     "open": false,
@@ -350,9 +342,9 @@
                                         }
                                     ],
                                     "head": {
-                                        "entity": "cover.fibaro_roller_shutter_salle_a_manger_level",
+                                        "entity": "cover.volet_salle_a_manger_current_value",
                                         "name": "Salle \u00e0 manger",
-                                        "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salle_a_manger_level.attributes.current_position ]]%",
+                                        "secondary_info": "Ouvert \u00e0 [[ cover.volet_salle_a_manger_current_value.attributes.current_position ]]%",
                                         "type": "custom:secondaryinfo-entity-row"
                                     },
                                     "open": false,
@@ -370,9 +362,9 @@
                                         }
                                     ],
                                     "head": {
-                                        "entity": "cover.fibaro_roller_shutter_salon_level",
+                                        "entity": "cover.volet_salon_current_value",
                                         "name": "Salon",
-                                        "secondary_info": "Ouvert \u00e0 [[ cover.fibaro_roller_shutter_salon_level.attributes.current_position ]]%",
+                                        "secondary_info": "Ouvert \u00e0 [[ cover.volet_salon_current_value.attributes.current_position ]]%",
                                         "type": "custom:secondaryinfo-entity-row"
                                     },
                                     "open": false,
@@ -390,15 +382,15 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.fibaro_motion_salle_a_manger_air_temperature"
+                                                    "entity": "sensor.detecteur_salle_a_manger_air_temperature"
                                                 },
                                                 {
-                                                    "entity": "sensor.fibaro_motion_salle_a_manger_illuminance",
+                                                    "entity": "sensor.detecteur_salle_a_manger_illuminance",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 },
                                                 {
-                                                    "entity": "binary_sensor.fibaro_motion_salle_a_manger_home_security_motion_detected",
+                                                    "entity": "binary_sensor.detecteur_salle_a_manger_home_security_motion_detection",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -441,19 +433,19 @@
                             "columns": 4,
                             "entities": [
                                 {
-                                    "entity": "light.fibaro_dimmer_entree_instance_1_level",
+                                    "entity": "light.lumiere_entree_current_value",
                                     "name": "Entr\u00e9e"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_salle_a_manger_instance_1_level",
+                                    "entity": "light.lumiere_salle_a_manger_current_value",
                                     "name": "Salle \u00e0 manger"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_salon_instance_1_level",
+                                    "entity": "light.lumiere_salon_current_value",
                                     "name": "Salon"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_escalier_instance_1_level",
+                                    "entity": "light.lumiere_escalier_current_value",
                                     "name": "Escaliers"
                                 }
                             ],
@@ -463,7 +455,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.prise_neocoolcam_tv_hifi",
+                                    "entity": "switch.prise_tv_hifi_current_value",
                                     "name": "TV/Hifi"
                                 },
                                 {
@@ -494,19 +486,19 @@
                             "columns": 4,
                             "entities": [
                                 {
-                                    "entity": "light.fibaro_dimmer_escalier_instance_1_level",
+                                    "entity": "light.lumiere_escalier_current_value",
                                     "name": "Escaliers"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_bureau_instance_1_level",
+                                    "entity": "light.lumiere_bureau_current_value",
                                     "name": "Bureau"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_parents_instance_1_level",
+                                    "entity": "light.lumiere_chambre_parents_current_value",
                                     "name": "Ch. Parents"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_thea_instance_1_level",
+                                    "entity": "light.lumiere_chambre_thea_current_value",
                                     "name": "Ch. Th\u00e9a"
                                 },
                                 {
@@ -514,7 +506,7 @@
                                     "name": "Ch. Th\u00e9a Leds"
                                 },
                                 {
-                                    "entity": "light.fibaro_dimmer_salledebain_instance_1_level",
+                                    "entity": "light.lumiere_salle_de_bain_current_value",
                                     "name": "Salle de bain"
                                 }
                             ],
@@ -526,7 +518,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.prise_neocoolcam",
+                                    "entity": "switch.prise_tv_current_value",
                                     "name": "TV/Android box"
                                 }
                             ],
@@ -541,15 +533,15 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.fibaro_motion_etage_air_temperature"
+                                                    "entity": "sensor.detecteur_escalier_air_temperature"
                                                 },
                                                 {
-                                                    "entity": "sensor.fibaro_motion_etage_illuminance",
+                                                    "entity": "sensor.detecteur_escalier_illuminance",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 },
                                                 {
-                                                    "entity": "binary_sensor.fibaro_motion_etage_home_security_motion_detected",
+                                                    "entity": "binary_sensor.detecteur_escalier_home_security_motion_detection",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -1301,10 +1293,10 @@
                             "filter": {
                                 "include": [
                                     {
-                                        "entity_id": "sensor.fibaro_dimmer_*_power"
+                                        "entity_id": "sensor.lumiere_*_power"
                                     },
                                     {
-                                        "entity_id": "sensor.prise_*_electric_w"
+                                        "entity_id": "sensor.prise_*_electric_consumed_w"
                                     }
                                 ]
                             },

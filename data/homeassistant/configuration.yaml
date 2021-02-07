@@ -4,7 +4,7 @@ default_config:
 updater:
   reporting: false
 logger:
-  default: warn
+  default: warning
   logs:
     custom_components.samsungtv_tizen: error
 http:
