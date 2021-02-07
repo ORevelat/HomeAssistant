@@ -1297,6 +1297,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.prise_*_electric_consumed_w"
+                                    },
+                                    {
+                                        "entity_id": "sensor.volet_*_power"
                                     }
                                 ]
                             },

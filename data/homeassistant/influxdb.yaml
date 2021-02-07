@@ -24,10 +24,10 @@
       - sensor.thermometer_salon_temperature
       - sensor.salle_de_bain_thermometer_temperature
       - sensor.salle_de_bain_thermometer_humidity
-      - sensor.fibaro_motion_etage_air_temperature
-      - sensor.fibaro_motion_etage_illuminance
-      - sensor.fibaro_motion_salle_a_manger_air_temperature
-      - sensor.fibaro_motion_salle_a_manger_illuminance
+      - sensor.detecteur_escalier_air_temperature
+      - sensor.detecteur_escalier_illuminance
+      - sensor.detecteur_salle_a_manger_air_temperature
+      - sensor.detecteur_salle_a_manger_illuminance
       - sensor.smart_meter_electric_consumed_w
       - sensor.smart_meter_electric_consumed_kwh
       - sensor.hourly_energy
