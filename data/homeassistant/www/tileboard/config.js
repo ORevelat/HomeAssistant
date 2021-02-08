@@ -105,7 +105,7 @@ var CONFIG = {
                      title: 'Consommation',
                      subtitle: '',
                      type: TYPES.GAUGE,
-                     id: 'sensor.qubino_smart_meter_power_electric_w',
+                     id: 'sensor.smart_meter_electric_consumed_w',
                      value: function (item, entity) {
                         return entity.state;
                      },
@@ -134,14 +134,14 @@ var CONFIG = {
                      },
                      icon: function () {
                         var lights = [
-                           "&light.fibaro_dimmer_bureau_instance_1_level.state",
-                           "&light.fibaro_dimmer_entree_instance_1_level.state",
-                           "&light.fibaro_dimmer_escalier_instance_1_level.state",
-                           "&light.fibaro_dimmer_parents_instance_1_level.state",
-                           "&light.fibaro_dimmer_salle_a_manger_instance_1_level.state",
-                           "&light.fibaro_dimmer_salledebain_instance_1_level.state",
-                           "&light.fibaro_dimmer_salon_instance_1_level.state",
-                           "&light.fibaro_dimmer_thea_instance_1_level.state",
+                           "&light.lumiere_bureau_current_value.state",
+                           "&light.lumiere_entree_current_value.state",
+                           "&light.lumiere_escalier_current_value.state",
+                           "&light.lumiere_chambre_parents_current_value.state",
+                           "&light.lumiere_salle_a_manger_current_value.state",
+                           "&light.lumiere_salle_de_bain_current_value.state",
+                           "&light.lumiere_salon_current_value.state",
+                           "&light.lumiere_chambre_thea_current_value.state",
                            "&light.led_chambre_thea.state",
                            "&switch.sonoff_riviere_a.state",
                            "&switch.sonoff_4ch_jardin_4.state"
@@ -186,10 +186,10 @@ var CONFIG = {
                            "&switch.sonoff_4ch_jardin_1.state",
                            "&switch.sonoff_4ch_jardin_2.state",
                            "&switch.sonoff_4ch_jardin_3.state",
-                           "&switch.prise_neocoolcam_tv_hifi.state",
+                           "&switch.prise_tv_hifi_current_value.state",
                            "&switch.sonoff_salon.state",
                            "&switch.sonoff_bibliotheque_haut.state",
-                           "&switch.prise_neocoolcam.state"
+                           "&switch.prise_tv_current_value.state"
                         ];
 
                         var count = 0;
@@ -296,8 +296,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Salle à manger',
-                     id: 'sensor.fibaro_motion_etage_air_temperature',
-                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_etage_illuminance.state' + '&sensor.fibaro_motion_etage_illuminance.attributes.unit_of_measurement',
+                     id: 'sensor.detecteur_salle_a_manger_air_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.detecteur_salle_a_manger_illuminance.state' + '&sensor.detecteur_salle_a_manger_illuminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -316,8 +316,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Couloir',
-                     id: 'sensor.fibaro_motion_etage_air_temperature',
-                     subtitle: 'Luminosité ' + '&sensor.fibaro_motion_etage_illuminance.state' + '&sensor.fibaro_motion_etage_illuminance.attributes.unit_of_measurement',
+                     id: 'sensor.detecteur_escalier_air_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.detecteur_escalier_illuminance.state' + '&sensor.detecteur_escalier_illuminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -427,7 +427,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'Entrée',
-                     id: 'light.fibaro_dimmer_entree_instance_1_level',
+                     id: 'light.lumiere_entree_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -441,7 +441,7 @@ var CONFIG = {
                   {
                      position: [0, 1],
                      title: 'Escalier',
-                     id: 'light.fibaro_dimmer_escalier_instance_1_level',
+                     id: 'light.lumiere_escalier_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -455,7 +455,7 @@ var CONFIG = {
                   {
                      position: [1, 0],
                      title: 'Salon',
-                     id: 'light.fibaro_dimmer_salon_instance_1_level',
+                     id: 'light.lumiere_salon_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -469,7 +469,7 @@ var CONFIG = {
                   {
                      position: [1, 1],
                      title: 'Salle à manger',
-                     id: 'light.fibaro_dimmer_salle_a_manger_instance_1_level',
+                     id: 'light.lumiere_salle_a_manger_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -504,7 +504,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'Salle de bain',
-                     id: 'light.fibaro_dimmer_salledebain_instance_1_level',
+                     id: 'light.lumiere_salle_de_bain_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -518,7 +518,7 @@ var CONFIG = {
                   {
                      position: [0, 1],
                      title: 'Bureau',
-                     id: 'light.fibaro_dimmer_bureau_instance_1_level',
+                     id: 'light.lumiere_bureau_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -532,7 +532,7 @@ var CONFIG = {
                   {
                      position: [1, 0],
                      title: 'Parents',
-                     id: 'light.fibaro_dimmer_parents_instance_1_level',
+                     id: 'light.lumiere_chambre_parents_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -546,7 +546,7 @@ var CONFIG = {
                   {
                      position: [2, 0],
                      title: 'Théa',
-                     id: 'light.fibaro_dimmer_thea_instance_1_level',
+                     id: 'light.lumiere_chambre_thea_current_value',
                      type: TYPES.LIGHT,
                      states: {
                         on: "On",
@@ -665,7 +665,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'TV/HiFi',
-                     id: 'switch.prise_neocoolcam_tv_hifi',
+                     id: 'switch.prise_tv_hifi_current_value',
                      type: TYPES.SWITCH,
                      states: {
                         on: "On",
@@ -727,7 +727,7 @@ var CONFIG = {
                   {
                      position: [0, 0],
                      title: 'TV/Android box',
-                     id: 'switch.prise_neocoolcam',
+                     id: 'switch.prise_tv_current_value',
                      type: TYPES.SWITCH,
                      states: {
                         on: "On",
