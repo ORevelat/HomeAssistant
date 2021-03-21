@@ -91,6 +91,11 @@
                                         "type": "entities"
                                     },
                                     "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "light.*_current_value_2"
+                                            }
+                                        ],
                                         "include": [
                                             {
                                                 "domain": "light",
@@ -473,6 +478,20 @@
                             ],
                             "title": "Prises",
                             "type": "glance"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.flood_sensor_air_temperature"
+                                },
+                                {
+                                    "entity": "binary_sensor.flood_sensor_water_alarm_water_leak_detected"
+                                },
+                                {
+                                    "entity": "sensor.flood_sensor_battery_level"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -694,7 +713,7 @@
                                     "name": "Prise jardin 4CH n\u00b03"
                                 },
                                 {
-                                    "entity": "switch.sonoff_riviere_b",
+                                    "entity": "switch.shelly25_jardin_channel_1",
                                     "name": "Prise rivi\u00e8re"
                                 }
                             ],
@@ -710,7 +729,7 @@
                                     "name": "Lumi\u00e8re terrasse"
                                 },
                                 {
-                                    "entity": "switch.sonoff_riviere_a",
+                                    "entity": "switch.shelly25_jardin_channel_2",
                                     "icon": "mdi:lightbulb",
                                     "name": "Lumi\u00e8res rivi\u00e8re"
                                 }
@@ -947,7 +966,7 @@
                             "cards": [
                                 {
                                     "type": "thermostat",
-                                    "entity": "climate.daikinap92707",
+                                    "entity": "climate.daikin_salon",
                                     "name": "Rez de Chauss\u00e9e"
                                 },
                                 {
@@ -973,7 +992,7 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "climate.daikinap81691",
+                                    "entity": "climate.daikin_etage",
                                     "show_header_toggle": false,
                                     "name": "Etage",
                                     "type": "thermostat"
@@ -1002,22 +1021,22 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "climate.daikinap92707"
+                                    "entity": "climate.daikin_salon"
                                 },
                                 {
-                                    "entity": "sensor.daikinap92707_inside_temperature"
+                                    "entity": "sensor.daikin_salon_inside_temperature"
                                 },
                                 {
-                                    "entity": "sensor.daikinap92707_outside_temperature"
+                                    "entity": "sensor.daikin_salon_outside_temperature"
                                 },
                                 {
-                                    "entity": "sensor.daikinap92707_total_power_consumption"
+                                    "entity": "sensor.daikin_salon_total_power_consumption"
                                 },
                                 {
-                                    "entity": "sensor.daikinap92707_heat_energy_consumption"
+                                    "entity": "sensor.daikin_salon_heat_energy_consumption"
                                 },
                                 {
-                                    "entity": "sensor.daikinap92707_cool_energy_consumption"
+                                    "entity": "sensor.daikin_salon_cool_energy_consumption"
                                 }
                             ],
                             "type": "entities"
@@ -1025,22 +1044,22 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "climate.daikinap81691"
+                                    "entity": "climate.daikin_etage"
                                 },
                                 {
-                                    "entity": "sensor.daikinap81691_inside_temperature"
+                                    "entity": "sensor.daikin_etage_inside_temperature"
                                 },
                                 {
-                                    "entity": "sensor.daikinap81691_outside_temperature"
+                                    "entity": "sensor.daikin_etage_outside_temperature"
                                 },
                                 {
-                                    "entity": "sensor.daikinap81691_total_power_consumption"
+                                    "entity": "sensor.daikin_etage_total_power_consumption"
                                 },
                                 {
-                                    "entity": "sensor.daikinap81691_heat_energy_consumption"
+                                    "entity": "sensor.daikin_etage_heat_energy_consumption"
                                 },
                                 {
-                                    "entity": "sensor.daikinap81691_cool_energy_consumption"
+                                    "entity": "sensor.daikin_etage_cool_energy_consumption"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1273,6 +1292,15 @@
                             "filter": {
                                 "include": [
                                     {
+                                        "entity_id": "sensor.*_battery_level",
+                                        "options": {
+                                            "type": "custom:battery-entity-row",
+                                            "warning": 50,
+                                            "crticial": 15,
+                                            "charging": true
+                                        }
+                                    },
+                                    {
                                         "entity_id": "sensor.*_battery",
                                         "options": {
                                             "type": "custom:battery-entity-row",
@@ -1300,6 +1328,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.volet_*_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.shelly*_power"
                                     }
                                 ]
                             },
@@ -1364,19 +1395,6 @@
                             ],
                             "show_header_toggle": false,
                             "state_color": true
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:z-wave",
-                    "title": "Zwave",
-                    "path": "zwave",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:ozw-network-visualization-card",
-                            "integration": "ozw"
                         }
                     ]
                 },
