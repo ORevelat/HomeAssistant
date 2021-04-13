@@ -2,25 +2,26 @@
 # Overview
 Ma configuration personnelle de Home Assistant, utilisée quotidiennement au travers de ses automatisations et de Alexa.
 
-Mise à jour pour Home Assistant: **2020.12.1**
+Mise à jour pour Home Assistant: **2021.3.3**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, et d'assistants Alexa (Echo, Echo Dot(s) & Show).
 
 Dès que ce n'est pas sur la VM directement, j'essaye soit d'exposer le périphérique via Socat au pire, ou d'utiliser MQTT pour publier les données.\
-Dans ce sens, j'utilise ou je crée de petit soft python:
+Dans ce sens, j'utilise ou je crée de petit soft python. Ce qui donne actuellement:
 - [zigbee2mqtt](https://www.zigbee2mqtt.io/)
+- [zwavejs](https://github.com/zwave-js/zwavejs2mqtt)
 - rflink2mqtt
-- [openzwave](https://github.com/OpenZWave/qt-openzwave)
 
 Au final, mon installation se compose de:
-- une 20ène de périphériques ZWave (dont certains ne sont pas encore la) principalement pour
+- une 30ène de périphériques ZWave principalement pour
   * les lumières (Fibaro)
   * les fils pilote (Qubino)
   * de capteurs de présences (Fibaro)
   * mesure de la consomation au compteur (Qubino)
   * prises avec mesure de consomation (NeoCoolcam pour les plug, fibaro pour les micro-modules)
 - des SonOff (des Basic, des S26 et un Pro 4Ch) avec firmware Tasmotta
+- des Shelly (des 1PM et 2.5) via integration officielle
 - des périphériques Zigbee
   * thermomètres
   * bouton multi-click
@@ -29,7 +30,7 @@ Au final, mon installation se compose de:
 - Amazon Echo/Dot/Show de façon quotidienne
   * commande vocale via le bridge Haaska
   * TTS via Alexa Media Player (HACS)
-- un panneau LED 64x32 avec son RPI Zero
+- un panneau LED 64x32 avec son RPI Zero, piloté via MQTT
   * le retour visuel c'est quand même pratique, gadget mais pratique :)
 
 ### Home Assistant
@@ -70,7 +71,6 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
 Docker gère bien d'autre conteneur tel que:
   * Sites Web
   * Db Mongo - pour les sites webs principalement
-  * Certbot - pour la génération / renew de mes certificats SSL
   * ...
 
 Et pour démarrer portainer:
