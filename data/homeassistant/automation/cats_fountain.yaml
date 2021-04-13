@@ -1,0 +1,32 @@
+
+## CATS FOUNTAIN
+
+  - id: cats_fountain_on
+    alias: Fontaine Chats On
+    trigger:
+      platform: time
+      at: '7:00:00'
+    
+    condition:
+      - condition: state
+        entity_id: input_boolean.automation_enable_cats_fountain
+        state: 'on'
+    
+    action:
+      - service: switch.turn_on
+        entity_id: switch.sonoff_cuisine
+
+  - id: cats_fountain_off
+    alias: Fontaine Chats Off
+    trigger:
+      platform: time
+      at: '21:30:00'
+    
+    condition:
+      - condition: state
+        entity_id: input_boolean.automation_enable_cats_fountain
+        state: 'on'    
+    
+    action:
+      - service: switch.turn_off
+        entity_id: switch.sonoff_cuisine

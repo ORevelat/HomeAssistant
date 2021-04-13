@@ -61,3 +61,7 @@
   automation_enable_thermostat_etage_clim:
     name: Thermostat Climatisation Etage
     icon: mdi:radiator
+
+  automation_enable_cats_fountain:
+    name: Fontaine Chats
+    icon: mdi:cat
