@@ -23,8 +23,8 @@
         - sensor
         - switch
       include_entities:
-        - climate.daikinap81691
-        - climate.daikinap92707
+        - climate.daikin_salon
+        - climate.daikin_etage
         - cover.volet_cuisine_current_value
         - cover.volet_salon_current_value
         - cover.volet_salle_a_manger_current_value
@@ -45,9 +45,9 @@
         - sensor.detecteur_salle_a_manger_air_temperature
         - sensor.salle_de_bain_thermometer_temperature
     entity_config:
-      climate.daikinap81691:
+      climate.daikin_etage:
         name: thermostat étage
-      climate.daikinap92707:
+      climate.daikin_salon:
         name: thermostat salon
       cover.volet_cuisine_current_value:
         name: volet cuisine
