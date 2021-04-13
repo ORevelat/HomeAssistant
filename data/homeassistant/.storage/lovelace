@@ -140,133 +140,185 @@
                         {
                             "cards": [
                                 {
-                                    "aggregate_func": "max",
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#00ff00",
-                                            "value": 0
-                                        },
-                                        {
-                                            "color": "#38ff00",
-                                            "value": 0.5
-                                        },
-                                        {
-                                            "color": "#71ff00",
-                                            "value": 1
-                                        },
-                                        {
-                                            "color": "#aaff00",
-                                            "value": 1.5
-                                        },
-                                        {
-                                            "color": "#e2ff00",
-                                            "value": 2
-                                        },
-                                        {
-                                            "color": "#ffe200",
-                                            "value": 2.5
-                                        },
-                                        {
-                                            "color": "#ffaa00",
-                                            "value": 3
-                                        },
-                                        {
-                                            "color": "#ff7100",
-                                            "value": 4
-                                        },
-                                        {
-                                            "color": "#ff3800",
-                                            "value": 5
-                                        },
-                                        {
-                                            "color": "#ff0000",
-                                            "value": 6
+                                    "type": "custom:apexcharts-card",
+                                    "header": {
+                                        "show": true,
+                                        "title": "Consommation / heure",
+                                        "show_states": true,
+                                        "colorize_states": true
+                                    },
+                                    "apex_config": {
+                                        "chart": {
+                                            "height": "150px"
                                         }
-                                    ],
-                                    "entities": [
+                                    },
+                                    "experimental": {
+                                        "color_threshold": true
+                                    },
+                                    "all_series_config": {
+                                        "color_threshold": [
+                                            {
+                                                "color": "#00ff00",
+                                                "value": 0
+                                            },
+                                            {
+                                                "color": "#38ff00",
+                                                "value": 0.5
+                                            },
+                                            {
+                                                "color": "#71ff00",
+                                                "value": 1
+                                            },
+                                            {
+                                                "color": "#aaff00",
+                                                "value": 1.5
+                                            },
+                                            {
+                                                "color": "#e2ff00",
+                                                "value": 2
+                                            },
+                                            {
+                                                "color": "#ffe200",
+                                                "value": 2.5
+                                            },
+                                            {
+                                                "color": "#ffaa00",
+                                                "value": 3
+                                            },
+                                            {
+                                                "color": "#ff7100",
+                                                "value": 4
+                                            },
+                                            {
+                                                "color": "#ff3800",
+                                                "value": 5
+                                            },
+                                            {
+                                                "color": "#ff0000",
+                                                "value": 6
+                                            }
+                                        ]
+                                    },
+                                    "series": [
                                         {
                                             "entity": "sensor.hourly_energy",
                                             "name": "Energie consomm\u00e9e",
-                                            "state_adaptive_color": true
+                                            "type": "column",
+                                            "show": {
+                                                "in_header": false
+                                            },
+                                            "group_by": {
+                                                "func": "max"
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.hourly_energy",
+                                            "show": {
+                                                "in_chart": false,
+                                                "name_in_header": false,
+                                                "header_color_threshold": true
+                                            }
                                         },
                                         {
                                             "entity": "sensor.smart_meter_electric_consumed_w",
-                                            "show_graph": false,
-                                            "show_state": true
+                                            "show": {
+                                                "in_chart": false,
+                                                "name_in_header": false
+                                            }
                                         },
                                         {
                                             "entity": "sensor.smart_meter_electric_consumed_power_factor",
-                                            "show_graph": false,
-                                            "show_state": true
+                                            "float_precision": 2,
+                                            "show": {
+                                                "in_chart": false,
+                                                "name_in_header": false
+                                            }
                                         }
-                                    ],
-                                    "group_by": "hour",
-                                    "icon": "mdi:gauge",
-                                    "name": "Consommation / heure",
-                                    "show": {
-                                        "graph": "bar"
-                                    },
-                                    "type": "custom:mini-graph-card"
+                                    ]
                                 },
                                 {
-                                    "aggregate_func": "max",
-                                    "color_thresholds": [
-                                        {
-                                            "color": "#00ff00",
-                                            "value": 0
-                                        },
-                                        {
-                                            "color": "#38ff00",
-                                            "value": 15
-                                        },
-                                        {
-                                            "color": "#71ff00",
-                                            "value": 20
-                                        },
-                                        {
-                                            "color": "#aaff00",
-                                            "value": 25
-                                        },
-                                        {
-                                            "color": "#e2ff00",
-                                            "value": 30
-                                        },
-                                        {
-                                            "color": "#ffe200",
-                                            "value": 35
-                                        },
-                                        {
-                                            "color": "#ffaa00",
-                                            "value": 40
-                                        },
-                                        {
-                                            "color": "#ff7100",
-                                            "value": 45
-                                        },
-                                        {
-                                            "color": "#ff3800",
-                                            "value": 50
-                                        },
-                                        {
-                                            "color": "#ff0000",
-                                            "value": 60
+                                    "type": "custom:apexcharts-card",
+                                    "header": {
+                                        "show": true,
+                                        "title": "Consommation / jour",
+                                        "show_states": true,
+                                        "colorize_states": true
+                                    },
+                                    "apex_config": {
+                                        "chart": {
+                                            "height": "150px"
                                         }
-                                    ],
-                                    "entities": [
+                                    },
+                                    "experimental": {
+                                        "color_threshold": true
+                                    },
+                                    "graph_span": "168h",
+                                    "all_series_config": {
+                                        "color_threshold": [
+                                            {
+                                                "color": "#00ff00",
+                                                "value": 0
+                                            },
+                                            {
+                                                "color": "#38ff00",
+                                                "value": 15
+                                            },
+                                            {
+                                                "color": "#71ff00",
+                                                "value": 20
+                                            },
+                                            {
+                                                "color": "#aaff00",
+                                                "value": 25
+                                            },
+                                            {
+                                                "color": "#e2ff00",
+                                                "value": 30
+                                            },
+                                            {
+                                                "color": "#ffe200",
+                                                "value": 35
+                                            },
+                                            {
+                                                "color": "#ffaa00",
+                                                "value": 40
+                                            },
+                                            {
+                                                "color": "#ff7100",
+                                                "value": 45
+                                            },
+                                            {
+                                                "color": "#ff3800",
+                                                "value": 50
+                                            },
+                                            {
+                                                "color": "#ff0000",
+                                                "value": 60
+                                            }
+                                        ]
+                                    },
+                                    "series": [
                                         {
                                             "entity": "sensor.daily_energy",
-                                            "name": "Energie consomm\u00e9e",
-                                            "state_adaptive_color": true
+                                            "name": "Consomation / jour",
+                                            "type": "column",
+                                            "group_by": {
+                                                "func": "max",
+                                                "duration": "24h"
+                                            },
+                                            "show": {
+                                                "in_header": false
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.daily_energy",
+                                            "show": {
+                                                "in_chart": false,
+                                                "name_in_header": false,
+                                                "header_color_threshold": true
+                                            }
                                         }
-                                    ],
-                                    "group_by": "date",
-                                    "hours_to_show": 168,
-                                    "icon": "mdi:gauge",
-                                    "name": "Consommation /jour",
-                                    "show": {
-                                        "graph": "bar"
-                                    },
-                                    "type": "custom:mini-graph-card"
+                                    ]
                                 },
                                 {
                                     "entities": [
@@ -664,6 +716,17 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "type": "sensor",
+                            "entity": "sensor.thermometer_bureau_temperature",
+                            "graph": "line"
+                        },
+                        {
+                            "type": "sensor",
+                            "entity": "sensor.thermometer_salle_bain_temperature",
+                            "graph": "line",
+                            "detail": 1
                         }
                     ]
                 },
@@ -946,12 +1009,16 @@
                                     "gridcols": "25% 25% 25% 25%",
                                     "gridrows": "auto auto auto",
                                     "layout": "grid",
-                                    "type": "custom:layout-card"
+                                    "type": "custom:layout-card",
+                                    "layout_type": "grid",
+                                    "view_layout": "grid"
                                 }
                             ],
                             "column_width": "100%",
                             "layout": "vertical",
-                            "type": "custom:layout-card"
+                            "type": "custom:layout-card",
+                            "layout_type": "horizontal",
+                            "view_layout": "vertical"
                         }
                     ]
                 },
@@ -1391,6 +1458,9 @@
                                 },
                                 {
                                     "entity": "input_boolean.automation_enable_thermostat_rdc_clim"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_cats_fountain"
                                 }
                             ],
                             "show_header_toggle": false,
