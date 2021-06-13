@@ -1,0 +1,665 @@
+title: Maison
+views:
+  - !include www/lovelace/00_home_view.yaml
+  - title: Rez de chaussée
+    path: rez-de-chaussee
+    icon: 'mdi:sofa'
+    badges: []
+    cards:
+      - entities:
+          - type: section
+          - entities:
+              - entity: input_select.cover_open_mode_cuisine
+                name: Automatisme ouverture
+              - entity: input_select.cover_close_mode_cuisine
+                name: Automatisme fermeture
+            head:
+              entity: cover.volet_cuisine_current_value
+              name: Cuisine
+              secondary_info: >-
+                Ouvert à [[
+                cover.volet_cuisine_current_value.attributes.current_position
+                ]]%
+              type: 'custom:secondaryinfo-entity-row'
+            open: false
+            type: 'custom:fold-entity-row'
+          - entities:
+              - entity: input_select.cover_open_mode_salle_a_manger
+                name: Automatisme ouverture
+              - entity: input_select.cover_close_mode_salle_a_manger
+                name: Automatisme fermeture
+            head:
+              entity: cover.volet_salle_a_manger_current_value
+              name: Salle à manger
+              secondary_info: >-
+                Ouvert à [[
+                cover.volet_salle_a_manger_current_value.attributes.current_position
+                ]]%
+              type: 'custom:secondaryinfo-entity-row'
+            open: false
+            type: 'custom:fold-entity-row'
+          - entities:
+              - entity: input_select.cover_open_mode_salon
+                name: Automatisme ouverture
+              - entity: input_select.cover_close_mode_salon
+                name: Automatisme fermeture
+            head:
+              entity: cover.volet_salon_current_value
+              name: Salon
+              secondary_info: >-
+                Ouvert à [[
+                cover.volet_salon_current_value.attributes.current_position ]]%
+              type: 'custom:secondaryinfo-entity-row'
+            open: false
+            type: 'custom:fold-entity-row'
+        show_header_toggle: false
+        title: Volets
+        type: entities
+      - cards:
+          - cards:
+              - entities:
+                  - entity: sensor.detecteur_salle_a_manger_air_temperature
+                  - entity: sensor.detecteur_salle_a_manger_illuminance
+                    show_graph: false
+                    show_state: true
+                  - entity: >-
+                      binary_sensor.detecteur_salle_a_manger_home_security_motion_detection
+                    show_graph: false
+                    show_state: true
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Salle à manger
+                state_map:
+                  - label: ' '
+                    value: 'off'
+                  - label: Présence
+                    value: 'on'
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - entity: sensor.thermometer_salon_temperature
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Salon
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+        type: vertical-stack
+      - columns: 4
+        entities:
+          - entity: light.lumiere_entree_current_value
+            name: Entrée
+          - entity: light.lumiere_salle_a_manger_current_value
+            name: Salle à manger
+          - entity: light.lumiere_salon_current_value
+            name: Salon
+          - entity: light.lumiere_escalier_current_value
+            name: Escaliers
+        title: Lumières
+        type: glance
+      - entities:
+          - entity: switch.prise_tv_hifi_current_value
+            name: TV/Hifi
+          - entity: switch.sonoff_salon
+            name: Prise salon
+          - entity: switch.sonoff_bibliotheque_haut
+            name: Prise Bibliothèque
+          - entity: switch.sonoff_cuisine
+            name: Prise Cuisine
+        title: Prises
+        type: glance
+      - type: entities
+        entities:
+          - entity: sensor.flood_sensor_air_temperature
+          - entity: binary_sensor.flood_sensor_water_alarm_water_leak_detected
+          - entity: sensor.flood_sensor_battery_level
+      - type: horizontal-stack
+        cards:
+          - type: thermostat
+            entity: climate.daikin_salon
+            name: Rez de Chaussée
+          - dateFormat: MMMM
+            dateSize: 130
+            entities:
+              - entity: calendar.hass_climatisation_rdc
+            maxDaysToShow: 0
+            showDate: false
+            showWeekDay: true
+            showMonth: false
+            disableEventLink: true
+            disableLocationLink: true
+            showRelativeTime: false
+            name: Programmation
+            type: 'custom:atomic-calendar-revive'
+      - entities:
+          - entity: climate.daikin_salon
+          - entity: sensor.daikin_salon_inside_temperature
+          - entity: sensor.daikin_salon_outside_temperature
+          - entity: sensor.daikin_salon_total_power_consumption
+          - entity: sensor.daikin_salon_heat_energy_consumption
+          - entity: sensor.daikin_salon_cool_energy_consumption
+        type: entities
+  - title: Etage
+    path: etage
+    icon: 'mdi:bed'
+    badges: []
+    cards:
+      - columns: 4
+        entities:
+          - entity: light.lumiere_escalier_current_value
+            name: Escaliers
+          - entity: light.lumiere_bureau_current_value
+            name: Bureau
+          - entity: light.lumiere_chambre_parents_current_value
+            name: Ch. Parents
+          - entity: light.lumiere_chambre_thea_current_value
+            name: Ch. Théa
+          - entity: light.led_chambre_thea
+            name: Ch. Théa Leds
+          - entity: light.lumiere_salle_de_bain_current_value
+            name: Salle de bain
+        show_name: true
+        show_state: true
+        title: Lumières
+        type: glance
+      - entities:
+          - entity: switch.prise_tv_current_value
+            name: TV/Android box
+        show_name: true
+        title: Prises
+        type: glance
+      - cards:
+          - cards:
+              - entities:
+                  - entity: sensor.detecteur_escalier_air_temperature
+                  - entity: sensor.detecteur_escalier_illuminance
+                    show_graph: false
+                    show_state: true
+                  - entity: >-
+                      binary_sensor.detecteur_escalier_home_security_motion_detection
+                    show_graph: false
+                    show_state: true
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Couloir
+                state_map:
+                  - label: ' '
+                    value: 'off'
+                  - label: Présence
+                    value: 'on'
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - entity: sensor.thermometer_bureau_temperature
+                  - entity: sensor.thermometer_bureau_humidity
+                    show_graph: false
+                    show_state: true
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Bureau
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+          - cards:
+              - entities:
+                  - entity: sensor.thermometer_chambre_parents_temperature
+                  - entity: sensor.thermometer_chambre_parents_humidity
+                    show_graph: false
+                    show_state: true
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Chambre Parents
+                type: 'custom:mini-graph-card'
+              - entities:
+                  - entity: sensor.thermometer_chambre_thea_temperature
+                  - entity: sensor.thermometer_chambre_thea_humidity
+                    show_graph: false
+                    show_state: true
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Chambre Théa
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+          - cards:
+              - entities:
+                  - entity: sensor.salle_de_bain_thermometer_temperature
+                  - entity: sensor.salle_de_bain_thermometer_humidity
+                    show_graph: false
+                    show_state: true
+                group_by: hour
+                hour24: true
+                hours_to_show: 36
+                name: Salle de bain
+                type: 'custom:mini-graph-card'
+            type: horizontal-stack
+        type: vertical-stack
+      - type: sensor
+        entity: sensor.thermometer_bureau_temperature
+        graph: line
+      - type: sensor
+        entity: sensor.thermometer_salle_bain_temperature
+        graph: line
+        detail: 1
+      - entities:
+          - entity: climate.daikin_etage
+          - entity: sensor.daikin_etage_inside_temperature
+          - entity: sensor.daikin_etage_outside_temperature
+          - entity: sensor.daikin_etage_total_power_consumption
+          - entity: sensor.daikin_etage_heat_energy_consumption
+          - entity: sensor.daikin_etage_cool_energy_consumption
+        show_header_toggle: false
+        type: entities
+      - cards:
+          - entity: climate.daikin_etage
+            show_header_toggle: false
+            name: Etage
+            type: thermostat
+          - dateFormat: MMMM
+            dateSize: 130
+            entities:
+              - entity: calendar.hass_climatisation_etage
+            maxDaysToShow: 0
+            showDate: false
+            showWeekDay: true
+            showMonth: false
+            disableEventLink: true
+            disableLocationLink: true
+            showRelativeTime: false
+            name: Programmation
+            type: 'custom:atomic-calendar-revive'
+        type: horizontal-stack
+  - title: Jardin
+    path: jardin
+    icon: 'mdi:pine-tree'
+    panel: false
+    badges: []
+    cards:
+      - entities:
+          - color: green
+            entity: sensor.thermometer_jardin_temperature
+          - entity: sensor.thermometer_jardin_humidity
+            show_graph: false
+            show_state: true
+        group_by: hour
+        hour24: true
+        hours_to_show: 36
+        name: Jardin
+        type: 'custom:mini-graph-card'
+      - type: glance
+        columns: 3
+        entities:
+          - entity: switch.sonoff_garage_portail
+            name: Lumière garage/portail
+          - entity: switch.sonoff_4ch_jardin_1
+            name: Prise jardin 4CH n°1
+          - entity: switch.sonoff_4ch_jardin_2
+            name: Prise jardin 4CH n°2
+          - entity: switch.sonoff_4ch_jardin_3
+            name: Prise jardin 4CH n°3
+          - entity: switch.shelly25_jardin_channel_1
+            name: Prise rivière
+        title: Interrupteurs
+        state_color: true
+      - type: glance
+        entities:
+          - entity: switch.sonoff_4ch_jardin_4
+            icon: 'mdi:lightbulb'
+            name: Lumière terrasse
+          - entity: switch.shelly25_jardin_channel_2
+            icon: 'mdi:lightbulb'
+            name: Lumières rivière
+        title: Lumières
+        show_icon: true
+        show_state: true
+        show_name: true
+        state_color: true
+      - type: glance
+        columns: 3
+        entities:
+          - entity: switch.shelly25_arrosage_channel_1
+            name: Pelouse
+          - entity: switch.shelly25_arrosage_channel_2
+            name: Goutte à goutte
+        title: Arrosage
+        state_color: true
+  - title: Chauffage
+    path: chauffage
+    icon: 'mdi:thermometer-lines'
+    panel: false
+    type: 'custom:horizontal-layout'
+    badges: []
+    cards:
+      - cards:
+          - entities:
+              - entity: input_select.thermostat_mode
+                icon: 'mdi:thermostat-box'
+                name: Mode
+            show_header_toggle: false
+            title: Chauffage
+            type: entities
+          - entities:
+              - entity: sensor.thermometer_salon_temperature
+                name: Température
+              - entity: input_number.consigne_thermostat_rdc
+                name: Consigne
+              - entity: input_select.radiator_salon
+                name: Salon
+              - entity: input_select.radiator_sallemanger
+                name: Salle à Manger
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};
+              }
+            title: Rez de chaussée
+            type: entities
+          - dateFormat: MMMM
+            dateSize: 130
+            entities:
+              - entity: calendar.hass_chauffage_rdc
+            maxDaysToShow: 0
+            showDate: false
+            showWeekDay: true
+            showMonth: false
+            disableEventLink: true
+            disableLocationLink: true
+            showRelativeTime: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};
+              }
+            title: Programmation
+            type: 'custom:atomic-calendar-revive'
+          - entities:
+              - entity: sensor.salle_de_bain_thermometer_temperature
+                name: Température
+              - entity: input_number.consigne_thermostat_salledebain
+                name: Consigne
+              - entity: input_select.radiator_salledebain
+                name: Salle de Bain
+            show_header_toggle: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};
+              }
+            title: Salle de bain
+            type: entities
+          - dateFormat: MMMM
+            dateSize: 130
+            entities:
+              - entity: calendar.hass_chauffage_salle_de_bain
+            maxDaysToShow: 0
+            showDate: false
+            showWeekDay: true
+            showMonth: false
+            disableEventLink: true
+            disableLocationLink: true
+            showRelativeTime: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};
+              }
+            title: Programmation
+            type: 'custom:atomic-calendar-revive'
+          - entities:
+              - entity: sensor.thermometer_chambre_parents_temperature
+                name: Température
+              - entity: input_number.consigne_thermostat_parents
+                name: Consigne
+              - entity: input_select.radiator_parents
+                name: Parents
+            show_header_toggle: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};
+              }
+            title: Ch. des Parents
+            type: entities
+          - dateFormat: MMMM
+            dateSize: 130
+            entities:
+              - entity: calendar.hass_chauffage_chambres
+            maxDaysToShow: 0
+            showDate: false
+            showWeekDay: true
+            showMonth: false
+            disableEventLink: true
+            disableLocationLink: true
+            showRelativeTime: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};
+              }
+            title: Programmation
+            type: 'custom:atomic-calendar-revive'
+          - entities:
+              - entity: sensor.thermometer_chambre_thea_temperature
+                name: Température
+              - entity: input_number.consigne_thermostat_thea
+                name: Consigne
+              - entity: input_select.radiator_thea
+                name: Théa
+            show_header_toggle: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};
+              }
+            title: Ch. de Théa
+            type: entities
+          - dateFormat: MMMM
+            dateSize: 130
+            entities:
+              - entity: calendar.hass_chauffage_chambres
+            maxDaysToShow: 0
+            showDate: false
+            showWeekDay: true
+            showMonth: false
+            disableEventLink: true
+            disableLocationLink: true
+            showRelativeTime: false
+            style: |
+              ha-card {
+                background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};
+              }
+            title: Programmation
+            type: 'custom:atomic-calendar-revive'
+        type: 'custom:layout-card'
+        layout_type: 'custom:grid'
+  - icon: 'mdi:play-circle-outline'
+    title: Audio/Vidéo
+    path: audio-video
+    badges: []
+    cards:
+      - type: media-control
+        entity: media_player.tv_salon
+      - type: media-control
+        entity: media_player.echo_salon
+      - type: media-control
+        entity: media_player.echo_bureau
+      - type: media-control
+        entity: media_player.echo_chambre
+      - type: media-control
+        entity: media_player.echo_show
+      - entities:
+          - entity: sensor.plex_hyperion
+        show_header_toggle: false
+        title: 'Serveur Plex '
+        type: entities
+  - icon: 'mdi:cctv'
+    title: Surveillance
+    path: surveillance
+    badges: []
+    cards:
+      - type: picture-elements
+        entity: camera.rez_de_chaussee
+        camera_image: camera.rez_de_chaussee
+        camera_view: live
+        elements:
+          - type: state-icon
+            icon: 'mdi:cctv'
+            entity: camera.rez_de_chaussee
+            title: Live
+            style:
+              bottom: 0px
+              left: 25px
+          - type: state-icon
+            icon: 'mdi:run-fast'
+            entity: camera.deepstack_rez_de_chaussee
+            title: Image dernière détection
+            style:
+              bottom: 0px
+              left: 75px
+      - type: picture-elements
+        entity: camera.jardin_riviere
+        camera_image: camera.jardin_riviere
+        camera_view: live
+        elements:
+          - type: state-icon
+            icon: 'mdi:run-fast'
+            entity: camera.deepstack_jardin_riviere
+            title: Image dernière détection
+            style:
+              bottom: 0px
+              left: 75px
+          - type: state-icon
+            icon: 'mdi:cctv'
+            entity: camera.jardin_riviere
+            title: Live
+            style:
+              bottom: 0px
+              left: 25px
+  - title: Météo
+    path: meteo
+    icon: 'mdi:weather-partly-cloudy'
+    badges: []
+    cards:
+      - type: weather-forecast
+        entity: weather.auribeau_sur_siagne
+        show_forecast: true
+        secondary_info_attribute: wind_speed
+      - entities:
+          - entity: sun.sun
+            name: Soleil
+          - entity: sensor.moon
+            name: Lune
+        show_header_toggle: false
+        title: Générale
+        type: entities
+      - type: entities
+        entities:
+          - entity: sensor.alerte_crue
+          - entity: sensor.alerte_vigilance
+          - entity: sensor.alerte_risques
+        title: Vigilance météo
+        show_header_toggle: false
+        state_color: false
+  - title: Equipements
+    path: equipements
+    icon: 'mdi:server-security'
+    badges: []
+    cards:
+      - entities:
+          - entity: sensor.uptime
+          - entity: sensor.potential_breaking_changes
+          - entity: sensor.hacs
+        show_header_toggle: false
+        title: Home Assistant
+        type: entities
+      - card:
+          show_header_toggle: false
+          title: Non connectés
+        entities:
+          - binary_sensor.livebox
+          - binary_sensor.opnsense
+          - binary_sensor.proxmox_ve
+          - binary_sensor.vm_hyperion_server
+          - binary_sensor.vm_chaos_server
+          - binary_sensor.unify_ap_ac_pro
+          - binary_sensor.camera_salon
+          - binary_sensor.camera_jardin_back
+          - binary_sensor.imprimante
+          - binary_sensor.mi_3_android_tv
+          - binary_sensor.samsung_tv
+        state_filter:
+          - 'off'
+        type: entity-filter
+      - cards:
+          - entities:
+              - entity: sensor.hp_ilo_gen8_status
+                name: Status
+              - entity: sensor.hp_ilo_gen8_fanspeed
+                name: Vitesse ventilateur
+              - entity: sensor.hp_ilo_gen8_temperature
+                name: Température
+            show_header_toggle: false
+            title: HP Gen8 microserver
+            type: entities
+        type: horizontal-stack
+      - type: 'custom:auto-entities'
+        card:
+          type: entities
+        filter:
+          include:
+            - entity_id: sensor.*_battery_level
+              options:
+                type: 'custom:battery-entity-row'
+                warning: 50
+                crticial: 15
+                charging: true
+            - entity_id: sensor.*_battery
+              options:
+                type: 'custom:battery-entity-row'
+                warning: 50
+                crticial: 15
+                charging: true
+      - card:
+          show_header_toggle: false
+          title: Consommation
+          type: entities
+        filter:
+          include:
+            - entity_id: sensor.lumiere_*_power
+            - entity_id: sensor.prise_*_electric_consumed_w
+            - entity_id: sensor.volet_*_power
+            - entity_id: sensor.shelly*_power
+        type: 'custom:auto-entities'
+  - title: Automations
+    path: automations
+    icon: 'mdi:home-automation'
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: input_boolean.automation_enable_weather_alert_notif
+          - entity: input_boolean.automation_enable_covers_sunrise
+          - entity: input_boolean.automation_enable_covers_sunset
+          - entity: input_boolean.automation_enable_light_garage
+          - entity: input_boolean.automation_enable_mosquito_switch
+          - entity: input_boolean.automation_enable_pool_pump
+          - entity: input_boolean.automation_enable_garden_fountain
+          - entity: input_boolean.automation_enable_garden_projector
+          - entity: input_boolean.automation_enable_christmas_decoration
+          - entity: input_boolean.automation_enable_thermostat_rdc
+          - entity: input_boolean.automation_enable_thermostat_bedroom_parents
+          - entity: input_boolean.automation_enable_thermostat_bedroom_thea
+          - entity: input_boolean.automation_enable_thermostat_salledebain
+          - entity: input_boolean.automation_enable_thermostat_etage_clim
+          - entity: input_boolean.automation_enable_thermostat_rdc_clim
+          - entity: input_boolean.automation_enable_cats_fountain
+        show_header_toggle: false
+        state_color: true
+  - title: Zigbee
+    path: zigbee
+    icon: 'mdi:zigbee'
+    badges: []
+    cards:
+      - entities:
+          - entity: sensor.bureau_sensor_illuminance
+          - entity: binary_sensor.bureau_sensor_occupancy
+          - entity: sensor.salle_de_bain_thermometer_temperature
+          - entity: sensor.salle_de_bain_thermometer_pressure
+          - entity: sensor.salle_de_bain_thermometer_humidity
+          - entity: sensor.chambre_thea_multiswitch_click
+        show_header_toggle: false
+        type: entities

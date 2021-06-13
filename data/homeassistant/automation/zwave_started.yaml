@@ -5,7 +5,7 @@
     id: zwave_started_event
     trigger:
       - platform: event
-        event_type: zwave.network_ready
+        event_type: zwave_js_event.network_ready
 
     # After 1min, set all radiators to Confort then 10sec later to Arrêt
     action:

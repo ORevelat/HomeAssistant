@@ -2,11 +2,14 @@ homeassistant:
   customize: !include customize.yaml
 default_config:
 updater:
-  reporting: false
+
 logger:
   default: warning
   logs:
     custom_components.samsungtv_tizen: error
+    homeassistant.helpers.entity: error
+    homeassistant.components.media_player: error
+
 http:
   server_port: 8123
   use_x_forwarded_for: true
@@ -69,5 +72,3 @@ scene: !include scenes.yaml
 shell_command: !include shell_command.yaml
 utility_meter: !include utility_meter.yaml
 alexa: !include alexa.yaml
-camera: !include camera.yaml
-image_processing: !include image_processing.yaml

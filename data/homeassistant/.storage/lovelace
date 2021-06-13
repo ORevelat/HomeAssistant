@@ -9,8 +9,100 @@
                     "path": "default_view",
                     "title": "Home",
                     "icon": "mdi:home",
-                    "badges": [],
+                    "badges": [
+                        {
+                            "entity": "person.olivier",
+                            "card_mod": {
+                                "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.olivier', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.olivier', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                            }
+                        },
+                        {
+                            "entity": "person.sandrine",
+                            "card_mod": {
+                                "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.sandrine', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.sandrine', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                            }
+                        },
+                        {
+                            "entity": "person.thea",
+                            "card_mod": {
+                                "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.thea', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.thea', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                            }
+                        }
+                    ],
                     "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "card": {
+                                        "show_header_toggle": false,
+                                        "title": "Lumi\u00e8res allum\u00e9es",
+                                        "type": "entities"
+                                    },
+                                    "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "light.*_current_value_2"
+                                            }
+                                        ],
+                                        "include": [
+                                            {
+                                                "domain": "light",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    "show_empty": false,
+                                    "type": "custom:auto-entities"
+                                },
+                                {
+                                    "card": {
+                                        "show_header_toggle": false,
+                                        "title": "Prises allum\u00e9es",
+                                        "type": "entities"
+                                    },
+                                    "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "switch.radiateur_*_current_value"
+                                            },
+                                            {
+                                                "entity_id": "switch.echo_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.volet_*_current_value"
+                                            },
+                                            {
+                                                "entity_id": "switch.salon_detect"
+                                            },
+                                            {
+                                                "entity_id": "switch.salon_clips"
+                                            },
+                                            {
+                                                "entity_id": "switch.salon_snapshots"
+                                            },
+                                            {
+                                                "entity_id": "switch.riviere_detect"
+                                            },
+                                            {
+                                                "entity_id": "switch.riviere_clips"
+                                            },
+                                            {
+                                                "entity_id": "switch.riviere_snapshots"
+                                            }
+                                        ],
+                                        "include": [
+                                            {
+                                                "domain": "switch",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    "show_empty": false,
+                                    "type": "custom:auto-entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
                         {
                             "type": "vertical-stack",
                             "cards": [
@@ -55,87 +147,6 @@
                                     "type": "custom:atomic-calendar-revive"
                                 }
                             ]
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "aspect_ratio": "100%",
-                                    "entity": "person.olivier",
-                                    "image": "https://hass.revelat.eu:48880/local/img/olivier.jpg",
-                                    "show_name": false,
-                                    "type": "picture-entity"
-                                },
-                                {
-                                    "aspect_ratio": "100%",
-                                    "entity": "person.sandrine",
-                                    "image": "https://hass.revelat.eu:48880/local/img/sandrine.jpg",
-                                    "show_name": false,
-                                    "type": "picture-entity"
-                                },
-                                {
-                                    "aspect_ratio": "100%",
-                                    "entity": "person.thea",
-                                    "image": "https://hass.revelat.eu:48880/local/img/thea.jpg",
-                                    "show_name": false,
-                                    "type": "picture-entity"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "card": {
-                                        "show_header_toggle": false,
-                                        "title": "Lumi\u00e8res allum\u00e9es",
-                                        "type": "entities"
-                                    },
-                                    "filter": {
-                                        "exclude": [
-                                            {
-                                                "entity_id": "light.*_current_value_2"
-                                            }
-                                        ],
-                                        "include": [
-                                            {
-                                                "domain": "light",
-                                                "state": "on"
-                                            }
-                                        ]
-                                    },
-                                    "show_empty": false,
-                                    "type": "custom:auto-entities"
-                                },
-                                {
-                                    "card": {
-                                        "show_header_toggle": false,
-                                        "title": "Prises allum\u00e9es",
-                                        "type": "entities"
-                                    },
-                                    "filter": {
-                                        "exclude": [
-                                            {
-                                                "entity_id": "switch.radiateur_*_current_value"
-                                            },
-                                            {
-                                                "entity_id": "switch.echo_*"
-                                            },
-                                            {
-                                                "entity_id": "switch.volet_*_current_value"
-                                            }
-                                        ],
-                                        "include": [
-                                            {
-                                                "domain": "switch",
-                                                "state": "on"
-                                            }
-                                        ]
-                                    },
-                                    "show_empty": false,
-                                    "type": "custom:auto-entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
                         },
                         {
                             "cards": [
@@ -544,6 +555,57 @@
                                     "entity": "sensor.flood_sensor_battery_level"
                                 }
                             ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "thermostat",
+                                    "entity": "climate.daikin_salon",
+                                    "name": "Rez de Chauss\u00e9e"
+                                },
+                                {
+                                    "dateFormat": "MMMM",
+                                    "dateSize": 130,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.hass_climatisation_rdc"
+                                        }
+                                    ],
+                                    "maxDaysToShow": 0,
+                                    "showDate": false,
+                                    "showWeekDay": true,
+                                    "showMonth": false,
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "name": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
+                                }
+                            ]
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.daikin_salon"
+                                },
+                                {
+                                    "entity": "sensor.daikin_salon_inside_temperature"
+                                },
+                                {
+                                    "entity": "sensor.daikin_salon_outside_temperature"
+                                },
+                                {
+                                    "entity": "sensor.daikin_salon_total_power_consumption"
+                                },
+                                {
+                                    "entity": "sensor.daikin_salon_heat_energy_consumption"
+                                },
+                                {
+                                    "entity": "sensor.daikin_salon_cool_energy_consumption"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ]
                 },
@@ -727,6 +789,59 @@
                             "entity": "sensor.thermometer_salle_bain_temperature",
                             "graph": "line",
                             "detail": 1
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.daikin_etage"
+                                },
+                                {
+                                    "entity": "sensor.daikin_etage_inside_temperature"
+                                },
+                                {
+                                    "entity": "sensor.daikin_etage_outside_temperature"
+                                },
+                                {
+                                    "entity": "sensor.daikin_etage_total_power_consumption"
+                                },
+                                {
+                                    "entity": "sensor.daikin_etage_heat_energy_consumption"
+                                },
+                                {
+                                    "entity": "sensor.daikin_etage_cool_energy_consumption"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "climate.daikin_etage",
+                                    "show_header_toggle": false,
+                                    "name": "Etage",
+                                    "type": "thermostat"
+                                },
+                                {
+                                    "dateFormat": "MMMM",
+                                    "dateSize": 130,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.hass_climatisation_etage"
+                                        }
+                                    ],
+                                    "maxDaysToShow": 0,
+                                    "showDate": false,
+                                    "showWeekDay": true,
+                                    "showMonth": false,
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "name": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         }
                     ]
                 },
@@ -802,6 +917,22 @@
                             "show_state": true,
                             "show_name": true,
                             "state_color": true
+                        },
+                        {
+                            "type": "glance",
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "switch.shelly25_arrosage_channel_1",
+                                    "name": "Pelouse"
+                                },
+                                {
+                                    "entity": "switch.shelly25_arrosage_channel_2",
+                                    "name": "Goutte \u00e0 goutte"
+                                }
+                            ],
+                            "title": "Arrosage",
+                            "state_color": true
                         }
                     ]
                 },
@@ -809,267 +940,53 @@
                     "title": "Chauffage",
                     "path": "chauffage",
                     "icon": "mdi:thermometer-lines",
-                    "panel": true,
+                    "panel": false,
+                    "type": "custom:horizontal-layout",
                     "badges": [],
                     "cards": [
                         {
                             "cards": [
                                 {
-                                    "cards": [
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "input_select.thermostat_mode",
-                                                    "icon": "mdi:thermostat-box",
-                                                    "name": "Mode"
-                                                }
-                                            ],
-                                            "gridcol": "2 / 4",
-                                            "gridrow": "1 / 2",
-                                            "show_header_toggle": false,
-                                            "title": "Chauffage",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.thermometer_salon_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.consigne_thermostat_rdc",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_salon",
-                                                    "name": "Salon"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_sallemanger",
-                                                    "name": "Salle \u00e0 Manger"
-                                                }
-                                            ],
-                                            "gridcol": "1 / 2",
-                                            "gridrow": "2 / 3",
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Rez de chauss\u00e9e",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.hass_chauffage_rdc"
-                                                }
-                                            ],
-                                            "gridcol": "2 / 3",
-                                            "gridrow": "2 / 3",
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showWeekDay": true,
-                                            "showMonth": false,
-                                            "disableEventLink": true,
-                                            "disableLocationLink": true,
-                                            "showRelativeTime": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar-revive"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.salle_de_bain_thermometer_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.consigne_thermostat_salledebain",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_salledebain",
-                                                    "name": "Salle de Bain"
-                                                }
-                                            ],
-                                            "gridcol": "3 / 4",
-                                            "gridrow": "2 / 3",
-                                            "show_header_toggle": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Salle de bain",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.hass_chauffage_salle_de_bain"
-                                                }
-                                            ],
-                                            "gridcol": "4 / 5",
-                                            "gridrow": "2 / 3",
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showWeekDay": true,
-                                            "showMonth": false,
-                                            "disableEventLink": true,
-                                            "disableLocationLink": true,
-                                            "showRelativeTime": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar-revive"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.thermometer_chambre_parents_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.consigne_thermostat_parents",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_parents",
-                                                    "name": "Parents"
-                                                }
-                                            ],
-                                            "gridcol": "1 / 2",
-                                            "gridrow": "3 / 4",
-                                            "show_header_toggle": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Ch. des Parents",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.hass_chauffage_chambres"
-                                                }
-                                            ],
-                                            "gridcol": "2 / 3",
-                                            "gridrow": "3 / 4",
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showWeekDay": true,
-                                            "showMonth": false,
-                                            "disableEventLink": true,
-                                            "disableLocationLink": true,
-                                            "showRelativeTime": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar-revive"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.thermometer_chambre_thea_temperature",
-                                                    "name": "Temp\u00e9rature"
-                                                },
-                                                {
-                                                    "entity": "input_number.consigne_thermostat_thea",
-                                                    "name": "Consigne"
-                                                },
-                                                {
-                                                    "entity": "input_select.radiator_thea",
-                                                    "name": "Th\u00e9a"
-                                                }
-                                            ],
-                                            "gridcol": "3 / 4",
-                                            "gridrow": "3 / 4",
-                                            "show_header_toggle": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Ch. de Th\u00e9a",
-                                            "type": "entities"
-                                        },
-                                        {
-                                            "dateFormat": "MMMM",
-                                            "dateSize": 130,
-                                            "entities": [
-                                                {
-                                                    "entity": "calendar.hass_chauffage_chambres"
-                                                }
-                                            ],
-                                            "gridcol": "4 / 5",
-                                            "gridrow": "3 / 4",
-                                            "maxDaysToShow": 0,
-                                            "showDate": false,
-                                            "showWeekDay": true,
-                                            "showMonth": false,
-                                            "disableEventLink": true,
-                                            "disableLocationLink": true,
-                                            "showRelativeTime": false,
-                                            "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
-                                            "title": "Programmation",
-                                            "type": "custom:atomic-calendar-revive"
-                                        }
-                                    ],
-                                    "gridcols": "25% 25% 25% 25%",
-                                    "gridrows": "auto auto auto",
-                                    "layout": "grid",
-                                    "type": "custom:layout-card",
-                                    "layout_type": "grid",
-                                    "view_layout": "grid"
-                                }
-                            ],
-                            "column_width": "100%",
-                            "layout": "vertical",
-                            "type": "custom:layout-card",
-                            "layout_type": "horizontal",
-                            "view_layout": "vertical"
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:thermometer-lines",
-                    "title": "Climatisation",
-                    "path": "climatisation",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "type": "thermostat",
-                                    "entity": "climate.daikin_salon",
-                                    "name": "Rez de Chauss\u00e9e"
-                                },
-                                {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
                                     "entities": [
                                         {
-                                            "entity": "calendar.hass_climatisation_rdc"
+                                            "entity": "input_select.thermostat_mode",
+                                            "icon": "mdi:thermostat-box",
+                                            "name": "Mode"
                                         }
                                     ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "name": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
-                                }
-                            ]
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "climate.daikin_etage",
                                     "show_header_toggle": false,
-                                    "name": "Etage",
-                                    "type": "thermostat"
+                                    "title": "Chauffage",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.thermometer_salon_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "input_number.consigne_thermostat_rdc",
+                                            "name": "Consigne"
+                                        },
+                                        {
+                                            "entity": "input_select.radiator_salon",
+                                            "name": "Salon"
+                                        },
+                                        {
+                                            "entity": "input_select.radiator_sallemanger",
+                                            "name": "Salle \u00e0 Manger"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Rez de chauss\u00e9e",
+                                    "type": "entities"
                                 },
                                 {
                                     "dateFormat": "MMMM",
                                     "dateSize": 130,
                                     "entities": [
                                         {
-                                            "entity": "calendar.hass_climatisation_etage"
+                                            "entity": "calendar.hass_chauffage_rdc"
                                         }
                                     ],
                                     "maxDaysToShow": 0,
@@ -1079,58 +996,130 @@
                                     "disableEventLink": true,
                                     "disableLocationLink": true,
                                     "showRelativeTime": false,
-                                    "name": "Programmation",
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.salle_de_bain_thermometer_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "input_number.consigne_thermostat_salledebain",
+                                            "name": "Consigne"
+                                        },
+                                        {
+                                            "entity": "input_select.radiator_salledebain",
+                                            "name": "Salle de Bain"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Salle de bain",
+                                    "type": "entities"
+                                },
+                                {
+                                    "dateFormat": "MMMM",
+                                    "dateSize": 130,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.hass_chauffage_salle_de_bain"
+                                        }
+                                    ],
+                                    "maxDaysToShow": 0,
+                                    "showDate": false,
+                                    "showWeekDay": true,
+                                    "showMonth": false,
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.thermometer_chambre_parents_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "input_number.consigne_thermostat_parents",
+                                            "name": "Consigne"
+                                        },
+                                        {
+                                            "entity": "input_select.radiator_parents",
+                                            "name": "Parents"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Ch. des Parents",
+                                    "type": "entities"
+                                },
+                                {
+                                    "dateFormat": "MMMM",
+                                    "dateSize": 130,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.hass_chauffage_chambres"
+                                        }
+                                    ],
+                                    "maxDaysToShow": 0,
+                                    "showDate": false,
+                                    "showWeekDay": true,
+                                    "showMonth": false,
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Programmation",
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.thermometer_chambre_thea_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "input_number.consigne_thermostat_thea",
+                                            "name": "Consigne"
+                                        },
+                                        {
+                                            "entity": "input_select.radiator_thea",
+                                            "name": "Th\u00e9a"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Ch. de Th\u00e9a",
+                                    "type": "entities"
+                                },
+                                {
+                                    "dateFormat": "MMMM",
+                                    "dateSize": 130,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.hass_chauffage_chambres"
+                                        }
+                                    ],
+                                    "maxDaysToShow": 0,
+                                    "showDate": false,
+                                    "showWeekDay": true,
+                                    "showMonth": false,
+                                    "disableEventLink": true,
+                                    "disableLocationLink": true,
+                                    "showRelativeTime": false,
+                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
+                                    "title": "Programmation",
                                     "type": "custom:atomic-calendar-revive"
                                 }
                             ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "climate.daikin_salon"
-                                },
-                                {
-                                    "entity": "sensor.daikin_salon_inside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.daikin_salon_outside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.daikin_salon_total_power_consumption"
-                                },
-                                {
-                                    "entity": "sensor.daikin_salon_heat_energy_consumption"
-                                },
-                                {
-                                    "entity": "sensor.daikin_salon_cool_energy_consumption"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "climate.daikin_etage"
-                                },
-                                {
-                                    "entity": "sensor.daikin_etage_inside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.daikin_etage_outside_temperature"
-                                },
-                                {
-                                    "entity": "sensor.daikin_etage_total_power_consumption"
-                                },
-                                {
-                                    "entity": "sensor.daikin_etage_heat_energy_consumption"
-                                },
-                                {
-                                    "entity": "sensor.daikin_etage_cool_energy_consumption"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
+                            "type": "custom:layout-card",
+                            "layout_type": "custom:grid"
                         }
                     ]
                 },
@@ -1180,14 +1169,14 @@
                     "cards": [
                         {
                             "type": "picture-elements",
-                            "entity": "camera.rez_de_chaussee",
-                            "camera_image": "camera.rez_de_chaussee",
+                            "entity": "camera.salon",
+                            "camera_image": "camera.salon",
                             "camera_view": "live",
                             "elements": [
                                 {
                                     "type": "state-icon",
                                     "icon": "mdi:cctv",
-                                    "entity": "camera.rez_de_chaussee",
+                                    "entity": "camera.salon",
                                     "title": "Live",
                                     "style": {
                                         "bottom": "0px",
@@ -1197,41 +1186,88 @@
                                 {
                                     "type": "state-icon",
                                     "icon": "mdi:run-fast",
-                                    "entity": "camera.deepstack_rez_de_chaussee",
-                                    "title": "Image derni\u00e8re d\u00e9tection",
+                                    "entity": "camera.salon_person",
+                                    "title": "Derni\u00e8re d\u00e9tection",
+                                    "state_color": true,
                                     "style": {
                                         "bottom": "0px",
-                                        "left": "75px"
+                                        "left": "100px"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "icon": "mdi:cat",
+                                    "entity": "camera.salon_cat",
+                                    "title": "Derni\u00e8re d\u00e9tection",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "130px"
                                     }
                                 }
                             ]
                         },
                         {
                             "type": "picture-elements",
-                            "entity": "camera.jardin_riviere",
-                            "camera_image": "camera.jardin_riviere",
+                            "entity": "camera.riviere",
+                            "camera_image": "camera.riviere",
                             "camera_view": "live",
                             "elements": [
                                 {
                                     "type": "state-icon",
-                                    "icon": "mdi:run-fast",
-                                    "entity": "camera.deepstack_jardin_riviere",
-                                    "title": "Image derni\u00e8re d\u00e9tection",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "75px"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
                                     "icon": "mdi:cctv",
-                                    "entity": "camera.jardin_riviere",
+                                    "entity": "camera.riviere",
                                     "title": "Live",
                                     "style": {
                                         "bottom": "0px",
                                         "left": "25px"
                                     }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "icon": "mdi:run-fast",
+                                    "entity": "camera.riviere_person",
+                                    "title": "Derni\u00e8re d\u00e9tection",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "100px"
+                                    }
+                                },
+                                {
+                                    "type": "state-icon",
+                                    "icon": "mdi:cat",
+                                    "entity": "camera.riviere_cat",
+                                    "title": "Derni\u00e8re d\u00e9tection",
+                                    "style": {
+                                        "bottom": "0px",
+                                        "left": "130px"
+                                    }
                                 }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "switch.salon_detect",
+                                "switch.salon_clips",
+                                "switch.salon_snapshots",
+                                "switch.riviere_detect",
+                                "switch.riviere_clips",
+                                "switch.riviere_snapshots"
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sensor.coral_inference_speed",
+                                "sensor.detection_fps",
+                                "sensor.salon_camera_fps",
+                                "sensor.salon_process_fps",
+                                "sensor.salon_detection_fps",
+                                "sensor.salon_skipped_fps",
+                                "sensor.riviere_camera_fps",
+                                "sensor.riviere_process_fps",
+                                "sensor.riviere_detection_fps",
+                                "sensor.riviere_skipped_fps"
                             ]
                         }
                     ]

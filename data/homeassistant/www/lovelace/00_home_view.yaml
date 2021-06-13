@@ -1,0 +1,235 @@
+title: Home
+icon: 'mdi:home'
+
+###### BADGES
+badges:
+  - entity: person.olivier
+    card_mod:
+      style: |
+        :host {
+          --label-badge-red:
+            {% if is_state('person.olivier', 'home') %}
+              rgb(52, 152, 219);
+            {% elif is_state('person.olivier', 'not_home') %}                      
+              darkgrey; 
+            {% endif %}   
+        }
+    tap_action:
+      action: fire-dom-event
+      browser_mod:
+        command: popup
+        title: Olivier
+
+  - entity: person.sandrine
+    card_mod:
+      style: |
+        :host {
+          --label-badge-red:
+            {% if is_state('person.sandrine', 'home') %}
+              rgb(52, 152, 219);
+            {% elif is_state('person.sandrine', 'not_home') %}                      
+              darkgrey; 
+            {% endif %}   
+        }
+  - entity: person.thea
+    card_mod:
+      style: |
+        :host {
+          --label-badge-red:
+            {% if is_state('person.thea', 'home') %}
+              rgb(52, 152, 219);
+            {% elif is_state('person.thea', 'not_home') %}                      
+              darkgrey; 
+            {% endif %}   
+        }
+
+###### CARDS
+cards:
+  - type: vertical-stack
+    cards:
+      - elements:
+          - entity: sensor.time
+            style:
+              color: 'rgb(64,64,64)'
+              font-size: 4vw
+              left: 50%
+              top: 50%
+            type: state-label
+        image: /local/img/fond_blanc.png
+        type: picture-elements
+      - dateSize: 130
+        entities:
+          - entity: calendar.hass_general
+          - entity: calendar.olivier_revelat_gmail_com
+          - entity: calendar.jours_feries_en_france
+            type: holiday
+        maxDaysToShow: 2
+        showDate: false
+        showWeekDay: true
+        showMonth: false
+        disableEventLink: true
+        disableLocationLink: true
+        showRelativeTime: false
+        title: Calendriers
+        type: 'custom:atomic-calendar-revive'
+  - cards:
+      - card:
+          show_header_toggle: false
+          title: Lumières allumées
+          type: entities
+        filter:
+          exclude:
+            - entity_id: light.*_current_value_2
+          include:
+            - domain: light
+              state: 'on'
+        show_empty: false
+        type: 'custom:auto-entities'
+      - card:
+          show_header_toggle: false
+          title: Prises allumées
+          type: entities
+        filter:
+          exclude:
+            - entity_id: switch.radiateur_*_current_value
+            - entity_id: switch.echo_*
+            - entity_id: switch.volet_*_current_value
+          include:
+            - domain: switch
+              state: 'on'
+        show_empty: false
+        type: 'custom:auto-entities'
+    type: vertical-stack
+  - cards:
+      - type: 'custom:apexcharts-card'
+        header:
+          show: true
+          title: Consommation / heure
+          show_states: true
+          colorize_states: true
+        apex_config:
+          chart:
+            height: 150px
+        experimental:
+          color_threshold: true
+        all_series_config:
+          color_threshold:
+            - color: '#00ff00'
+              value: 0
+            - color: '#38ff00'
+              value: 0.5
+            - color: '#71ff00'
+              value: 1
+            - color: '#aaff00'
+              value: 1.5
+            - color: '#e2ff00'
+              value: 2
+            - color: '#ffe200'
+              value: 2.5
+            - color: '#ffaa00'
+              value: 3
+            - color: '#ff7100'
+              value: 4
+            - color: '#ff3800'
+              value: 5
+            - color: '#ff0000'
+              value: 6
+        series:
+          - entity: sensor.hourly_energy
+            name: Energie consommée
+            type: column
+            show:
+              in_header: false
+            group_by:
+              func: max
+          - entity: sensor.hourly_energy
+            show:
+              in_chart: false
+              name_in_header: false
+              header_color_threshold: true
+          - entity: sensor.smart_meter_electric_consumed_w
+            show:
+              in_chart: false
+              name_in_header: false
+          - entity: sensor.smart_meter_electric_consumed_power_factor
+            float_precision: 2
+            show:
+              in_chart: false
+              name_in_header: false
+      - type: 'custom:apexcharts-card'
+        header:
+          show: true
+          title: Consommation / jour
+          show_states: true
+          colorize_states: true
+        apex_config:
+          chart:
+            height: 150px
+        experimental:
+          color_threshold: true
+        graph_span: 168h
+        all_series_config:
+          color_threshold:
+            - color: '#00ff00'
+              value: 0
+            - color: '#38ff00'
+              value: 15
+            - color: '#71ff00'
+              value: 20
+            - color: '#aaff00'
+              value: 25
+            - color: '#e2ff00'
+              value: 30
+            - color: '#ffe200'
+              value: 35
+            - color: '#ffaa00'
+              value: 40
+            - color: '#ff7100'
+              value: 45
+            - color: '#ff3800'
+              value: 50
+            - color: '#ff0000'
+              value: 60
+        series:
+          - entity: sensor.daily_energy
+            name: Consomation / jour
+            type: column
+            group_by:
+              func: max
+              duration: 24h
+            show:
+              in_header: false
+          - entity: sensor.daily_energy
+            show:
+              in_chart: false
+              name_in_header: false
+              header_color_threshold: true
+      - entities:
+          - entity: sensor.hourly_energy
+            name: Heure
+            secondary_info: >-
+              &nbsp;&nbsp;[[ sensor.hourly_consumption_day ]] kWh (HP) / [[
+              sensor.hourly_consumption_night ]] kWh (HC)
+            type: 'custom:secondaryinfo-entity-row'
+          - entity: sensor.daily_energy
+            name: Jour
+            secondary_info: >-
+              &nbsp;&nbsp;[[ sensor.daily_consumption_day ]] kWh (HP) / [[
+              sensor.daily_consumption_night ]] kWh (HC)
+            type: 'custom:secondaryinfo-entity-row'
+          - entity: sensor.monthly_energy
+            name: Mois
+            secondary_info: >-
+              &nbsp;&nbsp;[[ sensor.monthly_consumption_day ]] kWh (HP) / [[
+              sensor.monthly_consumption_night ]] kWh (HC)
+            type: 'custom:secondaryinfo-entity-row'
+          - entity: sensor.yearly_energy
+            name: Année
+            secondary_info: >-
+              &nbsp;&nbsp;[[ sensor.yearly_consumption_day ]] kWh (HP) / [[
+              sensor.yearly_consumption_night ]] kWh (HC)
+            type: 'custom:secondaryinfo-entity-row'
+        show_header_toggle: false
+        title: null
+        type: entities
+    type: vertical-stack

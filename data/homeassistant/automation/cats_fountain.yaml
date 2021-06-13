@@ -5,7 +5,7 @@
     alias: Fontaine Chats On
     trigger:
       platform: time
-      at: '7:00:00'
+      at: '6:00:00'
     
     condition:
       - condition: state
@@ -20,7 +20,7 @@
     alias: Fontaine Chats Off
     trigger:
       platform: time
-      at: '21:30:00'
+      at: '22:00:00'
     
     condition:
       - condition: state
