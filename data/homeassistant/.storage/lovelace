@@ -216,7 +216,8 @@
                                             "name": "Energie consomm\u00e9e",
                                             "type": "column",
                                             "show": {
-                                                "in_header": false
+                                                "in_header": false,
+                                                "extremas": true
                                             },
                                             "group_by": {
                                                 "func": "max"
@@ -318,7 +319,8 @@
                                                 "duration": "24h"
                                             },
                                             "show": {
-                                                "in_header": false
+                                                "in_header": false,
+                                                "extremas": true
                                             }
                                         },
                                         {
@@ -853,22 +855,61 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Jardin",
+                                "show_states": true,
+                                "colorize_states": true
+                            },
+                            "apex_config": {
+                                "chart": {
+                                    "height": "240px"
+                                }
+                            },
+                            "graph_span": "24h",
+                            "span": {
+                                "start": "day"
+                            },
+                            "now": {
+                                "show": true,
+                                "color": "rgb(0,20,0)"
+                            },
+                            "series": [
                                 {
-                                    "color": "green",
-                                    "entity": "sensor.thermometer_jardin_temperature"
+                                    "entity": "sensor.thermometer_jardin_temperature",
+                                    "name": "Aujourd'hui",
+                                    "stroke_width": 2,
+                                    "curve": "smooth",
+                                    "extend_to_end": false,
+                                    "color": "rgb(255,165,0)",
+                                    "show": {
+                                        "name_in_header": false,
+                                        "extremas": true
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.thermometer_jardin_temperature",
+                                    "name": "Hier",
+                                    "stroke_width": 2,
+                                    "color": "rgb(0,120,0)",
+                                    "offset": "-1d",
+                                    "show": {
+                                        "in_header": false,
+                                        "name_in_header": false,
+                                        "extremas": true,
+                                        "offset_in_name": false
+                                    }
                                 },
                                 {
                                     "entity": "sensor.thermometer_jardin_humidity",
-                                    "show_graph": false,
-                                    "show_state": true
+                                    "show": {
+                                        "in_chart": false,
+                                        "name_in_header": false,
+                                        "header_color_threshold": true
+                                    }
                                 }
-                            ],
-                            "group_by": "hour",
-                            "hour24": true,
-                            "hours_to_show": 36,
-                            "name": "Jardin",
-                            "type": "custom:mini-graph-card"
+                            ]
                         },
                         {
                             "type": "glance",

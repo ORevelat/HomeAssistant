@@ -655,7 +655,40 @@ var CONFIG = {
                         off: "mdi-power-plug-off",
                      }
                   }
-
+               ]
+            },
+            {
+               title: 'Arrosage',
+               height: 3,
+               items: [
+                  {
+                     position: [0, 0],
+                     title: 'Pelouse',
+                     id: 'switch.shelly25_arrosage_channel_1',
+                     type: TYPES.SWITCH,
+                     states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-water",
+                        off: "mdi-water-off",
+                     }
+                  },
+                  {
+                     position: [0, 1],
+                     title: 'Goutte à Goutte',
+                     id: 'switch.shelly25_arrosage_channel_2',
+                     type: TYPES.SWITCH,
+                     states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-water",
+                        off: "mdi-water-off",
+                     }
+                  }
                ]
             },
             {
