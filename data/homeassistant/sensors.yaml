@@ -73,10 +73,8 @@
         unit_of_measurement: kWh
         value_template: "{{ (states('sensor.yearly_consumption_day')|float + states('sensor.yearly_consumption_night')|float)|round(2) }}"
 
-  - platform: filter
+  - platform: integration
     name: home_energy_filtered
-    entity_id: sensor.smart_meter_electric_consumed_kwh
-    filters:
-      - filter: outlier
-        window_size: 2
-        radius: 2
+    source: sensor.smart_meter_electric_consumed_w
+    unit_prefix: k
+    round: 2

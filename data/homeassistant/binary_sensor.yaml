@@ -61,8 +61,8 @@
     count: 1
     scan_interval: 60
 
-  - platform: ping
-    name: "Mi 3 Android TV"
-    host: !secret host_androidtv
-    count: 1
-    scan_interval: 60
+  # - platform: ping
+  #   name: "Mi 3 Android TV"
+  #   host: !secret host_androidtv
+  #   count: 1
+  #   scan_interval: 60

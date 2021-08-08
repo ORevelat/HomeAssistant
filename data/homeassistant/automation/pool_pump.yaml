@@ -16,7 +16,7 @@
     
     action:
       - service: switch.turn_on
-        entity_id: switch.sonoff_4ch_jardin_2
+        entity_id: switch.sonoff_4ch_jardin_3
 
   - id: pool_pump_off
     alias: Pompe Piscine Off
@@ -33,4 +33,4 @@
     
     action:
       - service: switch.turn_off
-        entity_id: switch.sonoff_4ch_jardin_2
+        entity_id: switch.sonoff_4ch_jardin_3
