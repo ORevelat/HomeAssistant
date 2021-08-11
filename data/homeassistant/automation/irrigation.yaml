@@ -1,0 +1,75 @@
+## IRRIGATION PELOUSE
+
+  - alias: Irrigation Pelouse
+    trigger:
+      platform: state
+      entity_id:
+        - switch.shelly25_arrosage_channel_1
+      to: 'on'
+
+    action:
+      - service: timer.start
+        data_template:
+          entity_id:
+            - timer.irrigation_lawn_timer
+          duration: >
+            {{ states('input_number.irrigation_lawn') | int * 60}}
+
+      - wait_template: >
+          {{ is_state('timer.irrigation_lawn_timer', 'active') }}
+
+      - wait_template: >
+          {{ is_state('timer.irrigation_lawn_timer', 'idle') }}
+
+      - service: switch.turn_off
+        entity_id: switch.shelly25_arrosage_channel_1
+
+  - alias: Irrigation Pelouse reset
+    trigger:
+      platform: state
+      entity_id:
+        - switch.shelly25_arrosage_channel_1
+      to: 'off'
+
+    action:
+      - service: timer.cancel
+        data:
+          entity_id:
+            - timer.irrigation_lawn_timer
+
+  - alias: Irrigation Goutte à Goutte
+    trigger:
+      platform: state
+      entity_id:
+        - switch.shelly25_arrosage_channel_2
+      to: 'on'
+
+    action:
+      - service: timer.start
+        data_template:
+          entity_id:
+            - timer.irrigation_pots_timer
+          duration: >
+            {{ states('input_number.irrigation_lawn') | int * 60}}
+
+      - wait_template: >
+          {{ is_state('timer.irrigation_pots_timer', 'active') }}
+
+      - wait_template: >
+          {{ is_state('timer.irrigation_pots_timer', 'idle') }}
+
+      - service: switch.turn_off
+        entity_id: switch.shelly25_arrosage_channel_2
+
+  - alias: Irrigation Goutte à Goutte reset
+    trigger:
+      platform: state
+      entity_id:
+        - switch.shelly25_arrosage_channel_2
+      to: 'off'
+
+    action:
+      - service: timer.cancel
+        data:
+          entity_id:
+            - timer.irrigation_pots_timer

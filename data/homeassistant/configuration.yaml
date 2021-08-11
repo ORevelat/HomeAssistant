@@ -72,3 +72,4 @@ scene: !include scenes.yaml
 shell_command: !include shell_command.yaml
 utility_meter: !include utility_meter.yaml
 alexa: !include alexa.yaml
+timer: !include timers.yaml

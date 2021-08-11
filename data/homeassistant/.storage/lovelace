@@ -960,20 +960,48 @@
                             "state_color": true
                         },
                         {
-                            "type": "glance",
-                            "columns": 3,
                             "entities": [
                                 {
-                                    "entity": "switch.shelly25_arrosage_channel_1",
-                                    "name": "Pelouse"
+                                    "type": "section"
                                 },
                                 {
-                                    "entity": "switch.shelly25_arrosage_channel_2",
-                                    "name": "Goutte \u00e0 goutte"
+                                    "entities": [
+                                        {
+                                            "entity": "input_number.irrigation_lawn",
+                                            "name": "Dur\u00e9e"
+                                        }
+                                    ],
+                                    "head": {
+                                        "entity": "switch.shelly25_arrosage_channel_1",
+                                        "name": "Pelouse",
+                                        "icon": "mdi:sprinkler",
+                                        "secondary_info": "{% set duration = ((as_timestamp(state_attr(\"timer.irrigation_lawn_timer\", \"finishes_at\")) | int) - (as_timestamp(now()) | int)) | timestamp_custom(\"%Mm %Ss\") %} {% set state = states(\"timer.irrigation_lawn_timer\") %} Actuellement {{ state }} {% if is_state(\"timer.irrigation_lawn_timer\", \"active\") %} {{ duration }} {% endif %}",
+                                        "type": "custom:secondaryinfo-entity-row"
+                                    },
+                                    "open": false,
+                                    "type": "custom:fold-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_number.irrigation_pots",
+                                            "name": "Dur\u00e9e"
+                                        }
+                                    ],
+                                    "head": {
+                                        "entity": "switch.shelly25_arrosage_channel_2",
+                                        "name": "Goutte \u00e0 Goutte",
+                                        "icon": "mdi:watering-can",
+                                        "secondary_info": "Actuellement [[ timer.irrigation_pots_timer ]]",
+                                        "type": "custom:secondaryinfo-entity-row"
+                                    },
+                                    "open": false,
+                                    "type": "custom:fold-entity-row"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "title": "Arrosage",
-                            "state_color": true
+                            "type": "entities"
                         }
                     ]
                 },
@@ -1538,6 +1566,12 @@
                                 },
                                 {
                                     "entity": "input_boolean.automation_enable_cats_fountain"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_irrigation_lawn"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_irrigation_pots"
                                 }
                             ],
                             "show_header_toggle": false,

@@ -30,3 +30,16 @@
     mode: box
     icon: mdi:thermometer
 
+  irrigation_lawn:
+    min: 1
+    max: 30
+    step: 1
+    unit_of_measurement: min
+    icon: mdi:timer-outline
+
+  irrigation_pots:
+    min: 1
+    max: 30
+    step: 1
+    unit_of_measurement: min
+    icon: mdi:timer-outline

@@ -65,3 +65,11 @@
   automation_enable_cats_fountain:
     name: Fontaine Chats
     icon: mdi:cat
+
+  automation_enable_irrigation_lawn:
+    name: Arrosage Gazon
+    icon: mdi:sprinkler
+
+  automation_enable_irrigation_pots:
+    name: Arrosage Goutte à Goutte
+    icon: mdi:watering-can
