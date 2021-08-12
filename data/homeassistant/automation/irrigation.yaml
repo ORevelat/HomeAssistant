@@ -50,7 +50,7 @@
           entity_id:
             - timer.irrigation_pots_timer
           duration: >
-            {{ states('input_number.irrigation_lawn') | int * 60}}
+            {{ states('input_number.irrigation_pots_timer') | int * 60}}
 
       - wait_template: >
           {{ is_state('timer.irrigation_pots_timer', 'active') }}
