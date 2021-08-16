@@ -186,10 +186,14 @@ var CONFIG = {
                            "&switch.sonoff_4ch_jardin_1.state",
                            "&switch.sonoff_4ch_jardin_2.state",
                            "&switch.sonoff_4ch_jardin_3.state",
+                           "&switch.shelly25_jardin_channel_1.state",
+                           "&switch.shelly25_arrosage_channel_1.state",
+                           "&switch.shelly25_arrosage_channel_2.state",
                            "&switch.prise_tv_hifi_current_value.state",
                            "&switch.sonoff_salon.state",
                            "&switch.sonoff_bibliotheque_haut.state",
-                           "&switch.prise_tv_current_value.state"
+                           "&switch.prise_tv_current_value.state",
+                           "&switch.sonoff_cuisine.state"
                         ];
 
                         var count = 0;
