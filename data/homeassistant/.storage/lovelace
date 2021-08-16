@@ -882,23 +882,16 @@
                                     "stroke_width": 2,
                                     "curve": "smooth",
                                     "extend_to_end": false,
-                                    "color": "rgb(255,165,0)",
+                                    "color": "rgb(255,120,0)",
+                                    "fill_raw": "last",
+                                    "group_by": {
+                                        "duration": "10min",
+                                        "func": "avg"
+                                    },
                                     "show": {
-                                        "name_in_header": false,
-                                        "extremas": true
-                                    }
-                                },
-                                {
-                                    "entity": "sensor.thermometer_jardin_temperature",
-                                    "name": "Hier",
-                                    "stroke_width": 2,
-                                    "color": "rgb(0,120,0)",
-                                    "offset": "-1d",
-                                    "show": {
-                                        "in_header": false,
-                                        "name_in_header": false,
-                                        "extremas": true,
-                                        "offset_in_name": false
+                                        "in_header": true,
+                                        "name_in_header": true,
+                                        "legend_value": false
                                     }
                                 },
                                 {
@@ -907,6 +900,42 @@
                                         "in_chart": false,
                                         "name_in_header": false,
                                         "header_color_threshold": true
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.thermometer_jardin_temperature",
+                                    "name": "Hier",
+                                    "stroke_width": 1,
+                                    "color": "rgb(255,180,0)",
+                                    "fill_raw": "last",
+                                    "offset": "-1d",
+                                    "group_by": {
+                                        "duration": "10min",
+                                        "func": "avg"
+                                    },
+                                    "show": {
+                                        "in_header": false,
+                                        "name_in_header": false,
+                                        "offset_in_name": false,
+                                        "legend_value": false
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.thermometer_jardin_temperature",
+                                    "name": "Avant-hier",
+                                    "stroke_width": 1,
+                                    "color": "rgb(255,220,0)",
+                                    "fill_raw": "last",
+                                    "offset": "-2d",
+                                    "group_by": {
+                                        "duration": "10min",
+                                        "func": "avg"
+                                    },
+                                    "show": {
+                                        "in_header": false,
+                                        "name_in_header": false,
+                                        "offset_in_name": false,
+                                        "legend_value": false
                                     }
                                 }
                             ]

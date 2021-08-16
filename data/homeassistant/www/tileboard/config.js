@@ -1,21 +1,25 @@
 
 var CONFIG = {
-   customTheme: CUSTOM_THEMES.TRANSPARENT,
-   transition: TRANSITIONS.ANIMATED_GPU,
-   entitySize: ENTITY_SIZES.NORMAL,
+   customTheme: CUSTOM_THEMES.TRANSPARENT, // CUSTOM_THEMES.TRANSPARENT, CUSTOM_THEMES.MATERIAL, CUSTOM_THEMES.MOBILE, CUSTOM_THEMES.COMPACT, CUSTOM_THEMES.HOMEKIT, CUSTOM_THEMES.WINPHONE, CUSTOM_THEMES.WIN95
+   transition: TRANSITIONS.ANIMATED_GPU, //ANIMATED or SIMPLE (better perfomance)
+   entitySize: ENTITY_SIZES.NORMAL, //SMALL, BIG are available
    tileSize: 150,
    tileMargin: 6,
    serverUrl: SECRETS.serverUrl,
    wsUrl: SECRETS.wsUrl,
-   authToken: SECRETS.authToken,
-   debug: false,
-   pingConnection: true,
-
+   authToken: SECRETS.authToken, // optional long-lived token (CAUTION: only if TileBoard is not exposed to the internet)
+   //googleApiKey: "XXXXXXXXXX", // Required if you are using Google Maps for device tracker
+   //mapboxToken: "XXXXXXXXXX", // Required if you are using Mapbox for device tracker
+   debug: false, // Prints entities and state change info to the console.
+   pingConnection: true, //ping connection to prevent silent disconnections
+   locale: 'en-us', // locale for date and number formats - available locales: it, de, es, fr, pt, ru, nl, pl, en-gb, en-us (default). See readme on adding custom locales.
+   // next fields are optional
    events: [],
    timeFormat: 24,
-   menuPosition: MENU_POSITIONS.LEFT,
-   hideScrollbar: false,
-   groupsAlign: GROUP_ALIGNS.HORIZONTALLY,
+   menuPosition: MENU_POSITIONS.LEFT, // or BOTTOM
+   hideScrollbar: false, // horizontal scrollbar
+   groupsAlign: GROUP_ALIGNS.HORIZONTALLY, // HORIZONTALLY, VERTICALLY, GRID
+   onReady: function () {},
 
    header: {
       styles: {
@@ -223,6 +227,7 @@ var CONFIG = {
                      width: 1,
                      type: TYPES.DEVICE_TRACKER,
                      id: 'device_tracker.hass_olivier',
+                     title: 'Olivier',
                      map: 'yandex',
                      states: {
                         home: "Home",
@@ -239,6 +244,7 @@ var CONFIG = {
                      type: TYPES.DEVICE_TRACKER,
                      id: 'device_tracker.hass_sandrine',
                      map: 'yandex',
+                     title: 'Sandrine',
                      states: {
                         home: "Home",
                         not_home: "Away",
@@ -667,9 +673,9 @@ var CONFIG = {
                items: [
                   {
                      position: [0, 0],
-                     title: 'Pelouse',
+                     type: TYPES.POPUP,
                      id: 'switch.shelly25_arrosage_channel_1',
-                     type: TYPES.SWITCH,
+                     title: 'Pelouse',
                      states: {
                         on: "On",
                         off: "Off"
@@ -677,13 +683,46 @@ var CONFIG = {
                      icons: {
                         on: "mdi-water",
                         off: "mdi-water-off",
+                     },
+                     state: function (item, entity) {
+                        return entity.state
+                     },
+                     popup: {
+                        tileSize: 200,
+                        items: [
+                           {
+                              position: [0, 0],
+                              id: 'switch.shelly25_arrosage_channel_1',
+                              type: TYPES.SWITCH,
+                              states: {
+                                 on: "On",
+                                 off: "Off"
+                              },
+                              icons: {
+                                 on: "mdi-water",
+                                 off: "mdi-water-off",
+                              }
+                           },
+                           {
+                              position: [0, 1],
+                              id: 'input_number.irrigation_lawn',
+                              type: TYPES.SLIDER,
+                              unit: 'min',
+                              title: 'Durée',
+                              slider: {
+                                 max: 30,
+                                 min: 1,
+                                 step: 1
+                              }
+                           }
+                        ]
                      }
                   },
                   {
                      position: [0, 1],
-                     title: 'Goutte à Goutte',
+                     type: TYPES.POPUP,
                      id: 'switch.shelly25_arrosage_channel_2',
-                     type: TYPES.SWITCH,
+                     title: 'Goutte à Goutte',
                      states: {
                         on: "On",
                         off: "Off"
@@ -691,6 +730,39 @@ var CONFIG = {
                      icons: {
                         on: "mdi-water",
                         off: "mdi-water-off",
+                     },
+                     state: function (item, entity) {
+                        return entity.state
+                     },
+                     popup: {
+                        tileSize: 200,
+                        items: [
+                           {
+                              position: [0, 0],
+                              id: 'switch.shelly25_arrosage_channel_2',
+                              type: TYPES.SWITCH,
+                              states: {
+                                 on: "On",
+                                 off: "Off"
+                              },
+                              icons: {
+                                 on: "mdi-water",
+                                 off: "mdi-water-off",
+                              }
+                           },
+                           {
+                              position: [0, 1],
+                              id: 'input_number.irrigation_pots',
+                              type: TYPES.SLIDER,
+                              unit: 'min',
+                              title: 'Durée',
+                              slider: {
+                                 max: 30,
+                                 min: 1,
+                                 step: 1
+                              }
+                           }
+                        ]
                      }
                   }
                ]
