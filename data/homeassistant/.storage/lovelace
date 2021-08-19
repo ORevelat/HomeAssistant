@@ -63,31 +63,25 @@
                                     "filter": {
                                         "exclude": [
                                             {
-                                                "entity_id": "switch.radiateur_*_current_value"
+                                                "entity_id": "switch.radiateur_*"
                                             },
                                             {
                                                 "entity_id": "switch.echo_*"
                                             },
                                             {
-                                                "entity_id": "switch.volet_*_current_value"
+                                                "entity_id": "switch.volet_*"
                                             },
                                             {
-                                                "entity_id": "switch.salon_detect"
+                                                "entity_id": "switch.*_detect"
                                             },
                                             {
-                                                "entity_id": "switch.salon_clips"
+                                                "entity_id": "switch.*_clips"
                                             },
                                             {
-                                                "entity_id": "switch.salon_snapshots"
+                                                "entity_id": "switch.*_snapshots"
                                             },
                                             {
-                                                "entity_id": "switch.riviere_detect"
-                                            },
-                                            {
-                                                "entity_id": "switch.riviere_clips"
-                                            },
-                                            {
-                                                "entity_id": "switch.riviere_snapshots"
+                                                "entity_id": "switch.schedule_*"
                                             }
                                         ],
                                         "include": [
@@ -1021,7 +1015,7 @@
                                         "entity": "switch.shelly25_arrosage_channel_2",
                                         "name": "Goutte \u00e0 Goutte",
                                         "icon": "mdi:watering-can",
-                                        "secondary_info": "Actuellement [[ timer.irrigation_pots_timer ]]",
+                                        "secondary_info": "{% set duration = ((as_timestamp(state_attr(\"timer.irrigation_pots_timer\", \"finishes_at\")) | int) - (as_timestamp(now()) | int)) | timestamp_custom(\"%Mm %Ss\") %} {% set state = states(\"timer.irrigation_pots_timer\") %} Actuellement {{ state }} {% if is_state(\"timer.irrigation_pots_timer\", \"active\") %} {{ duration }} {% endif %}",
                                         "type": "custom:secondaryinfo-entity-row"
                                     },
                                     "open": false,
@@ -1637,6 +1631,39 @@
                             ],
                             "show_header_toggle": false,
                             "type": "entities"
+                        }
+                    ]
+                },
+                {
+                    "title": "Programmation",
+                    "path": "programmation",
+                    "panel": false,
+                    "icon": "mdi:clock-outline",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:scheduler-card",
+                            "include": [
+                                "climate",
+                                "cover",
+                                "group",
+                                "input_boolean",
+                                "input_number",
+                                "input_select",
+                                "light",
+                                "switch"
+                            ],
+                            "discover_existing": true,
+                            "display_options": {
+                                "primary_info": [
+                                    "name"
+                                ],
+                                "secondary_info": [
+                                    "{time}: {action}",
+                                    "days",
+                                    "relative-time"
+                                ]
+                            }
                         }
                     ]
                 }
