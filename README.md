@@ -2,7 +2,7 @@
 # Overview
 Ma configuration personnelle de Home Assistant, utilisée quotidiennement au travers de ses automatisations et de Alexa.
 
-Mise à jour pour Home Assistant: **2021.3.3**
+Mise à jour pour Home Assistant: **2021.9.7**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, et d'assistants Alexa (Echo, Echo Dot(s) & Show).
@@ -59,7 +59,7 @@ De plus j'utilise Portainer pour la gestion des différentes stacks et container
     * PostgreSQL
     * InfluxDB
     * TasmoAdmin
-    * QT OpenZWave
+    * ZWavejs2Mqtt
     * Zigbee2Mqtt
     * RFLink2Mqtt
   * **stack Utils**
@@ -77,12 +77,10 @@ Et pour démarrer portainer:
 
     docker run -d -p 9002:9000 --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v /path/to/your/data/portainer:/data --name  portainer portainer/portainer
 
+### NVR
+Utilisation d'une stack [Frigate](https://github.com/blakeblackshear/frigate) et d'un custom composant [Frigate custom component](https://github.com/blakeblackshear/frigate-hass-integration).
 
-### Deepstack
-Utilisation d'une stack [Deepstack](https://python.deepstack.cc/) et d'un custom composant [Deepstack-object](https://github.com/ORevelat/HASS-Deepstack-object).
-
-Détection de personne des caméras, avec sauvegarde sur disque de l'image + bounding-boxes si une détection.
-
+Détection d'object (person + cat) des caméras, avec sauvegarde sur disque de l'image + bounding-boxes si une détection.
 
 ### Image docker customisées
 J'utilise des images docker customisées principalement pour me faciliter mon utilisation de périphériques ou de mise à jour.
@@ -91,8 +89,7 @@ Aucune modification du logiciel officiel, mais un ajout de certaines dépendance
 
 Disponible dans le répertoire /docker-build.
 
-### Logiciels maison
+### Rflink2mqtt
 Inspirés de zigbee2mqtt et écris en python.
 
-#### Rflink2mqtt
 Envoie les infos de périfériques captés via un RFLink vers MQTT. Support de l'autodiscovery MQTT de Home Assistant.
