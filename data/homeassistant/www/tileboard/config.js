@@ -306,8 +306,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Salle à manger',
-                     id: 'sensor.detecteur_salle_a_manger_air_temperature',
-                     subtitle: 'Luminosité ' + '&sensor.detecteur_salle_a_manger_illuminance.state' + '&sensor.detecteur_salle_a_manger_illuminance.attributes.unit_of_measurement',
+                     id: 'sensor.sallemanger_air_temperature',
+                     subtitle: 'Luminosité ' + '&sensor.sallemanger_illuminance.state' + '&sensor.sallemanger_illuminance.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);

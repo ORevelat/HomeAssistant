@@ -31,73 +31,6 @@
                     ],
                     "cards": [
                         {
-                            "cards": [
-                                {
-                                    "card": {
-                                        "show_header_toggle": false,
-                                        "title": "Lumi\u00e8res allum\u00e9es",
-                                        "type": "entities"
-                                    },
-                                    "filter": {
-                                        "exclude": [
-                                            {
-                                                "entity_id": "light.*_current_value_2"
-                                            }
-                                        ],
-                                        "include": [
-                                            {
-                                                "domain": "light",
-                                                "state": "on"
-                                            }
-                                        ]
-                                    },
-                                    "show_empty": false,
-                                    "type": "custom:auto-entities"
-                                },
-                                {
-                                    "card": {
-                                        "show_header_toggle": false,
-                                        "title": "Prises allum\u00e9es",
-                                        "type": "entities"
-                                    },
-                                    "filter": {
-                                        "exclude": [
-                                            {
-                                                "entity_id": "switch.radiateur_*"
-                                            },
-                                            {
-                                                "entity_id": "switch.echo_*"
-                                            },
-                                            {
-                                                "entity_id": "switch.volet_*"
-                                            },
-                                            {
-                                                "entity_id": "switch.*_detect"
-                                            },
-                                            {
-                                                "entity_id": "switch.*_clips"
-                                            },
-                                            {
-                                                "entity_id": "switch.*_snapshots"
-                                            },
-                                            {
-                                                "entity_id": "switch.schedule_*"
-                                            }
-                                        ],
-                                        "include": [
-                                            {
-                                                "domain": "switch",
-                                                "state": "on"
-                                            }
-                                        ]
-                                    },
-                                    "show_empty": false,
-                                    "type": "custom:auto-entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
@@ -141,6 +74,76 @@
                                     "type": "custom:atomic-calendar-revive"
                                 }
                             ]
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "card": {
+                                        "show_header_toggle": false,
+                                        "title": "Lumi\u00e8res allum\u00e9es",
+                                        "type": "entities"
+                                    },
+                                    "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "light.*_current_value_2"
+                                            },
+                                            {
+                                                "entity_id": "light.*_2"
+                                            }
+                                        ],
+                                        "include": [
+                                            {
+                                                "domain": "light",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    "show_empty": false,
+                                    "type": "custom:auto-entities"
+                                },
+                                {
+                                    "card": {
+                                        "show_header_toggle": false,
+                                        "title": "Prises allum\u00e9es",
+                                        "type": "entities"
+                                    },
+                                    "filter": {
+                                        "exclude": [
+                                            {
+                                                "entity_id": "switch.radiateur_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.echo_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.volet_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.*_detect"
+                                            },
+                                            {
+                                                "entity_id": "switch.*_recordings"
+                                            },
+                                            {
+                                                "entity_id": "switch.*_snapshots"
+                                            },
+                                            {
+                                                "entity_id": "switch.schedule_*"
+                                            }
+                                        ],
+                                        "include": [
+                                            {
+                                                "domain": "switch",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    "show_empty": false,
+                                    "type": "custom:auto-entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         },
                         {
                             "cards": [
@@ -360,6 +363,89 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "show_states": true,
+                                "colorize_states": true
+                            },
+                            "apex_config": {
+                                "chart": {
+                                    "height": "300px"
+                                }
+                            },
+                            "experimental": {
+                                "color_threshold": true,
+                                "brush": true
+                            },
+                            "graph_span": "6h",
+                            "yaxis": [
+                                {
+                                    "decimals": 0
+                                }
+                            ],
+                            "brush": {
+                                "selection_span": "1h"
+                            },
+                            "all_series_config": {
+                                "color_threshold": [
+                                    {
+                                        "color": "#00ff00",
+                                        "value": 0
+                                    },
+                                    {
+                                        "color": "#38ff00",
+                                        "value": 500
+                                    },
+                                    {
+                                        "color": "#71ff00",
+                                        "value": 1000
+                                    },
+                                    {
+                                        "color": "#aaff00",
+                                        "value": 1500
+                                    },
+                                    {
+                                        "color": "#e2ff00",
+                                        "value": 2000
+                                    },
+                                    {
+                                        "color": "#ffe200",
+                                        "value": 2500
+                                    },
+                                    {
+                                        "color": "#ffaa00",
+                                        "value": 3000
+                                    },
+                                    {
+                                        "color": "#ff7100",
+                                        "value": 4000
+                                    },
+                                    {
+                                        "color": "#ff3800",
+                                        "value": 5000
+                                    },
+                                    {
+                                        "color": "#ff0000",
+                                        "value": 6000
+                                    }
+                                ]
+                            },
+                            "series": [
+                                {
+                                    "entity": "sensor.smart_meter_electric_consumed_w",
+                                    "stroke_width": 1,
+                                    "type": "area",
+                                    "show": {
+                                        "in_header": true,
+                                        "extremas": true,
+                                        "name_in_header": false,
+                                        "in_brush": true
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
@@ -446,15 +532,15 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.detecteur_salle_a_manger_air_temperature"
+                                                    "entity": "sensor.sallemanger_air_temperature"
                                                 },
                                                 {
-                                                    "entity": "sensor.detecteur_salle_a_manger_illuminance",
+                                                    "entity": "sensor.sallemanger_illuminance",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 },
                                                 {
-                                                    "entity": "binary_sensor.detecteur_salle_a_manger_home_security_motion_detection",
+                                                    "entity": "binary_sensor.sallemanger_home_security_motion_detection",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -542,13 +628,13 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "sensor.flood_sensor_air_temperature"
+                                    "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected"
                                 },
                                 {
-                                    "entity": "binary_sensor.flood_sensor_water_alarm_water_leak_detected"
+                                    "entity": "sensor.cuisine_air_temperature"
                                 },
                                 {
-                                    "entity": "sensor.flood_sensor_battery_level"
+                                    "entity": "sensor.cuisine_battery_level"
                                 }
                             ]
                         },
@@ -670,7 +756,7 @@
                                                     "show_state": true
                                                 },
                                                 {
-                                                    "entity": "binary_sensor.detecteur_escalier_home_security_motion_detection",
+                                                    "entity": "binary_sensor.etage_home_security_motion_detection",
                                                     "show_graph": false,
                                                     "show_state": true
                                                 }
@@ -1339,12 +1425,24 @@
                         {
                             "type": "entities",
                             "entities": [
-                                "switch.salon_detect",
-                                "switch.salon_clips",
-                                "switch.salon_snapshots",
-                                "switch.riviere_detect",
-                                "switch.riviere_clips",
-                                "switch.riviere_snapshots"
+                                {
+                                    "entity": "switch.salon_detect"
+                                },
+                                {
+                                    "entity": "switch.salon_recordings"
+                                },
+                                {
+                                    "entity": "switch.salon_snapshots"
+                                },
+                                {
+                                    "entity": "switch.riviere_detect"
+                                },
+                                {
+                                    "entity": "switch.riviere_recordings"
+                                },
+                                {
+                                    "entity": "switch.riviere_snapshots"
+                                }
                             ]
                         },
                         {
@@ -1645,7 +1743,6 @@
                             "type": "custom:scheduler-card",
                             "include": [
                                 "climate",
-                                "cover",
                                 "group",
                                 "input_boolean",
                                 "input_number",
@@ -1653,7 +1750,7 @@
                                 "light",
                                 "switch"
                             ],
-                            "discover_existing": true,
+                            "discover_existing": false,
                             "display_options": {
                                 "primary_info": [
                                     "name"
@@ -1664,6 +1761,58 @@
                                     "relative-time"
                                 ]
                             }
+                        },
+                        {
+                            "type": "custom:scheduler-card",
+                            "include": [
+                                "cover",
+                                "script"
+                            ],
+                            "discover_existing": false,
+                            "display_options": {
+                                "primary_info": [
+                                    "name"
+                                ],
+                                "secondary_info": [
+                                    "{time}: {action}",
+                                    "days",
+                                    "relative-time"
+                                ]
+                            },
+                            "title": "Volets",
+                            "customize": {
+                                "script.fermeture_automatique_volets": {
+                                    "actions": [
+                                        {
+                                            "service": "script.fermeture_automatique_volets",
+                                            "name": "Position",
+                                            "icon": "mdi:window-shutter-open",
+                                            "variables": {
+                                                "heure": {
+                                                    "name": "Heure",
+                                                    "time": null
+                                                },
+                                                "position_cuisine": {
+                                                    "name": "Positionnement cuisine",
+                                                    "min": 0,
+                                                    "max": 100
+                                                },
+                                                "position_salon": {
+                                                    "name": "Positionnement Salon",
+                                                    "min": 0,
+                                                    "max": 100
+                                                },
+                                                "position_salle_manger": {
+                                                    "name": "Positionnement Salle \u00e0 Manger",
+                                                    "min": 0,
+                                                    "max": 100
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "time_step": 2
                         }
                     ]
                 }

@@ -3,7 +3,7 @@
 
   - platform: mqtt
     name: "Sonoff Garage/Portail"
-    state_topic: "stat/sonoffgarage/POWER1"
+    state_topic: "stat/sonoffgarage/POWER"
     command_topic: "cmnd/sonoffgarage/POWER1"
     availability_topic: "tele/sonoffgarage/LWT"
     payload_on: "ON"
