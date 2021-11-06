@@ -1,0 +1,39 @@
+## THERMOSTAT CHAMBRES
+
+  - id: thermostat_sdb_on
+    alias: Thermostat Salle de bain - On
+    trigger:
+    - platform: time
+      at:
+        - '05:00:00'
+        - '16:00:00'
+    condition:
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_salledebain
+        data:
+          value: 25
+
+  - id: thermostat_sdb_off
+    alias: Thermostat Salle de bain - Off
+    trigger:
+    - platform: time
+      at:
+        - '06:00:00'
+        - '17:00:00'
+    condition:
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_salledebain
+        data:
+          value: 18

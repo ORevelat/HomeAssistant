@@ -1,0 +1,112 @@
+## THERMOSTAT CHAMBRES
+
+  - id: thermostat_rdc_day_1
+    alias: Thermostat Rez de Chaussée - journée 1
+    trigger:
+    - platform: time
+      at: '05:30:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_rdc
+        data:
+          value: 21
+
+  - id: thermostat_rdc_day_2
+    alias: Thermostat Rez de Chaussée - journée 2
+    trigger:
+    - platform: time
+      at: '08:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_rdc
+        data:
+          value: 20
+
+  - id: thermostat_rdc_day_3
+    alias: Thermostat Rez de Chaussée - journée 3
+    trigger:
+    - platform: time
+      at: '17:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_rdc
+        data:
+          value: 21
+
+  - id: thermostat_rdc_day_4
+    alias: Thermostat Rez de Chaussée - journée 4
+    trigger:
+    - platform: time
+      at: '07:30:00'
+    condition:
+      - condition: time
+        weekday:
+          - wed
+          - sat
+          - sun
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_rdc
+        data:
+          value: 21
+
+  - id: thermostat_rdc_night
+    alias: Thermostat Rez de Chaussée - nuit
+    trigger:
+    - platform: time
+      at: '22:30:00'
+    condition:
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+      - condition: state
+        entity_id: input_boolean.automation_enable_thermostat_rdc_clim
+        state: 'on'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_rdc
+        data:
+          value: 19

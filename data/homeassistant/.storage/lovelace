@@ -90,6 +90,9 @@
                                             },
                                             {
                                                 "entity_id": "light.*_2"
+                                            },
+                                            {
+                                                "entity_id": "light.*_4"
                                             }
                                         ],
                                         "include": [
@@ -639,7 +642,7 @@
                             ]
                         },
                         {
-                            "type": "horizontal-stack",
+                            "type": "vertical-stack",
                             "cards": [
                                 {
                                     "type": "thermostat",
@@ -647,22 +650,10 @@
                                     "name": "Rez de Chauss\u00e9e"
                                 },
                                 {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.hass_climatisation_rdc"
-                                        }
-                                    ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "name": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
+                                    "type": "entity",
+                                    "entity": "input_boolean.automation_enable_thermostat_rdc_clim",
+                                    "name": "Programmation automatique",
+                                    "icon": "mdi:clock-outline"
                                 }
                             ]
                         },
@@ -905,25 +896,13 @@
                                     "type": "thermostat"
                                 },
                                 {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.hass_climatisation_etage"
-                                        }
-                                    ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "name": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
+                                    "type": "entity",
+                                    "entity": "input_boolean.automation_enable_thermostat_etage_clim",
+                                    "name": "Programmation automatique",
+                                    "icon": "mdi:clock-outline"
                                 }
                             ],
-                            "type": "horizontal-stack"
+                            "type": "vertical-stack"
                         }
                     ]
                 },
@@ -1123,19 +1102,14 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "entity",
+                            "entity": "input_select.thermostat_mode",
+                            "icon": "mdi:thermostat-box",
+                            "name": "Mode chauffage"
+                        },
+                        {
+                            "type": "vertical-stack",
                             "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "input_select.thermostat_mode",
-                                            "icon": "mdi:thermostat-box",
-                                            "name": "Mode"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "Chauffage",
-                                    "type": "entities"
-                                },
                                 {
                                     "entities": [
                                         {
@@ -1158,26 +1132,12 @@
                                     "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
                                     "title": "Rez de chauss\u00e9e",
                                     "type": "entities"
-                                },
-                                {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.hass_chauffage_rdc"
-                                        }
-                                    ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_rdc', 'off') %} lightgrey {% endif %};\n}\n",
-                                    "title": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
                                     "entities": [
                                         {
@@ -1197,26 +1157,31 @@
                                     "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
                                     "title": "Salle de bain",
                                     "type": "entities"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_rdc"
                                 },
                                 {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.hass_chauffage_salle_de_bain"
-                                        }
-                                    ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_salledebain', 'off') %} lightgrey {% endif %};\n}\n",
-                                    "title": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
+                                    "entity": "input_boolean.automation_enable_thermostat_bedroom_parents"
                                 },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_bedroom_thea"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_thermostat_salledebain"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "state_color": true
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
                                     "entities": [
                                         {
@@ -1236,26 +1201,12 @@
                                     "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
                                     "title": "Ch. des Parents",
                                     "type": "entities"
-                                },
-                                {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.hass_chauffage_chambres"
-                                        }
-                                    ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_parents', 'off') %} lightgrey {% endif %};\n}\n",
-                                    "title": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
                                     "entities": [
                                         {
@@ -1275,29 +1226,8 @@
                                     "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
                                     "title": "Ch. de Th\u00e9a",
                                     "type": "entities"
-                                },
-                                {
-                                    "dateFormat": "MMMM",
-                                    "dateSize": 130,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.hass_chauffage_chambres"
-                                        }
-                                    ],
-                                    "maxDaysToShow": 0,
-                                    "showDate": false,
-                                    "showWeekDay": true,
-                                    "showMonth": false,
-                                    "disableEventLink": true,
-                                    "disableLocationLink": true,
-                                    "showRelativeTime": false,
-                                    "style": "ha-card {\n  background: {% if is_state('input_boolean.automation_enable_thermostat_bedroom_thea', 'off') %} lightgrey {% endif %};\n}\n",
-                                    "title": "Programmation",
-                                    "type": "custom:atomic-calendar-revive"
                                 }
-                            ],
-                            "type": "custom:layout-card",
-                            "layout_type": "custom:grid"
+                            ]
                         }
                     ]
                 },
@@ -1648,51 +1578,6 @@
                                 },
                                 {
                                     "entity": "input_boolean.automation_enable_covers_sunset"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_light_garage"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_mosquito_switch"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_pool_pump"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_garden_fountain"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_garden_projector"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_christmas_decoration"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_thermostat_rdc"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_thermostat_bedroom_parents"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_thermostat_bedroom_thea"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_thermostat_salledebain"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_thermostat_etage_clim"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_thermostat_rdc_clim"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_cats_fountain"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_irrigation_lawn"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_irrigation_pots"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1761,58 +1646,6 @@
                                     "relative-time"
                                 ]
                             }
-                        },
-                        {
-                            "type": "custom:scheduler-card",
-                            "include": [
-                                "cover",
-                                "script"
-                            ],
-                            "discover_existing": false,
-                            "display_options": {
-                                "primary_info": [
-                                    "name"
-                                ],
-                                "secondary_info": [
-                                    "{time}: {action}",
-                                    "days",
-                                    "relative-time"
-                                ]
-                            },
-                            "title": "Volets",
-                            "customize": {
-                                "script.fermeture_automatique_volets": {
-                                    "actions": [
-                                        {
-                                            "service": "script.fermeture_automatique_volets",
-                                            "name": "Position",
-                                            "icon": "mdi:window-shutter-open",
-                                            "variables": {
-                                                "heure": {
-                                                    "name": "Heure",
-                                                    "time": null
-                                                },
-                                                "position_cuisine": {
-                                                    "name": "Positionnement cuisine",
-                                                    "min": 0,
-                                                    "max": 100
-                                                },
-                                                "position_salon": {
-                                                    "name": "Positionnement Salon",
-                                                    "min": 0,
-                                                    "max": 100
-                                                },
-                                                "position_salle_manger": {
-                                                    "name": "Positionnement Salle \u00e0 Manger",
-                                                    "min": 0,
-                                                    "max": 100
-                                                }
-                                            }
-                                        }
-                                    ]
-                                }
-                            },
-                            "time_step": 2
                         }
                     ]
                 }

@@ -1,0 +1,37 @@
+## THERMOSTAT CHAMBRES
+
+  - id: thermostat_chambre_day
+    alias: Thermostat Chambres - journée
+    trigger:
+    - platform: time
+      at: '07:00:00'
+    condition:
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_parents
+            - input_number.thermostat_consigne_thea
+        data:
+          value: 19
+
+  - id: thermostat_chambre_night
+    alias: Thermostat Chambres - nuit
+    trigger:
+    - platform: time
+      at: '21:00:00'
+    condition:
+      - condition: state
+        entity_id: input_select.thermostat_mode
+        state: 'Normal'
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id:
+            - input_number.consigne_thermostat_parents
+            - input_number.thermostat_consigne_thea
+        data:
+          value: 18

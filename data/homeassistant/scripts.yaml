@@ -1,2 +1,44 @@
 
 ## SCRIPTS
+
+  fermeture_automatique_volets:
+    mode: single
+    alias: Fermeture automatique des Volets
+    sequence:
+      - condition: time
+        after: "18:00:00"
+      - condition: template 
+        value_template: "{{ state_attr('sun.sun', 'elevation') < -5.9 }}"
+      - service: notify.alexa_media
+        data:
+          target:
+            - "echo salon" 
+            - "echo bureau" 
+          data:
+            type: tts
+          message: "attention je vais procéder à la fermeture des volets dans deux minutes !"
+      - delay: '00:02:00'
+      - service: notify.alexa_media
+        data:
+          target:
+            - "echo salon" 
+          data:
+            type: tts
+          message: "fermeture des volets"
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salle_a_manger_current_value
+        data:
+          position: "{{ position_salle_manger }}"
+      - delay: '00:00:01'
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_cuisine_current_value
+        data:
+          position: "{{ position_cuisine }}"
+      - delay: '00:00:01'
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salon_current_value
+        data:
+          position: "{{ position_salon }}"
