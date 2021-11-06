@@ -14,7 +14,7 @@
         target:
           entity_id:
             - input_number.consigne_thermostat_parents
-            - input_number.thermostat_consigne_thea
+            - input_number.consigne_thermostat_thea
         data:
           value: 19
 
@@ -32,6 +32,6 @@
         target:
           entity_id:
             - input_number.consigne_thermostat_parents
-            - input_number.thermostat_consigne_thea
+            - input_number.consigne_thermostat_thea
         data:
           value: 18
