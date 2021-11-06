@@ -853,15 +853,21 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "type": "sensor",
-                            "entity": "sensor.thermometer_bureau_temperature",
-                            "graph": "line"
-                        },
-                        {
-                            "type": "sensor",
-                            "entity": "sensor.thermometer_salle_bain_temperature",
-                            "graph": "line",
-                            "detail": 1
+                            "cards": [
+                                {
+                                    "entity": "climate.daikin_etage",
+                                    "show_header_toggle": false,
+                                    "name": "Etage",
+                                    "type": "thermostat"
+                                },
+                                {
+                                    "type": "entity",
+                                    "entity": "input_boolean.automation_enable_thermostat_etage_clim",
+                                    "name": "Programmation automatique",
+                                    "icon": "mdi:clock-outline"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         },
                         {
                             "entities": [
@@ -888,21 +894,10 @@
                             "type": "entities"
                         },
                         {
-                            "cards": [
-                                {
-                                    "entity": "climate.daikin_etage",
-                                    "show_header_toggle": false,
-                                    "name": "Etage",
-                                    "type": "thermostat"
-                                },
-                                {
-                                    "type": "entity",
-                                    "entity": "input_boolean.automation_enable_thermostat_etage_clim",
-                                    "name": "Programmation automatique",
-                                    "icon": "mdi:clock-outline"
-                                }
-                            ],
-                            "type": "vertical-stack"
+                            "type": "sensor",
+                            "entity": "sensor.thermometer_salle_bain_temperature",
+                            "graph": "line",
+                            "detail": 1
                         }
                     ]
                 },
@@ -1141,7 +1136,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.salle_de_bain_thermometer_temperature",
+                                            "entity": "sensor.thermometer_salle_bain_temperature",
                                             "name": "Temp\u00e9rature"
                                         },
                                         {

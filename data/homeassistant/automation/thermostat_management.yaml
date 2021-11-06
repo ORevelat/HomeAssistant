@@ -4,17 +4,16 @@
   - id: thermostat_management_ch_thea_on
     alias: Thermostat management - Chambre Théa - On
     trigger:
-      - platform: numeric_state
+      - platform: state
         entity_id: sensor.thermometer_chambre_thea_temperature
-        value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) + (0.1 | float) }}"
-        below: input_number.consigne_thermostat_thea
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_bedroom_thea
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) < ((states('input_number.consigne_thermostat_thea') | float ) - (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -24,17 +23,16 @@
   - id: thermostat_management_ch_thea_off
     alias: Thermostat management - Chambre Théa - Off
     trigger:
-      - platform: numeric_state
+      - platform: state
         entity_id: sensor.thermometer_chambre_thea_temperature
-        value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) - (0.1 | float)}}"
-        above: input_number.consigne_thermostat_thea
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_bedroom_thea
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) > ((states('input_number.consigne_thermostat_thea') | float ) + (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -44,17 +42,16 @@
   - id: thermostat_management_ch_parents_on
     alias: Thermostat management - Chambre Parents - On
     trigger:
-      - platform: numeric_state
+      - platform: state
         entity_id: sensor.thermometer_chambre_parents_temperature
-        value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) + (0.1 | float) }}"
-        below: input_number.consigne_thermostat_parents
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_bedroom_parents
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) < ((states('input_number.consigne_thermostat_parents') | float ) - (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -64,17 +61,16 @@
   - id: thermostat_management_ch_parents_off
     alias: Thermostat management - Chambre Parents - Off
     trigger:
-      - platform: numeric_state
+      - platform: state
         entity_id: sensor.thermometer_chambre_parents_temperature
-        value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) - (0.1 | float)}}"
-        above: input_number.consigne_thermostat_parents
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_bedroom_parents
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) > ((states('input_number.consigne_thermostat_parents') | float ) + (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -84,17 +80,16 @@
   - id: thermostat_management_rdc_on
     alias: Thermostat management - Rez de Chaussée - On
     trigger:
-      - platform: numeric_state
+      - platform: state
         entity_id: sensor.thermometer_salon_temperature
-        value_template: "{{ (states('sensor.salle_de_bain_thermometer_temperature') | float) + (0.1 | float) }}"
-        below: input_number.consigne_thermostat_rdc
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_rdc
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) < ((states('input_number.consigne_thermostat_rdc') | float ) - (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -106,17 +101,16 @@
   - id: thermostat_management_rdc_off
     alias: Thermostat management - Rez de Chaussée - Off
     trigger:
-      - platform: numeric_state
+      - platform: state
         entity_id: sensor.thermometer_salon_temperature
-        value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) - (0.1 | float)}}"
-        above: input_number.consigne_thermostat_rdc
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_rdc
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) > ((states('input_number.consigne_thermostat_rdc') | float ) + (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -128,17 +122,16 @@
   - id: thermostat_management_sdb_on
     alias: Thermostat management - Salle de bain - On
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.salle_de_bain_thermometer_temperature
-        value_template: "{{ (states('sensor.salle_de_bain_thermometer_temperature') | float) + (0.1 | float) }}"
-        below: input_number.consigne_thermostat_salledebain
+      - platform: state
+        entity_id: sensor.thermometer_salle_bain_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_salledebain
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_salle_bain_temperature') | float) < ((states('input_number.consigne_thermostat_salledebain') | float ) - (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
@@ -148,17 +141,16 @@
   - id: thermostat_management_sdb_off
     alias: Thermostat management - Salle de bain - Off
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.salle_de_bain_thermometer_temperature
-        value_template: "{{ (states('sensor.salle_de_bain_thermometer_temperature') | float) - (0.1 | float)}}"
-        above: input_number.consigne_thermostat_salledebain
+      - platform: state
+        entity_id: sensor.thermometer_salle_bain_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_salledebain
         state: 'on'
-    mode: queued
+      - condition: template
+        value_template: "{{ (states('sensor.thermometer_salle_bain_temperature') | float) > ((states('input_number.consigne_thermostat_salledebain') | float ) + (0.1 | float)) }}"
     action:
       - service: input_select.select_option
         data:
