@@ -14,6 +14,8 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) < ((states('input_number.consigne_thermostat_thea') | float ) - (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_thea', 'Confort') }}"
     action:
       - service: input_select.select_option
         data:
@@ -33,6 +35,8 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) > ((states('input_number.consigne_thermostat_thea') | float ) + (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_thea', 'Arrêt') }}"
     action:
       - service: input_select.select_option
         data:
@@ -52,10 +56,12 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) < ((states('input_number.consigne_thermostat_parents') | float ) - (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_parents', 'Confort') }}"
     action:
       - service: input_select.select_option
         data:
-          entity_id: input_select.radiator_thea
+          entity_id: input_select.radiator_parents
           option: 'Confort' 
 
   - id: thermostat_management_ch_parents_off
@@ -71,10 +77,12 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) > ((states('input_number.consigne_thermostat_parents') | float ) + (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_parents', 'Arrêt') }}"
     action:
       - service: input_select.select_option
         data:
-          entity_id: input_select.radiator_thea
+          entity_id: input_select.radiator_parents
           option: 'Arrêt' 
 
   - id: thermostat_management_rdc_on
@@ -90,6 +98,8 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) < ((states('input_number.consigne_thermostat_rdc') | float ) - (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_salon', 'Confort') and not is_state('input_select.radiator_sallemanger', 'Confort') }}"
     action:
       - service: input_select.select_option
         data:
@@ -111,6 +121,8 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) > ((states('input_number.consigne_thermostat_rdc') | float ) + (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_salon', 'Arrêt') and not is_state('input_select.radiator_sallemanger', 'Arrêt') }}"
     action:
       - service: input_select.select_option
         data:
@@ -132,6 +144,8 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_salle_bain_temperature') | float) < ((states('input_number.consigne_thermostat_salledebain') | float ) - (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_salledebain', 'Confort') }}"
     action:
       - service: input_select.select_option
         data:
@@ -151,6 +165,8 @@
         state: 'on'
       - condition: template
         value_template: "{{ (states('sensor.thermometer_salle_bain_temperature') | float) > ((states('input_number.consigne_thermostat_salledebain') | float ) + (0.1 | float)) }}"
+      - condition: template
+        value_template: "{{ not is_state('input_select.radiator_salledebain', 'Arrêt') }}"
     action:
       - service: input_select.select_option
         data:
