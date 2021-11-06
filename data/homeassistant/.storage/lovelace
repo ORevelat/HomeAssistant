@@ -1536,6 +1536,22 @@
                             }
                         },
                         {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.automation_enable_weather_alert_notif"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_covers_sunrise"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_covers_sunset"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "state_color": true
+                        },
+                        {
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Consommation",
@@ -1558,30 +1574,6 @@
                                 ]
                             },
                             "type": "custom:auto-entities"
-                        }
-                    ]
-                },
-                {
-                    "title": "Automations",
-                    "path": "automations",
-                    "icon": "mdi:home-automation",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.automation_enable_weather_alert_notif"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_covers_sunrise"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_covers_sunset"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "state_color": true
                         }
                     ]
                 },
