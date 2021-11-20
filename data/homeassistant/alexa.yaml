@@ -42,6 +42,7 @@
         - sensor.thermometer_chambre_thea_temperature
         - sensor.thermometer_jardin_temperature
         - sensor.thermometer_salon_temperature
+        - sensor.thermometer_garage_temperature
         - sensor.detecteur_escalier_air_temperature
         - sensor.detecteur_salle_a_manger_air_temperature
         - sensor.salle_de_bain_thermometer_temperature
@@ -72,6 +73,9 @@
         name: lumière salon
       light.lumiere_salle_a_manger_current_value:
         name: lumière salle à manger
+      sensor.thermometer_garage_temperature:
+        name: température garage
+        display_categories: TEMPERATURE_SENSOR
       sensor.thermometer_salon_temperature:
         name: température salon
         display_categories: TEMPERATURE_SENSOR

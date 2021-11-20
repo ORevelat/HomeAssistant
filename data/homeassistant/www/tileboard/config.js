@@ -295,6 +295,7 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      title: 'Salon',
                      id: 'sensor.thermometer_salon_temperature',
+                     subtitle: 'Humidité ' + '&sensor.thermometer_salon_humidity.state' + '&sensor.thermometer_salon_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -308,6 +309,18 @@ var CONFIG = {
                      title: 'Salle à manger',
                      id: 'sensor.sallemanger_air_temperature',
                      subtitle: 'Luminosité ' + '&sensor.sallemanger_illuminance.state' + '&sensor.sallemanger_illuminance.attributes.unit_of_measurement',
+                     state: false,
+                     filter: function (value) {
+                        var num = parseFloat(value);
+                        return num && !isNaN(num) ? num.toFixed(1) : value;
+                     }
+                  },
+                  {
+                     position: [0, 2.50],
+                     height: 1.25,
+                     type: TYPES.SENSOR,
+                     title: 'Garage',
+                     id: 'sensor.thermometer_garage_temperature',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
@@ -845,6 +858,110 @@ var CONFIG = {
                      icons: {
                         on: "mdi-power-plug",
                         off: "mdi-power-plug-off",
+                     }
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         title: 'Chauffage',
+         bg: 'images/bg5.jpg',
+         icon: 'mdi-home-thermometer',
+         tileSize: 160,
+         groups: [
+            {
+               title: 'Climatisation',
+               height: 2,
+               items: [
+                  {
+                     position: [0, 0],
+                     width: 1,
+                     id: "input_boolean.automation_enable_thermostat_rdc_clim",
+                     title: "Mode Salon",
+                     classes: [CLASS_BIG],
+                     type: TYPES.INPUT_BOOLEAN,
+                     icons: {
+                        on: 'mdi-stop',
+                        off: 'mdi-play'
+                     },
+                     states: {
+                        on: "Automatique",
+                        off: "Arrêt"
+                     }
+                  },
+                  {
+                     position: [0, 1],
+                     id: "climate.daikin_salon",
+                     type: TYPES.CLIMATE,
+                     unit: 'C',
+                     useHvacMode: true,  // Optional: enables HVAC mode (by default uses PRESET mode)
+                     state: function (item, entity) {
+                        return 'Current '
+                           + entity.attributes.current_temperature
+                           + '°';
+                     },
+                     states: {
+                        'fan_only': 'Ventilateur',
+                        'dry': 'Séchage',
+                        'cool': 'Froid',
+                        'heat': 'Chauffe',
+                        'heat_cool': 'Automatique',
+                        'off': 'Eteint',
+                     },
+                  },
+                  {
+                     position: [1, 0],
+                     width: 1,
+                     id: "input_boolean.automation_enable_thermostat_etage_clim",
+                     title: "Mode Etage",
+                     classes: [CLASS_BIG],
+                     type: TYPES.INPUT_BOOLEAN,
+                     icons: {
+                        on: 'mdi-stop',
+                        off: 'mdi-play'
+                     },
+                     states: {
+                        on: "Automatique",
+                        off: "Arrêt"
+                     }
+                  },
+                  {
+                     position: [1, 1],
+                     id: "climate.daikin_etage",
+                     type: TYPES.CLIMATE,
+                     unit: 'C',
+                     useHvacMode: true,  // Optional: enables HVAC mode (by default uses PRESET mode)
+                     state: function (item, entity) {
+                        return 'Current '
+                           + entity.attributes.current_temperature
+                           + '°';
+
+                     },
+                     states: {
+                        'fan_only': 'Ventilateur',
+                        'dry': 'Séchage',
+                        'cool': 'Froid',
+                        'heat': 'Chauffe',
+                        'heat_cool': 'Automatique',
+                        'off': 'Eteint',
+                     },
+                  }
+               ]
+            },
+            {
+               title: 'Chauffage',
+               height: 2,
+               items: [
+                  {
+                     position: [0, 0],
+                     type: TYPES.INPUT_SELECT,
+                     id: 'input_select.thermostat_mode',
+                     title: 'Mode Chauffage',
+                     icons: {
+                        Normal: 'mdi-home',
+                        Arrêt: 'mdi-palm-tree',
+                        Absent: 'mdi-stop'
                      }
                   }
                ]

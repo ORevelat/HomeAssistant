@@ -9,4 +9,6 @@
       - sensor.thermometer_chambre_thea_temperature
       - sensor.thermometer_jardin_temperature
       - sensor.thermometer_salon_temperature
+      - sensor.thermometer_garage_temperature
+      - sensor.thermometer_salle_bain_temperature
       - light.led_chambre_thea
