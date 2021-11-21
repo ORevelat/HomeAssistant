@@ -23,8 +23,8 @@
       - sensor.thermometer_bureau_humidity
       - sensor.thermometer_salon_temperature
       - sensor.thermometer_salon_humidity
-      - sensor.salle_de_bain_thermometer_temperature
-      - sensor.salle_de_bain_thermometer_humidity
+      - sensor.thermometer_salle_bain_temperature
+      - sensor.thermometer_salle_bain_humidity
       - sensor.thermometer_garage_temperature
       - sensor.detecteur_escalier_air_temperature
       - sensor.detecteur_escalier_illuminance

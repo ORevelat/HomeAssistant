@@ -1,0 +1,31 @@
+
+## WEATHER ALERT
+
+  - alias: Notification Alerte Météo
+    trigger:
+      platform: state
+      entity_id: sensor.06_weather_alert
+    action:
+      - service: notify.mobile_app_iphone_de_olivier
+        data:
+          title: "Alerte Météo"
+          message: |
+            {% if not is_state('sensor.06_weather_alert', 'Vert') %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Inondation', 'Vert') %}Inondation {{ state_attr('sensor.06_weather_alert', 'Inondation') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Avalanches', 'Vert') %}Avalanches {{ state_attr('sensor.06_weather_alert', 'Avalanches') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Grand-froid', 'Vert') %}Grand-froid {{ state_attr('sensor.06_weather_alert', 'Grand-froid') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Neige-verglas', 'Vert') %}Neige-verglas {{ state_attr('sensor.06_weather_alert', 'Neige-verglas') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Orages', 'Vert') %}Orages {{ state_attr('sensor.06_weather_alert', 'Orages') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Pluie-inondation', 'Vert') %}Pluie-inondation {{ state_attr('sensor.06_weather_alert', 'Pluie-inondation') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Vent violent', 'Vert') %}Vent violent {{ state_attr('sensor.06_weather_alert', 'Vent violent') }}{% endif %}
+            {% if not is_state_attr('sensor.06_weather_alert', 'Vagues-submersion', 'Vert') %}Vagues-submersion {{ state_attr('sensor.06_weather_alert', 'Vagues-submersion') }}{% endif %}
+            {% endif %}
+          data:
+            subtitle: |
+              {% if is_state('sensor.06_weather_alert', 'Vert') %}
+              La vigilance météo terminée.
+              {% else %}
+              Une vigilance {{ states('sensor.06_weather_alert') }} est active !
+              {% endif %}
+            push:
+                thread-id: "weatheralert-notification-group"

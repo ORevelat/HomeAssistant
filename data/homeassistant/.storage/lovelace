@@ -1286,107 +1286,40 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "picture-elements",
-                            "entity": "camera.salon",
-                            "camera_image": "camera.salon",
-                            "camera_view": "live",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:cctv",
-                                    "entity": "camera.salon",
-                                    "title": "Live",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "25px"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:run-fast",
-                                    "entity": "camera.salon_person",
-                                    "title": "Derni\u00e8re d\u00e9tection",
-                                    "state_color": true,
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "100px"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:cat",
-                                    "entity": "camera.salon_cat",
-                                    "title": "Derni\u00e8re d\u00e9tection",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "130px"
-                                    }
-                                }
-                            ]
+                            "type": "custom:frigate-card",
+                            "camera_entity": "camera.salon",
+                            "view": {
+                                "timeout": "15",
+                                "default": "live"
+                            }
                         },
                         {
-                            "type": "picture-elements",
-                            "entity": "camera.riviere",
-                            "camera_image": "camera.riviere",
-                            "camera_view": "live",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:cctv",
-                                    "entity": "camera.riviere",
-                                    "title": "Live",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "25px"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:run-fast",
-                                    "entity": "camera.riviere_person",
-                                    "title": "Derni\u00e8re d\u00e9tection",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "100px"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:cat",
-                                    "entity": "camera.riviere_cat",
-                                    "title": "Derni\u00e8re d\u00e9tection",
-                                    "style": {
-                                        "bottom": "0px",
-                                        "left": "130px"
-                                    }
-                                }
-                            ]
+                            "type": "custom:frigate-card",
+                            "camera_entity": "camera.riviere",
+                            "view": {
+                                "default": "live",
+                                "timeout": "15"
+                            }
                         },
                         {
-                            "type": "entities",
+                            "open": false,
+                            "type": "custom:fold-entity-row",
                             "entities": [
-                                {
-                                    "entity": "switch.salon_detect"
-                                },
-                                {
-                                    "entity": "switch.salon_recordings"
-                                },
-                                {
-                                    "entity": "switch.salon_snapshots"
-                                },
-                                {
-                                    "entity": "switch.riviere_detect"
-                                },
-                                {
-                                    "entity": "switch.riviere_recordings"
-                                },
-                                {
-                                    "entity": "switch.riviere_snapshots"
-                                }
-                            ]
+                                "switch.salon_detect",
+                                "switch.salon_recordings",
+                                "switch.salon_snapshots",
+                                "switch.riviere_detect",
+                                "switch.riviere_recordings",
+                                "switch.riviere_snapshots"
+                            ],
+                            "head": {
+                                "type": "section",
+                                "label": "Configuration"
+                            }
                         },
                         {
-                            "type": "entities",
+                            "open": false,
+                            "type": "custom:fold-entity-row",
                             "entities": [
                                 "sensor.coral_inference_speed",
                                 "sensor.detection_fps",
@@ -1398,7 +1331,11 @@
                                 "sensor.riviere_process_fps",
                                 "sensor.riviere_detection_fps",
                                 "sensor.riviere_skipped_fps"
-                            ]
+                            ],
+                            "head": {
+                                "type": "section",
+                                "label": "Statistiques"
+                            }
                         }
                     ]
                 },

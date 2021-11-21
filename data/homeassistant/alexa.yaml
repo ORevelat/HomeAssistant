@@ -43,9 +43,9 @@
         - sensor.thermometer_jardin_temperature
         - sensor.thermometer_salon_temperature
         - sensor.thermometer_garage_temperature
+        - sensor.thermometer_salle_bain_temperature
         - sensor.detecteur_escalier_air_temperature
         - sensor.detecteur_salle_a_manger_air_temperature
-        - sensor.salle_de_bain_thermometer_temperature
     entity_config:
       climate.daikin_etage:
         name: thermostat étage
@@ -94,7 +94,7 @@
       sensor.thermometer_chambre_thea_temperature:
         name: température chambre théa
         display_categories: TEMPERATURE_SENSOR
-      sensor.salle_de_bain_thermometer_temperature:
+      sensor.thermometer_salle_bain_temperature:
         name: température salle de bain
         display_categories: TEMPERATURE_SENSOR
       sensor.thermometer_jardin_temperature:

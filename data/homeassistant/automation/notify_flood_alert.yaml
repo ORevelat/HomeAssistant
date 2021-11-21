@@ -1,0 +1,16 @@
+
+## FLOOD DETECTION
+
+  - alias: Notification Détection Eau
+    trigger:
+      platform: state
+      entity_id: binary_sensor.cuisine_water_alarm_water_leak_detected
+      to: 'on'
+    action:
+      - service: notify.mobile_app_iphone_de_olivier
+        data:
+          title: "Alarme Eau"
+          message: Le détecteur cuisine reporte la détection d'une fuite d'eau.
+          data:
+            push:
+                thread-id: "wateralarm-notification-group"
