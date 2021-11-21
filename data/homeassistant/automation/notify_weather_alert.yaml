@@ -1,7 +1,8 @@
 
 ## WEATHER ALERT
 
-  - alias: Notification Alerte Météo
+  - id: notification_weather_alert
+    alias: Notification Alerte Météo
     trigger:
       platform: state
       entity_id: sensor.06_weather_alert

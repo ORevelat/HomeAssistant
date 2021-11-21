@@ -1,7 +1,8 @@
 
 ## ROLLER SHUTTERS
 
-  - alias: Volets roulants - Ouverture
+  - id: roller_shutter_open
+    alias: Volets roulants - Ouverture
     trigger:
       - platform: sun
         event: sunrise
@@ -18,16 +19,18 @@
         - condition: sun  
           after: sunrise
     action:
-      service: system_log.write
+      service: logbook.log
       data:
         message: "Ouverture volets !"
-        level: info
+        name: "Volets"
+
     #   - service: cover.set_cover_position
     #     entity_id: cover.fibaro_roller_shutter_cuisine_level
     #     data:
     #       position: 100
 
-  - alias: Volets roulants - Fermeture
+  - id: roller_shutter_close
+    alias: Volets roulants - Fermeture
     trigger:
       - platform: numeric_state
         entity_id: sun.sun
@@ -47,10 +50,10 @@
         - condition: template 
           value_template: '{{ states.sun.sun.attributes.elevation < -5.9 }}'
     action:
-      service: system_log.write
+      service: logbook.log
       data:
         message: "Fermeture volets !"
-        level: info
+        name: "Volets"
     #   - service: notify.alexa_media
     #     data:
     #       target:

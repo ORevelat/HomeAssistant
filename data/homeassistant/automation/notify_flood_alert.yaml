@@ -1,7 +1,8 @@
 
 ## FLOOD DETECTION
 
-  - alias: Notification Détection Eau
+  - id: notification_water_alert
+    alias: Notification Détection Eau
     trigger:
       platform: state
       entity_id: binary_sensor.cuisine_water_alarm_water_leak_detected

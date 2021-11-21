@@ -1,6 +1,7 @@
 ## IRRIGATION PELOUSE
 
-  - alias: Irrigation Pelouse
+  - id: irrigation_law_start
+    alias: Irrigation Pelouse
     trigger:
       platform: state
       entity_id:
@@ -24,7 +25,8 @@
       - service: switch.turn_off
         entity_id: switch.shelly25_arrosage_channel_1
 
-  - alias: Irrigation Pelouse reset
+  - id: irrigation_law_stop
+    alias: Irrigation Pelouse reset
     trigger:
       platform: state
       entity_id:
@@ -37,7 +39,8 @@
           entity_id:
             - timer.irrigation_lawn_timer
 
-  - alias: Irrigation Goutte à Goutte
+  - id: irrigation_flower_start
+    alias: Irrigation Goutte à Goutte
     trigger:
       platform: state
       entity_id:
@@ -61,7 +64,8 @@
       - service: switch.turn_off
         entity_id: switch.shelly25_arrosage_channel_2
 
-  - alias: Irrigation Goutte à Goutte reset
+  - id: irrigation_flower_stop
+    alias: Irrigation Goutte à Goutte reset
     trigger:
       platform: state
       entity_id:

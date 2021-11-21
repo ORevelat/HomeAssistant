@@ -1,6 +1,7 @@
 ## FIL PILOTE
 
-  - alias: Selecteur Pilote Confort
+  - id: wire_pilot_confort
+    alias: Selecteur Pilote Confort
     trigger:
       platform: state
       entity_id:
@@ -30,7 +31,8 @@
             {% endif %}
           brightness_pct: 99 
 
-  - alias: Selecteur Pilote Confort -1
+  - id: wire_pilot_confort_1
+    alias: Selecteur Pilote Confort -1
     trigger:
       platform: state
       entity_id:
@@ -60,7 +62,8 @@
             {% endif %}
           brightness_pct: 50  
 
-  - alias: Selecteur Pilote Confort -2
+  - id: wire_pilot_confort_2
+    alias: Selecteur Pilote Confort -2
     trigger:
       platform: state
       entity_id:
@@ -90,7 +93,8 @@
             {% endif %}
           brightness_pct: 40
 
-  - alias: Selecteur Pilote Eco 
+  - id: wire_pilot_eco
+    alias: Selecteur Pilote Eco 
     trigger:
       platform: state
       entity_id:
@@ -120,7 +124,8 @@
             {% endif %}
           brightness_pct: 30 
 
-  - alias: Selecteur Pilote Hors-gel
+  - id: wire_pilot_freeze
+    alias: Selecteur Pilote Hors-gel
     trigger:
       platform: state
       entity_id:
@@ -150,7 +155,8 @@
             {% endif %}
           brightness_pct: 20
 
-  - alias: Selecteur Pilote Arrêt 
+  - id: wire_pilot_stop
+    alias: Selecteur Pilote Arrêt 
     trigger:
       platform: state
       entity_id:
