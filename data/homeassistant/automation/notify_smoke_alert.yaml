@@ -1,0 +1,17 @@
+
+## FLOOD DETECTION
+
+  - id: notification_smoke_alert
+    alias: Notification Détection Fumée
+    trigger:
+      platform: state
+      entity_id: binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected
+      to: 'on'
+    action:
+      - service: notify.mobile_app_iphone_de_olivier
+        data:
+          title: "Alarme Fumée"
+          message: Le détecteur escalier reporte la détection de fumée.
+          data:
+            push:
+                thread-id: "smokealarm-notification-group"

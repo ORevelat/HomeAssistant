@@ -19,15 +19,40 @@
         - condition: sun  
           after: sunrise
     action:
-      service: logbook.log
-      data:
-        message: "Ouverture volets !"
-        name: "Volets"
-
-    #   - service: cover.set_cover_position
-    #     entity_id: cover.fibaro_roller_shutter_cuisine_level
-    #     data:
-    #       position: 100
+      # service: logbook.log
+      # data:
+      #   message: "Ouverture volets !"
+      #   name: "Volets"
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_cuisine_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_cuisine_current_value', 'current_position')|int < states('input_select.cover_open_mode_cuisine')|int %}
+            {{ states('input_select.cover_open_mode_cuisine')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_cuisine_current_value', 'current_position')|int }}
+            {% endif %}
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salon_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_salon_current_value', 'current_position')|int < states('input_select.cover_open_mode_salon')|int %}
+            {{ states('input_select.cover_open_mode_salon')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_salon_current_value', 'current_position')|int }}
+            {% endif %}
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salle_a_manger_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int < states('input_select.cover_open_mode_salle_a_manger')|int %}
+            {{ states('input_select.cover_open_mode_salle_a_manger')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int }}
+            {% endif %}
 
   - id: roller_shutter_close
     alias: Volets roulants - Fermeture
@@ -50,31 +75,53 @@
         - condition: template 
           value_template: '{{ states.sun.sun.attributes.elevation < -5.9 }}'
     action:
-      service: logbook.log
-      data:
-        message: "Fermeture volets !"
-        name: "Volets"
-    #   - service: notify.alexa_media
-    #     data:
-    #       target:
-    #         - "echo salon" 
-    #         - "echo bureau" 
-    #       data:
-    #         type: tts
-    #       message: "attention je vais procéder à la fermeture des volets dans deux minutes !"
-    #   - delay: '00:02:00'
-    #   - service: notify.alexa_media
-    #     data:
-    #       target:
-    #         - "echo salon" 
-    #       data:
-    #         type: tts
-    #       message: "fermeture des volets"
-    #   - service: cover.set_cover_position
-    #     entity_id: cover.fibaro_roller_shutter_cuisine_level, cover.fibaro_roller_shutter_salle_a_manger_level
-    #     data:
-    #       position: 0
-    #   - service: cover.set_cover_position
-    #     entity_id: cover.fibaro_roller_shutter_salon_level
-    #     data:
-    #       position: 30
+      # - service: logbook.log
+      #   data:
+      #     message: "Fermeture volets !"
+      #     name: "Volets"
+      - service: notify.alexa_media
+        data:
+          target:
+            - "echo salon" 
+            - "echo bureau" 
+          data:
+            type: tts
+          message: "attention je vais procéder à la fermeture des volets dans deux minutes !"
+      - delay: '00:02:00'
+      - service: notify.alexa_media
+        data:
+          target:
+            - "echo salon" 
+          data:
+            type: tts
+          message: "fermeture des volets"
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_cuisine_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_cuisine_current_value', 'current_position')|int > states('input_select.cover_close_mode_cuisine')|int %}
+            {{ states('input_select.cover_close_mode_cuisine')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_cuisine_current_value', 'current_position')|int }}
+            {% endif %}
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salon_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_salon_current_value', 'current_position')|int > states('input_select.cover_close_mode_salon')|int %}
+            {{ states('input_select.cover_close_mode_salon')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_salon_current_value', 'current_position')|int }}
+            {% endif %}
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salle_a_manger_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int > states('input_select.cover_close_mode_salle_a_manger')|int %}
+            {{ states('input_select.cover_close_mode_salle_a_manger')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int }}
+            {% endif %}

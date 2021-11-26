@@ -393,6 +393,9 @@
                                             },
                                             {
                                                 "entity_id": "light.*_4"
+                                            },
+                                            {
+                                                "entity_id": "light.radiateur_*"
                                             }
                                         ],
                                         "include": [
@@ -447,6 +450,25 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected"
+                                },
+                                {
+                                    "entity": "sensor.escalier_smoke_detector_air_temperature"
+                                },
+                                {
+                                    "entity": "sensor.escalier_smoke_detector_battery_level"
+                                }
+                            ],
+                            "show_name": false,
+                            "show_icon": true,
+                            "show_state": true,
+                            "state_color": false,
+                            "title": "Fum\u00e9e Escalier"
                         }
                     ]
                 },
