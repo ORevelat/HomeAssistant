@@ -7,17 +7,16 @@
       - switch.sonoff_4ch_jardin_1
       - switch.sonoff_4ch_jardin_2
       - switch.sonoff_4ch_jardin_3
-      - switch.sonoff_riviere_b
+      - switch.shelly25_jardin_channel_1
 
   garden_lights:
     name: Lumières Jardin
     entities:
       - switch.sonoff_4ch_jardin_4
-      - switch.sonoff_riviere_a
+      - switch.shelly25_jardin_channel_2
 
   christmas_decoration_switches:
     entities:
       - group.garden_switches
       - switch.sonoff_bibliotheque_haut
-      - switch.sonoff_salon
       - switch.sonoff_cuisine
