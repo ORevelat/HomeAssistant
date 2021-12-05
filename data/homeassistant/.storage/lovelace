@@ -452,23 +452,43 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "type": "glance",
+                            "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected"
+                                    "entity": "binary_sensor.entree_smoke_detector_smoke_alarm_smoke_detected",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Entr\u00e9e",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.entree_smoke_detector_air_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "sensor.entree_smoke_detector_battery_level",
+                                            "name": "Batterie"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "sensor.escalier_smoke_detector_air_temperature"
-                                },
-                                {
-                                    "entity": "sensor.escalier_smoke_detector_battery_level"
+                                    "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Etage",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.escalier_smoke_detector_air_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "sensor.escalier_smoke_detector_battery_level",
+                                            "name": "Batterie"
+                                        }
+                                    ]
                                 }
                             ],
-                            "show_name": false,
-                            "show_icon": true,
-                            "show_state": true,
-                            "state_color": false,
-                            "title": "Fum\u00e9e Escalier"
+                            "show_header_toggle": false,
+                            "title": "D\u00e9tecteurs de fum\u00e9e"
                         }
                     ]
                 },
@@ -705,23 +725,6 @@
                             "name": "Garage"
                         },
                         {
-                            "type": "glance",
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected"
-                                },
-                                {
-                                    "entity": "sensor.cuisine_air_temperature"
-                                },
-                                {
-                                    "entity": "sensor.cuisine_battery_level"
-                                }
-                            ],
-                            "show_name": false,
-                            "show_state": true,
-                            "title": "Eau Cuisine"
-                        },
-                        {
                             "type": "custom:vacuum-card",
                             "entity": "vacuum.roborock_vacuum_s5",
                             "image": "default",
@@ -765,6 +768,29 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Cuisine",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.cuisine_air_temperature",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "sensor.cuisine_battery_level",
+                                            "name": "Batterie"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "D\u00e9tecteurs d'eau"
                         }
                     ]
                 },
