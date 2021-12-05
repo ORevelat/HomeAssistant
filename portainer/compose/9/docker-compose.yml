@@ -49,7 +49,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.19.1
+    image: koenkk/zigbee2mqtt:1.21.2
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/zigbee2mqtt:/app/data
@@ -66,7 +66,7 @@ services:
 
   rflink2mqtt:
     container_name: rflink2mqtt
-    image: rflink2mqtt:0.9.4
+    image: rflink2mqtt:0.9.5
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
@@ -82,7 +82,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:5.6.2
+    image: zwavejs/zwavejs2mqtt:5.12.0
     restart: unless-stopped
     devices:
       - /dev/zwave:/dev/ttyACM0
