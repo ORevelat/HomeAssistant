@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -1170,7 +1171,7 @@
                                         "entity": "switch.shelly25_arrosage_channel_1",
                                         "name": "Pelouse",
                                         "icon": "mdi:sprinkler",
-                                        "secondary_info": "{% set duration = ((as_timestamp(state_attr(\"timer.irrigation_lawn_timer\", \"finishes_at\")) | int) - (as_timestamp(now()) | int)) | timestamp_custom(\"%Mm %Ss\") %} {% set state = states(\"timer.irrigation_lawn_timer\") %} Actuellement {{ state }} {% if is_state(\"timer.irrigation_lawn_timer\", \"active\") %} {{ duration }} {% endif %}",
+                                        "secondary_info": "{% set duration = ((as_timestamp(state_attr(\"timer.irrigation_lawn_timer\", \"finishes_at\"), as_timestamp(now())) | int) - (as_timestamp(now()) | int)) | timestamp_custom(\"%Mm %Ss\") %} {% set state = states(\"timer.irrigation_lawn_timer\") %} Actuellement {{ state }} {% if is_state(\"timer.irrigation_lawn_timer\", \"active\") %} {{ duration }} {% endif %}",
                                         "type": "custom:secondaryinfo-entity-row"
                                     },
                                     "open": false,
@@ -1187,7 +1188,7 @@
                                         "entity": "switch.shelly25_arrosage_channel_2",
                                         "name": "Goutte \u00e0 Goutte",
                                         "icon": "mdi:watering-can",
-                                        "secondary_info": "{% set duration = ((as_timestamp(state_attr(\"timer.irrigation_pots_timer\", \"finishes_at\")) | int) - (as_timestamp(now()) | int)) | timestamp_custom(\"%Mm %Ss\") %} {% set state = states(\"timer.irrigation_pots_timer\") %} Actuellement {{ state }} {% if is_state(\"timer.irrigation_pots_timer\", \"active\") %} {{ duration }} {% endif %}",
+                                        "secondary_info": "{% set duration = ((as_timestamp(state_attr(\"timer.irrigation_pots_timer\", \"finishes_at\"), as_timestamp(now())) | int) - (as_timestamp(now()) | int)) | timestamp_custom(\"%Mm %Ss\") %} {% set state = states(\"timer.irrigation_pots_timer\") %} Actuellement {{ state }} {% if is_state(\"timer.irrigation_pots_timer\", \"active\") %} {{ duration }} {% endif %}",
                                         "type": "custom:secondaryinfo-entity-row"
                                     },
                                     "open": false,
