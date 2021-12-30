@@ -26,13 +26,6 @@ tts:
     aws_access_key_id: !secret aws_access_key_id
     aws_secret_access_key: !secret aws_secret_access_key
 
-light:
-  - platform: flux_led
-    devices:
-      192.168.254.50:
-        name: led_chambre_thea
-        mode: "rgbw"
-
 google:
   client_id: !secret google_calendar_clientid
   client_secret: !secret google_calendar_secret
