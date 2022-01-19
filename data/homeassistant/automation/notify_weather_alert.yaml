@@ -6,6 +6,9 @@
     trigger:
       platform: state
       entity_id: sensor.06_weather_alert
+
+    mode: queued
+
     action:
       - service: notify.mobile_app_iphone_de_olivier
         data:

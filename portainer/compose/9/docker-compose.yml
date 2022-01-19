@@ -19,6 +19,7 @@ services:
     restart: always
     user: 0:1000
     ports:
+      - "5683:5683"
       - "8123:8123"
     volumes:
       - /srv/disk1/docker-data/data/homeassistant:/config

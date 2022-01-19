@@ -1389,6 +1389,16 @@
                             "view": {
                                 "timeout": "15",
                                 "default": "live"
+                            },
+                            "menu": {
+                                "buttons": {
+                                    "download": false,
+                                    "frigate_ui": true
+                                }
+                            },
+                            "live": {
+                                "provider": "frigate-jsmpeg",
+                                "preload": false
                             }
                         },
                         {
@@ -1397,6 +1407,15 @@
                             "view": {
                                 "default": "live",
                                 "timeout": "15"
+                            },
+                            "menu": {
+                                "buttons": {
+                                    "download": false
+                                }
+                            },
+                            "live": {
+                                "preload": false,
+                                "provider": "frigate-jsmpeg"
                             }
                         },
                         {

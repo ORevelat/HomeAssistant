@@ -7,6 +7,9 @@
       platform: state
       entity_id: binary_sensor.cuisine_water_alarm_water_leak_detected
       to: 'on'
+
+    mode: queued
+
     action:
       - service: notify.mobile_app_iphone_de_olivier
         data:
