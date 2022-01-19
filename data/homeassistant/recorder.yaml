@@ -7,21 +7,34 @@
 
   exclude:
     domains:
-      - updater
+      - calendar
       - camera
       - group
       - media_player
+      - remote
       - scene
       - script
-      - calendar
       - sun
+      - updater
       - weather
-      - remote
     entities:
       - sensor.date
-      - sensor.time
       - sensor.date_time
+      - sensor.time
       - sensor.time_date
       - sensor.uptime
-      - automation.detection_camera_rez_de_chaussee
-      - automation.detection_camera_jardin_riviere
+      - sensor.06_weather_alert
+      - sensor.smart_meter_electric_produced_power_factors
+      - sensor.tv_electric_consumed_power_factors
+    entity_globs:
+      - automation.notification_*
+      - device_tracker.unifi_*
+      - sensor.*_humiditystatus
+      - sensor.*_battery
+      - sensor.*_linkquality
+      - sensor.*_voltage
+      - sensor.*_consumed_a
+      - sensor.*_consumed_v
+      - sensor.*_consumed_kvar
+      - sensor.*_electric_produced_*
+      - sensor.auribeau_sur_siagne_*
