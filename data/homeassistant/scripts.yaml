@@ -1,44 +1,57 @@
 
 ## SCRIPTS
 
-  fermeture_automatique_volets:
+  allumer_decoration_noel:
     mode: single
-    alias: Fermeture automatique des Volets
+    alias: Allumer decoration de Noël
     sequence:
-      - condition: time
-        after: "18:00:00"
-      - condition: template 
-        value_template: "{{ state_attr('sun.sun', 'elevation') < -5.9 }}"
-      - service: notify.alexa_media
-        data:
-          target:
-            - "echo salon" 
-            - "echo bureau" 
-          data:
-            type: tts
-          message: "attention je vais procéder à la fermeture des volets dans deux minutes !"
-      - delay: '00:02:00'
-      - service: notify.alexa_media
-        data:
-          target:
-            - "echo salon" 
-          data:
-            type: tts
-          message: "fermeture des volets"
+      - service: switch.turn_on
+        entity_id:
+          - switch.sonoff_4ch_jardin_1
+          - switch.sonoff_4ch_jardin_2
+          - switch.sonoff_4ch_jardin_3
+      - delay: '00:00:10'
+      - service: switch.turn_on
+        entity_id: switch.shelly25_jardin_channel_1
+      - delay: '00:00:10'
+      - service: switch.turn_on
+        entity_id:
+          - switch.sonoff_bibliotheque_haut
+          - switch.sonoff_cuisine
+      - delay: '00:00:10'
+      - service: switch.turn_on
+        entity_id:
+          - switch.sonoff_salon
+
+  eteindre_decoration_noel:
+    mode: single
+    alias: Eteindre decoration de Noël
+    sequence:
+      - service: switch.turn_off
+        entity_id:
+          - switch.sonoff_4ch_jardin_1
+          - switch.sonoff_4ch_jardin_2
+          - switch.sonoff_4ch_jardin_3
+      - delay: '00:00:10'
+      - service: switch.turn_off
+        entity_id: switch.shelly25_jardin_channel_1
+      - delay: '00:00:10'
+      - service: switch.turn_off
+        entity_id:
+          - switch.sonoff_bibliotheque_haut
+          - switch.sonoff_cuisine
+      - delay: '00:00:10'
+      - service: switch.turn_off
+        entity_id:
+          - switch.sonoff_salon
+      - delay: '00:00:10'
       - service: cover.set_cover_position
         target:
           entity_id: cover.volet_salle_a_manger_current_value
         data:
-          position: "{{ position_salle_manger }}"
-      - delay: '00:00:01'
-      - service: cover.set_cover_position
-        target:
-          entity_id: cover.volet_cuisine_current_value
-        data:
-          position: "{{ position_cuisine }}"
-      - delay: '00:00:01'
-      - service: cover.set_cover_position
-        target:
-          entity_id: cover.volet_salon_current_value
-        data:
-          position: "{{ position_salon }}"
+          position: >
+            {%if state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int > states('input_select.cover_close_mode_salle_a_manger')|int %}
+            {{ states('input_select.cover_close_mode_salle_a_manger')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int }}
+            {% endif %}
