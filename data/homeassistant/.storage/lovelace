@@ -1351,37 +1351,68 @@
                     "icon": "mdi:play-circle-outline",
                     "title": "Audio/Vid\u00e9o",
                     "path": "audio-video",
+                    "layout_type": "grid",
+                    "layout": {
+                        "grid-template-columns": "33% 33% 33%",
+                        "grid-template-rows": "auto",
+                        "grid-template-areas": "\"main main2 main3\"\n"
+                    },
+                    "type": "custom:grid-layout",
                     "badges": [],
                     "cards": [
                         {
-                            "type": "media-control",
-                            "entity": "media_player.tv_salon"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.echo_salon"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.echo_bureau"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.echo_chambre"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.echo_show"
-                        },
-                        {
-                            "entities": [
+                            "type": "vertical-stack",
+                            "view_layout": {
+                                "grid-area": "main"
+                            },
+                            "cards": [
                                 {
-                                    "entity": "sensor.plex_hyperion"
+                                    "type": "media-control",
+                                    "entity": "media_player.tv_salon"
                                 }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Serveur Plex ",
-                            "type": "entities"
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "view_layout": {
+                                "grid-area": "main2"
+                            },
+                            "cards": [
+                                {
+                                    "type": "media-control",
+                                    "entity": "media_player.echo_salon"
+                                },
+                                {
+                                    "type": "media-control",
+                                    "entity": "media_player.echo_bureau"
+                                },
+                                {
+                                    "type": "media-control",
+                                    "entity": "media_player.echo_chambre"
+                                },
+                                {
+                                    "type": "media-control",
+                                    "entity": "media_player.echo_show"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "view_layout": {
+                                "grid-area": "main3"
+                            },
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.plex_hyperion"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Serveur Plex ",
+                                    "type": "entities"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1389,106 +1420,137 @@
                     "icon": "mdi:cctv",
                     "title": "Surveillance",
                     "path": "surveillance",
+                    "layout_type": "grid",
+                    "layout": {
+                        "grid-template-columns": "33% 33% 33%",
+                        "grid-template-rows": "auto",
+                        "grid-template-areas": "\"main main2 main3\"\n"
+                    },
+                    "type": "custom:grid-layout",
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:frigate-card",
-                            "camera_entity": "camera.salon",
-                            "view": {
-                                "timeout": "15",
-                                "default": "live"
+                            "type": "vertical-stack",
+                            "view_layout": {
+                                "grid-area": "main"
                             },
-                            "menu": {
-                                "buttons": {
-                                    "download": false,
-                                    "frigate_ui": true
+                            "cards": [
+                                {
+                                    "type": "custom:frigate-card",
+                                    "camera_entity": "camera.riviere",
+                                    "view": {
+                                        "default": "live",
+                                        "timeout": "15"
+                                    },
+                                    "menu": {
+                                        "buttons": {
+                                            "download": false
+                                        }
+                                    },
+                                    "live": {
+                                        "preload": false,
+                                        "provider": "frigate-jsmpeg"
+                                    }
+                                },
+                                {
+                                    "type": "custom:frigate-card",
+                                    "camera_entity": "camera.test_out",
+                                    "view": {
+                                        "default": "live",
+                                        "timeout": "15"
+                                    },
+                                    "menu": {
+                                        "buttons": {
+                                            "download": false
+                                        }
+                                    },
+                                    "live": {
+                                        "preload": false,
+                                        "provider": "frigate-jsmpeg"
+                                    }
                                 }
-                            },
-                            "live": {
-                                "provider": "frigate-jsmpeg",
-                                "preload": false
-                            }
+                            ]
                         },
                         {
-                            "type": "custom:frigate-card",
-                            "camera_entity": "camera.riviere",
-                            "view": {
-                                "default": "live",
-                                "timeout": "15"
+                            "type": "vertical-stack",
+                            "view_layout": {
+                                "grid-area": "main2"
                             },
-                            "menu": {
-                                "buttons": {
-                                    "download": false
+                            "cards": [
+                                {
+                                    "type": "custom:frigate-card",
+                                    "camera_entity": "camera.salon",
+                                    "view": {
+                                        "timeout": "15",
+                                        "default": "live"
+                                    },
+                                    "menu": {
+                                        "buttons": {
+                                            "download": false,
+                                            "frigate_ui": true
+                                        }
+                                    },
+                                    "live": {
+                                        "provider": "frigate-jsmpeg",
+                                        "preload": false
+                                    }
+                                },
+                                {
+                                    "type": "custom:frigate-card",
+                                    "camera_entity": "camera.test",
+                                    "view": {
+                                        "default": "live",
+                                        "timeout": "15"
+                                    },
+                                    "menu": {
+                                        "buttons": {
+                                            "download": false
+                                        }
+                                    },
+                                    "live": {
+                                        "preload": false,
+                                        "provider": "frigate-jsmpeg"
+                                    }
                                 }
-                            },
-                            "live": {
-                                "preload": false,
-                                "provider": "frigate-jsmpeg"
-                            }
+                            ]
                         },
                         {
-                            "type": "custom:frigate-card",
-                            "camera_entity": "camera.test",
-                            "view": {
-                                "default": "live",
-                                "timeout": "15"
+                            "type": "vertical-stack",
+                            "view_layout": {
+                                "grid-area": "main3"
                             },
-                            "menu": {
-                                "buttons": {
-                                    "download": false
+                            "cards": [
+                                {
+                                    "open": false,
+                                    "type": "custom:fold-entity-row",
+                                    "entities": [
+                                        "sensor.coral_inference_speed",
+                                        "sensor.detection_fps",
+                                        "sensor.salon_camera_fps",
+                                        "sensor.riviere_camera_fps",
+                                        "sensor.test_camera_fps",
+                                        "sensor.test_out_camera_fps"
+                                    ],
+                                    "head": {
+                                        "type": "section",
+                                        "label": "Statistiques"
+                                    }
+                                },
+                                {
+                                    "open": false,
+                                    "type": "custom:fold-entity-row",
+                                    "entities": [
+                                        "switch.salon_detect",
+                                        "switch.riviere_detect",
+                                        "switch.test_detect",
+                                        "switch.test_out_detect"
+                                    ],
+                                    "head": {
+                                        "type": "section",
+                                        "label": "Configuration"
+                                    }
                                 }
-                            },
-                            "live": {
-                                "preload": false,
-                                "provider": "frigate-jsmpeg"
-                            }
-                        },
-                        {
-                            "open": false,
-                            "type": "custom:fold-entity-row",
-                            "entities": [
-                                "sensor.coral_inference_speed",
-                                "sensor.detection_fps",
-                                "sensor.salon_camera_fps",
-                                "sensor.riviere_camera_fps",
-                                "sensor.test_camera_fps",
-                                "sensor.test_out_camera_fps"
-                            ],
-                            "head": {
-                                "type": "section",
-                                "label": "Statistiques"
-                            }
-                        },
-                        {
-                            "open": false,
-                            "type": "custom:fold-entity-row",
-                            "entities": [
-                                "switch.salon_detect",
-                                "switch.riviere_detect",
-                                "switch.test_detect",
-                                "switch.test_out_detect"
-                            ],
-                            "head": {
-                                "type": "section",
-                                "label": "Configuration"
-                            }
-                        },
-                        {
-                            "type": "custom:frigate-card",
-                            "camera_entity": "camera.test_out",
-                            "view": {
-                                "default": "live",
-                                "timeout": "15"
-                            },
-                            "menu": {
-                                "buttons": {
-                                    "download": false
-                                }
-                            },
-                            "live": {
-                                "preload": false,
-                                "provider": "frigate-jsmpeg"
-                            }
+                            ]
                         }
                     ]
                 },
