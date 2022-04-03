@@ -28,6 +28,13 @@
                             "card_mod": {
                                 "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.thea', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.thea', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
                             }
+                        },
+                        {
+                            "entity": "group.home_occupancy",
+                            "name": " ",
+                            "card_mod": {
+                                "style": ":host {\n  --label-badge-background-color:\n    {% if is_state('group.home_occupancy', 'home') %}\n      red;\n    {% elif is_state('group.home_occupancy', 'not_home') %}                      \n      green; \n    {% endif %}   \n}\n"
+                            }
                         }
                     ],
                     "cards": [
@@ -1112,10 +1119,6 @@
                             "columns": 3,
                             "entities": [
                                 {
-                                    "entity": "switch.sonoff_garage_portail",
-                                    "name": "Lumi\u00e8re garage/portail"
-                                },
-                                {
                                     "entity": "switch.sonoff_4ch_jardin_1",
                                     "name": "Prise jardin 4CH n\u00b01"
                                 },
@@ -1138,6 +1141,11 @@
                         {
                             "type": "glance",
                             "entities": [
+                                {
+                                    "entity": "switch.sonoff_garage_portail",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Projecteur Garage"
+                                },
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_4",
                                     "icon": "mdi:lightbulb",
@@ -1419,19 +1427,20 @@
                             }
                         },
                         {
-                            "open": false,
-                            "type": "custom:fold-entity-row",
-                            "entities": [
-                                "switch.salon_detect",
-                                "switch.salon_recordings",
-                                "switch.salon_snapshots",
-                                "switch.riviere_detect",
-                                "switch.riviere_recordings",
-                                "switch.riviere_snapshots"
-                            ],
-                            "head": {
-                                "type": "section",
-                                "label": "Configuration"
+                            "type": "custom:frigate-card",
+                            "camera_entity": "camera.test",
+                            "view": {
+                                "default": "live",
+                                "timeout": "15"
+                            },
+                            "menu": {
+                                "buttons": {
+                                    "download": false
+                                }
+                            },
+                            "live": {
+                                "preload": false,
+                                "provider": "frigate-jsmpeg"
                             }
                         },
                         {
@@ -1441,17 +1450,44 @@
                                 "sensor.coral_inference_speed",
                                 "sensor.detection_fps",
                                 "sensor.salon_camera_fps",
-                                "sensor.salon_process_fps",
-                                "sensor.salon_detection_fps",
-                                "sensor.salon_skipped_fps",
                                 "sensor.riviere_camera_fps",
-                                "sensor.riviere_process_fps",
-                                "sensor.riviere_detection_fps",
-                                "sensor.riviere_skipped_fps"
+                                "sensor.test_camera_fps",
+                                "sensor.test_out_camera_fps"
                             ],
                             "head": {
                                 "type": "section",
                                 "label": "Statistiques"
+                            }
+                        },
+                        {
+                            "open": false,
+                            "type": "custom:fold-entity-row",
+                            "entities": [
+                                "switch.salon_detect",
+                                "switch.riviere_detect",
+                                "switch.test_detect",
+                                "switch.test_out_detect"
+                            ],
+                            "head": {
+                                "type": "section",
+                                "label": "Configuration"
+                            }
+                        },
+                        {
+                            "type": "custom:frigate-card",
+                            "camera_entity": "camera.test_out",
+                            "view": {
+                                "default": "live",
+                                "timeout": "15"
+                            },
+                            "menu": {
+                                "buttons": {
+                                    "download": false
+                                }
+                            },
+                            "live": {
+                                "preload": false,
+                                "provider": "frigate-jsmpeg"
                             }
                         }
                     ]
@@ -1700,34 +1736,65 @@
                     ]
                 },
                 {
-                    "title": "Programmation",
-                    "path": "programmation",
-                    "panel": false,
                     "icon": "mdi:clock-outline",
+                    "title": "Automatismes",
+                    "path": "automatismes",
+                    "type": "custom:vertical-layout",
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:scheduler-card",
-                            "include": [
-                                "climate",
-                                "group",
-                                "input_boolean",
-                                "input_number",
-                                "input_select",
-                                "light",
-                                "script",
-                                "switch"
-                            ],
-                            "discover_existing": false,
-                            "display_options": {
-                                "primary_info": [
-                                    "name"
+                            "card": {
+                                "show_header_toggle": false,
+                                "title": "Automatismes",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "automation.thermostat_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.selecteur_pilote_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.edf_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.home_assistant_started"
+                                    },
+                                    {
+                                        "entity_id": "automation.z_wave_network_started"
+                                    },
+                                    {
+                                        "entity_id": "automation.notification_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.volets_roulants_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.detection_cameras_interieures_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.irrigation_pelouse_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.irrigation_goutte_a_goutte_*"
+                                    },
+                                    {
+                                        "entity_id": "automation.bandeau_led_*"
+                                    }
                                 ],
-                                "secondary_info": [
-                                    "{time}: {action}",
-                                    "days",
-                                    "relative-time"
+                                "include": [
+                                    {
+                                        "entity_id": "automation.*"
+                                    }
                                 ]
+                            },
+                            "show_empty": true,
+                            "type": "custom:auto-entities",
+                            "sort": {
+                                "method": "friendly_name",
+                                "reverse": false
                             }
                         }
                     ]

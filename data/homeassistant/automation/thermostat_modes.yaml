@@ -2,7 +2,7 @@
 ## THERMOSTAT MODES
 
   - id: thermostat_mode_stop
-    alias: Thermostate mode Arrêt
+    alias: Thermostat mode Arrêt
     trigger:
     - platform: state
       entity_id: input_select.thermostat_mode

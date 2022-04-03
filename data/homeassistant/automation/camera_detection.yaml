@@ -1,0 +1,42 @@
+
+## CLIMATE RDC
+
+  - id: camera_int_detection_turnon
+    alias: Detection Caméras Intérieures - Activation
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: group.home_occupancy
+      from: home
+      to: not_home
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+    action:
+    - service: camera.enable_motion_detection
+      target:
+        entity_id:
+        - camera.test_out
+        - camera.salon
+    mode: single
+
+  - id: camera_int_detection_turnoff
+    alias: Detection Caméras Intérieures - Désactivation
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: group.home_occupancy
+      from: not_home
+      to: home
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
+    action:
+    - service: camera.disable_motion_detection
+      target:
+        entity_id:
+        - camera.test_out
+        - camera.salon
+    mode: single

@@ -1,0 +1,27 @@
+## FONTAINE JARDIN
+
+  - id: garden_fountain_start
+    alias: Fontaine Jardin - Allumer
+    trigger:
+    - platform: time
+      at: '09:00:00'
+    mode: single
+
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.sonoff_4ch_jardin_1
+
+  - id: garden_fountain_stop
+    alias: Fontaine Jardin - Eteindre
+    trigger:
+    - platform: time
+      at: '18:00:00'
+    mode: single
+
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.sonoff_4ch_jardin_1

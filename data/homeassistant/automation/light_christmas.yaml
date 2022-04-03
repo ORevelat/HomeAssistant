@@ -1,0 +1,64 @@
+## DECORATION NOEL
+
+  - id: light_christmas_start
+    alias: Décoration Noël - Allumer
+    trigger:
+    - platform: time
+      at: '17:00:00'
+    mode: single
+
+    action:
+      - service: switch.turn_on
+        entity_id:
+          - switch.sonoff_4ch_jardin_1
+          - switch.sonoff_4ch_jardin_2
+          - switch.sonoff_4ch_jardin_3
+      - delay: '00:00:10'
+      - service: switch.turn_on
+        entity_id: switch.shelly25_jardin_channel_1
+      - delay: '00:00:10'
+      - service: switch.turn_on
+        entity_id:
+          - switch.sonoff_bibliotheque_haut
+          - switch.sonoff_cuisine
+      - delay: '00:00:10'
+      - service: switch.turn_on
+        entity_id:
+          - switch.sonoff_salon
+
+  - id: light_christmas_stop
+    alias: Décoration Noël - Eteindre
+    trigger:
+    - platform: time
+      at: '22:30:00'
+    mode: single
+
+    action:
+      - service: switch.turn_off
+        entity_id:
+          - switch.sonoff_4ch_jardin_1
+          - switch.sonoff_4ch_jardin_2
+          - switch.sonoff_4ch_jardin_3
+      - delay: '00:00:10'
+      - service: switch.turn_off
+        entity_id: switch.shelly25_jardin_channel_1
+      - delay: '00:00:10'
+      - service: switch.turn_off
+        entity_id:
+          - switch.sonoff_bibliotheque_haut
+          - switch.sonoff_cuisine
+      - delay: '00:00:10'
+      - service: switch.turn_off
+        entity_id:
+          - switch.sonoff_salon
+      - delay: '00:00:10'
+      - service: cover.set_cover_position
+        target:
+          entity_id: cover.volet_salle_a_manger_current_value
+        data:
+          position: >
+            {%if state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int > states('input_select.cover_close_mode_salle_a_manger')|int %}
+            {{ states('input_select.cover_close_mode_salle_a_manger')|int }}
+            {% else %}
+            {{ state_attr('cover.volet_salle_a_manger_current_value', 'current_position')|int }}
+            {% endif %}

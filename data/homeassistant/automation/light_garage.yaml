@@ -1,0 +1,32 @@
+
+## LUMIERE GARAGE
+
+  - id: light_garage_on
+    alias: Lumière Garage - Allumer
+    trigger:
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: '{{ state.attributes.elevation }}'
+        # dusk definition
+        below: -5.9
+    mode: single
+
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.sonoff_garage_portail
+    
+  - id: light_garage_off
+    alias: Lumière Garage - Eteindre
+    trigger:
+      - platform: sun
+        event: sunrise
+    mode: single
+
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.sonoff_garage_portail
+  

@@ -1,0 +1,27 @@
+## PROJECTEUR JARDIN
+
+  - id: garden_projector_start
+    alias: Projecteur Jardin - Allumer
+    trigger:
+    - platform: time
+      at: '17:00:00'
+    mode: single
+
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.sonoff_4ch_jardin_1
+
+  - id: garden_projector_stop
+    alias: Projecteur Jardin - Eteindre
+    trigger:
+    - platform: time
+      at: '21:30:00'
+    mode: single
+
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.sonoff_4ch_jardin_1

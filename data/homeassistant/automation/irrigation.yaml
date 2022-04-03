@@ -1,7 +1,26 @@
 ## IRRIGATION PELOUSE
 
+  - id: irrigation_law
+    alias: Irrigation Pelouse - Allumer
+    trigger:
+    - platform: time
+      at: '20:30:00'
+    condition:
+      - condition: time
+        weekday:
+          - tue
+          - thu
+          - sat
+    mode: single
+
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.shelly25_arrosage_channel_1
+  
   - id: irrigation_law_start
-    alias: Irrigation Pelouse
+    alias: Irrigation Pelouse - Timer
     trigger:
       platform: state
       entity_id:
@@ -26,7 +45,7 @@
         entity_id: switch.shelly25_arrosage_channel_1
 
   - id: irrigation_law_stop
-    alias: Irrigation Pelouse reset
+    alias: Irrigation Pelouse - Timer reset
     trigger:
       platform: state
       entity_id:
@@ -39,8 +58,28 @@
           entity_id:
             - timer.irrigation_lawn_timer
 
+  - id: irrigation_flower
+    alias: Irrigation Goutte à Goutte - Allumer
+    trigger:
+    - platform: time
+      at: '20:00:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - wed
+          - fri
+          - sat
+    mode: single
+
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.shelly25_arrosage_channel_2
+  
   - id: irrigation_flower_start
-    alias: Irrigation Goutte à Goutte
+    alias: Irrigation Goutte à Goutte - Timer
     trigger:
       platform: state
       entity_id:
@@ -65,7 +104,7 @@
         entity_id: switch.shelly25_arrosage_channel_2
 
   - id: irrigation_flower_stop
-    alias: Irrigation Goutte à Goutte reset
+    alias: Irrigation Goutte à Goutte - Timer reset
     trigger:
       platform: state
       entity_id:

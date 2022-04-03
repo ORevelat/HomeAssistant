@@ -1,0 +1,26 @@
+
+## POMPE PISCINE
+
+  - id: pool_pump_start
+    alias: Pompe Piscine - Start
+    trigger:
+    - platform: time
+      at: '10:00:00'
+      at: '14:00:00'
+
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.sonoff_4ch_jardin_3
+
+  - id: pool_pump_stop
+    alias: Pompe Piscine - Stop
+    trigger:
+    - platform: time
+      at: '12:00:00'
+      at: '18:00:00'
+
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.sonoff_4ch_jardin_3

@@ -1,6 +1,13 @@
 
 ## GROUP
 
+  garden_front_switches:
+    name: Prises Jardin (Devant)
+    entities:
+      - switch.sonoff_4ch_jardin_1
+      - switch.sonoff_4ch_jardin_2
+      - switch.sonoff_4ch_jardin_3
+
   garden_switches:
     name: Prises Jardin
     entities:
@@ -20,3 +27,9 @@
       - group.garden_switches
       - switch.sonoff_bibliotheque_haut
       - switch.sonoff_cuisine
+
+  home_occupancy:
+    entities:
+      - person.olivier
+      - person.sandrine
+      - person.thea

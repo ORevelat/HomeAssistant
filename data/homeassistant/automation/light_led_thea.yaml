@@ -2,7 +2,7 @@
 ## LED STRIP THEA
 
   - id: thea_led_on
-    alias: Bandeau Led On
+    alias: Théa Bandeau Led - Allumer
     trigger:
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
@@ -27,7 +27,7 @@
           rgbw_color: [0,0,0,255]
   
   - id: thea_led_off
-    alias: Bandeau Led Off
+    alias: Théa Bandeau Led - Eteindre
     trigger:
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
@@ -45,7 +45,7 @@
             - light.led_chambre_thea
   
   - id: thea_led_color1
-    alias: Bandeau Led Color1
+    alias: Théa Bandeau Led - Couleur 1
     trigger:
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
@@ -65,7 +65,7 @@
         rgbw_color: [255,0,43,0]  
 
   - id: thea_led_color2
-    alias: Bandeau Led Color2
+    alias: Théa Bandeau Led - Couleur 2
     trigger:
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
@@ -85,7 +85,7 @@
         rgbw_color: [121,159,203,0]
 
   - id: thea_led_color3
-    alias: Bandeau Led Color3
+    alias: Théa Bandeau Led - Couleur 3
     trigger:
       platform: state
       entity_id: sensor.chambre_thea_multiswitch_click
