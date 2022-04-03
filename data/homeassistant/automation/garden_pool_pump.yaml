@@ -5,8 +5,9 @@
     alias: Pompe Piscine - Start
     trigger:
     - platform: time
-      at: '10:00:00'
-      at: '14:00:00'
+      at:
+        - '10:00:00'
+        - '14:00:00'
 
     action:
       - service: switch.turn_on
@@ -17,8 +18,9 @@
     alias: Pompe Piscine - Stop
     trigger:
     - platform: time
-      at: '12:00:00'
-      at: '18:00:00'
+      at:
+        - '12:00:00'
+        - '18:00:00'
 
     action:
       - service: switch.turn_on
