@@ -17,7 +17,7 @@
         data:
           title: "Alarme Fumée"
           message: >
-            Le détecteur {{trigger.to_state.entity_id}} la détection de fumée.
+            Le détecteur {{trigger.to_state.entity_id}} reporte de la fumée.
           data:
             push:
                 thread-id: "smokealarm-notification-group"

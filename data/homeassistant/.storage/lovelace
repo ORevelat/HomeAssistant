@@ -689,28 +689,33 @@
                                     "name": "Rez de Chauss\u00e9e"
                                 },
                                 {
-                                    "type": "custom:fold-entity-row",
+                                    "type": "entities",
                                     "entities": [
                                         {
-                                            "entity": "sensor.daikin_salon_inside_temperature"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_salon_outside_temperature"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_salon_total_power_consumption"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_salon_heat_energy_consumption"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_salon_cool_energy_consumption"
+                                            "type": "custom:fold-entity-row",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.daikin_salon_inside_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_salon_outside_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_salon_total_power_consumption"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_salon_heat_energy_consumption"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_salon_cool_energy_consumption"
+                                                }
+                                            ],
+                                            "open": false,
+                                            "head": {
+                                                "entity": "climate.daikin_salon"
+                                            }
                                         }
-                                    ],
-                                    "open": false,
-                                    "head": {
-                                        "entity": "climate.daikin_salon"
-                                    }
+                                    ]
                                 },
                                 {
                                     "type": "entity",
@@ -976,33 +981,37 @@
                             "cards": [
                                 {
                                     "entity": "climate.daikin_etage",
-                                    "show_header_toggle": false,
                                     "name": "Etage",
                                     "type": "thermostat"
                                 },
                                 {
-                                    "type": "custom:fold-entity-row",
+                                    "type": "entities",
                                     "entities": [
                                         {
-                                            "entity": "sensor.daikin_etage_inside_temperature"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_etage_outside_temperature"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_etage_total_power_consumption"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_etage_heat_energy_consumption"
-                                        },
-                                        {
-                                            "entity": "sensor.daikin_etage_cool_energy_consumption"
+                                            "type": "custom:fold-entity-row",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.daikin_etage_inside_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_etage_outside_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_etage_total_power_consumption"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_etage_heat_energy_consumption"
+                                                },
+                                                {
+                                                    "entity": "sensor.daikin_etage_cool_energy_consumption"
+                                                }
+                                            ],
+                                            "open": false,
+                                            "head": {
+                                                "entity": "climate.daikin_etage"
+                                            }
                                         }
-                                    ],
-                                    "open": false,
-                                    "head": {
-                                        "entity": "climate.daikin_etage"
-                                    }
+                                    ]
                                 },
                                 {
                                     "type": "entity",
@@ -1521,34 +1530,44 @@
                             },
                             "cards": [
                                 {
-                                    "open": false,
-                                    "type": "custom:fold-entity-row",
+                                    "type": "entities",
                                     "entities": [
-                                        "sensor.coral_inference_speed",
-                                        "sensor.detection_fps",
-                                        "sensor.salon_camera_fps",
-                                        "sensor.riviere_camera_fps",
-                                        "sensor.test_camera_fps",
-                                        "sensor.test_out_camera_fps"
-                                    ],
-                                    "head": {
-                                        "type": "section",
-                                        "label": "Statistiques"
-                                    }
+                                        {
+                                            "open": false,
+                                            "type": "custom:fold-entity-row",
+                                            "entities": [
+                                                "sensor.coral_inference_speed",
+                                                "sensor.detection_fps",
+                                                "sensor.salon_camera_fps",
+                                                "sensor.riviere_camera_fps",
+                                                "sensor.test_camera_fps",
+                                                "sensor.test_out_camera_fps"
+                                            ],
+                                            "head": {
+                                                "type": "section",
+                                                "label": "Statistiques"
+                                            }
+                                        }
+                                    ]
                                 },
                                 {
-                                    "open": false,
-                                    "type": "custom:fold-entity-row",
+                                    "type": "entities",
                                     "entities": [
-                                        "switch.salon_detect",
-                                        "switch.riviere_detect",
-                                        "switch.test_detect",
-                                        "switch.test_out_detect"
-                                    ],
-                                    "head": {
-                                        "type": "section",
-                                        "label": "Configuration"
-                                    }
+                                        {
+                                            "open": false,
+                                            "type": "custom:fold-entity-row",
+                                            "entities": [
+                                                "switch.salon_detect",
+                                                "switch.riviere_detect",
+                                                "switch.test_detect",
+                                                "switch.test_out_detect"
+                                            ],
+                                            "head": {
+                                                "type": "section",
+                                                "label": "Configuration"
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -1604,12 +1623,6 @@
                         {
                             "type": "entities",
                             "entities": [
-                                "sensor.06_weather_alert"
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
                                 {
                                     "entity": "sensor.alerte_crue"
                                 },
@@ -1623,6 +1636,14 @@
                             "title": "Vigilance m\u00e9t\u00e9o",
                             "show_header_toggle": false,
                             "state_color": false
+                        },
+                        {
+                            "type": "entity",
+                            "entity": "sensor.06_weather_alert",
+                            "name": "Vigilance M\u00e9t\u00e9o 06",
+                            "card_mod": {
+                                "style": "ha-card {\n  text-align: center;\n  {% if is_state(\"sensor.06_weather_alert\", \"Vert\") %}\n  color: green;\n  {% elif is_state(\"sensor.06_weather_alert\", \"Jaune\") %}\n  color: rgb(198,186,0);\n  {% elif is_state(\"sensor.06_weather_alert\", \"Rouge\") %}\n  color: red;\n  {% endif %}\n}\n"
+                            }
                         }
                     ]
                 },

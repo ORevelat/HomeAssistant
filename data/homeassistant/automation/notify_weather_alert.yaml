@@ -15,14 +15,15 @@
           title: "Alerte Météo"
           message: |
             {% if not is_state('sensor.06_weather_alert', 'Vert') %}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Inondation', 'Vert') %}Inondation {{ state_attr('sensor.06_weather_alert', 'Inondation') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Avalanches', 'Vert') %}Avalanches {{ state_attr('sensor.06_weather_alert', 'Avalanches') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Grand-froid', 'Vert') %}Grand-froid {{ state_attr('sensor.06_weather_alert', 'Grand-froid') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Neige-verglas', 'Vert') %}Neige-verglas {{ state_attr('sensor.06_weather_alert', 'Neige-verglas') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Orages', 'Vert') %}Orages {{ state_attr('sensor.06_weather_alert', 'Orages') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Pluie-inondation', 'Vert') %}Pluie-inondation {{ state_attr('sensor.06_weather_alert', 'Pluie-inondation') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Vent violent', 'Vert') %}Vent violent {{ state_attr('sensor.06_weather_alert', 'Vent violent') }}{{ '\n' -}}{% endif -%}
-            {% if not is_state_attr('sensor.06_weather_alert', 'Vagues-submersion', 'Vert') %}Vagues-submersion {{ state_attr('sensor.06_weather_alert', 'Vagues-submersion') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Inondation') != None and not is_state_attr('sensor.06_weather_alert', 'Inondation', 'Vert') %}Inondation {{ state_attr('sensor.06_weather_alert', 'Inondation') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Neige-verglas') != None and not is_state_attr('sensor.06_weather_alert', 'Neige-verglas', 'Vert') %}Neige-verglas {{ state_attr('sensor.06_weather_alert', 'Neige-verglas') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Pluie-inondation') != None and not is_state_attr('sensor.06_weather_alert', 'Pluie-inondation', 'Vert') %}Pluie-inondation {{ state_attr('sensor.06_weather_alert', 'Pluie-inondation') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Vent violent') != None and not is_state_attr('sensor.06_weather_alert', 'Vent violent', 'Vert') %}Vent violent {{ state_attr('sensor.06_weather_alert', 'Vent violent') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Avalanches') != None and not is_state_attr('sensor.06_weather_alert', 'Avalanches', 'Vert') %}Avalanches {{ state_attr('sensor.06_weather_alert', 'Avalanches') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Orages') != None and not is_state_attr('sensor.06_weather_alert', 'Orages', 'Vert') %}Orages {{ state_attr('sensor.06_weather_alert', 'Orages') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Vagues-submersion') != None and not is_state_attr('sensor.06_weather_alert', 'Vagues-submersion', 'Vert') %}Vagues-submersion {{ state_attr('sensor.06_weather_alert', 'Vagues-submersion') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Grand-froid') != None and not is_state_attr('sensor.06_weather_alert', 'Grand-froid', 'Vert') %}Grand-froid {{ state_attr('sensor.06_weather_alert', 'Grand-froid') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Canicule') != None and not is_state_attr('sensor.06_weather_alert', 'Canicule', 'Vert') %}Canicule {{ state_attr('sensor.06_weather_alert', 'Canicule') }}{{ '\n' -}}{% endif -%}
             {% endif %}
           data:
             subtitle: |

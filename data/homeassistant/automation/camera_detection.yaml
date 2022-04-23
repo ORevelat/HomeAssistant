@@ -14,11 +14,11 @@
         minutes: 1
         seconds: 0
     action:
-    - service: camera.enable_motion_detection
+    - service: switch.turn_on
       target:
         entity_id:
-        - camera.test_out
-        - camera.salon
+        - switch.test_detect
+        - switch.salon_detect
     mode: single
 
   - id: camera_int_detection_turnoff
@@ -34,9 +34,9 @@
         minutes: 1
         seconds: 0
     action:
-    - service: camera.disable_motion_detection
+    - service: switch.turn_off
       target:
         entity_id:
-        - camera.test_out
-        - camera.salon
+        - switch.test_detect
+        - switch.salon_detect
     mode: single

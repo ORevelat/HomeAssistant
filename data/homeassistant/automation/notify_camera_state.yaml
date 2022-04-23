@@ -1,0 +1,26 @@
+
+## CAMERA DETECTION STATE
+
+  - id: notification_camera_detection_state
+    alias: Notification Détection Status Camera
+    trigger:
+      - platform: state
+        entity_id: switch.salon_detect
+      - platform: state
+        entity_id: switch.riviere_detect
+      - platform: state
+        entity_id: switch.test_detect
+      - platform: state
+        entity_id: switch.test_out_detect
+
+    mode: queued
+
+    action:
+      - service: notify.mobile_app_iphone_de_olivier
+        data:
+          title: "Status Détection Caméra"
+          message: >
+            Le status de la caméra {{trigger.to_state.name}} est passé à {{states(trigger.to_state.entity_id)}}.
+          data:
+            push:
+                thread-id: "camera-notification-group"
