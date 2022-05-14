@@ -1,7 +1,7 @@
 ## IRRIGATION PELOUSE
 
   - id: irrigation_law
-    alias: Irrigation Pelouse - Allumer
+    alias: Irrigation Pelouse - Automatique
     trigger:
     - platform: time
       at: '20:30:00'
@@ -59,7 +59,7 @@
             - timer.irrigation_lawn_timer
 
   - id: irrigation_flower
-    alias: Irrigation Goutte à Goutte - Allumer
+    alias: Irrigation Goutte à Goutte - Automatique
     trigger:
     - platform: time
       at: '20:00:00'

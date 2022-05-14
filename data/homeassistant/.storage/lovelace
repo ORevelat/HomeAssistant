@@ -1064,7 +1064,7 @@
                                     "name": "Aujourd'hui",
                                     "stroke_width": 2,
                                     "curve": "smooth",
-                                    "extend_to_end": false,
+                                    "extend_to": false,
                                     "color": "rgb(255,120,0)",
                                     "fill_raw": "last",
                                     "group_by": {

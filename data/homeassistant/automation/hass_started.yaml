@@ -15,19 +15,19 @@
 
     - service: mqtt.publish
       data:
-        topic: cmnd/sonoff4ch/power1
+        topic: cmnd/sonoffjardin4ch/power1
         payload: ''
     - service: mqtt.publish
       data:
-        topic: cmnd/sonoff4ch/power2
+        topic: cmnd/sonoffjardin4ch/power2
         payload: ''
     - service: mqtt.publish
       data:
-        topic: cmnd/sonoff4ch/power3
+        topic: cmnd/sonoffjardin4ch/power3
         payload: ''
     - service: mqtt.publish
       data:
-        topic: cmnd/sonoff4ch/power4
+        topic: cmnd/sonoffjardin4ch/power4
         payload: ''
 
     - service: mqtt.publish
