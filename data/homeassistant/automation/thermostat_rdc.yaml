@@ -100,9 +100,6 @@
       - condition: state
         entity_id: input_select.thermostat_mode
         state: 'Normal'
-      - condition: state
-        entity_id: input_boolean.automation_enable_thermostat_rdc_clim
-        state: 'on'
     action:
       - service: input_number.set_value
         target:
