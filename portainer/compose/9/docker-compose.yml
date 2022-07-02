@@ -3,7 +3,7 @@ version: '2'
 services:
   tasmoadmin:
     container_name: tasmoadmin
-    image: raymondmm/tasmoadmin
+    image: ghcr.io/tasmoadmin/tasmoadmin:v1.8.0-alpine-amd64
     restart: always
     ports:
       - "5556:80"
@@ -15,7 +15,7 @@ services:
 
   homeassistant:
     container_name: homeassistant
-    image: homeassistant/home-assistant:2021.12.7
+    image: homeassistant/home-assistant:2022.4.7
     restart: always
     user: 0:1000
     ports:
@@ -50,7 +50,7 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.21.2
+    image: koenkk/zigbee2mqtt:1.25.1
     restart: always
     volumes:
       - /srv/disk1/docker-data/data/zigbee2mqtt:/app/data
@@ -83,7 +83,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:6.2.0
+    image: zwavejs/zwavejs2mqtt:6.9.1
     restart: unless-stopped
     devices:
       - /dev/zwave:/dev/ttyACM0

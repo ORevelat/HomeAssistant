@@ -444,6 +444,9 @@
                                             },
                                             {
                                                 "entity_id": "switch.schedule_*"
+                                            },
+                                            {
+                                                "entity_id": "switch.ufo_controller_rgbw_ir_9f3bab_remote_access"
                                             }
                                         ],
                                         "include": [
@@ -1129,15 +1132,15 @@
                             "entities": [
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_1",
-                                    "name": "Prise jardin 4CH n\u00b01"
+                                    "name": "Prise fontaine"
                                 },
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_2",
-                                    "name": "Prise jardin 4CH n\u00b02"
+                                    "name": "Prise piscine gauche"
                                 },
                                 {
                                     "entity": "switch.sonoff_4ch_jardin_3",
-                                    "name": "Prise jardin 4CH n\u00b03"
+                                    "name": "Prise piscine droite"
                                 },
                                 {
                                     "entity": "switch.shelly25_jardin_channel_1",
@@ -1440,88 +1443,89 @@
                     "cards": [
                         {
                             "type": "vertical-stack",
-                            "view_layout": {
-                                "grid-area": "main"
-                            },
                             "cards": [
                                 {
                                     "type": "custom:frigate-card",
-                                    "camera_entity": "camera.riviere",
+                                    "cameras": [
+                                        {
+                                            "camera_entity": "camera.riviere"
+                                        }
+                                    ],
                                     "view": {
                                         "default": "live",
-                                        "timeout": "15"
+                                        "timeout_seconds": 15
                                     },
                                     "menu": {
                                         "buttons": {
                                             "download": false
                                         }
-                                    },
-                                    "live": {
-                                        "preload": false,
-                                        "provider": "frigate-jsmpeg"
                                     }
                                 },
                                 {
                                     "type": "custom:frigate-card",
-                                    "camera_entity": "camera.test_out",
+                                    "cameras": [
+                                        {
+                                            "camera_entity": "camera.test_out"
+                                        }
+                                    ],
                                     "view": {
                                         "default": "live",
-                                        "timeout": "15"
+                                        "timeout_seconds": 15
                                     },
                                     "menu": {
                                         "buttons": {
                                             "download": false
                                         }
-                                    },
-                                    "live": {
-                                        "preload": false,
-                                        "provider": "frigate-jsmpeg"
                                     }
                                 }
-                            ]
+                            ],
+                            "view_layout": {
+                                "grid-area": "main"
+                            }
                         },
                         {
                             "type": "vertical-stack",
-                            "view_layout": {
-                                "grid-area": "main2"
-                            },
                             "cards": [
                                 {
                                     "type": "custom:frigate-card",
-                                    "camera_entity": "camera.salon",
-                                    "view": {
-                                        "timeout": "15",
-                                        "default": "live"
-                                    },
-                                    "menu": {
-                                        "buttons": {
-                                            "download": false,
-                                            "frigate_ui": true
+                                    "cameras": [
+                                        {
+                                            "camera_entity": "camera.salon",
+                                            "live_provider": "auto"
                                         }
-                                    },
-                                    "live": {
-                                        "provider": "frigate-jsmpeg",
-                                        "preload": false
-                                    }
-                                },
-                                {
-                                    "type": "custom:frigate-card",
-                                    "camera_entity": "camera.test",
+                                    ],
                                     "view": {
                                         "default": "live",
-                                        "timeout": "15"
+                                        "timeout_seconds": 15
                                     },
                                     "menu": {
                                         "buttons": {
                                             "download": false
                                         }
+                                    }
+                                },
+                                {
+                                    "type": "custom:frigate-card",
+                                    "cameras": [
+                                        {
+                                            "camera_entity": "camera.test",
+                                            "live_provider": "auto"
+                                        }
+                                    ],
+                                    "view": {
+                                        "default": "live",
+                                        "timeout_seconds": 15
                                     },
-                                    "live": {
-                                        "preload": false,
-                                        "provider": "frigate-jsmpeg"
+                                    "menu": {
+                                        "buttons": {
+                                            "download": false
+                                        }
                                     }
                                 }
-                            ]
+                            ],
+                            "view_layout": {
+                                "grid-area": "main2"
+                            }
                         },
                         {
                             "type": "vertical-stack",
@@ -1659,9 +1663,6 @@
                                     "entity": "sensor.uptime"
                                 },
                                 {
-                                    "entity": "sensor.potential_breaking_changes"
-                                },
-                                {
                                     "entity": "sensor.hacs"
                                 }
                             ],
@@ -1745,22 +1746,6 @@
                             }
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.automation_enable_weather_alert_notif"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_covers_sunrise"
-                                },
-                                {
-                                    "entity": "input_boolean.automation_enable_covers_sunset"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "state_color": true
-                        },
-                        {
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Consommation",
@@ -1819,17 +1804,18 @@
                     ]
                 },
                 {
+                    "theme": "Backend-selected",
                     "icon": "mdi:clock-outline",
                     "title": "Automatismes",
                     "path": "automatismes",
-                    "type": "custom:vertical-layout",
                     "badges": [],
                     "cards": [
                         {
                             "card": {
                                 "show_header_toggle": false,
                                 "title": "Automatismes",
-                                "type": "entities"
+                                "type": "entities",
+                                "state_color": true
                             },
                             "filter": {
                                 "exclude": [
@@ -1879,6 +1865,22 @@
                                 "method": "friendly_name",
                                 "reverse": false
                             }
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.automation_enable_weather_alert_notif"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_covers_sunrise"
+                                },
+                                {
+                                    "entity": "input_boolean.automation_enable_covers_sunset"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "state_color": true
                         }
                     ]
                 }

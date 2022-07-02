@@ -1,7 +1,6 @@
 homeassistant:
   customize: !include customize.yaml
 default_config:
-updater:
 
 logger:
   default: warning
@@ -30,9 +29,6 @@ google:
   client_id: !secret google_calendar_clientid
   client_secret: !secret google_calendar_secret
   track_new_calendar: true
-
-breaking_changes:
-  scan_interval: 1800
 
 media_player:
   - platform: samsungtv_tizen

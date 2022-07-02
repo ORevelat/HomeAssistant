@@ -12,7 +12,7 @@
     action:
       - service: switch.turn_on
         target:
-          entity_id: switch.sonoff_4ch_jardin_3
+          entity_id: switch.sonoff_4ch_jardin_2
 
   - id: pool_pump_stop
     alias: Pompe Piscine - Stop
@@ -23,6 +23,6 @@
         - '18:00:00'
 
     action:
-      - service: switch.turn_on
+      - service: switch.turn_off
         target:
-          entity_id: switch.sonoff_4ch_jardin_3
+          entity_id: switch.sonoff_4ch_jardin_2
