@@ -38,14 +38,32 @@
     scan_interval: 60
 
   - platform: ping
+    name: "Unify US 8-60W"
+    host: !secret host_us_8_60
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
     name: "Caméra Salon"
     host: !secret host_cam_salon
     count: 1
     scan_interval: 60
 
   - platform: ping
+    name: "Caméra Salon Eufy"
+    host: !secret host_cam_salon_eufy
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
     name: "Caméra Jardin (back)"
     host: !secret host_cam_jardin1
+    count: 1
+    scan_interval: 60
+
+  - platform: ping
+    name: "Caméra Jardin (front)"
+    host: !secret host_cam_jardin2_eufy
     count: 1
     scan_interval: 60
 
@@ -61,8 +79,8 @@
     count: 1
     scan_interval: 60
 
-  # - platform: ping
-  #   name: "Mi 3 Android TV"
-  #   host: !secret host_androidtv
-  #   count: 1
-  #   scan_interval: 60
+  - platform: ping
+    name: "Fire TV"
+    host: !secret host_firetv
+    count: 1
+    scan_interval: 60
