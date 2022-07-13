@@ -2,7 +2,7 @@
 # Overview
 Ma configuration personnelle de Home Assistant, utilisée quotidiennement au travers de ses automatisations et de Alexa.
 
-Mise à jour pour Home Assistant: **2021.9.7**
+Mise à jour pour Home Assistant: **2022.6.7**
 
 # Environnement
 Grosso modo mon installation domotique tourne autour d'une VM, et d'assistants Alexa (Echo, Echo Dot(s) & Show).
