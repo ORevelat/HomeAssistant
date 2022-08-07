@@ -55,7 +55,7 @@ binary_sensor: !include binary_sensor.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
-switch: !include switch.yaml
+mqtt: !include mqtt.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 shell_command: !include shell_command.yaml

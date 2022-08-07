@@ -46,17 +46,6 @@
             KO
           {% endif %}
 
-  # MQTT
-  - platform: mqtt
-    name: Alerte Crue
-    state_topic: "VigilanceMeteo/alert_crue"
-  - platform: mqtt
-    name: Alerte Vigilance
-    state_topic: "VigilanceMeteo/alert_vigilance"
-  - platform: mqtt
-    name: Alerte Risques
-    state_topic: "VigilanceMeteo/alert_risques"
-
   # ENERGY CONSUMPTION
   - platform: template
     sensors:

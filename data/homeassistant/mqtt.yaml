@@ -1,0 +1,125 @@
+
+## SWITCHES
+
+  switch:
+    - name: "Sonoff Garage/Portail"
+      state_topic: "stat/sonoffgarage/POWER"
+      command_topic: "cmnd/sonoffgarage/POWER1"
+      availability_topic: "tele/sonoffgarage/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff Riviere A"
+      state_topic: "stat/sonoffrivierea/POWER1"
+      command_topic: "cmnd/sonoffrivierea/POWER1"
+      availability_topic: "tele/sonoffrivierea/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff Riviere B"
+      state_topic: "stat/sonoffriviereb/POWER"
+      command_topic: "cmnd/sonoffriviereb/POWER"
+      availability_topic: "tele/sonoffriviereb/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff 4CH Jardin 1"
+      state_topic: "stat/sonoffjardin4ch/POWER1"
+      command_topic: "cmnd/sonoffjardin4ch/POWER1"
+      availability_topic: "tele/sonoffjardin4ch/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff 4CH Jardin 2"
+      state_topic: "stat/sonoffjardin4ch/POWER2"
+      command_topic: "cmnd/sonoffjardin4ch/POWER2"
+      availability_topic: "tele/sonoffjardin4ch/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff 4CH Jardin 3"
+      state_topic: "stat/sonoffjardin4ch/POWER3"
+      command_topic: "cmnd/sonoffjardin4ch/POWER3"
+      availability_topic: "tele/sonoffjardin4ch/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff 4CH Jardin 4"
+      state_topic: "stat/sonoffjardin4ch/POWER4"
+      command_topic: "cmnd/sonoffjardin4ch/POWER4"
+      availability_topic: "tele/sonoffjardin4ch/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+    - name: "Sonoff Salon"
+      state_topic: "stat/sonoffsalon/POWER"
+      command_topic: "cmnd/sonoffsalon/POWER"
+      availability_topic: "tele/sonoffsalon/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+    
+    - name: "Sonoff bibliothèque haut"
+      state_topic: "stat/sonoffsalon2/POWER"
+      command_topic: "cmnd/sonoffsalon2/POWER"
+      availability_topic: "tele/sonoffsalon2/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+    
+    - name: "Sonoff cuisine"
+      state_topic: "stat/sonoffs26/POWER"
+      command_topic: "cmnd/sonoffs26/POWER"
+      availability_topic: "tele/sonoffs26/LWT"
+      payload_on: "ON"
+      payload_off: "OFF"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      qos: 1
+      retain: false
+
+## SENSORS
+
+  sensor:
+    - name: Alerte Crue
+      state_topic: "VigilanceMeteo/alert_crue"
+
+    - name: Alerte Vigilance
+      state_topic: "VigilanceMeteo/alert_vigilance"
+
+    - name: Alerte Risques
+      state_topic: "VigilanceMeteo/alert_risques"
