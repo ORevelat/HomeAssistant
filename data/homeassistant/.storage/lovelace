@@ -1448,7 +1448,7 @@
                                     "type": "custom:frigate-card",
                                     "cameras": [
                                         {
-                                            "camera_entity": "camera.riviere"
+                                            "camera_entity": "camera.foscamfi9800pv3"
                                         }
                                     ],
                                     "view": {
@@ -1465,7 +1465,7 @@
                                     "type": "custom:frigate-card",
                                     "cameras": [
                                         {
-                                            "camera_entity": "camera.test_out"
+                                            "camera_entity": "camera.eufysolooutdoorc24"
                                         }
                                     ],
                                     "view": {
@@ -1490,8 +1490,7 @@
                                     "type": "custom:frigate-card",
                                     "cameras": [
                                         {
-                                            "camera_entity": "camera.salon",
-                                            "live_provider": "auto"
+                                            "camera_entity": "camera.eufysoloindoorcamc24"
                                         }
                                     ],
                                     "view": {
@@ -1508,8 +1507,7 @@
                                     "type": "custom:frigate-card",
                                     "cameras": [
                                         {
-                                            "camera_entity": "camera.test",
-                                            "live_provider": "auto"
+                                            "camera_entity": "camera.foscamfi9816pv2"
                                         }
                                     ],
                                     "view": {
@@ -1542,10 +1540,10 @@
                                             "entities": [
                                                 "sensor.coral_inference_speed",
                                                 "sensor.detection_fps",
-                                                "sensor.salon_camera_fps",
-                                                "sensor.riviere_camera_fps",
-                                                "sensor.test_camera_fps",
-                                                "sensor.test_out_camera_fps"
+                                                "sensor.eufysoloindoorcamc24_camera_fps",
+                                                "sensor.foscamfi9800pv3_camera_fps",
+                                                "sensor.foscamfi9816pv2_camera_fps",
+                                                "sensor.eufysolooutdoorc24_camera_fps"
                                             ],
                                             "head": {
                                                 "type": "section",
@@ -1561,10 +1559,10 @@
                                             "open": false,
                                             "type": "custom:fold-entity-row",
                                             "entities": [
-                                                "switch.salon_detect",
-                                                "switch.riviere_detect",
-                                                "switch.test_detect",
-                                                "switch.test_out_detect"
+                                                "switch.eufysoloindoorcamc24_detect",
+                                                "switch.foscamfi9800pv3_detect",
+                                                "switch.foscamfi9816pv2_detect",
+                                                "switch.eufysolooutdoorc24_detect"
                                             ],
                                             "head": {
                                                 "type": "section",

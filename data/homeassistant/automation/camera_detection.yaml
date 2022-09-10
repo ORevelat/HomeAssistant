@@ -17,8 +17,8 @@
     - service: switch.turn_on
       target:
         entity_id:
-        - switch.test_detect
-        - switch.salon_detect
+        - switch.eufysoloindoorcamc24_detect
+        - switch.foscamfi9816pv2_detect
     mode: single
 
   - id: camera_int_detection_turnoff
@@ -37,6 +37,6 @@
     - service: switch.turn_off
       target:
         entity_id:
-        - switch.test_detect
-        - switch.salon_detect
+        - switch.eufysoloindoorcamc24_detect
+        - switch.foscamfi9816pv2_detect
     mode: single

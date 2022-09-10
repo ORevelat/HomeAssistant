@@ -10,7 +10,6 @@
         weekday:
           - tue
           - thu
-          - sat
     mode: single
 
     action:
@@ -67,9 +66,9 @@
       - condition: time
         weekday:
           - mon
-          - wed
+#          - wed
           - fri
-          - sat
+#          - sat
     mode: single
 
     action:
