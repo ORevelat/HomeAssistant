@@ -1519,6 +1519,23 @@
                                             "download": false
                                         }
                                     }
+                                },
+                                {
+                                    "type": "custom:frigate-card",
+                                    "cameras": [
+                                        {
+                                            "camera_entity": "camera.dahuaipck42p"
+                                        }
+                                    ],
+                                    "view": {
+                                        "default": "live",
+                                        "timeout_seconds": 15
+                                    },
+                                    "menu": {
+                                        "buttons": {
+                                            "download": false
+                                        }
+                                    }
                                 }
                             ],
                             "view_layout": {
@@ -1543,7 +1560,8 @@
                                                 "sensor.eufysoloindoorcamc24_camera_fps",
                                                 "sensor.foscamfi9800pv3_camera_fps",
                                                 "sensor.foscamfi9816pv2_camera_fps",
-                                                "sensor.eufysolooutdoorc24_camera_fps"
+                                                "sensor.eufysolooutdoorc24_camera_fps",
+                                                "sensor.dahuaipck42p_camera_fps"
                                             ],
                                             "head": {
                                                 "type": "section",
@@ -1562,7 +1580,8 @@
                                                 "switch.eufysoloindoorcamc24_detect",
                                                 "switch.foscamfi9800pv3_detect",
                                                 "switch.foscamfi9816pv2_detect",
-                                                "switch.eufysolooutdoorc24_detect"
+                                                "switch.eufysolooutdoorc24_detect",
+                                                "switch.dahuaipck42p_detect"
                                             ],
                                             "head": {
                                                 "type": "section",
