@@ -352,8 +352,8 @@ var CONFIG = {
                      type: TYPES.SENSOR,
                      height: 1.25,
                      title: 'Salle de bain',
-                     id: 'sensor.salle_de_bain_thermometer_temperature',
-                     subtitle: 'Humidité ' + '&sensor.salle_de_bain_thermometer_humidity.state' + '&sensor.salle_de_bain_thermometer_humidity.attributes.unit_of_measurement',
+                     id: 'sensor.thermometer_salle_bain_temperature',
+                     subtitle: 'Humidité ' + '&sensor.thermometer_salle_bain_humidity.state' + '&sensor.thermometer_salle_bain_humidity.attributes.unit_of_measurement',
                      state: false,
                      filter: function (value) {
                         var num = parseFloat(value);
