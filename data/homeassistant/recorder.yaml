@@ -7,6 +7,8 @@
 
   exclude:
     domains:
+      - automation
+      - binary_sensor
       - calendar
       - camera
       - group
@@ -14,6 +16,7 @@
       - remote
       - scene
       - script
+      - switch
       - sun
       - updater
       - weather
@@ -24,8 +27,6 @@
       - sensor.time_date
       - sensor.uptime
       - sensor.06_weather_alert
-      - sensor.smart_meter_electric_produced_power_factors
-      - sensor.tv_electric_consumed_power_factors
     entity_globs:
       - automation.notification_*
       - device_tracker.unifi_*
@@ -36,5 +37,11 @@
       - sensor.*_consumed_a
       - sensor.*_consumed_v
       - sensor.*_consumed_kvar
+      - sensor.*_consumed_power_factor
       - sensor.*_electric_produced_*
       - sensor.auribeau_sur_siagne_*
+      - sensor.*detection_fps
+      - sensor.*speed
+      - sensor.hacs
+      - sensor.fire_tv_*
+      - sensor.echo_*

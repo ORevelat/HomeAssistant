@@ -11,4 +11,4 @@
       - sensor.thermometer_salon_temperature
       - sensor.thermometer_garage_temperature
       - sensor.thermometer_salle_bain_temperature
-      - light.led_chambre_thea
+      - sensor.auribeau_sur_siagne_temperature

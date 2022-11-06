@@ -11,8 +11,6 @@
   include:
     entities:
       - sensor.auribeau_sur_siagne_temperature
-      - sensor.hp_ilo_gen8_fanspeed
-      - sensor.hp_ilo_gen8_temperature
       - sensor.thermometer_jardin_temperature
       - sensor.thermometer_jardin_humidity
       - sensor.thermometer_chambre_parents_temperature
@@ -27,20 +25,14 @@
       - sensor.thermometer_salle_bain_humidity
       - sensor.thermometer_garage_temperature
       - sensor.detecteur_escalier_air_temperature
-      - sensor.detecteur_escalier_illuminance
       - sensor.sallemanger_air_temperature
-      - sensor.sallemanger_illuminance
-      - sensor.smart_meter_electric_consumed_w
-      - sensor.smart_meter_electric_consumed_kwh
-      - sensor.hourly_energy
+      - sensor.smart_meter_electric_consumed_filtered_w
       - sensor.daily_energy
       - sensor.monthly_energy
       - sensor.yearly_energy
-      - sensor.hourly_consumption_day
       - sensor.daily_consumption_day
       - sensor.monthly_consumption_day
       - sensor.yearly_consumption_day
-      - sensor.hourly_consumption_night
       - sensor.daily_consumption_night
       - sensor.monthly_consumption_night
       - sensor.yearly_consumption_night
