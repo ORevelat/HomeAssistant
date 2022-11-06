@@ -89,17 +89,25 @@
                                     "type": "custom:apexcharts-card",
                                     "header": {
                                         "show": true,
-                                        "title": "Consommation / heure",
                                         "show_states": true,
                                         "colorize_states": true
                                     },
                                     "apex_config": {
                                         "chart": {
-                                            "height": "150px"
+                                            "height": "200px"
+                                        },
+                                        "yaxis": {
+                                            "decimalsInFloat": 0,
+                                            "forceNiceScale": true
                                         }
                                     },
                                     "experimental": {
-                                        "color_threshold": true
+                                        "color_threshold": true,
+                                        "brush": true
+                                    },
+                                    "graph_span": "24h",
+                                    "brush": {
+                                        "selection_span": "2h"
                                     },
                                     "all_series_config": {
                                         "color_threshold": [
@@ -109,73 +117,67 @@
                                             },
                                             {
                                                 "color": "#38ff00",
-                                                "value": 0.5
+                                                "value": 500
                                             },
                                             {
                                                 "color": "#71ff00",
-                                                "value": 1
+                                                "value": 1000
                                             },
                                             {
                                                 "color": "#aaff00",
-                                                "value": 1.5
+                                                "value": 1500
                                             },
                                             {
                                                 "color": "#e2ff00",
-                                                "value": 2
+                                                "value": 2000
                                             },
                                             {
                                                 "color": "#ffe200",
-                                                "value": 2.5
+                                                "value": 2500
                                             },
                                             {
                                                 "color": "#ffaa00",
-                                                "value": 3
+                                                "value": 3000
                                             },
                                             {
                                                 "color": "#ff7100",
-                                                "value": 4
+                                                "value": 4000
                                             },
                                             {
                                                 "color": "#ff3800",
-                                                "value": 5
+                                                "value": 5000
                                             },
                                             {
                                                 "color": "#ff0000",
-                                                "value": 6
+                                                "value": 6000
                                             }
                                         ]
                                     },
                                     "series": [
                                         {
                                             "entity": "sensor.hourly_energy",
-                                            "name": "Energie consomm\u00e9e",
-                                            "type": "column",
-                                            "show": {
-                                                "in_header": false,
-                                                "extremas": true
-                                            },
-                                            "group_by": {
-                                                "func": "max"
-                                            }
-                                        },
-                                        {
-                                            "entity": "sensor.hourly_energy",
-                                            "show": {
-                                                "in_chart": false,
-                                                "name_in_header": false,
-                                                "header_color_threshold": true
-                                            }
-                                        },
-                                        {
-                                            "entity": "sensor.smart_meter_electric_consumed_w",
+                                            "color": "orange",
                                             "show": {
                                                 "in_chart": false,
                                                 "name_in_header": false
                                             }
                                         },
                                         {
+                                            "entity": "sensor.smart_meter_electric_consumed_filtered_w",
+                                            "stroke_width": 1,
+                                            "type": "area",
+                                            "color": "orange",
+                                            "show": {
+                                                "in_header": true,
+                                                "extremas": true,
+                                                "name_in_header": false,
+                                                "in_brush": true,
+                                                "header_color_threshold": true
+                                            }
+                                        },
+                                        {
                                             "entity": "sensor.smart_meter_electric_consumed_power_factor",
-                                            "float_precision": 2,
+                                            "color": "orange",
                                             "show": {
                                                 "in_chart": false,
                                                 "name_in_header": false
@@ -194,6 +196,10 @@
                                     "apex_config": {
                                         "chart": {
                                             "height": "150px"
+                                        },
+                                        "yaxis": {
+                                            "show": false,
+                                            "decimalsInFloat": 0
                                         }
                                     },
                                     "experimental": {
@@ -208,39 +214,39 @@
                                             },
                                             {
                                                 "color": "#38ff00",
-                                                "value": 15
+                                                "value": 5
                                             },
                                             {
                                                 "color": "#71ff00",
-                                                "value": 20
+                                                "value": 10
                                             },
                                             {
                                                 "color": "#aaff00",
-                                                "value": 25
+                                                "value": 15
                                             },
                                             {
                                                 "color": "#e2ff00",
-                                                "value": 30
+                                                "value": 20
                                             },
                                             {
                                                 "color": "#ffe200",
-                                                "value": 35
+                                                "value": 25
                                             },
                                             {
                                                 "color": "#ffaa00",
-                                                "value": 40
+                                                "value": 30
                                             },
                                             {
                                                 "color": "#ff7100",
-                                                "value": 45
+                                                "value": 35
                                             },
                                             {
                                                 "color": "#ff3800",
-                                                "value": 50
+                                                "value": 40
                                             },
                                             {
                                                 "color": "#ff0000",
-                                                "value": 60
+                                                "value": 50
                                             }
                                         ]
                                     },
@@ -299,89 +305,6 @@
                                 }
                             ],
                             "type": "vertical-stack"
-                        },
-                        {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "show_states": true,
-                                "colorize_states": true
-                            },
-                            "apex_config": {
-                                "chart": {
-                                    "height": "300px"
-                                }
-                            },
-                            "experimental": {
-                                "color_threshold": true,
-                                "brush": true
-                            },
-                            "graph_span": "6h",
-                            "yaxis": [
-                                {
-                                    "decimals": 0
-                                }
-                            ],
-                            "brush": {
-                                "selection_span": "1h"
-                            },
-                            "all_series_config": {
-                                "color_threshold": [
-                                    {
-                                        "color": "#00ff00",
-                                        "value": 0
-                                    },
-                                    {
-                                        "color": "#38ff00",
-                                        "value": 500
-                                    },
-                                    {
-                                        "color": "#71ff00",
-                                        "value": 1000
-                                    },
-                                    {
-                                        "color": "#aaff00",
-                                        "value": 1500
-                                    },
-                                    {
-                                        "color": "#e2ff00",
-                                        "value": 2000
-                                    },
-                                    {
-                                        "color": "#ffe200",
-                                        "value": 2500
-                                    },
-                                    {
-                                        "color": "#ffaa00",
-                                        "value": 3000
-                                    },
-                                    {
-                                        "color": "#ff7100",
-                                        "value": 4000
-                                    },
-                                    {
-                                        "color": "#ff3800",
-                                        "value": 5000
-                                    },
-                                    {
-                                        "color": "#ff0000",
-                                        "value": 6000
-                                    }
-                                ]
-                            },
-                            "series": [
-                                {
-                                    "entity": "sensor.smart_meter_electric_consumed_w",
-                                    "stroke_width": 1,
-                                    "type": "area",
-                                    "show": {
-                                        "in_header": true,
-                                        "extremas": true,
-                                        "name_in_header": false,
-                                        "in_brush": true
-                                    }
-                                }
-                            ]
                         },
                         {
                             "cards": [
@@ -1374,15 +1297,15 @@
                     "cards": [
                         {
                             "type": "vertical-stack",
-                            "view_layout": {
-                                "grid-area": "main"
-                            },
                             "cards": [
                                 {
                                     "type": "media-control",
                                     "entity": "media_player.tv_salon"
                                 }
-                            ]
+                            ],
+                            "view_layout": {
+                                "grid-area": "main"
+                            }
                         },
                         {
                             "type": "vertical-stack",
@@ -1429,123 +1352,23 @@
                     ]
                 },
                 {
+                    "theme": "Backend-selected",
                     "icon": "mdi:cctv",
                     "title": "Surveillance",
                     "path": "surveillance",
                     "layout_type": "grid",
                     "layout": {
-                        "grid-template-columns": "33% 33% 33%",
+                        "grid-template-columns": "70% 30%",
                         "grid-template-rows": "auto",
-                        "grid-template-areas": "\"main main2 main3\"\n"
+                        "grid-template-areas": "\"main main2\"\n"
                     },
                     "type": "custom:grid-layout",
                     "badges": [],
                     "cards": [
                         {
                             "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "custom:frigate-card",
-                                    "cameras": [
-                                        {
-                                            "camera_entity": "camera.foscamfi9800pv3"
-                                        }
-                                    ],
-                                    "view": {
-                                        "default": "live",
-                                        "timeout_seconds": 15
-                                    },
-                                    "menu": {
-                                        "buttons": {
-                                            "download": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "custom:frigate-card",
-                                    "cameras": [
-                                        {
-                                            "camera_entity": "camera.eufysolooutdoorc24"
-                                        }
-                                    ],
-                                    "view": {
-                                        "default": "live",
-                                        "timeout_seconds": 15
-                                    },
-                                    "menu": {
-                                        "buttons": {
-                                            "download": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "view_layout": {
-                                "grid-area": "main"
-                            }
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "custom:frigate-card",
-                                    "cameras": [
-                                        {
-                                            "camera_entity": "camera.eufysoloindoorcamc24"
-                                        }
-                                    ],
-                                    "view": {
-                                        "default": "live",
-                                        "timeout_seconds": 15
-                                    },
-                                    "menu": {
-                                        "buttons": {
-                                            "download": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "custom:frigate-card",
-                                    "cameras": [
-                                        {
-                                            "camera_entity": "camera.foscamfi9816pv2"
-                                        }
-                                    ],
-                                    "view": {
-                                        "default": "live",
-                                        "timeout_seconds": 15
-                                    },
-                                    "menu": {
-                                        "buttons": {
-                                            "download": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "custom:frigate-card",
-                                    "cameras": [
-                                        {
-                                            "camera_entity": "camera.dahuaipck42p"
-                                        }
-                                    ],
-                                    "view": {
-                                        "default": "live",
-                                        "timeout_seconds": 15
-                                    },
-                                    "menu": {
-                                        "buttons": {
-                                            "download": false
-                                        }
-                                    }
-                                }
-                            ],
                             "view_layout": {
                                 "grid-area": "main2"
-                            }
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "view_layout": {
-                                "grid-area": "main3"
                             },
                             "cards": [
                                 {
@@ -1591,6 +1414,39 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:frigate-card",
+                            "view_layout": {
+                                "grid-area": "main"
+                            },
+                            "cameras": [
+                                {
+                                    "camera_entity": "camera.eufysoloindoorcamc24",
+                                    "live_provider": "ha"
+                                },
+                                {
+                                    "camera_entity": "camera.foscamfi9800pv3",
+                                    "live_provider": "ha"
+                                },
+                                {
+                                    "camera_entity": "camera.foscamfi9816pv2",
+                                    "live_provider": "ha"
+                                },
+                                {
+                                    "camera_entity": "camera.dahuaipck42p",
+                                    "live_provider": "ha"
+                                },
+                                {
+                                    "camera_entity": "camera.eufysolooutdoorc24",
+                                    "live_provider": "ha"
+                                }
+                            ],
+                            "menu": {
+                                "buttons": {
+                                    "download": false
+                                }
+                            }
                         }
                     ]
                 },

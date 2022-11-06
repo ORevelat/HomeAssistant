@@ -13,7 +13,7 @@ http:
   server_port: 8123
   use_x_forwarded_for: true
   trusted_proxies:
-    - !secret http_trusted_reverseproxy
+    - !secret http_trusted_network
     - !secret http_trusted_network_docker_automation
   ip_ban_enabled: true
   login_attempts_threshold: 3
@@ -24,23 +24,6 @@ tts:
   - platform: amazon_polly
     aws_access_key_id: !secret aws_access_key_id
     aws_secret_access_key: !secret aws_secret_access_key
-
-google:
-  client_id: !secret google_calendar_clientid
-  client_secret: !secret google_calendar_secret
-  track_new_calendar: true
-
-media_player:
-  - platform: samsungtv_tizen
-    host: !secret host_samsungtv
-    port: 8002
-    mac: !secret tv_samsung_mac
-    name: TV Salon
-    api_key: !secret tv_samsung_apikey
-    device_id: !secret tv_samsung_deviceid
-    update_method: websockets
-    # source_list: '{"TV": "ST_HDMI1", "BLURAY": "ST_HDMI2"}'
-    # app_list: '{"Netflix": "11101200001", "Amazon Video": "evKhCgZelL.AmazonIgnitionLauncher2 / org.tizen.ignition", "Plex": "kIciSQlYEM.plex"}'
 
 ## INCLUDES ##
 
