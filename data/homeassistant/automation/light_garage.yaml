@@ -30,3 +30,26 @@
           entity_id:
             - switch.sonoff_garage_portail
   
+  - id: 'light_garage_person_on'
+    alias: Lumiere Garage - On When Enterring Home
+    trigger:
+    - platform: state
+      entity_id:
+      - person.olivier
+      - person.sandrine
+      - person.thea
+      from: not_home
+      to: home
+    condition:
+    - condition: sun
+      after: sunset
+    mode: single
+
+    action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.sonoff_garage_portail
+    - delay: '00:10:00'
+    - service: switch.turn_off
+      data:
+        entity_id: switch.sonoff_garage_portail

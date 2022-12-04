@@ -83,7 +83,7 @@ services:
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:6.12.1
+    image: zwavejs/zwave-js-ui:8.0.1
     restart: unless-stopped
     devices:
       - /dev/zwave:/dev/ttyACM0

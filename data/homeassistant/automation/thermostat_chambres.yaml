@@ -4,7 +4,7 @@
     alias: Thermostat Chambres - journée
     trigger:
     - platform: time
-      at: '07:00:00'
+      at: '06:00:00'
     condition:
       - condition: state
         entity_id: input_select.thermostat_mode

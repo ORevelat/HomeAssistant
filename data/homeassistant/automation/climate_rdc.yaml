@@ -1,6 +1,41 @@
 
 ## CLIMATE RDC
 
+  - id: climate_rdc_day
+    alias: Climatisation Rez de chaussée - Jour
+    trigger:
+    - platform: time
+      at: '07:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.automation_enable_thermostat_rdc_clim
+        state: 'on'
+    action:
+      - service: climate.set_temperature
+        target:
+          entity_id: climate.daikin_salon
+        data:
+          temperature: 21
+          hvac_mode: heat
+      - delay: '00:00:01'
+      - service: climate.set_fan_mode
+        target:
+          entity_id: climate.daikin_salon
+        data:
+          fan_mode: "Auto"
+      - delay: '00:00:01'
+      - service: climate.set_swing_mode
+        target:
+          entity_id: climate.daikin_salon
+        data:
+          swing_mode: "Vertical"
+      - delay: '00:00:01'
+      - service: climate.set_preset_mode
+        target:
+          entity_id: climate.daikin_salon
+        data:
+          preset_mode: "eco"
+
   - id: climate_rdc_day_1
     alias: Climatisation Rez de chaussée - Jour (1)
     trigger:
