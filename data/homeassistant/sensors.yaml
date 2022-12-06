@@ -2,7 +2,7 @@
 ## SENSORS
 
   # Moon
-  - platform: moon
+  # - platform: moon
 
   # Date and time
   - platform: time_date
@@ -13,7 +13,7 @@
       - 'date'
 
   # Uptime
-  - platform: uptime
+  # - platform: uptime
 
   # HP ILO
   - platform: hp_ilo
