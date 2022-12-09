@@ -462,6 +462,9 @@
                   "entity": "sensor.ecowatt_level_today"
                 },
                 {
+                  "entity": "sensor.ecowatt_level_tomorrow"
+                },
+                {
                   "entity": "sensor.next_downgraded_period"
                 }
               ]
@@ -1399,10 +1402,7 @@
                       "entities": [
                         "sensor.coral_inference_speed",
                         "sensor.detection_fps",
-                        "sensor.eufysoloindoorcamc24_camera_fps",
                         "sensor.foscamfi9800pv3_camera_fps",
-                        "sensor.foscamfi9816pv2_camera_fps",
-                        "sensor.eufysolooutdoorc24_camera_fps",
                         "sensor.dahuaipck42p_camera_fps"
                       ],
                       "head": {
@@ -1419,10 +1419,7 @@
                       "open": false,
                       "type": "custom:fold-entity-row",
                       "entities": [
-                        "switch.eufysoloindoorcamc24_detect",
                         "switch.foscamfi9800pv3_detect",
-                        "switch.foscamfi9816pv2_detect",
-                        "switch.eufysolooutdoorc24_detect",
                         "switch.dahuaipck42p_detect"
                       ],
                       "head": {
@@ -1441,23 +1438,11 @@
               },
               "cameras": [
                 {
-                  "camera_entity": "camera.eufysoloindoorcamc24",
-                  "live_provider": "ha"
-                },
-                {
                   "camera_entity": "camera.foscamfi9800pv3",
                   "live_provider": "ha"
                 },
                 {
-                  "camera_entity": "camera.foscamfi9816pv2",
-                  "live_provider": "ha"
-                },
-                {
                   "camera_entity": "camera.dahuaipck42p",
-                  "live_provider": "ha"
-                },
-                {
-                  "camera_entity": "camera.eufysolooutdoorc24",
                   "live_provider": "ha"
                 }
               ],

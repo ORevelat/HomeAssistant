@@ -5,13 +5,9 @@
     alias: Notification Détection Status Camera
     trigger:
       - platform: state
-        entity_id: switch.eufysoloindoorcamc24_detect
+        entity_id: switch.dahuaipck42p_detect
       - platform: state
         entity_id: switch.foscamfi9800pv3_detect
-      - platform: state
-        entity_id: switch.foscamfi9816pv2_detect
-      - platform: state
-        entity_id: switch.eufysolooutdoorc24_detect
 
     mode: queued
 
