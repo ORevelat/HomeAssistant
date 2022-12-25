@@ -1,0 +1,28 @@
+
+## RFLINK ERROR
+
+  - id: notification_rflink_error
+    alias: Notification Perte Thermomètres RFLink
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.rflink_error_jardin
+          - binary_sensor.rflink_error_salon
+          - binary_sensor.rflink_error_salle_bain
+          - binary_sensor.rflink_error_garage
+          - binary_sensor.rflink_error_bureau
+          - binary_sensor.rflink_error_chambre_parents
+          - binary_sensor.rflink_error_chambre_thea
+        to: "on"
+
+    mode: queued
+
+    action:
+      - service: notify.mobile_app_iphone_de_olivier
+        data:
+          title: "Status RFLink"
+          message: >
+            Perte du capteur {{trigger.to_state.entity_id}} sur le RFLink.
+          data:
+            push:
+                thread-id: "rflink-notification-group"

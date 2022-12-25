@@ -28,6 +28,7 @@ tts:
 ## INCLUDES ##
 
 automation: !include_dir_merge_list automation
+automation ui: !include automations.yaml
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 history: !include history.yaml
@@ -45,3 +46,4 @@ shell_command: !include shell_command.yaml
 utility_meter: !include utility_meter.yaml
 alexa: !include alexa.yaml
 timer: !include timers.yaml
+template: !include template.yaml
