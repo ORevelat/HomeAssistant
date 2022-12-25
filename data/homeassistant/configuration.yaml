@@ -15,8 +15,8 @@ http:
   trusted_proxies:
     - !secret http_trusted_network
     - !secret http_trusted_network_docker_automation
-  ip_ban_enabled: true
-  login_attempts_threshold: 3
+  # ip_ban_enabled: true
+  # login_attempts_threshold: 3
 
 ## COMPONENTS ##
 

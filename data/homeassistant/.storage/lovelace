@@ -463,9 +463,6 @@
                 },
                 {
                   "entity": "sensor.ecowatt_level_tomorrow"
-                },
-                {
-                  "entity": "sensor.next_downgraded_period"
                 }
               ]
             }
@@ -1433,9 +1430,6 @@
             },
             {
               "type": "custom:frigate-card",
-              "view_layout": {
-                "grid-area": "main"
-              },
               "cameras": [
                 {
                   "camera_entity": "camera.foscamfi9800pv3",
@@ -1448,8 +1442,13 @@
               ],
               "menu": {
                 "buttons": {
-                  "download": false
+                  "download": {
+                    "enabled": false
+                  }
                 }
+              },
+              "view_layout": {
+                "grid-area": "main"
               }
             }
           ]
@@ -1760,6 +1759,17 @@
               ],
               "show_header_toggle": false,
               "state_color": true
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Test",
+          "path": "test",
+          "badges": [],
+          "cards": [
+            {
+              "type": "custom:sun-card"
             }
           ]
         }
