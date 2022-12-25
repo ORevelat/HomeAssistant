@@ -195,7 +195,7 @@
                   },
                   "apex_config": {
                     "chart": {
-                      "height": "150px"
+                      "height": "100px"
                     },
                     "yaxis": {
                       "show": false,
@@ -275,33 +275,43 @@
                   ]
                 },
                 {
+                  "type": "entities",
                   "entities": [
                     {
-                      "entity": "sensor.hourly_energy",
-                      "name": "Heure",
-                      "secondary_info": "&nbsp;&nbsp;[[ sensor.hourly_consumption_day ]] kWh (HP) / [[ sensor.hourly_consumption_night ]] kWh (HC)",
-                      "type": "custom:secondaryinfo-entity-row"
-                    },
-                    {
-                      "entity": "sensor.daily_energy",
-                      "name": "Jour",
-                      "secondary_info": "&nbsp;&nbsp;[[ sensor.daily_consumption_day ]] kWh (HP) / [[ sensor.daily_consumption_night ]] kWh (HC)",
-                      "type": "custom:secondaryinfo-entity-row"
-                    },
-                    {
-                      "entity": "sensor.monthly_energy",
-                      "name": "Mois",
-                      "secondary_info": "&nbsp;&nbsp;[[ sensor.monthly_consumption_day ]] kWh (HP) / [[ sensor.monthly_consumption_night ]] kWh (HC)",
-                      "type": "custom:secondaryinfo-entity-row"
-                    },
-                    {
-                      "entity": "sensor.yearly_energy",
-                      "name": "Année",
-                      "secondary_info": "&nbsp;&nbsp;[[ sensor.yearly_consumption_day ]] kWh (HP) / [[ sensor.yearly_consumption_night ]] kWh (HC)",
-                      "type": "custom:secondaryinfo-entity-row"
+                      "type": "custom:fold-entity-row",
+                      "entities": [
+                        {
+                          "entity": "sensor.hourly_energy",
+                          "name": "Heure",
+                          "secondary_info": "&nbsp;&nbsp;[[ sensor.hourly_consumption_day ]] kWh (HP) / [[ sensor.hourly_consumption_night ]] kWh (HC)",
+                          "type": "custom:secondaryinfo-entity-row"
+                        },
+                        {
+                          "entity": "sensor.daily_energy",
+                          "name": "Jour",
+                          "secondary_info": "&nbsp;&nbsp;[[ sensor.daily_consumption_day ]] kWh (HP) / [[ sensor.daily_consumption_night ]] kWh (HC)",
+                          "type": "custom:secondaryinfo-entity-row"
+                        },
+                        {
+                          "entity": "sensor.monthly_energy",
+                          "name": "Mois",
+                          "secondary_info": "&nbsp;&nbsp;[[ sensor.monthly_consumption_day ]] kWh (HP) / [[ sensor.monthly_consumption_night ]] kWh (HC)",
+                          "type": "custom:secondaryinfo-entity-row"
+                        },
+                        {
+                          "entity": "sensor.yearly_energy",
+                          "name": "Année",
+                          "secondary_info": "&nbsp;&nbsp;[[ sensor.yearly_consumption_day ]] kWh (HP) / [[ sensor.yearly_consumption_night ]] kWh (HC)",
+                          "type": "custom:secondaryinfo-entity-row"
+                        }
+                      ],
+                      "open": false,
+                      "head": {
+                        "entity": "sensor.daily_energy",
+                        "name": "Consomation du jour"
+                      }
                     }
-                  ],
-                  "type": "entities"
+                  ]
                 }
               ],
               "type": "vertical-stack"
@@ -386,6 +396,20 @@
               "type": "vertical-stack"
             },
             {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.ecowatt_level_now"
+                },
+                {
+                  "entity": "sensor.ecowatt_level_today"
+                },
+                {
+                  "entity": "sensor.ecowatt_level_tomorrow"
+                }
+              ]
+            },
+            {
               "type": "vertical-stack",
               "cards": [
                 {
@@ -449,20 +473,6 @@
                   ],
                   "show_header_toggle": false,
                   "title": "Détecteurs d'eau"
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.ecowatt_level_now"
-                },
-                {
-                  "entity": "sensor.ecowatt_level_today"
-                },
-                {
-                  "entity": "sensor.ecowatt_level_tomorrow"
                 }
               ]
             }
