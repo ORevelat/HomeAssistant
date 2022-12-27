@@ -7,37 +7,51 @@
       "title": "Maison",
       "views": [
         {
+          "theme": "Backend-selected",
           "path": "default_view",
           "title": "Home",
           "icon": "mdi:home",
-          "badges": [
-            {
-              "entity": "person.olivier",
-              "card_mod": {
-                "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.olivier', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.olivier', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
-              }
-            },
-            {
-              "entity": "person.sandrine",
-              "card_mod": {
-                "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.sandrine', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.sandrine', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
-              }
-            },
-            {
-              "entity": "person.thea",
-              "card_mod": {
-                "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.thea', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.thea', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
-              }
-            },
-            {
-              "entity": "group.home_occupancy",
-              "name": " ",
-              "card_mod": {
-                "style": ":host {\n  --label-badge-background-color:\n    {% if is_state('group.home_occupancy', 'home') %}\n      red;\n    {% elif is_state('group.home_occupancy', 'not_home') %}                      \n      green; \n    {% endif %}   \n}\n"
-              }
-            }
-          ],
+          "type": "custom:grid-layout",
+          "layout": {
+            "grid-template-columns": "33% 33% 33%",
+            "grid-template-rows": "auto",
+            "grid-template-areas": "\". header .\"\n\"col1 col2 col3\"\n"
+          },
+          "badges": [],
           "cards": [
+            {
+              "type": "custom:badge-card",
+              "view_layout": {
+                "grid-area": "header"
+              },
+              "badges": [
+                {
+                  "entity": "person.olivier",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.olivier', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.olivier', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                  }
+                },
+                {
+                  "entity": "person.sandrine",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.sandrine', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.sandrine', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                  }
+                },
+                {
+                  "entity": "person.thea",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.thea', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.thea', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                  }
+                },
+                {
+                  "entity": "group.home_occupancy",
+                  "name": " ",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-background-color:\n    {% if is_state('group.home_occupancy', 'home') %}\n      red;\n    {% elif is_state('group.home_occupancy', 'not_home') %}                      \n      green; \n    {% endif %}   \n}\n"
+                  }
+                }
+              ]
+            },
             {
               "type": "vertical-stack",
               "cards": [
@@ -80,6 +94,167 @@
                   "showRelativeTime": false,
                   "title": "Calendriers",
                   "type": "custom:atomic-calendar-revive"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "sensor.ecowatt_level_now"
+                    },
+                    {
+                      "entity": "sensor.ecowatt_level_today"
+                    },
+                    {
+                      "entity": "sensor.ecowatt_level_tomorrow"
+                    }
+                  ]
+                }
+              ],
+              "view_layout": {
+                "grid-area": "col1"
+              }
+            },
+            {
+              "type": "vertical-stack",
+              "view_layout": {
+                "grid-area": "col3"
+              },
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "binary_sensor.entree_smoke_detector_smoke_alarm_smoke_detected",
+                      "type": "custom:multiple-entity-row",
+                      "name": "Entrée",
+                      "secondary_info": "last-changed",
+                      "entities": [
+                        {
+                          "entity": "sensor.entree_smoke_detector_air_temperature",
+                          "name": "Température"
+                        },
+                        {
+                          "entity": "sensor.entree_smoke_detector_battery_level",
+                          "name": "Batterie"
+                        }
+                      ]
+                    },
+                    {
+                      "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected",
+                      "type": "custom:multiple-entity-row",
+                      "name": "Etage",
+                      "secondary_info": "last-changed",
+                      "entities": [
+                        {
+                          "entity": "sensor.escalier_smoke_detector_air_temperature",
+                          "name": "Température"
+                        },
+                        {
+                          "entity": "sensor.escalier_smoke_detector_battery_level",
+                          "name": "Batterie"
+                        }
+                      ]
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "title": "Détecteurs de fumée"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected",
+                      "type": "custom:multiple-entity-row",
+                      "name": "Cuisine",
+                      "secondary_info": "last-changed",
+                      "entities": [
+                        {
+                          "entity": "sensor.cuisine_air_temperature",
+                          "name": "Température"
+                        },
+                        {
+                          "entity": "sensor.cuisine_battery_level",
+                          "name": "Batterie"
+                        }
+                      ]
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "title": "Détecteurs d'eau"
+                },
+                {
+                  "card": {
+                    "show_header_toggle": false,
+                    "title": "Lumières allumées",
+                    "type": "entities"
+                  },
+                  "filter": {
+                    "exclude": [
+                      {
+                        "entity_id": "light.*_current_value_2"
+                      },
+                      {
+                        "entity_id": "light.*_2"
+                      },
+                      {
+                        "entity_id": "light.*_4"
+                      },
+                      {
+                        "entity_id": "light.radiateur_*"
+                      }
+                    ],
+                    "include": [
+                      {
+                        "domain": "light",
+                        "state": "on"
+                      }
+                    ]
+                  },
+                  "show_empty": false,
+                  "type": "custom:auto-entities"
+                },
+                {
+                  "card": {
+                    "show_header_toggle": false,
+                    "title": "Prises allumées",
+                    "type": "entities"
+                  },
+                  "filter": {
+                    "exclude": [
+                      {
+                        "entity_id": "switch.radiateur_*"
+                      },
+                      {
+                        "entity_id": "switch.echo_*"
+                      },
+                      {
+                        "entity_id": "switch.volet_*"
+                      },
+                      {
+                        "entity_id": "switch.*_detect"
+                      },
+                      {
+                        "entity_id": "switch.*_recordings"
+                      },
+                      {
+                        "entity_id": "switch.*_snapshots"
+                      },
+                      {
+                        "entity_id": "switch.schedule_*"
+                      },
+                      {
+                        "entity_id": "switch.ufo_controller_rgbw_ir_9f3bab_remote_access"
+                      }
+                    ],
+                    "include": [
+                      {
+                        "domain": "switch",
+                        "state": "on"
+                      }
+                    ]
+                  },
+                  "show_empty": false,
+                  "type": "custom:auto-entities"
                 }
               ]
             },
@@ -107,7 +282,13 @@
                   },
                   "graph_span": "24h",
                   "brush": {
-                    "selection_span": "2h"
+                    "selection_span": "2h",
+                    "apex_config": {
+                      "yaxis": {
+                        "tickAmount": 4,
+                        "decimalsInFloat": 0
+                      }
+                    }
                   },
                   "all_series_config": {
                     "color_threshold": [
@@ -155,14 +336,6 @@
                   },
                   "series": [
                     {
-                      "entity": "sensor.hourly_energy",
-                      "color": "orange",
-                      "show": {
-                        "in_chart": false,
-                        "name_in_header": false
-                      }
-                    },
-                    {
                       "entity": "sensor.smart_meter_electric_consumed_filtered_w",
                       "stroke_width": 1,
                       "type": "area",
@@ -174,14 +347,6 @@
                         "in_brush": true,
                         "header_color_threshold": true
                       }
-                    },
-                    {
-                      "entity": "sensor.smart_meter_electric_consumed_power_factor",
-                      "color": "orange",
-                      "show": {
-                        "in_chart": false,
-                        "name_in_header": false
-                      }
                     }
                   ]
                 },
@@ -189,23 +354,28 @@
                   "type": "custom:apexcharts-card",
                   "header": {
                     "show": true,
-                    "title": "Consommation / jour",
-                    "show_states": true,
-                    "colorize_states": true
+                    "title": "Consommation par jour",
+                    "show_states": false
                   },
                   "apex_config": {
                     "chart": {
-                      "height": "100px"
+                      "height": "150px"
                     },
                     "yaxis": {
                       "show": false,
-                      "decimalsInFloat": 0
+                      "tickAmount": 4
                     }
                   },
                   "experimental": {
                     "color_threshold": true
                   },
-                  "graph_span": "168h",
+                  "graph_span": "7d",
+                  "span": {
+                    "end": "day"
+                  },
+                  "show": {
+                    "last_updated": true
+                  },
                   "all_series_config": {
                     "color_threshold": [
                       {
@@ -214,15 +384,15 @@
                       },
                       {
                         "color": "#38ff00",
-                        "value": 5
-                      },
-                      {
-                        "color": "#71ff00",
                         "value": 10
                       },
                       {
-                        "color": "#aaff00",
+                        "color": "#71ff00",
                         "value": 15
+                      },
+                      {
+                        "color": "#aaff00",
+                        "value": 18
                       },
                       {
                         "color": "#e2ff00",
@@ -230,15 +400,15 @@
                       },
                       {
                         "color": "#ffe200",
-                        "value": 25
+                        "value": 22
                       },
                       {
                         "color": "#ffaa00",
-                        "value": 30
+                        "value": 25
                       },
                       {
                         "color": "#ff7100",
-                        "value": 35
+                        "value": 30
                       },
                       {
                         "color": "#ff3800",
@@ -314,174 +484,19 @@
                   ]
                 }
               ],
-              "type": "vertical-stack"
-            },
-            {
-              "cards": [
-                {
-                  "card": {
-                    "show_header_toggle": false,
-                    "title": "Lumières allumées",
-                    "type": "entities"
-                  },
-                  "filter": {
-                    "exclude": [
-                      {
-                        "entity_id": "light.*_current_value_2"
-                      },
-                      {
-                        "entity_id": "light.*_2"
-                      },
-                      {
-                        "entity_id": "light.*_4"
-                      },
-                      {
-                        "entity_id": "light.radiateur_*"
-                      }
-                    ],
-                    "include": [
-                      {
-                        "domain": "light",
-                        "state": "on"
-                      }
-                    ]
-                  },
-                  "show_empty": false,
-                  "type": "custom:auto-entities"
-                },
-                {
-                  "card": {
-                    "show_header_toggle": false,
-                    "title": "Prises allumées",
-                    "type": "entities"
-                  },
-                  "filter": {
-                    "exclude": [
-                      {
-                        "entity_id": "switch.radiateur_*"
-                      },
-                      {
-                        "entity_id": "switch.echo_*"
-                      },
-                      {
-                        "entity_id": "switch.volet_*"
-                      },
-                      {
-                        "entity_id": "switch.*_detect"
-                      },
-                      {
-                        "entity_id": "switch.*_recordings"
-                      },
-                      {
-                        "entity_id": "switch.*_snapshots"
-                      },
-                      {
-                        "entity_id": "switch.schedule_*"
-                      },
-                      {
-                        "entity_id": "switch.ufo_controller_rgbw_ir_9f3bab_remote_access"
-                      }
-                    ],
-                    "include": [
-                      {
-                        "domain": "switch",
-                        "state": "on"
-                      }
-                    ]
-                  },
-                  "show_empty": false,
-                  "type": "custom:auto-entities"
-                }
-              ],
-              "type": "vertical-stack"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.ecowatt_level_now"
-                },
-                {
-                  "entity": "sensor.ecowatt_level_today"
-                },
-                {
-                  "entity": "sensor.ecowatt_level_tomorrow"
-                }
-              ]
-            },
-            {
               "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "binary_sensor.entree_smoke_detector_smoke_alarm_smoke_detected",
-                      "type": "custom:multiple-entity-row",
-                      "name": "Entrée",
-                      "secondary_info": "last-changed",
-                      "entities": [
-                        {
-                          "entity": "sensor.entree_smoke_detector_air_temperature",
-                          "name": "Température"
-                        },
-                        {
-                          "entity": "sensor.entree_smoke_detector_battery_level",
-                          "name": "Batterie"
-                        }
-                      ]
-                    },
-                    {
-                      "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected",
-                      "type": "custom:multiple-entity-row",
-                      "name": "Etage",
-                      "secondary_info": "last-changed",
-                      "entities": [
-                        {
-                          "entity": "sensor.escalier_smoke_detector_air_temperature",
-                          "name": "Température"
-                        },
-                        {
-                          "entity": "sensor.escalier_smoke_detector_battery_level",
-                          "name": "Batterie"
-                        }
-                      ]
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "title": "Détecteurs de fumée"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected",
-                      "type": "custom:multiple-entity-row",
-                      "name": "Cuisine",
-                      "secondary_info": "last-changed",
-                      "entities": [
-                        {
-                          "entity": "sensor.cuisine_air_temperature",
-                          "name": "Température"
-                        },
-                        {
-                          "entity": "sensor.cuisine_battery_level",
-                          "name": "Batterie"
-                        }
-                      ]
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "title": "Détecteurs d'eau"
-                }
-              ]
+              "view_layout": {
+                "grid-area": "col2"
+              }
             }
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Rez de chaussée",
           "path": "rez-de-chaussee",
           "icon": "mdi:sofa",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -555,6 +570,54 @@
               "type": "entities"
             },
             {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "thermostat",
+                  "entity": "climate.daikin_salon",
+                  "name": "Rez de Chaussée"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "type": "custom:fold-entity-row",
+                      "entities": [
+                        {
+                          "entity": "sensor.daikin_salon_inside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_outside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_total_power_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_heat_energy_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_cool_energy_consumption"
+                        }
+                      ],
+                      "open": false,
+                      "head": {
+                        "entity": "climate.daikin_salon"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_boolean.automation_enable_thermostat_rdc_clim",
+                  "name": "Programmation automatique",
+                  "icon": "mdi:clock-outline"
+                }
+              ]
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
               "cards": [
                 {
                   "cards": [
@@ -614,6 +677,21 @@
               "type": "vertical-stack"
             },
             {
+              "type": "custom:mini-graph-card",
+              "entities": [
+                {
+                  "entity": "sensor.thermometer_garage_temperature"
+                }
+              ],
+              "group_by": "hour",
+              "hour24": true,
+              "hours_to_show": 24,
+              "name": "Garage"
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
               "columns": 4,
               "entities": [
                 {
@@ -657,63 +735,6 @@
               ],
               "title": "Prises",
               "type": "glance"
-            },
-            {
-              "type": "vertical-stack",
-              "cards": [
-                {
-                  "type": "thermostat",
-                  "entity": "climate.daikin_salon",
-                  "name": "Rez de Chaussée"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "type": "custom:fold-entity-row",
-                      "entities": [
-                        {
-                          "entity": "sensor.daikin_salon_inside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_outside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_total_power_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_heat_energy_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_cool_energy_consumption"
-                        }
-                      ],
-                      "open": false,
-                      "head": {
-                        "entity": "climate.daikin_salon"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_boolean.automation_enable_thermostat_rdc_clim",
-                  "name": "Programmation automatique",
-                  "icon": "mdi:clock-outline"
-                }
-              ]
-            },
-            {
-              "type": "custom:mini-graph-card",
-              "entities": [
-                {
-                  "entity": "sensor.thermometer_garage_temperature"
-                }
-              ],
-              "group_by": "hour",
-              "hour24": true,
-              "hours_to_show": 24,
-              "name": "Garage"
             },
             {
               "type": "custom:vacuum-card",
@@ -763,11 +784,61 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Etage",
           "path": "etage",
           "icon": "mdi:bed",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
+            {
+              "cards": [
+                {
+                  "entity": "climate.daikin_etage",
+                  "name": "Etage",
+                  "type": "thermostat"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "type": "custom:fold-entity-row",
+                      "entities": [
+                        {
+                          "entity": "sensor.daikin_etage_inside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_outside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_total_power_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_heat_energy_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_cool_energy_consumption"
+                        }
+                      ],
+                      "open": false,
+                      "head": {
+                        "entity": "climate.daikin_etage"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_boolean.automation_enable_thermostat_etage_clim",
+                  "name": "Programmation automatique",
+                  "icon": "mdi:clock-outline"
+                }
+              ],
+              "type": "vertical-stack"
+            },
+            {
+              "type": "custom:layout-break"
+            },
             {
               "columns": 4,
               "entities": [
@@ -811,6 +882,9 @@
               "show_name": true,
               "title": "Prises",
               "type": "glance"
+            },
+            {
+              "type": "custom:layout-break"
             },
             {
               "cards": [
@@ -933,51 +1007,6 @@
               "type": "vertical-stack"
             },
             {
-              "cards": [
-                {
-                  "entity": "climate.daikin_etage",
-                  "name": "Etage",
-                  "type": "thermostat"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "type": "custom:fold-entity-row",
-                      "entities": [
-                        {
-                          "entity": "sensor.daikin_etage_inside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_outside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_total_power_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_heat_energy_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_cool_energy_consumption"
-                        }
-                      ],
-                      "open": false,
-                      "head": {
-                        "entity": "climate.daikin_etage"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_boolean.automation_enable_thermostat_etage_clim",
-                  "name": "Programmation automatique",
-                  "icon": "mdi:clock-outline"
-                }
-              ],
-              "type": "vertical-stack"
-            },
-            {
               "type": "sensor",
               "entity": "sensor.thermometer_test_temperature",
               "graph": "line",
@@ -986,10 +1015,12 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Jardin",
           "path": "jardin",
           "icon": "mdi:pine-tree",
           "panel": false,
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -1079,28 +1110,7 @@
               ]
             },
             {
-              "type": "glance",
-              "columns": 3,
-              "entities": [
-                {
-                  "entity": "switch.sonoff_4ch_jardin_1",
-                  "name": "Prise fontaine"
-                },
-                {
-                  "entity": "switch.sonoff_4ch_jardin_2",
-                  "name": "Prise piscine gauche"
-                },
-                {
-                  "entity": "switch.sonoff_4ch_jardin_3",
-                  "name": "Prise piscine droite"
-                },
-                {
-                  "entity": "switch.shelly25_jardin_channel_1",
-                  "name": "Prise rivière"
-                }
-              ],
-              "title": "Interrupteurs",
-              "state_color": true
+              "type": "custom:layout-break"
             },
             {
               "type": "glance",
@@ -1113,12 +1123,12 @@
                 {
                   "entity": "switch.sonoff_4ch_jardin_4",
                   "icon": "mdi:lightbulb",
-                  "name": "Lumière terrasse"
+                  "name": "Terrasse"
                 },
                 {
                   "entity": "switch.shelly25_jardin_channel_2",
                   "icon": "mdi:lightbulb",
-                  "name": "Lumières rivière"
+                  "name": "Rivière"
                 }
               ],
               "title": "Lumières",
@@ -1126,6 +1136,36 @@
               "show_state": true,
               "show_name": true,
               "state_color": true
+            },
+            {
+              "show_name": true,
+              "show_icon": true,
+              "show_state": true,
+              "type": "glance",
+              "columns": 3,
+              "entities": [
+                {
+                  "entity": "switch.sonoff_4ch_jardin_1",
+                  "name": "Fontaine"
+                },
+                {
+                  "entity": "switch.sonoff_4ch_jardin_2",
+                  "name": "Piscine gauche"
+                },
+                {
+                  "entity": "switch.sonoff_4ch_jardin_3",
+                  "name": "Piscine droite"
+                },
+                {
+                  "entity": "switch.shelly25_jardin_channel_1",
+                  "name": "Rivière"
+                }
+              ],
+              "title": "Prises",
+              "state_color": true
+            },
+            {
+              "type": "custom:layout-break"
             },
             {
               "entities": [
@@ -1464,9 +1504,11 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Météo",
           "path": "meteo",
           "icon": "mdi:weather-partly-cloudy",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -1483,6 +1525,18 @@
               "show_header_toggle": false,
               "title": "Générale",
               "type": "entities"
+            },
+            {
+              "type": "custom:sun-card"
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
+              "type": "weather-forecast",
+              "entity": "weather.auribeau_sur_siagne",
+              "show_forecast": true,
+              "secondary_info_attribute": "wind_speed"
             },
             {
               "type": "entities",
@@ -1505,10 +1559,15 @@
               ]
             },
             {
-              "type": "weather-forecast",
-              "entity": "weather.auribeau_sur_siagne",
-              "show_forecast": true,
-              "secondary_info_attribute": "wind_speed"
+              "type": "custom:layout-break"
+            },
+            {
+              "type": "entity",
+              "entity": "sensor.06_weather_alert",
+              "name": "Vigilance Météo 06",
+              "card_mod": {
+                "style": "ha-card {\n  text-align: center;\n  {% if is_state(\"sensor.06_weather_alert\", \"Vert\") %}\n  color: green;\n  {% elif is_state(\"sensor.06_weather_alert\", \"Jaune\") %}\n  color: rgb(198,186,0);\n  {% elif is_state(\"sensor.06_weather_alert\", \"Rouge\") %}\n  color: red;\n  {% endif %}\n}\n"
+              }
             },
             {
               "type": "entities",
@@ -1526,21 +1585,15 @@
               "title": "Vigilance météo",
               "show_header_toggle": false,
               "state_color": false
-            },
-            {
-              "type": "entity",
-              "entity": "sensor.06_weather_alert",
-              "name": "Vigilance Météo 06",
-              "card_mod": {
-                "style": "ha-card {\n  text-align: center;\n  {% if is_state(\"sensor.06_weather_alert\", \"Vert\") %}\n  color: green;\n  {% elif is_state(\"sensor.06_weather_alert\", \"Jaune\") %}\n  color: rgb(198,186,0);\n  {% elif is_state(\"sensor.06_weather_alert\", \"Rouge\") %}\n  color: red;\n  {% endif %}\n}\n"
-              }
             }
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Equipements",
           "path": "equipements",
           "icon": "mdi:server-security",
+          "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
             {
@@ -1555,6 +1608,30 @@
               "show_header_toggle": false,
               "title": "Home Assistant",
               "type": "entities"
+            },
+            {
+              "cards": [
+                {
+                  "entities": [
+                    {
+                      "entity": "sensor.hp_ilo_gen8_status",
+                      "name": "Status"
+                    },
+                    {
+                      "entity": "sensor.hp_ilo_gen8_fanspeed",
+                      "name": "Vitesse ventilateur"
+                    },
+                    {
+                      "entity": "sensor.hp_ilo_gen8_temperature",
+                      "name": "Température"
+                    }
+                  ],
+                  "show_header_toggle": false,
+                  "title": "HP Gen8 microserver",
+                  "type": "entities"
+                }
+              ],
+              "type": "horizontal-stack"
             },
             {
               "card": {
@@ -1582,28 +1659,34 @@
               "type": "entity-filter"
             },
             {
-              "cards": [
-                {
-                  "entities": [
-                    {
-                      "entity": "sensor.hp_ilo_gen8_status",
-                      "name": "Status"
-                    },
-                    {
-                      "entity": "sensor.hp_ilo_gen8_fanspeed",
-                      "name": "Vitesse ventilateur"
-                    },
-                    {
-                      "entity": "sensor.hp_ilo_gen8_temperature",
-                      "name": "Température"
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "title": "HP Gen8 microserver",
-                  "type": "entities"
-                }
-              ],
-              "type": "horizontal-stack"
+              "type": "custom:layout-break"
+            },
+            {
+              "card": {
+                "show_header_toggle": false,
+                "title": "Consommation",
+                "type": "entities"
+              },
+              "filter": {
+                "include": [
+                  {
+                    "entity_id": "sensor.lumiere_*_power"
+                  },
+                  {
+                    "entity_id": "sensor.prise_*_electric_consumed_w"
+                  },
+                  {
+                    "entity_id": "sensor.volet_*_power"
+                  },
+                  {
+                    "entity_id": "sensor.shelly*_power"
+                  }
+                ]
+              },
+              "type": "custom:auto-entities"
+            },
+            {
+              "type": "custom:layout-break"
             },
             {
               "type": "custom:auto-entities",
@@ -1632,30 +1715,6 @@
                   }
                 ]
               }
-            },
-            {
-              "card": {
-                "show_header_toggle": false,
-                "title": "Consommation",
-                "type": "entities"
-              },
-              "filter": {
-                "include": [
-                  {
-                    "entity_id": "sensor.lumiere_*_power"
-                  },
-                  {
-                    "entity_id": "sensor.prise_*_electric_consumed_w"
-                  },
-                  {
-                    "entity_id": "sensor.volet_*_power"
-                  },
-                  {
-                    "entity_id": "sensor.shelly*_power"
-                  }
-                ]
-              },
-              "type": "custom:auto-entities"
             }
           ]
         },
@@ -1769,17 +1828,6 @@
               ],
               "show_header_toggle": false,
               "state_color": true
-            }
-          ]
-        },
-        {
-          "theme": "Backend-selected",
-          "title": "Test",
-          "path": "test",
-          "badges": [],
-          "cards": [
-            {
-              "type": "custom:sun-card"
             }
           ]
         }
