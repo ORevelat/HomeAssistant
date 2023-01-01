@@ -570,49 +570,97 @@
               "type": "entities"
             },
             {
-              "type": "vertical-stack",
-              "cards": [
+              "type": "custom:vacuum-card",
+              "entity": "vacuum.roborock_vacuum_s5",
+              "image": "default",
+              "compact_view": false,
+              "show_name": true,
+              "show_toolbar": true,
+              "show_status": true,
+              "stats": {
+                "default": [
+                  {
+                    "attribute": "filter_left",
+                    "unit": "hours",
+                    "subtitle": "Filtre"
+                  },
+                  {
+                    "attribute": "side_brush_left",
+                    "unit": "hours",
+                    "subtitle": "Brosse latérale"
+                  },
+                  {
+                    "attribute": "main_brush_left",
+                    "unit": "hours",
+                    "subtitle": "Brosse"
+                  },
+                  {
+                    "attribute": "sensor_dirty_left",
+                    "unit": "hours",
+                    "subtitle": "Détecteurs"
+                  }
+                ],
+                "cleaning": [
+                  {
+                    "attribute": "cleaned_area",
+                    "unit": "m2",
+                    "subtitle": "Surface nettoyée"
+                  },
+                  {
+                    "attribute": "cleaning_time",
+                    "unit": "minutes",
+                    "subtitle": "Temps nettoyage"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
+              "columns": 4,
+              "entities": [
                 {
-                  "type": "thermostat",
-                  "entity": "climate.daikin_salon",
-                  "name": "Rez de Chaussée"
+                  "entity": "light.lumiere_entree_current_value",
+                  "name": "Entrée"
                 },
                 {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "type": "custom:fold-entity-row",
-                      "entities": [
-                        {
-                          "entity": "sensor.daikin_salon_inside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_outside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_total_power_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_heat_energy_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_salon_cool_energy_consumption"
-                        }
-                      ],
-                      "open": false,
-                      "head": {
-                        "entity": "climate.daikin_salon"
-                      }
-                    }
-                  ]
+                  "entity": "light.lumiere_salle_a_manger_current_value",
+                  "name": "Salle à manger"
                 },
                 {
-                  "type": "entity",
-                  "entity": "input_boolean.automation_enable_thermostat_rdc_clim",
-                  "name": "Programmation automatique",
-                  "icon": "mdi:clock-outline"
+                  "entity": "light.lumiere_salon_current_value",
+                  "name": "Salon"
+                },
+                {
+                  "entity": "light.lumiere_escalier_current_value",
+                  "name": "Escaliers"
                 }
-              ]
+              ],
+              "title": "Lumières",
+              "type": "glance"
+            },
+            {
+              "entities": [
+                {
+                  "entity": "switch.prise_tv_hifi_current_value",
+                  "name": "TV/Hifi"
+                },
+                {
+                  "entity": "switch.sonoff_salon",
+                  "name": "Prise salon"
+                },
+                {
+                  "entity": "switch.sonoff_bibliotheque_haut",
+                  "name": "Prise Bibliothèque"
+                },
+                {
+                  "entity": "switch.sonoff_cuisine",
+                  "name": "Prise Cuisine"
+                }
+              ],
+              "title": "Prises",
+              "type": "glance"
             },
             {
               "type": "custom:layout-break"
@@ -687,99 +735,6 @@
               "hour24": true,
               "hours_to_show": 24,
               "name": "Garage"
-            },
-            {
-              "type": "custom:layout-break"
-            },
-            {
-              "columns": 4,
-              "entities": [
-                {
-                  "entity": "light.lumiere_entree_current_value",
-                  "name": "Entrée"
-                },
-                {
-                  "entity": "light.lumiere_salle_a_manger_current_value",
-                  "name": "Salle à manger"
-                },
-                {
-                  "entity": "light.lumiere_salon_current_value",
-                  "name": "Salon"
-                },
-                {
-                  "entity": "light.lumiere_escalier_current_value",
-                  "name": "Escaliers"
-                }
-              ],
-              "title": "Lumières",
-              "type": "glance"
-            },
-            {
-              "entities": [
-                {
-                  "entity": "switch.prise_tv_hifi_current_value",
-                  "name": "TV/Hifi"
-                },
-                {
-                  "entity": "switch.sonoff_salon",
-                  "name": "Prise salon"
-                },
-                {
-                  "entity": "switch.sonoff_bibliotheque_haut",
-                  "name": "Prise Bibliothèque"
-                },
-                {
-                  "entity": "switch.sonoff_cuisine",
-                  "name": "Prise Cuisine"
-                }
-              ],
-              "title": "Prises",
-              "type": "glance"
-            },
-            {
-              "type": "custom:vacuum-card",
-              "entity": "vacuum.roborock_vacuum_s5",
-              "image": "default",
-              "compact_view": false,
-              "show_name": true,
-              "show_toolbar": true,
-              "show_status": true,
-              "stats": {
-                "default": [
-                  {
-                    "attribute": "filter_left",
-                    "unit": "hours",
-                    "subtitle": "Filtre"
-                  },
-                  {
-                    "attribute": "side_brush_left",
-                    "unit": "hours",
-                    "subtitle": "Brosse latérale"
-                  },
-                  {
-                    "attribute": "main_brush_left",
-                    "unit": "hours",
-                    "subtitle": "Brosse"
-                  },
-                  {
-                    "attribute": "sensor_dirty_left",
-                    "unit": "hours",
-                    "subtitle": "Détecteurs"
-                  }
-                ],
-                "cleaning": [
-                  {
-                    "attribute": "cleaned_area",
-                    "unit": "m2",
-                    "subtitle": "Surface nettoyée"
-                  },
-                  {
-                    "attribute": "cleaning_time",
-                    "unit": "minutes",
-                    "subtitle": "Temps nettoyage"
-                  }
-                ]
-              }
             }
           ]
         },
@@ -791,54 +746,6 @@
           "type": "custom:vertical-layout",
           "badges": [],
           "cards": [
-            {
-              "cards": [
-                {
-                  "entity": "climate.daikin_etage",
-                  "name": "Etage",
-                  "type": "thermostat"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "type": "custom:fold-entity-row",
-                      "entities": [
-                        {
-                          "entity": "sensor.daikin_etage_inside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_outside_temperature"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_total_power_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_heat_energy_consumption"
-                        },
-                        {
-                          "entity": "sensor.daikin_etage_cool_energy_consumption"
-                        }
-                      ],
-                      "open": false,
-                      "head": {
-                        "entity": "climate.daikin_etage"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "entity",
-                  "entity": "input_boolean.automation_enable_thermostat_etage_clim",
-                  "name": "Programmation automatique",
-                  "icon": "mdi:clock-outline"
-                }
-              ],
-              "type": "vertical-stack"
-            },
-            {
-              "type": "custom:layout-break"
-            },
             {
               "columns": 4,
               "entities": [
@@ -1024,95 +931,6 @@
           "badges": [],
           "cards": [
             {
-              "type": "custom:apexcharts-card",
-              "header": {
-                "show": true,
-                "title": "Jardin",
-                "show_states": true,
-                "colorize_states": true
-              },
-              "apex_config": {
-                "chart": {
-                  "height": "240px"
-                }
-              },
-              "graph_span": "24h",
-              "span": {
-                "start": "day"
-              },
-              "now": {
-                "show": true,
-                "color": "rgb(0,20,0)"
-              },
-              "series": [
-                {
-                  "entity": "sensor.thermometer_jardin_temperature",
-                  "name": "Aujourd'hui",
-                  "stroke_width": 2,
-                  "curve": "smooth",
-                  "extend_to": false,
-                  "color": "rgb(255,120,0)",
-                  "fill_raw": "last",
-                  "group_by": {
-                    "duration": "10min",
-                    "func": "avg"
-                  },
-                  "show": {
-                    "in_header": true,
-                    "name_in_header": true,
-                    "legend_value": false
-                  }
-                },
-                {
-                  "entity": "sensor.thermometer_jardin_humidity",
-                  "show": {
-                    "in_chart": false,
-                    "name_in_header": false,
-                    "header_color_threshold": true
-                  }
-                },
-                {
-                  "entity": "sensor.thermometer_jardin_temperature",
-                  "name": "Hier",
-                  "stroke_width": 1,
-                  "color": "rgb(255,180,0)",
-                  "fill_raw": "last",
-                  "offset": "-1d",
-                  "group_by": {
-                    "duration": "10min",
-                    "func": "avg"
-                  },
-                  "show": {
-                    "in_header": false,
-                    "name_in_header": false,
-                    "offset_in_name": false,
-                    "legend_value": false
-                  }
-                },
-                {
-                  "entity": "sensor.thermometer_jardin_temperature",
-                  "name": "Avant-hier",
-                  "stroke_width": 1,
-                  "color": "rgb(255,220,0)",
-                  "fill_raw": "last",
-                  "offset": "-2d",
-                  "group_by": {
-                    "duration": "10min",
-                    "func": "avg"
-                  },
-                  "show": {
-                    "in_header": false,
-                    "name_in_header": false,
-                    "offset_in_name": false,
-                    "legend_value": false
-                  }
-                }
-              ]
-            },
-            {
-              "type": "custom:layout-break"
-            },
-            {
               "type": "glance",
               "entities": [
                 {
@@ -1210,6 +1028,194 @@
               "show_header_toggle": false,
               "title": "Arrosage",
               "type": "entities"
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
+              "type": "custom:apexcharts-card",
+              "header": {
+                "show": true,
+                "title": "Jardin",
+                "show_states": true,
+                "colorize_states": true
+              },
+              "apex_config": {
+                "chart": {
+                  "height": "240px"
+                }
+              },
+              "graph_span": "24h",
+              "span": {
+                "start": "day"
+              },
+              "now": {
+                "show": true,
+                "color": "rgb(0,20,0)"
+              },
+              "series": [
+                {
+                  "entity": "sensor.thermometer_jardin_temperature",
+                  "name": "Aujourd'hui",
+                  "stroke_width": 2,
+                  "curve": "smooth",
+                  "extend_to": false,
+                  "color": "rgb(255,120,0)",
+                  "fill_raw": "last",
+                  "group_by": {
+                    "duration": "10min",
+                    "func": "avg"
+                  },
+                  "show": {
+                    "in_header": true,
+                    "name_in_header": true,
+                    "legend_value": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermometer_jardin_humidity",
+                  "show": {
+                    "in_chart": false,
+                    "name_in_header": false,
+                    "header_color_threshold": true
+                  }
+                },
+                {
+                  "entity": "sensor.thermometer_jardin_temperature",
+                  "name": "Hier",
+                  "stroke_width": 1,
+                  "color": "rgb(255,180,0)",
+                  "fill_raw": "last",
+                  "offset": "-1d",
+                  "group_by": {
+                    "duration": "10min",
+                    "func": "avg"
+                  },
+                  "show": {
+                    "in_header": false,
+                    "name_in_header": false,
+                    "offset_in_name": false,
+                    "legend_value": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermometer_jardin_temperature",
+                  "name": "Avant-hier",
+                  "stroke_width": 1,
+                  "color": "rgb(255,220,0)",
+                  "fill_raw": "last",
+                  "offset": "-2d",
+                  "group_by": {
+                    "duration": "10min",
+                    "func": "avg"
+                  },
+                  "show": {
+                    "in_header": false,
+                    "name_in_header": false,
+                    "offset_in_name": false,
+                    "legend_value": false
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Backend-selected",
+          "icon": "mdi:air-conditioner",
+          "title": "Climatisation",
+          "path": "climatisation",
+          "badges": [],
+          "cards": [
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "thermostat",
+                  "entity": "climate.daikin_salon",
+                  "name": "Rez de Chaussée"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "type": "custom:fold-entity-row",
+                      "entities": [
+                        {
+                          "entity": "sensor.daikin_salon_inside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_outside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_total_power_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_heat_energy_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_salon_cool_energy_consumption"
+                        }
+                      ],
+                      "open": false,
+                      "head": {
+                        "entity": "climate.daikin_salon"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_boolean.automation_enable_thermostat_rdc_clim",
+                  "name": "Programmation automatique",
+                  "icon": "mdi:clock-outline"
+                }
+              ]
+            },
+            {
+              "cards": [
+                {
+                  "entity": "climate.daikin_etage",
+                  "name": "Etage",
+                  "type": "thermostat"
+                },
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "type": "custom:fold-entity-row",
+                      "entities": [
+                        {
+                          "entity": "sensor.daikin_etage_inside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_outside_temperature"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_total_power_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_heat_energy_consumption"
+                        },
+                        {
+                          "entity": "sensor.daikin_etage_cool_energy_consumption"
+                        }
+                      ],
+                      "open": false,
+                      "head": {
+                        "entity": "climate.daikin_etage"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "entity",
+                  "entity": "input_boolean.automation_enable_thermostat_etage_clim",
+                  "name": "Programmation automatique",
+                  "icon": "mdi:clock-outline"
+                }
+              ],
+              "type": "vertical-stack"
             }
           ]
         },
@@ -1512,49 +1518,37 @@
           "badges": [],
           "cards": [
             {
-              "entities": [
+              "type": "vertical-stack",
+              "cards": [
                 {
-                  "entity": "sun.sun",
-                  "name": "Soleil"
+                  "type": "custom:mushroom-chips-card",
+                  "chips": [
+                    {
+                      "type": "entity",
+                      "entity": "sun.sun"
+                    },
+                    {
+                      "type": "template",
+                      "content": "Sunrise  {% if states.sun.sun %} {{ (as_timestamp(states.sun.sun.attributes.next_rising)) | timestamp_custom(('%H:%M') )}} {% endif %}",
+                      "icon": "mdi:weather-sunset-up"
+                    },
+                    {
+                      "type": "template",
+                      "content": "Sunset  {% if states.sun.sun %} {{ (as_timestamp(states.sun.sun.attributes.next_setting)) | timestamp_custom(('%H:%M') )}} {% endif %}",
+                      "icon": "mdi:weather-sunset-down"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "sensor.moon"
+                    }
+                  ]
                 },
                 {
-                  "entity": "sensor.moon",
-                  "name": "Lune"
-                }
-              ],
-              "show_header_toggle": false,
-              "title": "Générale",
-              "type": "entities"
-            },
-            {
-              "type": "custom:sun-card"
-            },
-            {
-              "type": "custom:layout-break"
-            },
-            {
-              "type": "weather-forecast",
-              "entity": "weather.auribeau_sur_siagne",
-              "show_forecast": true,
-              "secondary_info_attribute": "wind_speed"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.auribeau_sur_siagne_cloud_cover"
-                },
-                {
-                  "entity": "sensor.auribeau_sur_siagne_daily_precipitation"
-                },
-                {
-                  "entity": "sensor.auribeau_sur_siagne_pressure"
-                },
-                {
-                  "entity": "sensor.auribeau_sur_siagne_temperature"
-                },
-                {
-                  "entity": "sensor.auribeau_sur_siagne_wind_speed"
+                  "type": "weather-forecast",
+                  "entity": "weather.auribeau_sur_siagne",
+                  "show_current": true,
+                  "show_forecast": true,
+                  "secondary_info_attribute": "humidity"
                 }
               ]
             },
@@ -1568,23 +1562,6 @@
               "card_mod": {
                 "style": "ha-card {\n  text-align: center;\n  {% if is_state(\"sensor.06_weather_alert\", \"Vert\") %}\n  color: green;\n  {% elif is_state(\"sensor.06_weather_alert\", \"Jaune\") %}\n  color: rgb(198,186,0);\n  {% elif is_state(\"sensor.06_weather_alert\", \"Rouge\") %}\n  color: red;\n  {% endif %}\n}\n"
               }
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "sensor.alerte_crue"
-                },
-                {
-                  "entity": "sensor.alerte_vigilance"
-                },
-                {
-                  "entity": "sensor.alerte_risques"
-                }
-              ],
-              "title": "Vigilance météo",
-              "show_header_toggle": false,
-              "state_color": false
             }
           ]
         },
