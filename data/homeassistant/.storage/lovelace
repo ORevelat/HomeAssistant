@@ -1553,9 +1553,6 @@
               ]
             },
             {
-              "type": "custom:layout-break"
-            },
-            {
               "type": "entity",
               "entity": "sensor.06_weather_alert",
               "name": "Vigilance Météo 06",
@@ -1795,6 +1792,9 @@
               "entities": [
                 {
                   "entity": "input_boolean.automation_enable_weather_alert_notif"
+                },
+                {
+                  "entity": "automation.notification_alerte_meteo_sms"
                 },
                 {
                   "entity": "input_boolean.automation_enable_covers_sunrise"
