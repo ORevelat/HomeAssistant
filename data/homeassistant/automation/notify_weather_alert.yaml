@@ -34,3 +34,37 @@
               {% endif %}
             push:
                 thread-id: "weatheralert-notification-group"
+
+  - id: notification_weather_alert_sms
+    alias: Notification Alerte Météo SMS
+    trigger:
+      platform: state
+      entity_id: sensor.06_weather_alert
+
+    condition:
+      not:
+        - condition: state
+          entity_id: sensor.06_weather_alert
+          state: "Vert"
+        - condition: state
+          entity_id: sensor.06_weather_alert
+          state: "Jaune"
+
+    mode: queued
+
+    action:
+      - service: notify.sms
+        data:
+          message: |
+            Une vigilance {{ states('sensor.06_weather_alert') }} est active !
+
+            {% if state_attr('sensor.06_weather_alert', 'Inondation') != None and not is_state_attr('sensor.06_weather_alert', 'Inondation', 'Vert') %}Inondation {{ state_attr('sensor.06_weather_alert', 'Inondation') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Neige-verglas') != None and not is_state_attr('sensor.06_weather_alert', 'Neige-verglas', 'Vert') %}Neige-verglas {{ state_attr('sensor.06_weather_alert', 'Neige-verglas') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Pluie-inondation') != None and not is_state_attr('sensor.06_weather_alert', 'Pluie-inondation', 'Vert') %}Pluie-inondation {{ state_attr('sensor.06_weather_alert', 'Pluie-inondation') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Vent violent') != None and not is_state_attr('sensor.06_weather_alert', 'Vent violent', 'Vert') %}Vent violent {{ state_attr('sensor.06_weather_alert', 'Vent violent') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Avalanches') != None and not is_state_attr('sensor.06_weather_alert', 'Avalanches', 'Vert') %}Avalanches {{ state_attr('sensor.06_weather_alert', 'Avalanches') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Orages') != None and not is_state_attr('sensor.06_weather_alert', 'Orages', 'Vert') %}Orages {{ state_attr('sensor.06_weather_alert', 'Orages') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Vagues-submersion') != None and not is_state_attr('sensor.06_weather_alert', 'Vagues-submersion', 'Vert') %}Vagues-submersion {{ state_attr('sensor.06_weather_alert', 'Vagues-submersion') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Grand-froid') != None and not is_state_attr('sensor.06_weather_alert', 'Grand-froid', 'Vert') %}Grand-froid {{ state_attr('sensor.06_weather_alert', 'Grand-froid') }}{{ '\n' -}}{% endif -%}
+            {% if state_attr('sensor.06_weather_alert', 'Canicule') != None and not is_state_attr('sensor.06_weather_alert', 'Canicule', 'Vert') %}Canicule {{ state_attr('sensor.06_weather_alert', 'Canicule') }}{{ '\n' -}}{% endif -%}
+          target: "+33663209619"

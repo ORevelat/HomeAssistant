@@ -113,13 +113,3 @@
       retain: false
 
 ## SENSORS
-
-  # sensor:
-  #   - name: Alerte Crue
-  #     state_topic: "VigilanceMeteo/alert_crue"
-
-  #   - name: Alerte Vigilance
-  #     state_topic: "VigilanceMeteo/alert_vigilance"
-
-  #   - name: Alerte Risques
-  #     state_topic: "VigilanceMeteo/alert_risques"
