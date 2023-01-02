@@ -67,4 +67,4 @@
             {% if state_attr('sensor.06_weather_alert', 'Vagues-submersion') != None and not is_state_attr('sensor.06_weather_alert', 'Vagues-submersion', 'Vert') %}Vagues-submersion {{ state_attr('sensor.06_weather_alert', 'Vagues-submersion') }}{{ '\n' -}}{% endif -%}
             {% if state_attr('sensor.06_weather_alert', 'Grand-froid') != None and not is_state_attr('sensor.06_weather_alert', 'Grand-froid', 'Vert') %}Grand-froid {{ state_attr('sensor.06_weather_alert', 'Grand-froid') }}{{ '\n' -}}{% endif -%}
             {% if state_attr('sensor.06_weather_alert', 'Canicule') != None and not is_state_attr('sensor.06_weather_alert', 'Canicule', 'Vert') %}Canicule {{ state_attr('sensor.06_weather_alert', 'Canicule') }}{{ '\n' -}}{% endif -%}
-          target: "+33663209619"
+          target: !secret phone_olivier

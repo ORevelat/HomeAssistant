@@ -8,11 +8,11 @@ BACKUP_DATE=$(date +"%Y%m%d_%H%M%S")
 BACKUP_FILE=/tmp/hass-config_$BACKUP_DATE.zip
 
 pushd /srv/disk1/docker-data >/dev/null
-zip -9 -q -r $BACKUP_FILE portainer/compose/9
+zip -9 -q -r $BACKUP_FILE portainer/compose
 zip -9 -q -r $BACKUP_FILE scripts
-zip -9 -q -r $BACKUP_FILE data/homeassistant -x"data/homeassistant/deps/*" -x"data/homeassistant/home-assistant_v2.db" -x"data/homeassistant/home-assistant.log" -x"data/homeassistant/tts/*" -x"data/homeassistant/www/tts/*" 
-zip -9 -q -r $BACKUP_FILE data/appdaemon -x"data/appdaemon/logs/*"
-zip -9 -q -r $BACKUP_FILE data/nodered -x"data/nodered/node_modules/*" -x"data/nodered/gammu-smsd.log"
+zip -9 -q -r $BACKUP_FILE data/homeassistant -x"data/homeassistant/home-assistant.log*"
+zip -9 -q -r $BACKUP_FILE data/nodered -x"data/nodered/node_modules/*"
+zip -9 -q -r $BACKUP_FILE data/tileboard
 popd >/dev/null
 
 # push backup to NAS
