@@ -30,25 +30,22 @@ services:
       options:
         max-size: 10m
 
-#  nodered:
-#    container_name: nodered
-#    image: my-nodered:1.2.9
-#    restart: unless-stopped
-#    user: 1000:1000
-#    ports:
-#      - "1880:1880"
-#    volumes:
-#      - /srv/disk1/docker-data/data/nodered:/data
-#      - /etc/localtime:/etc/localtime:ro
-#      - /srv/disk1/docker-data/data/nodered/gammu-smsdrc.conf:/etc/gammu-smsdrc:ro
-#    environment:
-#      - TZ=Europe/Paris
-#      - FLOWS=my_flows.json
-#    devices:
-#      - /dev/hspa_modem:/dev/hspa
-#    logging:
-#      options:
-#        max-size: 10m
+  nodered:
+    container_name: nodered
+    image: nodered/node-red:3.0.2
+    restart: unless-stopped
+    user: 1000:1000
+    ports:
+      - "1880:1880"
+    volumes:
+      - /srv/disk1/docker-data/data/nodered:/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=Europe/Paris
+      - FLOWS=my_flows.json
+    logging:
+      options:
+        max-size: 10m
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
@@ -70,6 +67,7 @@ services:
   rflink2mqtt:
     container_name: rflink2mqtt
     image: rflink2mqtt:0.9.5
+#    image: rflink:latest
     restart: unless-stopped
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
