@@ -11,7 +11,7 @@
           "path": "default_view",
           "title": "Home",
           "icon": "mdi:home",
-          "type": "custom:grid-layout",
+          "type": "custom:vertical-layout",
           "layout": {
             "grid-template-columns": "33% 33% 33%",
             "grid-template-rows": "auto",
@@ -19,39 +19,6 @@
           },
           "badges": [],
           "cards": [
-            {
-              "type": "custom:badge-card",
-              "view_layout": {
-                "grid-area": "header"
-              },
-              "badges": [
-                {
-                  "entity": "person.olivier",
-                  "card_mod": {
-                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.olivier', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.olivier', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
-                  }
-                },
-                {
-                  "entity": "person.sandrine",
-                  "card_mod": {
-                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.sandrine', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.sandrine', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
-                  }
-                },
-                {
-                  "entity": "person.thea",
-                  "card_mod": {
-                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.thea', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.thea', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
-                  }
-                },
-                {
-                  "entity": "group.home_occupancy",
-                  "name": " ",
-                  "card_mod": {
-                    "style": ":host {\n  --label-badge-background-color:\n    {% if is_state('group.home_occupancy', 'home') %}\n      red;\n    {% elif is_state('group.home_occupancy', 'not_home') %}                      \n      green; \n    {% endif %}   \n}\n"
-                  }
-                }
-              ]
-            },
             {
               "type": "vertical-stack",
               "cards": [
@@ -94,20 +61,6 @@
                   "showRelativeTime": false,
                   "title": "Calendriers",
                   "type": "custom:atomic-calendar-revive"
-                },
-                {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "sensor.ecowatt_level_now"
-                    },
-                    {
-                      "entity": "sensor.ecowatt_level_today"
-                    },
-                    {
-                      "entity": "sensor.ecowatt_level_tomorrow"
-                    }
-                  ]
                 }
               ],
               "view_layout": {
@@ -115,146 +68,49 @@
               }
             },
             {
-              "type": "vertical-stack",
-              "view_layout": {
-                "grid-area": "col3"
-              },
-              "cards": [
+              "type": "entities",
+              "entities": [
                 {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "binary_sensor.entree_smoke_detector_smoke_alarm_smoke_detected",
-                      "type": "custom:multiple-entity-row",
-                      "name": "Entrée",
-                      "secondary_info": "last-changed",
-                      "entities": [
-                        {
-                          "entity": "sensor.entree_smoke_detector_air_temperature",
-                          "name": "Température"
-                        },
-                        {
-                          "entity": "sensor.entree_smoke_detector_battery_level",
-                          "name": "Batterie"
-                        }
-                      ]
-                    },
-                    {
-                      "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected",
-                      "type": "custom:multiple-entity-row",
-                      "name": "Etage",
-                      "secondary_info": "last-changed",
-                      "entities": [
-                        {
-                          "entity": "sensor.escalier_smoke_detector_air_temperature",
-                          "name": "Température"
-                        },
-                        {
-                          "entity": "sensor.escalier_smoke_detector_battery_level",
-                          "name": "Batterie"
-                        }
-                      ]
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "title": "Détecteurs de fumée"
+                  "entity": "sensor.ecowatt_level_now"
                 },
                 {
-                  "type": "entities",
-                  "entities": [
-                    {
-                      "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected",
-                      "type": "custom:multiple-entity-row",
-                      "name": "Cuisine",
-                      "secondary_info": "last-changed",
-                      "entities": [
-                        {
-                          "entity": "sensor.cuisine_air_temperature",
-                          "name": "Température"
-                        },
-                        {
-                          "entity": "sensor.cuisine_battery_level",
-                          "name": "Batterie"
-                        }
-                      ]
-                    }
-                  ],
-                  "show_header_toggle": false,
-                  "title": "Détecteurs d'eau"
+                  "entity": "sensor.ecowatt_level_today"
                 },
                 {
-                  "card": {
-                    "show_header_toggle": false,
-                    "title": "Lumières allumées",
-                    "type": "entities"
-                  },
-                  "filter": {
-                    "exclude": [
-                      {
-                        "entity_id": "light.*_current_value_2"
-                      },
-                      {
-                        "entity_id": "light.*_2"
-                      },
-                      {
-                        "entity_id": "light.*_4"
-                      },
-                      {
-                        "entity_id": "light.radiateur_*"
-                      }
-                    ],
-                    "include": [
-                      {
-                        "domain": "light",
-                        "state": "on"
-                      }
-                    ]
-                  },
-                  "show_empty": false,
-                  "type": "custom:auto-entities"
+                  "entity": "sensor.ecowatt_level_tomorrow"
+                }
+              ]
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
+              "type": "custom:badge-card",
+              "badges": [
+                {
+                  "entity": "person.olivier",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.olivier', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.olivier', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                  }
                 },
                 {
-                  "card": {
-                    "show_header_toggle": false,
-                    "title": "Prises allumées",
-                    "type": "entities"
-                  },
-                  "filter": {
-                    "exclude": [
-                      {
-                        "entity_id": "switch.radiateur_*"
-                      },
-                      {
-                        "entity_id": "switch.echo_*"
-                      },
-                      {
-                        "entity_id": "switch.volet_*"
-                      },
-                      {
-                        "entity_id": "switch.*_detect"
-                      },
-                      {
-                        "entity_id": "switch.*_recordings"
-                      },
-                      {
-                        "entity_id": "switch.*_snapshots"
-                      },
-                      {
-                        "entity_id": "switch.schedule_*"
-                      },
-                      {
-                        "entity_id": "switch.ufo_controller_rgbw_ir_9f3bab_remote_access"
-                      }
-                    ],
-                    "include": [
-                      {
-                        "domain": "switch",
-                        "state": "on"
-                      }
-                    ]
-                  },
-                  "show_empty": false,
-                  "type": "custom:auto-entities"
+                  "entity": "person.sandrine",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.sandrine', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.sandrine', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                  }
+                },
+                {
+                  "entity": "person.thea",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-red:\n    {% if is_state('person.thea', 'home') %}\n      rgb(52, 152, 219);\n    {% elif is_state('person.thea', 'not_home') %}                      \n      darkgrey; \n    {% endif %}   \n}\n"
+                  }
+                },
+                {
+                  "entity": "group.home_occupancy",
+                  "name": " ",
+                  "card_mod": {
+                    "style": ":host {\n  --label-badge-background-color:\n    {% if is_state('group.home_occupancy', 'home') %}\n      red;\n    {% elif is_state('group.home_occupancy', 'not_home') %}                      \n      green; \n    {% endif %}   \n}\n"
+                  }
                 }
               ]
             },
@@ -488,6 +344,153 @@
               "view_layout": {
                 "grid-area": "col2"
               }
+            },
+            {
+              "type": "custom:layout-break"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "binary_sensor.entree_smoke_detector_smoke_alarm_smoke_detected",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Entrée",
+                  "secondary_info": "last-changed",
+                  "entities": [
+                    {
+                      "entity": "sensor.entree_smoke_detector_air_temperature",
+                      "name": "Température"
+                    },
+                    {
+                      "entity": "sensor.entree_smoke_detector_battery_level",
+                      "name": "Batterie"
+                    }
+                  ]
+                },
+                {
+                  "entity": "binary_sensor.escalier_smoke_detector_smoke_alarm_smoke_detected",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Etage",
+                  "secondary_info": "last-changed",
+                  "entities": [
+                    {
+                      "entity": "sensor.escalier_smoke_detector_air_temperature",
+                      "name": "Température"
+                    },
+                    {
+                      "entity": "sensor.escalier_smoke_detector_battery_level",
+                      "name": "Batterie"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Détecteurs de fumée"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "binary_sensor.cuisine_water_alarm_water_leak_detected",
+                  "type": "custom:multiple-entity-row",
+                  "name": "Cuisine",
+                  "secondary_info": "last-changed",
+                  "entities": [
+                    {
+                      "entity": "sensor.cuisine_air_temperature",
+                      "name": "Température"
+                    },
+                    {
+                      "entity": "sensor.cuisine_battery_level",
+                      "name": "Batterie"
+                    }
+                  ]
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Détecteurs d'eau"
+            },
+            {
+              "type": "vertical-stack",
+              "view_layout": {
+                "grid-area": "col3"
+              },
+              "cards": [
+                {
+                  "card": {
+                    "show_header_toggle": false,
+                    "title": "Lumières allumées",
+                    "type": "entities"
+                  },
+                  "filter": {
+                    "exclude": [
+                      {
+                        "entity_id": "light.*_current_value_2"
+                      },
+                      {
+                        "entity_id": "light.*_2"
+                      },
+                      {
+                        "entity_id": "light.*_4"
+                      },
+                      {
+                        "entity_id": "light.radiateur_*"
+                      }
+                    ],
+                    "include": [
+                      {
+                        "domain": "light",
+                        "state": "on"
+                      }
+                    ]
+                  },
+                  "show_empty": false,
+                  "type": "custom:auto-entities"
+                },
+                {
+                  "card": {
+                    "show_header_toggle": false,
+                    "title": "Prises allumées",
+                    "type": "entities"
+                  },
+                  "filter": {
+                    "exclude": [
+                      {
+                        "entity_id": "switch.radiateur_*"
+                      },
+                      {
+                        "entity_id": "switch.echo_*"
+                      },
+                      {
+                        "entity_id": "switch.volet_*"
+                      },
+                      {
+                        "entity_id": "switch.*_detect"
+                      },
+                      {
+                        "entity_id": "switch.*_recordings"
+                      },
+                      {
+                        "entity_id": "switch.*_snapshots"
+                      },
+                      {
+                        "entity_id": "switch.schedule_*"
+                      },
+                      {
+                        "entity_id": "switch.ufo_controller_rgbw_ir_9f3bab_remote_access"
+                      }
+                    ],
+                    "include": [
+                      {
+                        "domain": "switch",
+                        "state": "on"
+                      }
+                    ]
+                  },
+                  "show_empty": false,
+                  "type": "custom:auto-entities"
+                }
+              ]
             }
           ]
         },
@@ -1220,6 +1223,7 @@
           ]
         },
         {
+          "theme": "Backend-selected",
           "title": "Chauffage",
           "path": "chauffage",
           "icon": "mdi:thermometer-lines",
