@@ -1,22 +1,64 @@
   - binary_sensor:
     - name: RFLink Error Jardin
       unique_id: rflink_error_jardin
-      state: "{{ as_timestamp(now()) > 900 + state_attr('sensor.thermometer_jardin_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_jardin_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
     - name: RFLink Error Salon
       unique_id: rflink_error_salon
-      state: "{{ as_timestamp(now()) > 600 + state_attr('sensor.thermometer_salon_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_salon_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
     - name: RFLink Error Salle Bain
       unique_id: rflink_error_salle_bain
-      state: "{{ as_timestamp(now()) > 600 + state_attr('sensor.thermometer_salle_bain_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_salle_bain_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
     - name: RFLink Error Garage
       unique_id: rflink_error_garage
-      state: "{{ as_timestamp(now()) > 600 + state_attr('sensor.thermometer_garage_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_garage_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
     - name: RFLink Error Bureau
       unique_id: rflink_error_bureau
-      state: "{{ as_timestamp(now()) > 600 + state_attr('sensor.thermometer_bureau_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_bureau_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
     - name: RFLink Error Chambre Parents
       unique_id: rflink_error_chambre_parents
-      state: "{{ as_timestamp(now()) > 600 + state_attr('sensor.thermometer_chambre_parents_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_chambre_parents_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
     - name: RFLink Error Chambre Théa
       unique_id: rflink_error_chambre_thea
-      state: "{{ as_timestamp(now()) > 600 + state_attr('sensor.thermometer_chambre_thea_temperature', 'lastseen') }}"
+      state: >
+        {% set st = state_attr('sensor.thermometer_chambre_thea_temperature', 'lastseen') %}
+        {% if st != None %}
+        {{ as_timestamp(now()) > 900 + st }}
+        {% else %}
+        false
+        {% endif %}
