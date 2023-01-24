@@ -1572,18 +1572,21 @@
               }
             },
             {
+              "type": "custom:layout-break"
+            },
+            {
               "type": "custom:weather-radar-card",
               "frame_count": 10,
-              "center_latitude": -45.567607,
-              "center_longitude": 151.930597,
-              "marker_latitude": -23.175328,
-              "marker_longitude": 151.653189,
+              "center_longitude": 6.9142700541523725,
               "show_marker": true,
               "show_range": true,
               "show_zoom": true,
               "show_recenter": true,
               "show_playback": true,
-              "zoom_level": 8
+              "zoom_level": 10,
+              "center_latitude": 43.606456280747274,
+              "extra_labels": false,
+              "map_style": "Voyager"
             }
           ]
         },

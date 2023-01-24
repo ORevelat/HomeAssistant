@@ -1,19 +1,12 @@
 
 ## CLIMATE RDC
 
-  - id: climate_etage_day
-    alias: Climatisation Etage - Jour
+  - id: climate_etage_day_1
+    alias: Climatisation Etage - Jour 1
     trigger:
     - platform: time
       at: '06:00:00'
     condition:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_etage_clim
         state: 'on'
@@ -29,7 +22,42 @@
         target:
           entity_id: climate.daikin_etage
         data:
-          fan_mode: "Auto"
+          fan_mode: "Silence"
+      - delay: '00:00:01'
+      - service: climate.set_swing_mode
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          swing_mode: "Horizontal"
+      - delay: '00:00:01'
+      - service: climate.set_preset_mode
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          preset_mode: "eco"
+
+  - id: climate_etage_day_2
+    alias: Climatisation Etage - Jour 2
+    trigger:
+    - platform: time
+      at: '08:00:00'
+    condition:
+      - condition: state
+        entity_id: input_boolean.automation_enable_thermostat_etage_clim
+        state: 'on'
+    action:
+      - service: climate.set_temperature
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          temperature: 20
+          hvac_mode: heat
+      - delay: '00:00:01'
+      - service: climate.set_fan_mode
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          fan_mode: "Silence"
       - delay: '00:00:01'
       - service: climate.set_swing_mode
         target:
@@ -47,12 +75,33 @@
     alias: Climatisation Etage - Nuit
     trigger:
     - platform: time
-      at: '11:00:00'
+      at: '21:00:00'
     condition:
       - condition: state
         entity_id: input_boolean.automation_enable_thermostat_etage_clim
         state: 'on'
     action:
-      - service: climate.turn_off
+      - service: climate.set_temperature
         target:
           entity_id: climate.daikin_etage
+        data:
+          temperature: 19
+          hvac_mode: heat
+      - delay: '00:00:01'
+      - service: climate.set_fan_mode
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          fan_mode: "Silence"
+      - delay: '00:00:01'
+      - service: climate.set_swing_mode
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          swing_mode: "Horizontal"
+      - delay: '00:00:01'
+      - service: climate.set_preset_mode
+        target:
+          entity_id: climate.daikin_etage
+        data:
+          preset_mode: "eco"

@@ -99,7 +99,7 @@
       - condition: template
         value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) < ((states('input_number.consigne_thermostat_rdc') | float ) - (0.1 | float)) }}"
       - condition: template
-        value_template: "{{ not is_state('input_select.radiator_salon', 'Confort') and not is_state('input_select.radiator_sallemanger', 'Confort') }}"
+        value_template: "{{ not is_state('input_select.radiator_salon', 'Confort') or not is_state('input_select.radiator_sallemanger', 'Confort') }}"
     action:
       - service: input_select.select_option
         data:
@@ -122,7 +122,7 @@
       - condition: template
         value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) > ((states('input_number.consigne_thermostat_rdc') | float ) + (0.1 | float)) }}"
       - condition: template
-        value_template: "{{ not is_state('input_select.radiator_salon', 'Arrêt') and not is_state('input_select.radiator_sallemanger', 'Arrêt') }}"
+        value_template: "{{ not is_state('input_select.radiator_salon', 'Arrêt') or not is_state('input_select.radiator_sallemanger', 'Arrêt') }}"
     action:
       - service: input_select.select_option
         data:

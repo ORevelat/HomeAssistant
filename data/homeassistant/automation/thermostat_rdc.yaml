@@ -6,12 +6,6 @@
     - platform: time
       at: '05:30:00'
     condition:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - thu
-          - fri
       - condition: state
         entity_id: input_select.thermostat_mode
         state: 'Normal'
@@ -27,14 +21,8 @@
     alias: Thermostat Rez de Chaussée - journée 2
     trigger:
     - platform: time
-      at: '08:00:00'
+      at: '07:00:00'
     condition:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - thu
-          - fri
       - condition: state
         entity_id: input_select.thermostat_mode
         state: 'Normal'
@@ -46,40 +34,12 @@
         data:
           value: 20
 
-  - id: thermostat_rdc_day_3
-    alias: Thermostat Rez de Chaussée - journée 3
+  - id: thermostat_rdc_evening
+    alias: Thermostat Rez de Chaussée - soirée
     trigger:
     - platform: time
       at: '17:00:00'
     condition:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - thu
-          - fri
-      - condition: state
-        entity_id: input_select.thermostat_mode
-        state: 'Normal'
-    action:
-      - service: input_number.set_value
-        target:
-          entity_id:
-            - input_number.consigne_thermostat_rdc
-        data:
-          value: 21
-
-  - id: thermostat_rdc_day_4
-    alias: Thermostat Rez de Chaussée - journée 4
-    trigger:
-    - platform: time
-      at: '07:30:00'
-    condition:
-      - condition: time
-        weekday:
-          - wed
-          - sat
-          - sun
       - condition: state
         entity_id: input_select.thermostat_mode
         state: 'Normal'
