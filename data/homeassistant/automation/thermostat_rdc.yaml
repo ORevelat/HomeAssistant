@@ -55,7 +55,7 @@
     alias: Thermostat Rez de Chaussée - nuit
     trigger:
     - platform: time
-      at: '22:30:00'
+      at: '21:30:00'
     condition:
       - condition: state
         entity_id: input_select.thermostat_mode

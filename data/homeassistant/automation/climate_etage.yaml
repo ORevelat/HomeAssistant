@@ -1,8 +1,8 @@
 
 ## CLIMATE RDC
 
-  - id: climate_etage_day_1
-    alias: Climatisation Etage - Jour 1
+  - id: climate_etage_morning
+    alias: Climatisation Etage - Matin
     trigger:
     - platform: time
       at: '06:00:00'
@@ -36,8 +36,8 @@
         data:
           preset_mode: "eco"
 
-  - id: climate_etage_day_2
-    alias: Climatisation Etage - Jour 2
+  - id: climate_etage_day
+    alias: Climatisation Etage - Jour
     trigger:
     - platform: time
       at: '08:00:00'
