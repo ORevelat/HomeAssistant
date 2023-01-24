@@ -45,25 +45,19 @@
 
   - platform: ping
     name: "Caméra Salon"
-    host: !secret host_cam_salon
-    count: 1
-    scan_interval: 60
-
-  - platform: ping
-    name: "Caméra Salon Eufy"
-    host: !secret host_cam_salon_eufy
+    host: !secret host_cam_dahuaipck42p
     count: 1
     scan_interval: 60
 
   - platform: ping
     name: "Caméra Jardin (back)"
-    host: !secret host_cam_jardin1
+    host: !secret host_cam_foscamfi9800pv3
     count: 1
     scan_interval: 60
 
   - platform: ping
     name: "Caméra Jardin (front)"
-    host: !secret host_cam_jardin2_eufy
+    host: !secret host_cam_tapo_9B26
     count: 1
     scan_interval: 60
 

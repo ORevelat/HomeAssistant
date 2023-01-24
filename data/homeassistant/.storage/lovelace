@@ -1646,14 +1646,13 @@
                 "binary_sensor.proxmox_ve",
                 "binary_sensor.vm_hyperion_server",
                 "binary_sensor.unify_ap_ac_pro",
-                "binary_sensor.host_us_8_60",
-                "binary_sensor.camera_salon",
-                "binary_sensor.camera_jardin_back",
-                "binary_sensor.host_cam_salon_eufy",
-                "binary_sensor.host_cam_jardin2_eufy",
+                "binary_sensor.unify_us_8_60w",
                 "binary_sensor.imprimante",
                 "binary_sensor.samsung_tv",
-                "binary_sensor.host_firetv"
+                "binary_sensor.host_firetv",
+                "binary_sensor.camera_salon",
+                "binary_sensor.camera_jardin_back",
+                "binary_sensor.camera_jardin_front"
               ],
               "state_filter": [
                 "off"
