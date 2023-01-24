@@ -1,7 +1,7 @@
 ## THERMOSTAT CHAMBRES
 
-  - id: thermostat_rdc_day_1
-    alias: Thermostat Rez de Chaussée - journée 1
+  - id: thermostat_rdc_morning
+    alias: Thermostat Rez de Chaussée - matin
     trigger:
     - platform: time
       at: '05:30:00'
@@ -17,8 +17,8 @@
         data:
           value: 21
 
-  - id: thermostat_rdc_day_2
-    alias: Thermostat Rez de Chaussée - journée 2
+  - id: thermostat_rdc_day
+    alias: Thermostat Rez de Chaussée - journée
     trigger:
     - platform: time
       at: '07:00:00'
