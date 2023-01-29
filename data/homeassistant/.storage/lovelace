@@ -1697,7 +1697,7 @@
               "filter": {
                 "include": [
                   {
-                    "entity_id": "sensor.*_battery_level",
+                    "entity_id": "sensor.*_battery_level*",
                     "options": {
                       "type": "custom:battery-entity-row",
                       "warning": 50,
