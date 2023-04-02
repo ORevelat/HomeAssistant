@@ -1,7 +1,6 @@
 
 ## HISTORY
 
-  use_include_order: True
   include:
     entities:
       - sensor.thermometer_bureau_temperature
