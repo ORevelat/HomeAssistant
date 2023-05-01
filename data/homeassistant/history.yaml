@@ -3,11 +3,13 @@
 
   include:
     entities:
-      - sensor.thermometer_bureau_temperature
-      - sensor.thermometer_chambre_parents_temperature
-      - sensor.thermometer_chambre_thea_temperature
-      - sensor.thermometer_jardin_temperature
-      - sensor.thermometer_salon_temperature
-      - sensor.thermometer_garage_temperature
-      - sensor.thermometer_salle_bain_temperature
       - sensor.auribeau_sur_siagne_temperature
+      - sensor.thermometer_jardin_temperature
+      - sensor.tuya_thermometer_1ce7b_temperature
+      - sensor.tuya_thermometer_247c5_temperature
+      - sensor.tuya_thermometer_6d551_temperature
+      - sensor.tuya_thermometer_91599_temperature
+      - sensor.tuya_thermometer_9689b_temperature
+      - sensor.tuya_thermometer_d794d_temperature
+      - sensor.tuya_thermometer_e3b7f_temperature
+      - sensor.tuya_thermometer_c3be1_temperature

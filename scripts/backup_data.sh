@@ -14,8 +14,8 @@ popd >/dev/null
 # push backup to NAS
 echo "put $BACKUP_FILE" | sftp -P $nas_port $nas_user@$nas_host:/mnt/backup_hyperion/docker-stacks
 
-# keep 10 files for backup on NAS
-ssh -p $nas_port $nas_user@$nas_host "cd /mnt/backup_hyperion/docker-stacks && ls -1tr | head -n -10 | xargs -d '\n' rm -f --"
+# keep 4 files for backup on NAS
+ssh -p $nas_port $nas_user@$nas_host "cd /mnt/backup_hyperion/docker-stacks && ls -1tr | head -n -4 | xargs -d '\n' rm -f --"
 
 # do not keep backup on local
 rm -f $BACKUP_FILE

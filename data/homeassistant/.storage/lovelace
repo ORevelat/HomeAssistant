@@ -466,6 +466,9 @@
                         "entity_id": "switch.*_snapshots"
                       },
                       {
+                        "entity_id": "switch.*_motion"
+                      },
+                      {
                         "entity_id": "switch.schedule_*"
                       },
                       {
@@ -700,10 +703,10 @@
                       "type": "custom:mini-graph-card",
                       "entities": [
                         {
-                          "entity": "sensor.thermometer_salon_temperature"
+                          "entity": "sensor.tuya_thermometer_e3b7f_temperature"
                         },
                         {
-                          "entity": "sensor.thermometer_salon_humidity",
+                          "entity": "sensor.tuya_thermometer_e3b7f_humidity",
                           "show_graph": false,
                           "show_state": true
                         }
@@ -726,7 +729,12 @@
                     {
                       "entities": [
                         {
-                          "entity": "sensor.thermometer_test_temperature"
+                          "entity": "sensor.tuya_thermometer_d794d_temperature"
+                        },
+                        {
+                          "entity": "sensor.tuya_thermometer_d794d_humidity",
+                          "show_graph": false,
+                          "show_state": true
                         }
                       ],
                       "hour24": true,
@@ -738,7 +746,12 @@
                       "type": "custom:mini-graph-card",
                       "entities": [
                         {
-                          "entity": "sensor.thermometer_garage_temperature"
+                          "entity": "sensor.tuya_thermometer_6d551_temperature"
+                        },
+                        {
+                          "entity": "sensor.tuya_thermometer_6d551_humidity",
+                          "show_graph": false,
+                          "show_state": true
                         }
                       ],
                       "group_by": "hour",
@@ -816,6 +829,84 @@
                     {
                       "entities": [
                         {
+                          "entity": "sensor.tuya_thermometer_9689b_temperature"
+                        },
+                        {
+                          "entity": "sensor.tuya_thermometer_9689b_humidity",
+                          "show_graph": false,
+                          "show_state": true
+                        }
+                      ],
+                      "group_by": "hour",
+                      "hour24": true,
+                      "hours_to_show": 24,
+                      "name": "Salle de bain",
+                      "type": "custom:mini-graph-card"
+                    },
+                    {
+                      "entities": [
+                        {
+                          "entity": "sensor.tuya_thermometer_91599_temperature"
+                        },
+                        {
+                          "entity": "sensor.tuya_thermometer_91599_humidity",
+                          "show_graph": false,
+                          "show_state": true
+                        }
+                      ],
+                      "group_by": "hour",
+                      "hour24": true,
+                      "hours_to_show": 24,
+                      "name": "Bureau",
+                      "type": "custom:mini-graph-card"
+                    }
+                  ],
+                  "type": "horizontal-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "entities": [
+                        {
+                          "entity": "sensor.tuya_thermometer_1ce7b_temperature"
+                        },
+                        {
+                          "entity": "sensor.tuya_thermometer_1ce7b_humidity",
+                          "show_graph": false,
+                          "show_state": true
+                        }
+                      ],
+                      "group_by": "hour",
+                      "hour24": true,
+                      "hours_to_show": 24,
+                      "name": "Chambre Parents",
+                      "type": "custom:mini-graph-card"
+                    },
+                    {
+                      "entities": [
+                        {
+                          "entity": "sensor.tuya_thermometer_247c5_temperature"
+                        },
+                        {
+                          "entity": "sensor.tuya_thermometer_247c5_humidity",
+                          "show_graph": false,
+                          "show_state": true
+                        }
+                      ],
+                      "group_by": "hour",
+                      "hour24": true,
+                      "hours_to_show": 24,
+                      "name": "Chambre Théa",
+                      "type": "custom:mini-graph-card"
+                    }
+                  ],
+                  "type": "horizontal-stack"
+                },
+                {
+                  "cards": [
+                    {
+                      "entities": [
+                        {
                           "entity": "sensor.detecteur_escalier_air_temperature"
                         },
                         {
@@ -843,84 +934,6 @@
                           "value": "on"
                         }
                       ],
-                      "type": "custom:mini-graph-card"
-                    },
-                    {
-                      "entities": [
-                        {
-                          "entity": "sensor.thermometer_bureau_temperature"
-                        },
-                        {
-                          "entity": "sensor.thermometer_bureau_humidity",
-                          "show_graph": false,
-                          "show_state": true
-                        }
-                      ],
-                      "group_by": "hour",
-                      "hour24": true,
-                      "hours_to_show": 24,
-                      "name": "Bureau",
-                      "type": "custom:mini-graph-card"
-                    }
-                  ],
-                  "type": "horizontal-stack"
-                },
-                {
-                  "cards": [
-                    {
-                      "entities": [
-                        {
-                          "entity": "sensor.thermometer_chambre_parents_temperature"
-                        },
-                        {
-                          "entity": "sensor.thermometer_chambre_parents_humidity",
-                          "show_graph": false,
-                          "show_state": true
-                        }
-                      ],
-                      "group_by": "hour",
-                      "hour24": true,
-                      "hours_to_show": 24,
-                      "name": "Chambre Parents",
-                      "type": "custom:mini-graph-card"
-                    },
-                    {
-                      "entities": [
-                        {
-                          "entity": "sensor.thermometer_chambre_thea_temperature"
-                        },
-                        {
-                          "entity": "sensor.thermometer_chambre_thea_humidity",
-                          "show_graph": false,
-                          "show_state": true
-                        }
-                      ],
-                      "group_by": "hour",
-                      "hour24": true,
-                      "hours_to_show": 24,
-                      "name": "Chambre Théa",
-                      "type": "custom:mini-graph-card"
-                    }
-                  ],
-                  "type": "horizontal-stack"
-                },
-                {
-                  "cards": [
-                    {
-                      "entities": [
-                        {
-                          "entity": "sensor.thermometer_salle_bain_temperature"
-                        },
-                        {
-                          "entity": "sensor.thermometer_salle_bain_humidity",
-                          "show_graph": false,
-                          "show_state": true
-                        }
-                      ],
-                      "group_by": "hour",
-                      "hour24": true,
-                      "hours_to_show": 24,
-                      "name": "Salle de bain",
                       "type": "custom:mini-graph-card"
                     }
                   ],
@@ -1250,7 +1263,7 @@
                 {
                   "entities": [
                     {
-                      "entity": "sensor.thermometer_salon_temperature",
+                      "entity": "sensor.tuya_thermometer_e3b7f_temperature",
                       "name": "Température"
                     },
                     {
@@ -1278,7 +1291,7 @@
                 {
                   "entities": [
                     {
-                      "entity": "sensor.thermometer_salle_bain_temperature",
+                      "entity": "sensor.tuya_thermometer_9689b_temperature",
                       "name": "Température"
                     },
                     {
@@ -1322,7 +1335,7 @@
                 {
                   "entities": [
                     {
-                      "entity": "sensor.thermometer_chambre_parents_temperature",
+                      "entity": "sensor.tuya_thermometer_1ce7b_temperature",
                       "name": "Température"
                     },
                     {
@@ -1347,7 +1360,7 @@
                 {
                   "entities": [
                     {
-                      "entity": "sensor.thermometer_chambre_thea_temperature",
+                      "entity": "sensor.tuya_thermometer_247c5_temperature",
                       "name": "Température"
                     },
                     {
@@ -1464,10 +1477,8 @@
                       "open": false,
                       "type": "custom:fold-entity-row",
                       "entities": [
-                        "sensor.coral_inference_speed",
-                        "sensor.detection_fps",
-                        "sensor.foscamfi9800pv3_camera_fps",
-                        "sensor.dahuaipck42p_camera_fps"
+                        "sensor.frigate_coral_inference_speed",
+                        "sensor.frigate_detection_fps"
                       ],
                       "head": {
                         "type": "section",
@@ -1484,7 +1495,8 @@
                       "type": "custom:fold-entity-row",
                       "entities": [
                         "switch.foscamfi9800pv3_detect",
-                        "switch.dahuaipck42p_detect"
+                        "switch.dahuaipck42p_detect",
+                        "switch.tapo_9b26_detect"
                       ],
                       "head": {
                         "type": "section",
@@ -1505,6 +1517,9 @@
                 {
                   "camera_entity": "camera.dahuaipck42p",
                   "live_provider": "ha"
+                },
+                {
+                  "camera_entity": "camera.tapo_9b26"
                 }
               ],
               "menu": {
@@ -1728,22 +1743,34 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.bureau_sensor_illuminance"
+                  "entity": "sensor.aqara_multiswitch_37696_action"
                 },
                 {
-                  "entity": "binary_sensor.bureau_sensor_occupancy"
+                  "entity": "sensor.aqara_multiswitch_37696_battery"
                 },
                 {
-                  "entity": "sensor.salle_de_bain_thermometer_temperature"
+                  "entity": "sensor.aqara_multiswitch_37696_device_temperature"
                 },
                 {
-                  "entity": "sensor.salle_de_bain_thermometer_pressure"
+                  "entity": "binary_sensor.aqara_humansensor_c1e82_occupancy"
                 },
                 {
-                  "entity": "sensor.salle_de_bain_thermometer_humidity"
+                  "entity": "sensor.aqara_humansensor_c1e82_illuminance_lux"
                 },
                 {
-                  "entity": "sensor.chambre_thea_multiswitch_click"
+                  "entity": "sensor.aqara_humansensor_c1e82_battery"
+                },
+                {
+                  "entity": "sensor.aqara_humansensor_c1e82_device_temperature"
+                },
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_temperature"
+                },
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_humidity"
+                },
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_battery"
                 }
               ],
               "show_header_toggle": false,

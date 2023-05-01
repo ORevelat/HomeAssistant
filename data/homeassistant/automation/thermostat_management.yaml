@@ -5,7 +5,7 @@
     alias: Thermostat management - Chambre Théa - On
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_chambre_thea_temperature
+        entity_id: sensor.tuya_thermometer_247c5_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -13,7 +13,7 @@
         entity_id: input_boolean.automation_enable_thermostat_bedroom_thea
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) < ((states('input_number.consigne_thermostat_thea') | float ) - (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_247c5_temperature') | float) < ((states('input_number.consigne_thermostat_thea') | float ) - (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_thea', 'Confort') }}"
     action:
@@ -26,7 +26,7 @@
     alias: Thermostat management - Chambre Théa - Off
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_chambre_thea_temperature
+        entity_id: sensor.tuya_thermometer_247c5_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -34,7 +34,7 @@
         entity_id: input_boolean.automation_enable_thermostat_bedroom_thea
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_chambre_thea_temperature') | float) > ((states('input_number.consigne_thermostat_thea') | float ) + (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_247c5_temperature') | float) > ((states('input_number.consigne_thermostat_thea') | float ) + (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_thea', 'Arrêt') }}"
     action:
@@ -47,7 +47,7 @@
     alias: Thermostat management - Chambre Parents - On
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_chambre_parents_temperature
+        entity_id: sensor.tuya_thermometer_1ce7b_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -55,7 +55,7 @@
         entity_id: input_boolean.automation_enable_thermostat_bedroom_parents
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) < ((states('input_number.consigne_thermostat_parents') | float ) - (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_1ce7b_temperature') | float) < ((states('input_number.consigne_thermostat_parents') | float ) - (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_parents', 'Confort') }}"
     action:
@@ -68,7 +68,7 @@
     alias: Thermostat management - Chambre Parents - Off
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_chambre_parents_temperature
+        entity_id: sensor.tuya_thermometer_1ce7b_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -76,7 +76,7 @@
         entity_id: input_boolean.automation_enable_thermostat_bedroom_parents
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_chambre_parents_temperature') | float) > ((states('input_number.consigne_thermostat_parents') | float ) + (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_1ce7b_temperature') | float) > ((states('input_number.consigne_thermostat_parents') | float ) + (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_parents', 'Arrêt') }}"
     action:
@@ -89,7 +89,7 @@
     alias: Thermostat management - Rez de Chaussée - On
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_salon_temperature
+        entity_id: sensor.tuya_thermometer_e3b7f_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -97,7 +97,7 @@
         entity_id: input_boolean.automation_enable_thermostat_rdc
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) < ((states('input_number.consigne_thermostat_rdc') | float ) - (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_e3b7f_temperature') | float) < ((states('input_number.consigne_thermostat_rdc') | float ) - (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_salon', 'Confort') or not is_state('input_select.radiator_sallemanger', 'Confort') }}"
     action:
@@ -112,7 +112,7 @@
     alias: Thermostat management - Rez de Chaussée - Off
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_salon_temperature
+        entity_id: sensor.tuya_thermometer_e3b7f_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -120,7 +120,7 @@
         entity_id: input_boolean.automation_enable_thermostat_rdc
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_salon_temperature') | float) > ((states('input_number.consigne_thermostat_rdc') | float ) + (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_e3b7f_temperature') | float) > ((states('input_number.consigne_thermostat_rdc') | float ) + (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_salon', 'Arrêt') or not is_state('input_select.radiator_sallemanger', 'Arrêt') }}"
     action:
@@ -135,7 +135,7 @@
     alias: Thermostat management - Salle de bain - On
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_salle_bain_temperature
+        entity_id: sensor.tuya_thermometer_9689b_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -143,7 +143,7 @@
         entity_id: input_boolean.automation_enable_thermostat_salledebain
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_salle_bain_temperature') | float) < ((states('input_number.consigne_thermostat_salledebain') | float ) - (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_9689b_temperature') | float) < ((states('input_number.consigne_thermostat_salledebain') | float ) - (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_salledebain', 'Confort') }}"
     action:
@@ -156,7 +156,7 @@
     alias: Thermostat management - Salle de bain - Off
     trigger:
       - platform: state
-        entity_id: sensor.thermometer_salle_bain_temperature
+        entity_id: sensor.tuya_thermometer_9689b_temperature
     condition:
       - condition: template
         value_template: "{{ not is_state('input_select.thermostat_mode', 'Arrêt') }}"
@@ -164,7 +164,7 @@
         entity_id: input_boolean.automation_enable_thermostat_salledebain
         state: 'on'
       - condition: template
-        value_template: "{{ (states('sensor.thermometer_salle_bain_temperature') | float) > ((states('input_number.consigne_thermostat_salledebain') | float ) + (0.1 | float)) }}"
+        value_template: "{{ (states('sensor.tuya_thermometer_9689b_temperature') | float) > ((states('input_number.consigne_thermostat_salledebain') | float ) + (0.1 | float)) }}"
       - condition: template
         value_template: "{{ not is_state('input_select.radiator_salledebain', 'Arrêt') }}"
     action:

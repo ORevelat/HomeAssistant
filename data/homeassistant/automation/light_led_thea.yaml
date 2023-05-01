@@ -5,7 +5,7 @@
     alias: Théa Bandeau Led - Allumer
     trigger:
       platform: state
-      entity_id: sensor.chambre_thea_multiswitch_click
+      entity_id: sensor.aqara_multiswitch_37696_action
       to: 'single'
 
     condition: 
@@ -30,7 +30,7 @@
     alias: Théa Bandeau Led - Eteindre
     trigger:
       platform: state
-      entity_id: sensor.chambre_thea_multiswitch_click
+      entity_id: sensor.aqara_multiswitch_37696_action
       to: 'single'
 
     condition: 
@@ -48,7 +48,7 @@
     alias: Théa Bandeau Led - Couleur 1
     trigger:
       platform: state
-      entity_id: sensor.chambre_thea_multiswitch_click
+      entity_id: sensor.aqara_multiswitch_37696_action
       to: 'double'
 
     condition: 
@@ -68,7 +68,7 @@
     alias: Théa Bandeau Led - Couleur 2
     trigger:
       platform: state
-      entity_id: sensor.chambre_thea_multiswitch_click
+      entity_id: sensor.aqara_multiswitch_37696_action
       to: 'triple'
 
     condition: 
@@ -88,7 +88,7 @@
     alias: Théa Bandeau Led - Couleur 3
     trigger:
       platform: state
-      entity_id: sensor.chambre_thea_multiswitch_click
+      entity_id: sensor.aqara_multiswitch_37696_action
       to: 'quadruple'
   
     condition: 

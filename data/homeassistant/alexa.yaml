@@ -37,13 +37,14 @@
         - light.lumiere_salle_de_bain_current_value
         - light.lumiere_salon_current_value
         - light.lumiere_salle_a_manger_current_value
-        - sensor.thermometer_bureau_temperature
-        - sensor.thermometer_chambre_parents_temperature
-        - sensor.thermometer_chambre_thea_temperature
+        - sensor.tuya_thermometer_1ce7b_temperature
+        - sensor.tuya_thermometer_247c5_temperature
+        - sensor.tuya_thermometer_6d551_temperature
+        - sensor.tuya_thermometer_91599_temperature
+        - sensor.tuya_thermometer_9689b_temperature
+        - sensor.tuya_thermometer_d794d_temperature
+        - sensor.tuya_thermometer_e3b7f_temperature
         - sensor.thermometer_jardin_temperature
-        - sensor.thermometer_salon_temperature
-        - sensor.thermometer_garage_temperature
-        - sensor.thermometer_salle_bain_temperature
         - sensor.detecteur_escalier_air_temperature
         - sensor.detecteur_salle_a_manger_air_temperature
     entity_config:
@@ -73,11 +74,29 @@
         name: lumière salon
       light.lumiere_salle_a_manger_current_value:
         name: lumière salle à manger
-      sensor.thermometer_garage_temperature:
+      sensor.tuya_thermometer_6d551_temperature:
         name: température garage
         display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_salon_temperature:
+      sensor.tuya_thermometer_e3b7f_temperature:
         name: température salon
+        display_categories: TEMPERATURE_SENSOR
+      sensor.tuya_thermometer_91599_temperature:
+        name: température bureau
+        display_categories: TEMPERATURE_SENSOR
+      sensor.tuya_thermometer_1ce7b_temperature:
+        name: température chambre parents
+        display_categories: TEMPERATURE_SENSOR
+      sensor.tuya_thermometer_247c5_temperature:
+        name: température chambre théa
+        display_categories: TEMPERATURE_SENSOR
+      sensor.tuya_thermometer_9689b_temperature:
+        name: température salle de bain
+        display_categories: TEMPERATURE_SENSOR
+      sensor.tuya_thermometer_d794d_temperature:
+        name: température wc
+        display_categories: TEMPERATURE_SENSOR
+      sensor.thermometer_jardin_temperature:
+        name: température jardin
         display_categories: TEMPERATURE_SENSOR
       sensor.detecteur_salle_a_manger_air_temperature:
         name: température salle à manger
@@ -85,18 +104,3 @@
       sensor.detecteur_escalier_air_temperature:
         name: température escalier
         display_categories: TEMPERATURE_SENSOR  
-      sensor.thermometer_bureau_temperature:
-        name: température bureau
-        display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_chambre_parents_temperature:
-        name: température chambre parents
-        display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_chambre_thea_temperature:
-        name: température chambre théa
-        display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_salle_bain_temperature:
-        name: température salle de bain
-        display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_jardin_temperature:
-        name: température jardin
-        display_categories: TEMPERATURE_SENSOR

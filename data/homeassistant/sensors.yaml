@@ -63,6 +63,7 @@
         value_template: "{{ (states('sensor.yearly_consumption_day')|float + states('sensor.yearly_consumption_night')|float)|round(2) }}"
 
   - platform: filter
+    unique_id: smart_meter_electric_consumed_filtered_w
     name: smart_meter_electric_consumed_filtered_w
     entity_id: sensor.smart_meter_electric_consumed_w
     filters:
@@ -71,6 +72,7 @@
         radius: 10000.0
 
   - platform: integration
+    unique_id: home_energy_filtered
     name: home_energy_filtered
     source: sensor.smart_meter_electric_consumed_filtered_w
     unit_prefix: k

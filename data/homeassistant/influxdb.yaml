@@ -13,17 +13,22 @@
       - sensor.auribeau_sur_siagne_temperature
       - sensor.thermometer_jardin_temperature
       - sensor.thermometer_jardin_humidity
-      - sensor.thermometer_chambre_parents_temperature
-      - sensor.thermometer_chambre_parents_humidity
-      - sensor.thermometer_chambre_thea_temperature
-      - sensor.thermometer_chambre_thea_humidity
-      - sensor.thermometer_bureau_temperature
-      - sensor.thermometer_bureau_humidity
-      - sensor.thermometer_salon_temperature
-      - sensor.thermometer_salon_humidity
-      - sensor.thermometer_salle_bain_temperature
-      - sensor.thermometer_salle_bain_humidity
-      - sensor.thermometer_garage_temperature
+      - sensor.tuya_thermometer_1ce7b_temperature
+      - sensor.tuya_thermometer_1ce7b_humidity
+      - sensor.tuya_thermometer_247c5_temperature
+      - sensor.tuya_thermometer_247c5_humidity
+      - sensor.tuya_thermometer_6d551_temperature
+      - sensor.tuya_thermometer_6d551_humidity
+      - sensor.tuya_thermometer_91599_temperature
+      - sensor.tuya_thermometer_91599_humidity
+      - sensor.tuya_thermometer_9689b_temperature
+      - sensor.tuya_thermometer_9689b_humidity
+      - sensor.tuya_thermometer_d794d_temperature
+      - sensor.tuya_thermometer_d794d_humidity
+      - sensor.tuya_thermometer_e3b7f_temperature
+      - sensor.tuya_thermometer_e3b7f_humidity
+      - sensor.tuya_thermometer_c3be1_temperature
+      - sensor.tuya_thermometer_c3be1_humidity
       - sensor.detecteur_escalier_air_temperature
       - sensor.sallemanger_air_temperature
       - sensor.smart_meter_electric_consumed_filtered_w

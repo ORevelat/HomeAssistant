@@ -25,7 +25,9 @@ services:
       - /srv/disk1/docker-data/data/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
     devices:
-      - /dev/hspa_modem:/dev/hspa
+      - /dev/hspa_diag:/dev/hspa_diag
+      - /dev/hspa_modem:/dev/hspa_modem
+      - /dev/hspa_pcui:/dev/hspa_pcui
     logging:
       options:
         max-size: 10m
@@ -49,13 +51,13 @@ services:
 
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.27.2
+    image: koenkk/zigbee2mqtt:1.30.3
     restart: unless-stopped
     volumes:
       - /srv/disk1/docker-data/data/zigbee2mqtt:/app/data
       - /etc/localtime:/etc/localtime:ro
     devices:
-      - /dev/zigbee2:/dev/zigbee
+      - /dev/zigbee:/dev/zigbee
     ports:
       - 8090:8080
     environment:
@@ -67,7 +69,6 @@ services:
   rflink2mqtt:
     container_name: rflink2mqtt
     image: rflink2mqtt:0.9.5
-#    image: rflink:latest
     restart: unless-stopped
     volumes:
       - /srv/disk1/docker-data/data/rflink2mqtt:/data
