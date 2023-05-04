@@ -32,7 +32,7 @@ automation ui: !include automations.yaml
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 history: !include history.yaml
-influxdb: !include influxdb.yaml
+# influxdb: !include influxdb.yaml
 group: !include groups.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
