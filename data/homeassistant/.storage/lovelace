@@ -1078,7 +1078,7 @@
               },
               "series": [
                 {
-                  "entity": "sensor.thermometer_jardin_temperature",
+                  "entity": "sensor.thermometer_jardin_temperature_2",
                   "name": "Aujourd'hui",
                   "stroke_width": 2,
                   "curve": "smooth",
@@ -1096,7 +1096,7 @@
                   }
                 },
                 {
-                  "entity": "sensor.thermometer_jardin_humidity",
+                  "entity": "sensor.thermometer_jardin_humidity_2",
                   "show": {
                     "in_chart": false,
                     "name_in_header": false,
@@ -1104,7 +1104,7 @@
                   }
                 },
                 {
-                  "entity": "sensor.thermometer_jardin_temperature",
+                  "entity": "sensor.thermometer_jardin_temperature_2",
                   "name": "Hier",
                   "stroke_width": 1,
                   "color": "rgb(255,180,0)",
@@ -1122,7 +1122,7 @@
                   }
                 },
                 {
-                  "entity": "sensor.thermometer_jardin_temperature",
+                  "entity": "sensor.thermometer_jardin_temperature_2",
                   "name": "Avant-hier",
                   "stroke_width": 1,
                   "color": "rgb(255,220,0)",
@@ -1512,14 +1512,18 @@
               "cameras": [
                 {
                   "camera_entity": "camera.foscamfi9800pv3",
-                  "live_provider": "ha"
+                  "live_provider": "go2rtc",
+                  "go2rtc": {
+                    "modes": []
+                  }
                 },
                 {
                   "camera_entity": "camera.dahuaipck42p",
-                  "live_provider": "ha"
+                  "live_provider": "go2rtc"
                 },
                 {
-                  "camera_entity": "camera.tapo_9b26"
+                  "camera_entity": "camera.tapo_9b26",
+                  "live_provider": "go2rtc"
                 }
               ],
               "menu": {
