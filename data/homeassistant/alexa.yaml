@@ -44,7 +44,7 @@
         - sensor.tuya_thermometer_9689b_temperature
         - sensor.tuya_thermometer_d794d_temperature
         - sensor.tuya_thermometer_e3b7f_temperature
-        - sensor.thermometer_jardin_temperature_2
+        - sensor.tuya_thermometer_c3be1_temperature
         - sensor.detecteur_escalier_air_temperature
         - sensor.detecteur_salle_a_manger_air_temperature
     entity_config:
@@ -95,7 +95,7 @@
       sensor.tuya_thermometer_d794d_temperature:
         name: température wc
         display_categories: TEMPERATURE_SENSOR
-      sensor.thermometer_jardin_temperature_2:
+      sensor.tuya_thermometer_c3be1_temperature:
         name: température jardin
         display_categories: TEMPERATURE_SENSOR
       sensor.detecteur_salle_a_manger_air_temperature:

@@ -11,8 +11,6 @@
   include:
     entities:
       - sensor.auribeau_sur_siagne_temperature
-      - sensor.thermometer_jardin_temperature
-      - sensor.thermometer_jardin_humidity
       - sensor.tuya_thermometer_1ce7b_temperature
       - sensor.tuya_thermometer_1ce7b_humidity
       - sensor.tuya_thermometer_247c5_temperature

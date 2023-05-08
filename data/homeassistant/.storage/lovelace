@@ -639,6 +639,9 @@
               "type": "glance"
             },
             {
+              "show_name": true,
+              "show_icon": true,
+              "show_state": true,
               "entities": [
                 {
                   "entity": "switch.prise_tv_hifi_current_value",
@@ -655,10 +658,14 @@
                 {
                   "entity": "switch.sonoff_cuisine",
                   "name": "Prise Cuisine"
+                },
+                {
+                  "entity": "switch.wiser_plug_bf2cc"
                 }
               ],
               "title": "Prises",
-              "type": "glance"
+              "type": "glance",
+              "columns": 4
             },
             {
               "type": "custom:layout-break"
@@ -1054,6 +1061,92 @@
             },
             {
               "type": "custom:layout-break"
+            },
+            {
+              "type": "custom:apexcharts-card",
+              "header": {
+                "show": true,
+                "title": "Jardin",
+                "show_states": true,
+                "colorize_states": true
+              },
+              "apex_config": {
+                "chart": {
+                  "height": "240px"
+                }
+              },
+              "graph_span": "24h",
+              "span": {
+                "start": "day"
+              },
+              "now": {
+                "show": true,
+                "color": "rgb(0,20,0)"
+              },
+              "series": [
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_temperature",
+                  "name": "Aujourd'hui",
+                  "stroke_width": 2,
+                  "curve": "smooth",
+                  "extend_to": false,
+                  "color": "rgb(255,120,0)",
+                  "fill_raw": "last",
+                  "group_by": {
+                    "duration": "10min",
+                    "func": "avg"
+                  },
+                  "show": {
+                    "in_header": true,
+                    "name_in_header": true,
+                    "legend_value": false
+                  }
+                },
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_humidity",
+                  "show": {
+                    "in_chart": false,
+                    "name_in_header": false,
+                    "header_color_threshold": true
+                  }
+                },
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_temperature",
+                  "name": "Hier",
+                  "stroke_width": 1,
+                  "color": "rgb(255,180,0)",
+                  "fill_raw": "last",
+                  "offset": "-1d",
+                  "group_by": {
+                    "duration": "10min",
+                    "func": "avg"
+                  },
+                  "show": {
+                    "in_header": false,
+                    "name_in_header": false,
+                    "offset_in_name": false,
+                    "legend_value": false
+                  }
+                },
+                {
+                  "entity": "sensor.tuya_thermometer_c3be1_temperature",
+                  "name": "Avant-hier",
+                  "stroke_width": 1,
+                  "color": "rgb(255,220,0)",
+                  "fill_raw": "last",
+                  "offset": "-2d",
+                  "group_by": {
+                    "duration": "10min",
+                    "func": "avg"
+                  },
+                  "show": {
+                    "in_header": false,
+                    "name_in_header": false,
+                    "offset_in_name": false,
+                    "legend_value": false
+                  }
+                }
+              ]
             },
             {
               "type": "custom:apexcharts-card",
@@ -1700,6 +1793,9 @@
                   },
                   {
                     "entity_id": "sensor.shelly*_power"
+                  },
+                  {
+                    "entity_id": "sensor.wiser_*_power"
                   }
                 ]
               },
@@ -1766,15 +1862,6 @@
                 },
                 {
                   "entity": "sensor.aqara_humansensor_c1e82_device_temperature"
-                },
-                {
-                  "entity": "sensor.tuya_thermometer_c3be1_temperature"
-                },
-                {
-                  "entity": "sensor.tuya_thermometer_c3be1_humidity"
-                },
-                {
-                  "entity": "sensor.tuya_thermometer_c3be1_battery"
                 }
               ],
               "show_header_toggle": false,

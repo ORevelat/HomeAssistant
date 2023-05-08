@@ -7,6 +7,12 @@
       platform: state
       entity_id: sensor.06_weather_alert
 
+    condition:
+      not:
+        - condition: state
+          entity_id: sensor.06_weather_alert
+          state: "unavailable"
+
     mode: queued
 
     action:
@@ -49,6 +55,9 @@
         - condition: state
           entity_id: sensor.06_weather_alert
           state: "Jaune"
+        - condition: state
+          entity_id: sensor.06_weather_alert
+          state: "unavailable"
 
     mode: queued
 
