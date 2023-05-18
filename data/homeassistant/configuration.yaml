@@ -32,14 +32,12 @@ automation ui: !include automations.yaml
 recorder: !include recorder.yaml
 logbook: !include logbook.yaml
 history: !include history.yaml
-# influxdb: !include influxdb.yaml
 group: !include groups.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
-mqtt: !include mqtt.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 shell_command: !include shell_command.yaml

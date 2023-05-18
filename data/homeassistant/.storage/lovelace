@@ -648,15 +648,15 @@
                   "name": "TV/Hifi"
                 },
                 {
-                  "entity": "switch.sonoff_salon",
+                  "entity": "switch.sonoffsalon",
                   "name": "Prise salon"
                 },
                 {
-                  "entity": "switch.sonoff_bibliotheque_haut",
+                  "entity": "switch.sonoffsalon2",
                   "name": "Prise Bibliothèque"
                 },
                 {
-                  "entity": "switch.sonoff_cuisine",
+                  "entity": "switch.sonoffs26",
                   "name": "Prise Cuisine"
                 },
                 {
@@ -964,12 +964,12 @@
               "type": "glance",
               "entities": [
                 {
-                  "entity": "switch.sonoff_garage_portail",
+                  "entity": "switch.sonoffgarage",
                   "icon": "mdi:lightbulb",
                   "name": "Projecteur Garage"
                 },
                 {
-                  "entity": "switch.sonoff_4ch_jardin_4",
+                  "entity": "switch.sonoffjardin4ch4",
                   "icon": "mdi:lightbulb",
                   "name": "Terrasse"
                 },
@@ -993,15 +993,15 @@
               "columns": 3,
               "entities": [
                 {
-                  "entity": "switch.sonoff_4ch_jardin_1",
+                  "entity": "switch.sonoffjardin4ch1",
                   "name": "Fontaine"
                 },
                 {
-                  "entity": "switch.sonoff_4ch_jardin_2",
+                  "entity": "switch.sonoffjardin4ch2",
                   "name": "Piscine gauche"
                 },
                 {
-                  "entity": "switch.sonoff_4ch_jardin_3",
+                  "entity": "switch.sonoffjardin4ch3",
                   "name": "Piscine droite"
                 },
                 {
@@ -1130,92 +1130,6 @@
                 },
                 {
                   "entity": "sensor.tuya_thermometer_c3be1_temperature",
-                  "name": "Avant-hier",
-                  "stroke_width": 1,
-                  "color": "rgb(255,220,0)",
-                  "fill_raw": "last",
-                  "offset": "-2d",
-                  "group_by": {
-                    "duration": "10min",
-                    "func": "avg"
-                  },
-                  "show": {
-                    "in_header": false,
-                    "name_in_header": false,
-                    "offset_in_name": false,
-                    "legend_value": false
-                  }
-                }
-              ]
-            },
-            {
-              "type": "custom:apexcharts-card",
-              "header": {
-                "show": true,
-                "title": "Jardin",
-                "show_states": true,
-                "colorize_states": true
-              },
-              "apex_config": {
-                "chart": {
-                  "height": "240px"
-                }
-              },
-              "graph_span": "24h",
-              "span": {
-                "start": "day"
-              },
-              "now": {
-                "show": true,
-                "color": "rgb(0,20,0)"
-              },
-              "series": [
-                {
-                  "entity": "sensor.thermometer_jardin_temperature_2",
-                  "name": "Aujourd'hui",
-                  "stroke_width": 2,
-                  "curve": "smooth",
-                  "extend_to": false,
-                  "color": "rgb(255,120,0)",
-                  "fill_raw": "last",
-                  "group_by": {
-                    "duration": "10min",
-                    "func": "avg"
-                  },
-                  "show": {
-                    "in_header": true,
-                    "name_in_header": true,
-                    "legend_value": false
-                  }
-                },
-                {
-                  "entity": "sensor.thermometer_jardin_humidity_2",
-                  "show": {
-                    "in_chart": false,
-                    "name_in_header": false,
-                    "header_color_threshold": true
-                  }
-                },
-                {
-                  "entity": "sensor.thermometer_jardin_temperature_2",
-                  "name": "Hier",
-                  "stroke_width": 1,
-                  "color": "rgb(255,180,0)",
-                  "fill_raw": "last",
-                  "offset": "-1d",
-                  "group_by": {
-                    "duration": "10min",
-                    "func": "avg"
-                  },
-                  "show": {
-                    "in_header": false,
-                    "name_in_header": false,
-                    "offset_in_name": false,
-                    "legend_value": false
-                  }
-                },
-                {
-                  "entity": "sensor.thermometer_jardin_temperature_2",
                   "name": "Avant-hier",
                   "stroke_width": 1,
                   "color": "rgb(255,220,0)",

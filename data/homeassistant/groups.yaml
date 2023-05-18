@@ -4,29 +4,29 @@
   garden_front_switches:
     name: Prises Jardin (Devant)
     entities:
-      - switch.sonoff_4ch_jardin_1
-      - switch.sonoff_4ch_jardin_2
-      - switch.sonoff_4ch_jardin_3
+      - switch.sonoffjardin4ch1
+      - switch.sonoffjardin4ch2
+      - switch.sonoffjardin4ch3
 
   garden_switches:
     name: Prises Jardin
     entities:
-      - switch.sonoff_4ch_jardin_1
-      - switch.sonoff_4ch_jardin_2
-      - switch.sonoff_4ch_jardin_3
+      - switch.sonoffjardin4ch1
+      - switch.sonoffjardin4ch2
+      - switch.sonoffjardin4ch3
       - switch.shelly25_jardin_channel_1
 
   garden_lights:
     name: Lumières Jardin
     entities:
-      - switch.sonoff_4ch_jardin_4
+      - switch.sonoffjardin4ch4
       - switch.shelly25_jardin_channel_2
 
   christmas_decoration_switches:
     entities:
       - group.garden_switches
-      - switch.sonoff_bibliotheque_haut
-      - switch.sonoff_cuisine
+      - switch.sonoffsalon2
+      - switch.sonoffs26
 
   home_occupancy:
     entities:

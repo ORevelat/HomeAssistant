@@ -11,7 +11,7 @@
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.sonoff_4ch_jardin_1
+            - switch.sonoffjardin4ch1
 
   - id: garden_projector_stop
     alias: Projecteur Jardin - Eteindre
@@ -24,4 +24,4 @@
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.sonoff_4ch_jardin_1
+            - switch.sonoffjardin4ch1

@@ -10,21 +10,21 @@
     action:
       - service: switch.turn_on
         entity_id:
-          - switch.sonoff_4ch_jardin_1
-          - switch.sonoff_4ch_jardin_2
-          - switch.sonoff_4ch_jardin_3
+          - switch.sonoffjardin4ch1
+          - switch.sonoffjardin4ch2
+          - switch.sonoffjardin4ch3
       - delay: '00:00:10'
       - service: switch.turn_on
         entity_id: switch.shelly25_jardin_channel_1
       - delay: '00:00:10'
       - service: switch.turn_on
         entity_id:
-          - switch.sonoff_bibliotheque_haut
-          - switch.sonoff_cuisine
+          - switch.sonoffsalon2
+          - switch.sonoffs26
       - delay: '00:00:10'
       - service: switch.turn_on
         entity_id:
-          - switch.sonoff_salon
+          - switch.sonoffsalon
 
   - id: light_christmas_stop
     alias: Décoration Noël - Eteindre
@@ -36,21 +36,21 @@
     action:
       - service: switch.turn_off
         entity_id:
-          - switch.sonoff_4ch_jardin_1
-          - switch.sonoff_4ch_jardin_2
-          - switch.sonoff_4ch_jardin_3
+          - switch.sonoffjardin4ch1
+          - switch.sonoffjardin4ch2
+          - switch.sonoffjardin4ch3
       - delay: '00:00:10'
       - service: switch.turn_off
         entity_id: switch.shelly25_jardin_channel_1
       - delay: '00:00:10'
       - service: switch.turn_off
         entity_id:
-          - switch.sonoff_bibliotheque_haut
-          - switch.sonoff_cuisine
+          - switch.sonoffsalon2
+          - switch.sonoffs26
       - delay: '00:00:10'
       - service: switch.turn_off
         entity_id:
-          - switch.sonoff_salon
+          - switch.sonoffsalon
       - delay: '00:00:10'
       - service: cover.set_cover_position
         target:

@@ -15,7 +15,7 @@
       - service: switch.turn_on
         data:
           entity_id:
-            - switch.sonoff_garage_portail
+            - switch.sonoffgarage
     
   - id: light_garage_off
     alias: Lumière Garage - Eteindre
@@ -28,7 +28,7 @@
       - service: switch.turn_off
         data:
           entity_id:
-            - switch.sonoff_garage_portail
+            - switch.sonoffgarage
   
   - id: 'light_garage_person_on'
     alias: Lumiere Garage - On When Enterring Home
@@ -49,8 +49,8 @@
     action:
     - service: switch.turn_on
       data:
-        entity_id: switch.sonoff_garage_portail
+        entity_id: switch.sonoffgarage
     - delay: '00:10:00'
     - service: switch.turn_off
       data:
-        entity_id: switch.sonoff_garage_portail
+        entity_id: switch.sonoffgarage
