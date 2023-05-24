@@ -66,21 +66,6 @@ services:
       options:
         max-size: 10m
 
-#  rflink2mqtt:
-#    container_name: rflink2mqtt
-#    image: rflink2mqtt:0.9.5
-#    restart: unless-stopped
-#    volumes:
-#      - /srv/disk1/docker-data/data/rflink2mqtt:/data
-#      - /etc/localtime:/etc/localtime:ro
-#    devices:
-#      - /dev/rflink:/dev/rflink
-#    environment:
-#      TIMEZONE: Europe/Paris
-#      LOG_LEVEL: INFO
-#    logging:
-#      options:
-#        max-size: 10m
 
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
