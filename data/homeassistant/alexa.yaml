@@ -9,6 +9,7 @@
       exclude_domains:
         - automation
         - binary_sensor
+        - button
         - camera
         - climate
         - cover
@@ -37,6 +38,9 @@
         - light.lumiere_salle_de_bain_current_value
         - light.lumiere_salon_current_value
         - light.lumiere_salle_a_manger_current_value
+        - switch.sonoffgarage
+        - switch.sonoffjardin4ch4
+        - switch.shelly25_jardin_channel_2
         - sensor.tuya_thermometer_1ce7b_temperature
         - sensor.tuya_thermometer_247c5_temperature
         - sensor.tuya_thermometer_6d551_temperature
@@ -74,6 +78,15 @@
         name: lumière salon
       light.lumiere_salle_a_manger_current_value:
         name: lumière salle à manger
+      switch.sonoffgarage:
+        name: projecteur garage
+        display_categories: LIGHT
+      switch.sonoffjardin4ch4:
+        name: lumière terrasse
+        display_categories: LIGHT
+      switch.shelly25_jardin_channel_2:
+        name: lumière rivière
+        display_categories: LIGHT
       sensor.tuya_thermometer_6d551_temperature:
         name: température garage
         display_categories: TEMPERATURE_SENSOR
