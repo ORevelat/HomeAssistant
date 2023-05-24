@@ -1716,6 +1716,17 @@
               "type": "custom:auto-entities"
             },
             {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_number.edf_cost_hc"
+                },
+                {
+                  "entity": "input_number.edf_cost_hp"
+                }
+              ]
+            },
+            {
               "type": "custom:layout-break"
             },
             {
